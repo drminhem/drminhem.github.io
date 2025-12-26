@@ -1,6 +1,6 @@
 ---
 title: Dr. Mohamad Minhem – Hematology & Oncology
-description: Hematology and oncology physician providing comprehensive adult cancer care based on international standards and evidence-based medicine.
+description: Hematology and oncology physician providing comprehensive cancer care based on evidence-based medicine.
 ---
 
 # Dr. Mohamad Minhem, MD  
@@ -14,7 +14,7 @@ Hematology and oncology physician providing comprehensive, evidence-based cancer
 ---
 
 ## About Me
-I am a hematology and oncology physician trained in the United States, committed to delivering modern cancer care aligned with international guidelines and best clinical practices.
+I am a hematology and oncology physician trained in the United States and Lebanon, committed to delivering modern cancer care aligned with international guidelines and best clinical practices.
 
 ---
 
@@ -45,7 +45,7 @@ I provide care for adult patients with a wide range of oncologic and hematologic
 ---
 
 ## Professional Profiles
-- **LinkedIn:** https://www.linkedin.com/in/mohamad-minhem-md  
+- **LinkedIn:** https://www.linkedin.com/in/mohamad-minhem  
 - **Google Scholar:** https://scholar.google.com/citations?user=_p93-ZoAAAAJ&hl=en  
 - **ResearchGate:** https://www.researchgate.net/profile/Mohamad-Minhem  
 
@@ -89,6 +89,6 @@ For professional communication or referrals, please contact me via LinkedIn.
        data-locale="en_US"
        data-type="horizontal"
        data-theme="light"
-       data-vanity="mohamad-minhem-md">
+       data-vanity="mohamad-minhem">
   </div>
 </div>
