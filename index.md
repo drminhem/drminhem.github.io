@@ -32,7 +32,7 @@ I am a hematology and oncology physician trained in the United States and Lebano
 - Doctor of Medicine – American University of Beirut  
 - Internal Medicine training – Loyola University Chicago, USA  
 - American Board–Certified in Internal Medicine  
-- Fellowship-trained in Hematology and Oncology - Balamand University 
+- Fellowship-trained in Hematology and Oncology – Balamand University  
 
 ---
 
@@ -48,8 +48,11 @@ I provide care for adult patients with a wide range of oncologic and hematologic
 ---
 
 ## Professional Distinctions
-- Selected for the **European Society for Medical Oncology (ESMO)** Exam Talent Pool 2025 *(Top 5 ranking)*  
-- **American Society of Clinical Oncology (ASCO)** In-Training Examination 2025: ≥ 99th percentile *(Top 1 percent of examinees in US and Lebanon)* 
+⭐ **Selected for the European Society for Medical Oncology (ESMO) Exam Talent Pool 2025**  
+*(Top 5 ranking among examinees)*  
+
+⭐ **American Society of Clinical Oncology (ASCO) In-Training Examination 2025**  
+≥ 99th percentile *(Top 1% of examinees in the United States and Lebanon)*  
 
 ---
 
@@ -63,8 +66,7 @@ I provide care for adult patients with a wide range of oncologic and hematologic
 ## Contact
 For professional communication or referrals, you can reach me via WhatsApp:
 
-<div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:16px;">
-
+<div style="display:flex; justify-content:center; margin-top:16px;">
   <a href="https://wa.me/96181902903"
      target="_blank"
      rel="noopener noreferrer"
@@ -80,14 +82,8 @@ For professional communication or referrals, you can reach me via WhatsApp:
        text-decoration:none;
        box-shadow:0 6px 18px rgba(37,211,102,0.35);
        font-size:16px;">
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-      <path d="M20.52 3.48A11.82 11.82 0 0012.01 0C5.38 0 .04 5.33.04 11.93c0 2.1.55 4.16 1.6 5.98L0 24l6.26-1.64a11.93 11.93 0 005.75 1.46h.01c6.63 0 11.98-5.33 11.98-11.93 0-3.19-1.24-6.18-3.48-8.41zM12.02 21.4c-1.84 0-3.65-.49-5.23-1.43l-.38-.23-3.72.98.99-3.62-.25-.38a9.42 9.42 0 01-1.48-5.06c0-5.2 4.25-9.43 9.49-9.43a9.4 9.4 0 016.7 2.76 9.35 9.35 0 012.78 6.65c0 5.2-4.25 9.43-9.48 9.43zm5.2-7.06c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.18.28-.74.91-.9 1.1-.17.19-.34.21-.62.07-.28-.14-1.2-.44-2.28-1.41-.84-.75-1.41-1.68-1.57-1.96-.17-.28-.02-.43.13-.57.13-.13.28-.34.43-.5.14-.17.19-.28.28-.47.1-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.55-.46-.48-.64-.49h-.55c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34s1 2.71 1.14 2.9c.14.19 1.97 3.02 4.77 4.24.67.29 1.19.46 1.6.59.67.21 1.27.18 1.75.11.53-.08 1.66-.68 1.89-1.34.23-.66.23-1.23.16-1.34-.07-.11-.26-.18-.54-.32z"/>
-    </svg>
-
     WhatsApp
   </a>
-
 </div>
 
 ---
@@ -116,11 +112,20 @@ For professional communication or referrals, you can reach me via WhatsApp:
 </ul>
 </div>
 
+<div style="font-size:1.05em; font-weight:700; margin:16px 0 10px 0;">التميّز المهني</div>
+<div style="margin-bottom:14px;">
+<ul>
+  <li>الاختيار ضمن <strong>نخبة امتحان الجمعية الأوروبية لطب الأورام (ESMO)</strong> لعام 2025 (أفضل 5 متقدمين)</li>
+  <li>تحقيق <strong>المرتبة المئوية 99+</strong> في امتحان التدريب للجمعية الأمريكية لطب الأورام (ASCO) لعام 2025 (ضمن أفضل 1٪ في الولايات المتحدة ولبنان)</li>
+</ul>
+</div>
+
 <div style="font-size:1.05em; font-weight:700; margin:16px 0 10px 0;">التواصل</div>
 <div>
 للتواصل المهني أو التحويلات الطبية، يمكن التواصل عبر واتساب:
 </div>
 
+<!-- English WhatsApp button inside Arabic section -->
 <div style="display:flex; justify-content:center; margin-top:14px;">
   <a href="https://wa.me/96181902903"
      target="_blank"
@@ -128,6 +133,7 @@ For professional communication or referrals, you can reach me via WhatsApp:
      style="
        display:inline-flex;
        align-items:center;
+       gap:10px;
        padding:12px 18px;
        background:#25D366;
        color:#ffffff;
@@ -136,7 +142,7 @@ For professional communication or referrals, you can reach me via WhatsApp:
        text-decoration:none;
        box-shadow:0 6px 18px rgba(37,211,102,0.35);
        font-size:16px;">
-    واتساب
+    WhatsApp
   </a>
 </div>
 
