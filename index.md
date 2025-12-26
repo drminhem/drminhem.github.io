@@ -32,7 +32,7 @@ I am a hematology and oncology physician trained in the United States and Lebano
 - Doctor of Medicine – American University of Beirut  
 - Internal Medicine training – Loyola University Chicago, USA  
 - American Board–Certified in Internal Medicine  
-- Fellowship-trained in Hematology and Oncology – Balamand University  
+- Fellowship-trained in Hematology and Oncology – **Balamand University**  
 
 ---
 
@@ -94,7 +94,7 @@ For professional communication or referrals, you may reach me via WhatsApp:
 
 <div dir="rtl" lang="ar" style="text-align:right; line-height:1.9;">
 
-<div style="font-size:1.35em; font-weight:800; margin-bottom:6px;">
+<div style="font-size:1.4em; font-weight:800; margin-bottom:6px;">
 الدكتور محمد منعم
 </div>
 
@@ -103,7 +103,7 @@ For professional communication or referrals, you may reach me via WhatsApp:
 </div>
 
 <div style="margin-bottom:16px;">
-طبيب اختصاص في أمراض الدم والأورام، أقدّم رعاية طبية شاملة لمرضى السرطان تعتمد على المعايير العالمية والطب المبني على الدليل، مع التركيز على التواصل الواضح، التخطيط العلاجي الدقيق، ووضع المريض في صلب القرار الطبي.
+طبيب اختصاص في أمراض الدم والأورام، أقدّم رعاية شاملة لمرضى السرطان تعتمد على المعايير العالمية والطب المبني على الدليل، مع اهتمام خاص بالتواصل الواضح، ودقّة التخطيط العلاجي، ووضع المريض في صلب القرار الطبي.
 </div>
 
 <div style="font-size:1.05em; font-weight:700; margin:18px 0 10px 0;">
@@ -123,12 +123,12 @@ For professional communication or referrals, you may reach me via WhatsApp:
 
 <ul style="margin-bottom:16px;">
   <li>
-  تحقيق <strong>امتياز</strong> في امتحان <strong>الجمعية الأوروبية لطب الأورام</strong>،  
-  والاختيار ضمن <strong>نخبة المتقدمين</strong> لعام <strong>٢٠٢٥</strong> (ضمن أفضل <strong>٥</strong>)
+  <strong>اختيار ضمن نخبة الأطباء</strong> في امتحان <strong>الجمعية الأوروبية لطب الأورام</strong> لعام <strong>٢٠٢٥</strong>  
+  <br>ضمن <strong>أفضل خمسة أطباء</strong> على مستوى المتقدّمين
   </li>
   <li>
-  أداء متميّز في امتحان الجمعية الأمريكية لطب الأورام،  
-  ضمن أعلى <strong>١٪</strong> من الأطباء في الولايات المتحدة ولبنان
+  تحقيق <strong>نتيجة استثنائية</strong> في امتحان <strong>الجمعية الأمريكية لطب الأورام</strong>  
+  <br>ضمن <strong>أعلى واحد بالمئة (١٪)</strong> من الأطباء في الولايات المتحدة ولبنان
   </li>
 </ul>
 
@@ -154,6 +154,7 @@ For professional communication or referrals, you may reach me via WhatsApp:
 </div>
 
 <div style="display:flex; justify-content:center; margin-top:14px;">
+
   <a href="https://wa.me/96181902903"
      target="_blank"
      rel="noopener noreferrer"
@@ -169,15 +170,21 @@ For professional communication or referrals, you may reach me via WhatsApp:
        text-decoration:none;
        box-shadow:0 6px 18px rgba(37,211,102,0.35);
        font-size:16px;">
-    واتساب
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M20.52 3.48A11.82 11.82 0 0012.01 0C5.38 0 .04 5.33.04 11.93c0 2.1.55 4.16 1.6 5.98L0 24l6.26-1.64a11.93 11.93 0 005.75 1.46h.01c6.63 0 11.98-5.33 11.98-11.93 0-3.19-1.24-6.18-3.48-8.41z"/>
+    </svg>
+
+    WhatsApp 
   </a>
+
 </div>
 
 </div>
 
 <hr>
 
-<div style="text-align:center; margin-top:24px;">
+<div style="text-align:center; margin-top:26px;">
   <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
   <div class="LI-profile-badge"
        data-version="v1"
