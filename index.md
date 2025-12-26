@@ -19,7 +19,7 @@ description: Hematology and oncology physician providing comprehensive adult can
      box-shadow:0 12px 32px rgba(0,0,0,0.18);
      background:#fff;" />
 
-Hematology and oncology physician providing comprehensive, evidence-based cancer care with a strong emphasis on clear communication, thoughtful treatment planning, and patient-centered decision-making.
+Hematology and oncology physician providing comprehensive, evidence-based cancer care with an emphasis on clear communication, thoughtful treatment planning, and patient-centered decision-making.
 
 ---
 
@@ -29,15 +29,15 @@ I am a hematology and oncology physician trained in the United States and Lebano
 ---
 
 ## Professional Background
-- Doctor of Medicine – American University of Beirut  
-- Internal Medicine training – Loyola University Chicago, USA  
-- American Board–Certified in Internal Medicine  
-- Fellowship-trained in Hematology and Oncology – Balamand University  
+- Doctor of Medicine – **American University of Beirut**  
+- Internal Medicine training – **Loyola University Chicago**, USA  
+- **American Board–Certified** in Internal Medicine  
+- Fellowship-trained in Hematology and Oncology – **Balamand University**
 
 ---
 
 ## Conditions Treated
-I provide care for adult patients with a wide range of oncologic and hematologic conditions, including:
+Care for adult patients with oncologic and hematologic conditions, including:
 - Gastrointestinal cancers  
 - Breast cancer  
 - Lung cancer  
@@ -48,8 +48,8 @@ I provide care for adult patients with a wide range of oncologic and hematologic
 ---
 
 ## Professional Distinctions
-- Selected for the **European Society for Medical Oncology (ESMO)** Exam Talent Pool 2025 **(Top 5 ranking)**  
-- **American Society of Clinical Oncology (ASCO)** In-Training Examination 2025: ≥ 99th percentile **(Top 1% of examinees in the United States and Lebanon)**  
+- Selected for the **European Society for Medical Oncology (ESMO)** Exam Talent Pool **2025** (Top 5 ranking)  
+- **American Society of Clinical Oncology (ASCO)** In-Training Examination **2025**: ≥ **99th percentile** (Top 1%)
 
 ---
 
@@ -63,7 +63,7 @@ I provide care for adult patients with a wide range of oncologic and hematologic
 ## Contact
 For professional communication or referrals, you may reach me via WhatsApp:
 
-<div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:16px;">
+<div style="display:flex; justify-content:center; margin-top:16px;">
 
   <a href="https://wa.me/96181902903"
      target="_blank"
@@ -72,10 +72,10 @@ For professional communication or referrals, you may reach me via WhatsApp:
        display:inline-flex;
        align-items:center;
        gap:10px;
-       padding:12px 18px;
+       padding:12px 20px;
        background:#25D366;
        color:#ffffff;
-       font-weight:700;
+       font-weight:600;
        border-radius:14px;
        text-decoration:none;
        box-shadow:0 6px 18px rgba(37,211,102,0.35);
@@ -94,49 +94,43 @@ For professional communication or referrals, you may reach me via WhatsApp:
 
 <div dir="rtl" lang="ar" style="text-align:right; line-height:1.9;">
 
-<div style="font-size:1.4em; font-weight:800; margin-bottom:6px;">
+<div style="font-size:1.35em; font-weight:700; margin-bottom:6px;">
 الدكتور محمد منعم
 </div>
 
-<div style="font-size:1.1em; font-weight:700; margin-bottom:14px;">
+<div style="font-size:1.1em; font-weight:600; margin-bottom:14px;">
 طبيب اختصاصي في أمراض الدم والأورام
 </div>
 
 <div style="margin-bottom:16px;">
-طبيب اختصاص في أمراض الدم والأورام، أقدّم رعاية شاملة لمرضى السرطان تعتمد على المعايير العالمية والطب المبني على الأدلة العلمية، مع اهتمام خاص بالتواصل الواضح، ودقّة التخطيط العلاجي، ووضع المريض في صلب القرار الطبي.
+طبيب اختصاص في أمراض الدم والأورام، أقدّم رعاية شاملة لمرضى السرطان تعتمد على المعايير العالمية والطب المبني على الدليل، مع التركيز على التواصل الواضح، التخطيط العلاجي الدقيق، ووضع المريض في صلب القرار الطبي.
 </div>
 
-<div style="font-size:1.05em; font-weight:700; margin:18px 0 10px 0;">
+<div style="font-weight:600; margin:18px 0 10px 0;">
 المؤهلات والخلفية الطبية
 </div>
 
-<ul style="margin-bottom:16px;">
-  <li>خريج <strong>الجامعة الأمريكية في بيروت</strong> – دكتور في الطب</li>
-  <li>تدريب اختصاص الطب الباطني في <strong>جامعة لويولا – شيكاغو، الولايات المتحدة</strong></li>
-  <li>حائز على <strong>البورد الأمريكي في الطب الباطني</strong></li>
-  <li>اختصاص أمراض الدم والأورام – <strong>جامعة البلمند</strong></li>
+<ul>
+  <li>دكتور في الطب – الجامعة الأمريكية في بيروت</li>
+  <li>تدريب اختصاص الطب الباطني – جامعة لويولا، شيكاغو (الولايات المتحدة)</li>
+  <li>حائز على البورد الأمريكي في الطب الباطني</li>
+  <li>اختصاص أمراض الدم والأورام – جامعة البلمند</li>
 </ul>
 
-<div style="font-size:1.05em; font-weight:700; margin:18px 0 10px 0;">
-التميّز والاعتماد المهني
+<div style="font-weight:600; margin:18px 0 10px 0;">
+التميّز المهني
 </div>
 
-<ul style="margin-bottom:16px;">
-  <li>
-  <strong>اختيار ضمن نخبة الأطباء</strong> في امتحان <strong>الجمعية الأوروبية لطب الأورام</strong> لعام <strong>٢٠٢٥</strong>  
-  <br>ضمن <strong>أفضل خمسة أطباء</strong> على مستوى المتقدّمين
-  </li>
-  <li>
-  تحقيق <strong>نتيجة استثنائية</strong> في امتحان <strong>الجمعية الأمريكية لطب الأورام</strong>  
-  <br>ضمن <strong>أعلى واحد بالمئة (١٪)</strong> من الأطباء في الولايات المتحدة ولبنان
-  </li>
+<ul>
+  <li>اختيار ضمن نخبة المتقدمين في امتحان الجمعية الأوروبية لطب الأورام لعام ٢٠٢٥ (أفضل خمسة)</li>
+  <li>نتيجة ضمن أعلى ١٪ في امتحان الجمعية الأمريكية لطب الأورام</li>
 </ul>
 
-<div style="font-size:1.05em; font-weight:700; margin:18px 0 10px 0;">
+<div style="font-weight:600; margin:18px 0 10px 0;">
 الحالات التي يتم علاجها
 </div>
 
-<ul style="margin-bottom:16px;">
+<ul>
   <li>سرطانات الجهاز الهضمي</li>
   <li>سرطان الثدي</li>
   <li>سرطان الرئة</li>
@@ -145,12 +139,8 @@ For professional communication or referrals, you may reach me via WhatsApp:
   <li>الأورام الصلبة</li>
 </ul>
 
-<div style="font-size:1.05em; font-weight:700; margin:18px 0 10px 0;">
+<div style="font-weight:600; margin:18px 0 10px 0;">
 التواصل
-</div>
-
-<div>
-للتواصل المهني أو التحويلات الطبية، يمكن التواصل مباشرة عبر واتساب:
 </div>
 
 <div style="display:flex; justify-content:center; margin-top:14px;">
@@ -162,10 +152,10 @@ For professional communication or referrals, you may reach me via WhatsApp:
        display:inline-flex;
        align-items:center;
        gap:10px;
-       padding:12px 18px;
+       padding:12px 20px;
        background:#25D366;
        color:#ffffff;
-       font-weight:700;
+       font-weight:600;
        border-radius:14px;
        text-decoration:none;
        box-shadow:0 6px 18px rgba(37,211,102,0.35);
@@ -175,7 +165,7 @@ For professional communication or referrals, you may reach me via WhatsApp:
       <path d="M20.52 3.48A11.82 11.82 0 0012.01 0C5.38 0 .04 5.33.04 11.93c0 2.1.55 4.16 1.6 5.98L0 24l6.26-1.64a11.93 11.93 0 005.75 1.46h.01c6.63 0 11.98-5.33 11.98-11.93 0-3.19-1.24-6.18-3.48-8.41z"/>
     </svg>
 
-    WhatsApp 
+    WhatsApp
   </a>
 
 </div>
