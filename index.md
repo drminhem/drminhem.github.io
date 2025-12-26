@@ -1,9 +1,9 @@
-<head>
 ---
 title: Dr. Mohamad Minhem – Hematology & Oncology
 description: Hematology and oncology physician providing comprehensive adult cancer care based on international standards and evidence-based medicine.
 ---
-<meta name="google-site-verification" content="IchU6yCHhXCblydENDsIW8YFAHvW2kmHmGoHthFKwDc" />
+<head>
+     <meta name="google-site-verification" content="IchU6yCHhXCblydENDsIW8YFAHvW2kmHmGoHthFKwDc" />
 </head>
 # Dr. Mohamad Minhem  
 ## Hematology & Oncology  
