@@ -3,7 +3,7 @@ title: Dr. Mohamad Minhem – Hematology & Oncology
 description: Hematology and oncology physician providing comprehensive adult cancer care based on international standards and evidence-based medicine.
 ---
 
-# Dr. Mohamad Minhem, MD  
+# Dr. Mohamad Minhem  
 ## Hematology & Oncology  
 *Also written as Menhem*
 
@@ -29,7 +29,7 @@ I am a hematology and oncology physician trained in the United States, committed
 ---
 
 ## Professional Background
-- Doctor of Medicine (MD) – American University of Beirut  
+- Doctor of Medicine – American University of Beirut  
 - Internal Medicine training – Loyola University Chicago, USA  
 - American Board–Certified in Internal Medicine  
 - Fellowship-trained in Hematology and Oncology  
@@ -61,11 +61,10 @@ I provide care for adult patients with a wide range of oncologic and hematologic
 ---
 
 ## Contact
-For professional communication or referrals, you can reach me via WhatsApp or LinkedIn:
+For professional communication or referrals, you can reach me via WhatsApp:
 
 <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:16px;">
 
-  <!-- WhatsApp Button -->
   <a href="https://wa.me/96181902903"
      target="_blank"
      rel="noopener noreferrer"
@@ -89,68 +88,46 @@ For professional communication or referrals, you can reach me via WhatsApp or Li
     WhatsApp
   </a>
 
-  <!-- LinkedIn Button -->
-  <a href="https://www.linkedin.com/in/mohamad-minhem/"
-     target="_blank"
-     rel="noopener noreferrer"
-     style="
-       display:inline-flex;
-       align-items:center;
-       gap:10px;
-       padding:12px 18px;
-       background:#0A66C2;
-       color:#ffffff;
-       font-weight:700;
-       border-radius:14px;
-       text-decoration:none;
-       box-shadow:0 6px 18px rgba(10,102,194,0.28);
-       font-size:16px;">
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-      <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0.5 8.5H4.5V24H0.5V8.5zM8 8.5h3.8v2.1h.05c.53-1 1.83-2.1 3.77-2.1 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7.9c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.17V24H8V8.5z"/>
-    </svg>
-
-    LinkedIn
-  </a>
-
 </div>
 
 ---
 
 <hr>
 
-<div dir="rtl" lang="ar" style="text-align:right;">
+<div dir="rtl" lang="ar" style="text-align:right; line-height:1.9;">
 
-# د. محمد منعم  
-## اختصاصي أمراض الدم والأورام
+<div style="font-size:1.25em; font-weight:700; margin-bottom:6px;">د. محمد منعم</div>
+<div style="font-size:1.05em; font-weight:600; margin-bottom:14px;">اختصاصي أمراض الدم والأورام</div>
 
+<div style="margin-bottom:14px;">
 طبيب مختص في أمراض الدم والأورام، أقدّم رعاية شاملة لمرضى السرطان تعتمد على المعايير العالمية والطب المبني على الدليل، مع التركيز على التواصل الواضح ووضع خطة علاج مناسبة لكل مريض.
+</div>
 
----
-
-## الحالات التي يتم علاجها
+<div style="font-size:1.05em; font-weight:700; margin:16px 0 10px 0;">الحالات التي يتم علاجها</div>
+<div style="margin-bottom:14px;">
 أقدّم الرعاية لمرضى الأورام البالغين في حالات متعددة، بما في ذلك:
-- سرطانات الجهاز الهضمي  
-- سرطان الثدي  
-- سرطان الرئة  
-- سرطان البروستات  
-- الأورام اللمفاوية وأمراض الدم الخبيثة  
-- الأورام الصلبة  
+<ul style="margin-top:10px;">
+  <li>سرطانات الجهاز الهضمي</li>
+  <li>سرطان الثدي</li>
+  <li>سرطان الرئة</li>
+  <li>سرطان البروستات</li>
+  <li>الأورام اللمفاوية وأمراض الدم الخبيثة</li>
+  <li>الأورام الصلبة</li>
+</ul>
+</div>
 
----
+<div style="font-size:1.05em; font-weight:700; margin:16px 0 10px 0;">التواصل</div>
+<div>
+للتواصل المهني أو التحويلات الطبية، يمكن التواصل عبر واتساب:
+</div>
 
-## التواصل
-يمكن التواصل عبر واتساب أو لينكدإن:
-
-<div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:16px;">
-
+<div style="display:flex; justify-content:center; margin-top:14px;">
   <a href="https://wa.me/96181902903"
      target="_blank"
      rel="noopener noreferrer"
      style="
        display:inline-flex;
        align-items:center;
-       gap:10px;
        padding:12px 18px;
        background:#25D366;
        color:#ffffff;
@@ -159,34 +136,15 @@ For professional communication or referrals, you can reach me via WhatsApp or Li
        text-decoration:none;
        box-shadow:0 6px 18px rgba(37,211,102,0.35);
        font-size:16px;">
-    <span>واتساب</span>
+    واتساب
   </a>
-
-  <a href="https://www.linkedin.com/in/mohamad-minhem/"
-     target="_blank"
-     rel="noopener noreferrer"
-     style="
-       display:inline-flex;
-       align-items:center;
-       gap:10px;
-       padding:12px 18px;
-       background:#0A66C2;
-       color:#ffffff;
-       font-weight:700;
-       border-radius:14px;
-       text-decoration:none;
-       box-shadow:0 6px 18px rgba(10,102,194,0.28);
-       font-size:16px;">
-    <span>لينكدإن</span>
-  </a>
-
 </div>
 
 </div>
 
 <hr>
 
-<div style="text-align:center;">
+<div style="text-align:center; margin-top:18px;">
   <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
   <div class="LI-profile-badge"
        data-version="v1"
