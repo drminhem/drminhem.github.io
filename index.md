@@ -48,8 +48,8 @@ I provide care for adult patients with a wide range of oncologic and hematologic
 ---
 
 ## Professional Distinctions
-- Selected for the **European Society for Medical Oncology (ESMO)** Exam Talent Pool **2025** *(Top 5 ranking)*  
-- **American Society of Clinical Oncology (ASCO)** In-Training Examination **2025**: **≥ 99th percentile** *(Top 1% of examinees in the United States and Lebanon)*  
+- Selected for the **European Society for Medical Oncology (ESMO)** Exam Talent Pool 2025 **(Top 5 ranking)**  
+- **American Society of Clinical Oncology (ASCO)** In-Training Examination 2025: ≥ 99th percentile **(Top 1% of examinees in the United States and Lebanon)**  
 
 ---
 
@@ -103,7 +103,7 @@ For professional communication or referrals, you may reach me via WhatsApp:
 </div>
 
 <div style="margin-bottom:16px;">
-طبيب اختصاص في أمراض الدم والأورام، أقدّم رعاية شاملة لمرضى السرطان تعتمد على المعايير العالمية والطب المبني على الدليل، مع اهتمام خاص بالتواصل الواضح، ودقّة التخطيط العلاجي، ووضع المريض في صلب القرار الطبي.
+طبيب اختصاص في أمراض الدم والأورام، أقدّم رعاية شاملة لمرضى السرطان تعتمد على المعايير العالمية والطب المبني على الأدلة العلمية، مع اهتمام خاص بالتواصل الواضح، ودقّة التخطيط العلاجي، ووضع المريض في صلب القرار الطبي.
 </div>
 
 <div style="font-size:1.05em; font-weight:700; margin:18px 0 10px 0;">
