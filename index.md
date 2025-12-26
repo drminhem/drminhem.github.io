@@ -32,7 +32,7 @@ I am a hematology and oncology physician trained in the United States and Lebano
 - Doctor of Medicine – American University of Beirut  
 - Internal Medicine training – Loyola University Chicago, USA  
 - American Board–Certified in Internal Medicine  
-- Fellowship-trained in Hematology and Oncology – **Balamand University**  
+- Fellowship-trained in Hematology and Oncology – Balamand University  
 
 ---
 
