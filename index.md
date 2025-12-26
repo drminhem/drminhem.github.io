@@ -24,7 +24,7 @@ Hematology and oncology physician providing comprehensive, evidence-based cancer
 ---
 
 ## About Me
-I am a hematology and oncology physician trained in the United States, committed to delivering modern cancer care aligned with international guidelines and best clinical practices.
+I am a hematology and oncology physician trained in the United States and Lebanon, committed to delivering modern cancer care aligned with international guidelines and best clinical practices.
 
 ---
 
@@ -32,7 +32,7 @@ I am a hematology and oncology physician trained in the United States, committed
 - Doctor of Medicine – American University of Beirut  
 - Internal Medicine training – Loyola University Chicago, USA  
 - American Board–Certified in Internal Medicine  
-- Fellowship-trained in Hematology and Oncology  
+- Fellowship-trained in Hematology and Oncology - Balamand University 
 
 ---
 
@@ -48,8 +48,8 @@ I provide care for adult patients with a wide range of oncologic and hematologic
 ---
 
 ## Professional Distinctions
-- Selected for the **European Society for Medical Oncology (ESMO)** Exam Talent Pool 2025 *(Top 5 ranking among examinees)*  
-- **American Society of Clinical Oncology (ASCO)** In-Training Examination: ≥ 99th percentile  
+- Selected for the **European Society for Medical Oncology (ESMO)** Exam Talent Pool 2025 *(Top 5 ranking)*  
+- **American Society of Clinical Oncology (ASCO)** In-Training Examination 2025: ≥ 99th percentile *(Top 1 percent of examinees in US and Lebanon)* 
 
 ---
 
