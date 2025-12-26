@@ -32,7 +32,7 @@ I am a hematology and oncology physician trained in the United States and Lebano
 - Doctor of Medicine – American University of Beirut  
 - Internal Medicine training – Loyola University Chicago, USA  
 - American Board–Certified in Internal Medicine  
-- Fellowship-trained in Hematology and Oncology  
+- Fellowship-trained in Hematology and Oncology – Balamand University  
 
 ---
 
@@ -90,20 +90,6 @@ For professional communication or referrals, you may reach me via WhatsApp:
 
 </div>
 
----
-
-<div style="text-align:center; margin:26px 0;">
-  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-  <div class="LI-profile-badge"
-       data-version="v1"
-       data-size="medium"
-       data-locale="en_US"
-       data-type="horizontal"
-       data-theme="light"
-       data-vanity="mohamad-minhem">
-  </div>
-</div>
-
 <hr>
 
 <div dir="rtl" lang="ar" style="text-align:right; line-height:1.9;">
@@ -128,7 +114,7 @@ For professional communication or referrals, you may reach me via WhatsApp:
   <li>خريج <strong>الجامعة الأمريكية في بيروت</strong> – دكتور في الطب</li>
   <li>تدريب اختصاص الطب الباطني في <strong>جامعة لويولا – شيكاغو، الولايات المتحدة</strong></li>
   <li>حائز على <strong>البورد الأمريكي في الطب الباطني</strong></li>
-  <li>اختصاص أمراض الدم والأورام</li>
+  <li>اختصاص أمراض الدم والأورام – <strong>جامعة البلمند</strong></li>
 </ul>
 
 <div style="font-size:1.05em; font-weight:700; margin:18px 0 10px 0;">
@@ -137,11 +123,11 @@ For professional communication or referrals, you may reach me via WhatsApp:
 
 <ul style="margin-bottom:16px;">
   <li>
-  تحقيق <strong>امتياز</strong> في امتحان <strong>الجمعية الأوروبية لطب الأورام (ESMO)</strong>،  
+  تحقيق <strong>امتياز</strong> في امتحان <strong>الجمعية الأوروبية لطب الأورام</strong>،  
   والاختيار ضمن <strong>نخبة المتقدمين</strong> لعام <strong>٢٠٢٥</strong> (ضمن أفضل <strong>٥</strong>)
   </li>
   <li>
-  أداء متميّز في امتحان التدريب للجمعية الأمريكية لطب الأورام (ASCO)،  
+  أداء متميّز في امتحان الجمعية الأمريكية لطب الأورام،  
   ضمن أعلى <strong>١٪</strong> من الأطباء في الولايات المتحدة ولبنان
   </li>
 </ul>
@@ -187,4 +173,18 @@ For professional communication or referrals, you may reach me via WhatsApp:
   </a>
 </div>
 
+</div>
+
+<hr>
+
+<div style="text-align:center; margin-top:24px;">
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+  <div class="LI-profile-badge"
+       data-version="v1"
+       data-size="medium"
+       data-locale="en_US"
+       data-type="horizontal"
+       data-theme="light"
+       data-vanity="mohamad-minhem">
+  </div>
 </div>
