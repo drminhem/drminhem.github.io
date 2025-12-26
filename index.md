@@ -1,3 +1,4 @@
+<meta name="google-site-verification" content="
 ---
 title: Dr. Mohamad Minhem – Hematology & Oncology
 description: Hematology and oncology physician providing comprehensive adult cancer care based on international standards and evidence-based medicine.
@@ -185,3 +186,4 @@ For professional communication or referrals, you may reach me via WhatsApp:
        data-vanity="mohamad-minhem">
   </div>
 </div>
+" />
