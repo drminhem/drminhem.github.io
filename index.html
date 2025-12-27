@@ -360,6 +360,23 @@
     .contact-row span{display:block;color:var(--muted);line-height:1.4}
 
     /* Arabic */
+    .arabic-title{
+  margin:12px 0 20px;
+  line-height:1.6;
+  color:var(--green2);
+}
+
+/* VERY LARGE name */
+.arabic-name{
+  font-size:clamp(2.2rem, 4vw, 2.8rem);
+  font-weight:900;
+}
+
+/* LARGE subtitle */
+.arabic-subtitle{
+  font-size:clamp(1.5rem, 2.8vw, 1.9rem);
+  font-weight:800;
+}
     .rtl{direction:rtl;text-align:right}
     .lang-toggle{
       display:inline-flex;align-items:center;gap:8px;
@@ -783,7 +800,10 @@
     <section id="arabic">
       <div class="wrap rtl">
         <h2 class="section-title">العربية</h2>
-        <h3 class="arabic-title">الدكتور محمد منعم<br>أخصائي أمراض الدم والأورام</h3>
+<h3 class="arabic-title">
+  <span class="arabic-name">الدكتور محمد منعم</span><br>
+  <span class="arabic-subtitle">أخصائي أمراض الدم والأورام</span>
+</h3>
         <p class="section-sub">
           رعاية الأورام وأمراض الدم في لبنان، مبنية على الدليل العلمي والمعايير الدولية، مع تواصل واضح ودعم إنساني.
         </p>
