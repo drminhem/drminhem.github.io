@@ -107,13 +107,18 @@
     }
 
     .hero{
-      min-height: 60vh;
-      display:grid;
-      place-items:center;
-      background:
-        linear-gradient(135deg, rgba(47,93,80,.85), rgba(47,93,80,.55)),
-        url("photo.jpg") center/cover no-repeat;
-    }
+  position: relative;
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.15)
+    ),
+    url("photo.jpg") center 20% / cover no-repeat;
+}
     .hero-inner{
       padding: 64px 0;
       text-align:center;
