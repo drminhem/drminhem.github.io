@@ -1,6 +1,6 @@
 ---
 title: Dr. Mohamad Minhem – Hematology & Oncology
-description: Hematology and oncology physician providing comprehensive adult cancer care based on international standards and evidence-based medicine.
+description: Hematology and oncology physician providing comprehensive adult cancer care in Lebanon based on international standards and evidence-based medicine.
 ---
 # Dr. Mohamad Minhem  
 ## Hematology & Oncology  
@@ -125,7 +125,7 @@ For professional communication or referrals, you may reach me via WhatsApp or em
 </div>
 
 <div style="margin-bottom:16px;">
-طبيب اختصاص في أمراض الدم والأورام، أقدّم رعاية شاملة لمرضى السرطان تعتمد على المعايير العالمية والطب المبني على الدليل، مع التركيز على التواصل الواضح، التخطيط العلاجي الدقيق، ووضع المريض في صلب القرار الطبي.
+طبيب اختصاص في أمراض الدم والأورام، أقدّم رعاية شاملة لمرضى السرطان في لبنان تعتمد على المعايير العالمية والطب المبني على الدليل، مع التركيز على التواصل الواضح، التخطيط العلاجي الدقيق، ووضع المريض في صلب القرار الطبي.
 </div>
 
 <div style="font-weight:600; margin:18px 0 10px 0;">
