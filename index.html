@@ -292,17 +292,24 @@
       overflow:hidden;
     }
     .band-photo img{
-      width:100%; height:100%;
-      object-fit:cover;
-      filter: brightness(.78) contrast(1.05) saturate(.9);
-      transform:scale(1.03);
-    }
-    .band-photo:after{
-      content:"";
-      position:absolute; inset:0;
-      background:linear-gradient(90deg, rgba(0,0,0,.05), rgba(0,0,0,.32));
-      pointer-events:none;
-    }
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter: brightness(.92) contrast(1.03) saturate(1);
+  transform:scale(1.02);
+}
+
+.band-photo:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    90deg,
+    rgba(0,0,0,.03),
+    rgba(0,0,0,.18)
+  );
+  pointer-events:none;
+}
     .band-text{
       padding:20px 20px 18px;
       display:flex; flex-direction:column; justify-content:center;
