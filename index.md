@@ -60,7 +60,7 @@ Care for adult patients with oncologic and hematologic conditions, including:
 ---
 
 ## Contact
-For professional communication or referrals, you may reach me via WhatsApp:
+For professional communication or referrals, you may reach me via WhatsApp or email:
 <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:18px;">
 
   <!-- WhatsApp Button -->
@@ -163,10 +163,9 @@ For professional communication or referrals, you may reach me via WhatsApp:
 
 <div style="font-weight:600; margin:18px 0 10px 0;">
 التواصل
-</div>
+<div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:18px;">
 
-<div style="display:flex; justify-content:center; margin-top:14px;">
-
+  <!-- WhatsApp Button -->
   <a href="https://wa.me/96181902903"
      target="_blank"
      rel="noopener noreferrer"
@@ -183,11 +182,35 @@ For professional communication or referrals, you may reach me via WhatsApp:
        box-shadow:0 6px 18px rgba(37,211,102,0.35);
        font-size:16px;">
 
+    <!-- WhatsApp Icon -->
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
       <path d="M20.52 3.48A11.82 11.82 0 0012.01 0C5.38 0 .04 5.33.04 11.93c0 2.1.55 4.16 1.6 5.98L0 24l6.26-1.64a11.93 11.93 0 005.75 1.46h.01c6.63 0 11.98-5.33 11.98-11.93 0-3.19-1.24-6.18-3.48-8.41z"/>
     </svg>
 
     WhatsApp
+  </a>
+
+  <!-- Email Button -->
+  <a href="mailto:contact@drminhem.com"
+     style="
+       display:inline-flex;
+       align-items:center;
+       gap:10px;
+       padding:12px 20px;
+       background:#0a66c2;
+       color:#ffffff;
+       font-weight:600;
+       border-radius:14px;
+       text-decoration:none;
+       box-shadow:0 6px 18px rgba(10,102,194,0.35);
+       font-size:16px;">
+
+    <!-- Email Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+    </svg>
+
+    Email
   </a>
 
 </div>
