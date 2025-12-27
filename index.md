@@ -63,8 +63,8 @@ Care for adult patients with oncologic and hematologic conditions, including:
 ---
 
 ## Professional Distinctions
-- Selected for the **European Society for Medical Oncology (ESMO)** Exam Talent Pool **2025** (Top 5 ranking)  
-- **American Society of Clinical Oncology (ASCO)** In-Training Examination **2025**: ≥ **99th percentile** (Top 1%)
+- Selected for the **European Society for Medical Oncology (ESMO)** Exam Talent Pool 2025 **(Top 5 ranking)** 
+- **American Society of Clinical Oncology (ASCO)** In-Training Examination 2025: ≥ **99th percentile** (Top 1%)
 
 ---
 
