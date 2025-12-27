@@ -61,7 +61,45 @@ Care for adult patients with oncologic and hematologic conditions, including:
 
 ## Contact
 For professional communication or referrals, you may reach me via WhatsApp:
+<div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:16px;">
 
+  <!-- WhatsApp -->
+  <a href="https://wa.me/96181902903"
+     target="_blank"
+     rel="noopener noreferrer"
+     style="
+       display:inline-flex;
+       align-items:center;
+       gap:10px;
+       padding:12px 18px;
+       background:#25D366;
+       color:#ffffff;
+       font-weight:600;
+       border-radius:14px;
+       text-decoration:none;
+       box-shadow:0 6px 18px rgba(37,211,102,0.35);
+       font-size:16px;">
+    WhatsApp
+  </a>
+
+  <!-- Email -->
+  <a href="mailto:contact@drminhem.com"
+     style="
+       display:inline-flex;
+       align-items:center;
+       gap:10px;
+       padding:12px 18px;
+       background:#0a66c2;
+       color:#ffffff;
+       font-weight:600;
+       border-radius:14px;
+       text-decoration:none;
+       box-shadow:0 6px 18px rgba(10,102,194,0.35);
+       font-size:16px;">
+    Email
+  </a>
+
+</div>
 <div style="display:flex; justify-content:center; margin-top:16px;">
 
   <a href="https://wa.me/96181902903"
