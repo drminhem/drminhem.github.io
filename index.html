@@ -1,359 +1,818 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dr. Mohamad Minhem | Hematology & Oncology</title>
-  <meta name="description" content="Hematology & Oncology care in Lebanon grounded in evidence-based medicine, clear communication, precision oncology, and compassionate care." />
+  <title>Mohamad Minhem, MD | Hematology & Oncology | Lebanon</title>
+  <meta name="description" content="Mohamad Minhem, MD — Hematology & Oncology in Lebanon. Precision oncology, evidence-based care, and compassionate patient-centered support." />
+  <meta name="theme-color" content="#f4eee7" />
 
-  <!-- Minimal, modern, professional styles -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mohamad Minhem, MD | Hematology & Oncology | Lebanon" />
+  <meta property="og:description" content="Cancer care and blood disorders in Lebanon with a focus on precision oncology, evidence-based decision-making, and compassionate care." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="dr-mohamad-minhem.png" />
+
   <style>
     :root{
-      --bg: #f6f5f2;
-      --card: rgba(255,255,255,0.92);
-      --muted: #586156;
-      --text: #13241b;
-      --accent: #2f6a54; /* deep teal */
-      --accent-2:#4a8067;
-      --glass-border: rgba(47,91,70,.10);
-      --radius-sm:12px;
-      --radius-lg:20px;
-      --max:1100px;
+      --bg: #f4eee7;
+      --bg-2: #efe7dd;
+      --card: rgba(255,255,255,.75);
+      --card-2: rgba(255,255,255,.88);
+      --text: #1f2a26;
+      --muted: #4a5b54;
+      --green: #577b64;
+      --green-2: #3f6450;
+      --line: rgba(32,45,40,.12);
+      --shadow: 0 18px 45px rgba(16,24,20,.12);
+      --radius: 22px;
+      --radius-2: 16px;
+      --max: 1120px;
     }
 
-    /* reset & base */
-    *,*::before,*::after{box-sizing:border-box}
-    html{font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; scroll-behavior:smooth;}
-    body{margin:0;background:
-      radial-gradient(800px 400px at 10% 8%, rgba(74,128,103,.06), transparent 30%),
-      radial-gradient(900px 520px at 88% 12%, rgba(47,106,84,.04), transparent 30%),
-      var(--bg);
-      color:var(--text); line-height:1.45; -webkit-tap-highlight-color: transparent;
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, -apple-system, system-ui, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px 500px at 20% 0%, rgba(87,123,100,.18), transparent 60%),
+                  radial-gradient(900px 450px at 80% 10%, rgba(87,123,100,.12), transparent 55%),
+                  linear-gradient(180deg, var(--bg), var(--bg-2));
     }
-    a{color:var(--accent); text-decoration:none;}
-    a:hover{text-decoration:underline;}
 
-    /* container */
-    .wrap{max-width:var(--max); margin:28px auto; padding:28px 20px 64px;}
+    a{ color:inherit; text-decoration:none; }
+    a.underline{ text-decoration: underline; text-underline-offset: 3px; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 20px; }
 
     /* NAV */
     .nav{
-      position:sticky; top:0; z-index:40;
-      backdrop-filter: blur(6px);
-      background: rgba(250,249,247,0.7);
-      border-bottom:1px solid var(--glass-border);
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(10px);
+      background: rgba(244,238,231,.72);
+      border-bottom: 1px solid var(--line);
     }
-    .nav-inner{max-width:var(--max); margin:0 auto; padding:12px 20px; display:flex; gap:12px; align-items:center; justify-content:space-between;}
-    .brand{display:flex; gap:12px; align-items:center;}
-    .brand .mark{width:44px; height:44px; border-radius:10px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:0 8px 20px rgba(47,106,84,.16);}
-    .brand .title{font-weight:700; font-size:15px; color:var(--text);}
-    .brand .sub{font-size:13px; color:var(--muted); margin-top:2px;}
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    .brand .mark{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(87,123,100,.28), rgba(87,123,100,.12));
+      display:grid; place-items:center;
+      border: 1px solid rgba(87,123,100,.25);
+    }
+    .brand .mark img{ width:20px; height:20px; display:block; }
 
-    .nav-links{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
-    .nav-links a{font-weight:600; color:var(--muted); padding:8px 10px; border-radius:10px;}
-    .nav-links a:focus{outline:2px solid rgba(47,106,84,.12); outline-offset:2px}
+    .nav-links{
+      display:flex; align-items:center; gap:18px;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .nav-links a{ padding:10px 10px; border-radius:12px; }
+    .nav-links a:hover{ background: rgba(87,123,100,.10); color: var(--text); }
 
-    /* HERO LAYOUT */
-    .grid{display:grid; grid-template-columns:1.2fr .9fr; gap:22px; align-items:stretch;}
-    @media (max-width:980px){ .grid{grid-template-columns:1fr} .photo-wrap{height:420px} }
-
-    .card{
-      background:var(--card);
-      border:1px solid var(--glass-border);
-      border-radius:var(--radius-lg);
-      padding:26px;
-      box-shadow: 0 14px 40px rgba(16,26,20,.06);
+    .nav-cta{
+      display:flex; align-items:center; gap:10px;
+    }
+    .lang-toggle{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.65);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-weight: 700;
+      color: var(--green-2);
+      cursor:pointer;
+    }
+    .menu-btn{
+      display:none;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.65);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-weight: 800;
+      cursor:pointer;
     }
 
-    .kicker{font-weight:800; color:var(--accent); font-size:12px; letter-spacing:.18em; text-transform:uppercase;}
-    h1{margin:8px 0 8px; font-size:40px; letter-spacing:-0.02em; line-height:1.02}
-    .tag{color:var(--muted); font-size:15px; font-weight:600; margin:0 0 18px; max-width:62ch}
-
-    /* badges */
-    .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;}
-    .badge{display:inline-flex; gap:10px; align-items:center; padding:10px 12px; border-radius:999px; background:rgba(47,106,84,.06); color:var(--accent); font-weight:700; font-size:13px; border:1px solid rgba(47,106,84,.06)}
-    .badge small{font-weight:600; color:var(--muted); font-size:12px}
-
-    /* CTAs */
-    .cta-row{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;}
+    /* HERO */
+    .hero{ padding: 34px 0 16px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .hero-card{
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      position: relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-120px -120px auto auto;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle at 30% 30%, rgba(87,123,100,.22), transparent 60%);
+      transform: rotate(18deg);
+    }
+    .hero-title{
+      position:relative;
+      margin: 0 0 8px;
+      font-size: clamp(30px, 3.2vw, 46px);
+      line-height: 1.06;
+      letter-spacing: -0.5px;
+    }
+    .hero-sub{
+      position:relative;
+      margin: 0 0 14px;
+      font-weight: 700;
+      color: var(--green-2);
+    }
+    .hero-p{
+      position:relative;
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 550;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      background: rgba(87,123,100,.10);
+      border: 1px solid rgba(87,123,100,.22);
+      color: var(--green-2);
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-weight: 750;
+      margin: 6px 0;
+      width: fit-content;
+      max-width: 100%;
+    }
+    .pill a{ text-decoration: underline; text-underline-offset: 3px; }
+    .actions{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 14px;
+      position:relative;
+    }
     .btn{
-      display:inline-flex; gap:10px; align-items:center; padding:12px 14px; border-radius:12px; border:1px solid rgba(18,30,24,.06); background:rgba(255,255,255,.97); font-weight:700; color:var(--text)
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      cursor:pointer;
+      user-select:none;
     }
-    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#fff; box-shadow:0 8px 24px rgba(47,106,84,.12); border-color:transparent}
-    .btn svg{width:18px; height:18px; display:block; fill:currentColor}
+    .btn-wa{
+      background: #25D366;
+      color: #fff;
+      border-color: rgba(0,0,0,.08);
+    }
+    .btn-email{
+      background: #1f5ea8;
+      color:#fff;
+      border-color: rgba(0,0,0,.08);
+    }
+    .btn-ghost{
+      background: rgba(255,255,255,.65);
+      border-color: var(--line);
+      color: var(--green-2);
+    }
+    .btn svg{ width:18px; height:18px; display:block; }
 
-    /* PHOTO */
-    .photo-card{display:flex; flex-direction:column; overflow:hidden}
-    .photo-wrap{height:520px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(245,244,242,.9), rgba(245,244,242,.95)); padding:18px}
-    .photo{width:100%; height:100%; border-radius:14px; object-fit:cover; display:block; box-shadow:0 12px 36px rgba(16,26,20,.06);}
+    .hero-photo{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: rgba(255,255,255,.55);
+      position:relative;
+      min-height: 360px;
+      display:flex;
+      flex-direction:column;
+    }
+    .hero-photo img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      flex: 1;
+    }
 
-    .photo-note{padding:14px 18px; font-weight:600; color:var(--muted); border-top:1px solid var(--glass-border); background:transparent}
+    /* SECTION (Ghosn-like green blocks) */
+    .section{ padding: 18px 0; }
+    .block{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .block-inner{ padding: 28px; background: var(--card-2); }
+    .block-green{
+      background: linear-gradient(180deg, #53755f, #4b6f59);
+      color: #fff;
+    }
+    .block-green .block-inner{ background: transparent; }
+    .kicker{
+      font-weight: 900;
+      letter-spacing: 2.6px;
+      font-size: 12px;
+      text-transform: uppercase;
+      opacity:.85;
+      margin-bottom: 10px;
+    }
+    .h2{
+      margin: 0 0 10px;
+      font-size: clamp(26px, 2.4vw, 38px);
+      line-height: 1.12;
+      letter-spacing: -0.4px;
+    }
+    .p{
+      margin: 0;
+      line-height: 1.7;
+      color: var(--muted);
+      font-weight: 550;
+    }
+    .block-green .p{ color: rgba(255,255,255,.88); }
 
-    /* sections */
-    section{margin-top:28px}
-    .section-title{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:12px}
-    .section-title h2{margin:0; font-size:26px}
-    .section-title p{margin:0; color:var(--muted); font-weight:600}
+    /* PILLARS */
+    .pillars{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .pillar{
+      background: rgba(255,255,255,.75);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-2);
+      overflow:hidden;
+    }
+    .pillar .img{
+      width:100%;
+      aspect-ratio: 16 / 9;
+      background: rgba(87,123,100,.08);
+      display:grid;
+      place-items:center;
+      padding: 10px;
+    }
+    /* KEY: no crop, no white bars (background matches) */
+    .pillar .img img{
+      width:100%;
+      height:100%;
+      object-fit: contain;
+      display:block;
+      border-radius: 12px;
+      background: transparent;
+    }
+    .pillar .body{ padding: 14px 14px 16px; }
+    .pillar .t{
+      margin: 0 0 8px;
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .pillar .d{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-weight: 550;
+    }
 
-    .pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-    @media (max-width:980px){ .pillars{grid-template-columns:1fr} }
+    /* HIGHLIGHTS */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .card{
+      background: rgba(255,255,255,.78);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-2);
+      padding: 16px;
+    }
+    .card .ct{ margin:0 0 8px; font-weight: 900; }
+    .card .cd{ margin:0; color: var(--muted); line-height: 1.65; font-weight: 550; }
+    .tag{
+      display:inline-flex;
+      font-weight: 850;
+      background: rgba(87,123,100,.12);
+      border: 1px solid rgba(87,123,100,.22);
+      color: var(--green-2);
+      padding: 7px 10px;
+      border-radius: 999px;
+      margin-top: 10px;
+      width: fit-content;
+    }
 
-    .pillar{padding:18px; border-radius:var(--radius-sm); background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.98)); border:1px solid var(--glass-border); display:flex; gap:12px; align-items:flex-start}
-    .pillar-media{flex:0 0 88px; height:88px; border-radius:10px; background:linear-gradient(135deg, rgba(47,106,84,.12), rgba(74,128,103,.06)); display:flex; align-items:center; justify-content:center}
-    .pillar-media img{width:72px; height:72px; object-fit:contain}
-    .pillar h3{margin:0 0 6px; font-size:16px}
-    .pillar p{margin:0; color:var(--muted); font-weight:600; line-height:1.45}
+    /* CONFERENCE PHOTO */
+    .conf{
+      margin-top: 16px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid var(--line);
+      position:relative;
+      min-height: 260px;
+      background: #2d3b34;
+    }
+    .conf img{
+      width:100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: cover;
+      display:block;
+      filter: brightness(.70) contrast(1.05) saturate(.95);
+      opacity: .92;
+    }
+    .conf .overlay{
+      position:absolute; inset:0;
+      background: linear-gradient(90deg, rgba(20,28,25,.78), rgba(20,28,25,.20) 60%, rgba(20,28,25,.40));
+    }
+    .conf .content{
+      position:absolute; inset:0;
+      display:flex; align-items:flex-end;
+      padding: 18px;
+      color:#fff;
+    }
+    .conf .content .box{
+      max-width: 820px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      backdrop-filter: blur(8px);
+    }
+    .conf .content .box .ct{ margin:0 0 6px; font-weight: 950; letter-spacing: -.2px; }
+    .conf .content .box .cd{ margin:0; opacity:.92; line-height:1.6; }
 
-    /* cards grid */
-    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-    @media (max-width:980px){ .cards{grid-template-columns:1fr} }
-    .card-sm{padding:16px; border-radius:14px; background:var(--card); border:1px solid var(--glass-border)}
+    /* LISTS */
+    .list{
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      display:grid;
+      gap: 10px;
+    }
+    .li{
+      background: rgba(255,255,255,.78);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px 14px;
+    }
+    .li b{ display:block; margin-bottom: 4px; }
+    .li span{ color: var(--muted); line-height: 1.6; font-weight: 550; }
 
-    /* contact */
-    .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-    @media (max-width:980px){ .contact-grid{grid-template-columns:1fr} }
-    .contact-item{padding:16px; border-radius:12px; background:var(--card); border:1px solid var(--glass-border)}
-    .contact-item h3{margin:0 0 6px}
+    /* FOOTER */
+    .footer{
+      padding: 26px 0 40px;
+      color: var(--muted);
+      text-align:center;
+    }
 
-    /* arabic rtl */
-    .rtl{direction:rtl; text-align:right; font-family: "Noto Naskh Arabic", Inter, sans-serif}
-    .rtl h2,.rtl h3{letter-spacing:0}
+    /* MOBILE */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .pillars{ grid-template-columns: 1fr; }
+      .cards{ grid-template-columns: 1fr; }
+      .nav-links{ display:none; }
+      .menu-btn{ display:inline-flex; }
+      .nav.open .nav-links{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:8px;
+        padding: 12px 0 6px;
+      }
+      .nav-inner{ align-items:flex-start; }
+      .nav-right{ display:flex; gap:10px; align-items:center; }
+    }
 
-    footer{padding:28px 20px; color:var(--muted); text-align:center; font-weight:600}
-    .muted{color:var(--muted); font-weight:600}
+    /* ARABIC */
+    [data-lang="ar"]{
+      direction: rtl;
+      text-align: right;
+      font-family: ui-sans-serif, -apple-system, system-ui, "Noto Naskh Arabic","Noto Kufi Arabic","Tahoma","Arial";
+    }
+    [hidden]{ display:none !important; }
   </style>
 </head>
 
 <body>
-  <header class="nav" role="banner">
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="mark" aria-hidden="true"></div>
-        <div>
-          <div class="title">Dr. Mohamad Minhem</div>
-          <div class="sub">Hematology & Oncology • Beirut, Lebanon</div>
+  <!-- NAV -->
+  <header class="nav" id="top">
+    <div class="wrap">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="Home">
+          <span class="mark" aria-hidden="true">
+            <img src="logo.svg" alt="" />
+          </span>
+          <span data-lang="en">Dr. Mohamad Minhem</span>
+          <span data-lang="ar" hidden>د. محمد منعم</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#about" data-lang="en">About</a>
+          <a href="#pillars" data-lang="en">Pillars</a>
+          <a href="#highlights" data-lang="en">Highlights</a>
+          <a href="#academic" data-lang="en">Academic</a>
+          <a href="#contact" data-lang="en">Contact</a>
+
+          <a href="#about" data-lang="ar" hidden>نبذة</a>
+          <a href="#pillars" data-lang="ar" hidden>الركائز</a>
+          <a href="#highlights" data-lang="ar" hidden>التميّز</a>
+          <a href="#academic" data-lang="ar" hidden>الأبحاث</a>
+          <a href="#contact" data-lang="ar" hidden>تواصل</a>
+        </nav>
+
+        <div class="nav-right nav-cta">
+          <button class="lang-toggle" id="langBtn" type="button" aria-label="Toggle language">العربية</button>
+          <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu">☰</button>
         </div>
       </div>
-
-      <nav class="nav-links" role="navigation" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#pillars">Pillars</a>
-        <a href="#academic">Academic</a>
-        <a href="#distinctions">Distinctions</a>
-        <a href="#contact">Contact</a>
-        <a href="#arabic">العربية</a>
-      </nav>
     </div>
   </header>
 
-  <main class="wrap" id="top">
-    <!-- HERO -->
-    <div class="grid" id="about">
-      <section class="card" aria-labelledby="hero-title">
-        <div class="kicker">Hematology & Oncology</div>
-        <h1 id="hero-title">Dr. Mohamad Minhem, MD</h1>
-        <p class="tag">
-          Personalized cancer care and blood disorders management grounded in evidence-based medicine, precision oncology,
-          and compassionate, patient-centered decision-making.
-        </p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h1 class="hero-title" data-lang="en">Mohamad Minhem, MD</h1>
+          <h1 class="hero-title" data-lang="ar" hidden>محمد منعم – MD</h1>
 
-        <div class="badges" aria-hidden="false">
-          <div class="badge">
-            <!-- small shield icon -->
-            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-              <path fill="currentColor" d="M12 1L3 5v6c0 5 3.8 9.4 9 11 5.2-1.6 9-6 9-11V5l-9-4z"/>
-            </svg>
-            <div>
-              <div style="line-height:1;">ABIM Board Certified</div>
-              <small><a href="https://www.abim.org/verify-physician?type=id&id=446890" target="_blank" rel="noopener">Verify</a></small>
-            </div>
-          </div>
+          <div class="hero-sub" data-lang="en">Hematology & Oncology • Cancer care and blood disorders in Lebanon</div>
+          <div class="hero-sub" data-lang="ar" hidden>اختصاص أمراض الدم والأورام • رعاية السرطان واضطرابات الدم في لبنان</div>
 
-          <div class="badge" title="Selected academic achievements">
-            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-              <path fill="currentColor" d="M12 2l3 6 6 .5-4.5 3.9L19 20l-7-4-7 4 1.5-7.6L3 8.5 9 8z"/>
-            </svg>
-            <div>
-              <div style="line-height:1;">ESMO & ASCO — Selected distinctions</div>
-              <small class="muted">(selected achievements)</small>
-            </div>
-          </div>
-        </div>
-
-        <div class="cta-row" aria-hidden="false">
-          <a class="btn primary" href="https://wa.me/96181902903" target="_blank" rel="noopener" aria-label="Message on WhatsApp">
-            <!-- simple chat icon -->
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.48 2 2 6.2 2 11.2c0 1.93.63 3.72 1.72 5.18L3 22l5.84-1.53A9.9 9.9 0 0 0 12 20c5.52 0 10-4.18 10-9.8C22 6.2 17.52 2 12 2z"/></svg>
-            WhatsApp
-          </a>
-
-          <a class="btn" href="mailto:contact@drminhem.com" aria-label="Send email">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Email
-          </a>
-
-          <a class="btn" href="#contact" aria-label="Learn more about contact">
-            Learn more →
-          </a>
-        </div>
-      </section>
-
-      <aside class="photo-card" aria-label="Dr. Mohamad Minhem portrait">
-        <div class="photo-wrap">
-          <!-- keep your photo filename; ensure image exists in repo -->
-          <img class="photo" src="dr-mohamad-minhem.png" alt="Portrait of Dr. Mohamad Minhem in white coat" />
-        </div>
-        <div class="photo-note">Hematology & Oncology — Beirut, Lebanon</div>
-      </aside>
-    </div>
-
-    <!-- PILLARS -->
-    <section id="pillars">
-      <div class="section-title">
-        <h2>Three pillars of care</h2>
-        <p>Clear. Current. Compassionate.</p>
-      </div>
-
-      <div class="pillars" role="list">
-        <div class="pillar" role="listitem">
-          <div class="pillar-media" aria-hidden="true">
-            <img src="precision-medicine.png" alt="">
-          </div>
-          <div>
-            <h3>Precision oncology</h3>
-            <p>Genomic testing and targeted therapy selection guided by evidence and individualized benefit–risk assessment.</p>
-          </div>
-        </div>
-
-        <div class="pillar" role="listitem">
-          <div class="pillar-media" aria-hidden="true">
-            <img src="evidence-based-care.png" alt="">
-          </div>
-          <div>
-            <h3>Evidence-based care</h3>
-            <p>Updated clinical practice informed by international guidelines and multidisciplinary collaboration.</p>
-          </div>
-        </div>
-
-        <div class="pillar" role="listitem">
-          <div class="pillar-media" aria-hidden="true">
-            <img src="compassionate-care.png" alt="">
-          </div>
-          <div>
-            <h3>Compassionate support</h3>
-            <p>Patient-centered communication, symptom management, and supportive/palliative principles throughout care.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BACKGROUND & ACADEMIC (combined tidy) -->
-    <section id="academic">
-      <div class="section-title">
-        <h2>Background & Academic work</h2>
-        <p>Training, publications, and selected contributions</p>
-      </div>
-
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px">
-        <div class="card-sm">
-          <h3 style="margin-top:0">Education & Training</h3>
-          <ul style="margin:12px 0 0;padding-left:18px;color:var(--muted);font-weight:600;line-height:1.6">
-            <li><strong>BS, Biology</strong> — American University of Beirut (2009–2012)</li>
-            <li><strong>MD</strong> — American University of Beirut (2012–2016)</li>
-            <li><strong>Internal Medicine Residency</strong> — Mercy Hospital & Loyola Medicine (2019–2022)</li>
-            <li><strong>Hematology & Oncology Fellowship</strong> — University of Balamand (2023–2026)</li>
-          </ul>
-        </div>
-
-        <div class="card-sm">
-          <h3 style="margin-top:0">Selected publications</h3>
-          <p class="muted" style="margin:8px 0 0;">
-            Representative peer-reviewed work and abstracts in gastrointestinal bleeding, transplantation outcomes, and oncology-related research.
-            If you prefer, I can add DOIs or public links to specific papers.
+          <p class="hero-p" data-lang="en">
+            I provide patient-centered hematology and oncology care grounded in <b>American and European standards</b>,
+            with a focus on <b>precision oncology</b>, <b>evidence-based decision-making</b>, and <b>compassionate support</b>.
           </p>
+          <p class="hero-p" data-lang="ar" hidden>
+            أقدّم رعاية متكاملة في أمراض الدم والأورام، مرتكزة على <b>الإرشادات الأمريكية والأوروبية</b>،
+            مع التركيز على <b>الطب الدقيق</b>، و<b>الرعاية الحديثة المبنية على الدليل العلمي</b>، و<b>الرعاية الإنسانية الداعمة</b>.
+          </p>
+
+          <!-- Credentials (with embedded links) -->
+          <div class="pill" data-lang="en">
+            American Board of Internal Medicine (ABIM) — Board Certified
+            <span style="opacity:.9;">•</span>
+            <a href="REPLACE_WITH_YOUR_ABIM_LINK" target="_blank" rel="noopener">verify</a>
+          </div>
+
+          <div class="pill" data-lang="en">
+            European Society for Medical Oncology (ESMO) — <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">Exam Talent Pool</a> (Top 5, 2025)
+          </div>
+
+          <div class="pill" data-lang="en">
+            American Society of Clinical Oncology (ASCO) — In-Training Exam (2025, ≥99th percentile)
+          </div>
+
+          <div class="pill" data-lang="ar" hidden>
+            البورد الأمريكي في الطب الباطني (ABIM) — معتمد
+            <span style="opacity:.9;">•</span>
+            <a href="REPLACE_WITH_YOUR_ABIM_LINK" target="_blank" rel="noopener">تحقّق</a>
+          </div>
+
+          <div class="pill" data-lang="ar" hidden>
+            الجمعية الأوروبية لطب الأورام (ESMO) — <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">قائمة المتميّزين في امتحان ESMO</a> (Top 5، 2025)
+          </div>
+
+          <div class="pill" data-lang="ar" hidden>
+            الجمعية الأمريكية لطب الأورام السريري (ASCO) — امتحان التدريب (2025، ≥99th percentile)
+          </div>
+
+          <div class="actions">
+            <!-- WhatsApp (proper icon) -->
+            <a class="btn btn-wa" href="https://wa.me/REPLACE_WITH_YOUR_NUMBER_WITH_COUNTRY_CODE" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <!-- Bootstrap Icons: whatsapp -->
+                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.003c4.368 0 7.926-3.558 7.93-7.93a7.9 7.9 0 0 0-2.326-5.606zm-5.607 12.24h-.002a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.656-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c.003-3.626 2.957-6.58 6.587-6.58a6.58 6.58 0 0 1 4.66 1.931 6.57 6.57 0 0 1 1.928 4.66c-.004 3.639-2.957 6.588-6.576 6.588"/>
+                <path d="M11.098 9.87c-.197-.1-1.17-.576-1.352-.64-.182-.065-.315-.1-.447.1-.132.197-.514.64-.63.772-.114.132-.232.15-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.1-1.372-.116-.197-.013-.303.087-.403.09-.09.197-.232.297-.348.1-.116.132-.197.197-.33.065-.132.033-.248-.017-.348-.05-.1-.447-1.075-.612-1.47-.16-.385-.323-.332-.447-.338l-.382-.007a.73.73 0 0 0-.53.248c-.182.197-.697.68-.697 1.654 0 .975.714 1.916.813 2.049.1.132 1.404 2.143 3.4 3.006.475.205.846.327 1.134.418.476.152.91.13 1.252.079.382-.058 1.17-.479 1.336-.943.165-.464.165-.862.116-.943-.05-.082-.182-.132-.38-.232"/>
+              </svg>
+              WhatsApp
+            </a>
+
+            <a class="btn btn-email" href="mailto:m.minhem1@gmail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/>
+              </svg>
+              Email
+            </a>
+
+            <a class="btn btn-ghost" href="#about" data-lang="en">Learn more →</a>
+            <a class="btn btn-ghost" href="#about" data-lang="ar" hidden>المزيد →</a>
+          </div>
+        </div>
+
+        <aside class="hero-photo" aria-label="Portrait">
+          <img src="dr-mohamad-minhem.png" alt="Mohamad Minhem, MD portrait" />
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT (Ghosn-like green block) -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="block block-green">
+        <div class="block-inner">
+          <div class="kicker" data-lang="en">About</div>
+          <div class="kicker" data-lang="ar" hidden>نبذة</div>
+
+          <h2 class="h2" data-lang="en">Evidence-based care, communicated clearly</h2>
+          <h2 class="h2" data-lang="ar" hidden>رعاية مبنية على الدليل… مع تواصل واضح</h2>
+
+          <p class="p" data-lang="en">
+            My approach combines structured decision-making with human-centered care.
+            I prioritize clear explanations, shared planning, and practical options aligned with each patient’s goals.
+          </p>
+          <p class="p" data-lang="ar" hidden>
+            يجمع أسلوبي بين منهجية واضحة لاتخاذ القرار ورعاية إنسانية داعمة.
+            أحرص على شرح الخطة بلغة بسيطة، ووضع خيارات واقعية بالتعاون مع المريض وأسرته.
+          </p>
+
+          <div class="cards" style="margin-top:18px;">
+            <div class="card">
+              <h3 class="ct" data-lang="en">American & European standards</h3>
+              <h3 class="ct" data-lang="ar" hidden>إرشادات أمريكية وأوروبية</h3>
+              <p class="cd" data-lang="en">Up-to-date guidance such as NCCN, ESMO, and ASCO—applied thoughtfully to real-world practice.</p>
+              <p class="cd" data-lang="ar" hidden>اتباع أحدث الإرشادات مثل NCCN وESMO وASCO وتطبيقها بما يناسب واقع الممارسة.</p>
+            </div>
+            <div class="card">
+              <h3 class="ct" data-lang="en">Precision oncology</h3>
+              <h3 class="ct" data-lang="ar" hidden>الطب الدقيق</h3>
+              <p class="cd" data-lang="en">DNA testing, actionable mutations, targeted therapy, and immunotherapy—when appropriate.</p>
+              <p class="cd" data-lang="ar" hidden>تحاليل DNA والطفرات القابلة للاستهداف، والعلاجات الموجّهة والمناعية—عند الاقتضاء.</p>
+            </div>
+            <div class="card">
+              <h3 class="ct" data-lang="en">Supportive & compassionate care</h3>
+              <h3 class="ct" data-lang="ar" hidden>رعاية داعمة وإنسانية</h3>
+              <p class="cd" data-lang="en">Symptom control, supportive oncology, and palliative principles integrated early when needed.</p>
+              <p class="cd" data-lang="ar" hidden>التحكم بالأعراض والرعاية الداعمة ومبادئ الرعاية التلطيفية عند الحاجة وبشكل مبكر.</p>
+            </div>
+          </div>
+
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- DISTINCTIONS -->
-    <section id="distinctions">
-      <div class="section-title">
-        <h2>Distinctions</h2>
-        <p>Professional qualifications & recognition</p>
-      </div>
+  <!-- PILLARS -->
+  <section class="section" id="pillars">
+    <div class="wrap">
+      <div class="block">
+        <div class="block-inner">
+          <div class="kicker" data-lang="en">Pillars of care</div>
+          <div class="kicker" data-lang="ar" hidden>ركائز الرعاية</div>
 
-      <div class="cards" style="margin-bottom:12px">
-        <div class="card-sm">
-          <h3 style="margin-top:0">ABIM Board Certification</h3>
-          <p class="muted" style="margin:6px 0 0">American Board of Internal Medicine — Board Certified. <a href="https://www.abim.org/verify-physician?type=id&id=446890" target="_blank" rel="noopener">Verify</a></p>
+          <h2 class="h2" data-lang="en">Three pillars that guide my daily practice</h2>
+          <h2 class="h2" data-lang="ar" hidden>ثلاث ركائز تُوجّه الممارسة اليومية</h2>
+
+          <div class="pillars">
+            <article class="pillar">
+              <div class="img">
+                <img src="precision-medicine.png" alt="Precision oncology abstract illustration" />
+              </div>
+              <div class="body">
+                <h3 class="t" data-lang="en">Precision medicine</h3>
+                <h3 class="t" data-lang="ar" hidden>الطب الدقيق</h3>
+                <p class="d" data-lang="en">Using DNA testing, actionable mutations, targeted therapy, and immunotherapy to personalize treatment.</p>
+                <p class="d" data-lang="ar" hidden>تخصيص العلاج عبر تحاليل DNA والطفرات القابلة للاستهداف، والعلاج الموجّه والمناعي.</p>
+              </div>
+            </article>
+
+            <article class="pillar">
+              <div class="img">
+                <img src="evidence-based-care.png" alt="Evidence-based care abstract illustration" />
+              </div>
+              <div class="body">
+                <h3 class="t" data-lang="en">Modern evidence-based care</h3>
+                <h3 class="t" data-lang="ar" hidden>رعاية حديثة مبنية على الدليل العلمي</h3>
+                <p class="d" data-lang="en">Decisions aligned with current NCCN/ESMO/ASCO guidance, multidisciplinary planning, and outcomes focus.</p>
+                <p class="d" data-lang="ar" hidden>قرارات مبنية على أحدث الإرشادات (NCCN/ESMO/ASCO) مع نهج متعدد التخصصات وتركيز على النتائج.</p>
+              </div>
+            </article>
+
+            <article class="pillar">
+              <div class="img">
+                <img src="compassionate-care.png" alt="Compassionate care abstract illustration" />
+              </div>
+              <div class="body">
+                <h3 class="t" data-lang="en">Compassionate care</h3>
+                <h3 class="t" data-lang="ar" hidden>رعاية إنسانية داعمة</h3>
+                <p class="d" data-lang="en">Clear communication, supportive oncology, and symptom relief—integrated with treatment planning.</p>
+                <p class="d" data-lang="ar" hidden>تواصل واضح ورعاية داعمة وتخفيف الأعراض ضمن خطة علاج متكاملة.</p>
+              </div>
+            </article>
+          </div>
+
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card-sm">
-          <h3 style="margin-top:0">ESMO Exam — Top ranking</h3>
-          <p class="muted" style="margin:6px 0 0">Recognized among top candidates in select assessments. (Selected academic achievement.)</p>
+  <!-- HIGHLIGHTS / DISTINCTIONS -->
+  <section class="section" id="highlights">
+    <div class="wrap">
+      <div class="block block-green">
+        <div class="block-inner">
+          <div class="kicker" data-lang="en">Distinctions</div>
+          <div class="kicker" data-lang="ar" hidden>التميّز</div>
+
+          <h2 class="h2" data-lang="en">Key qualifications & distinctions</h2>
+          <h2 class="h2" data-lang="ar" hidden>أبرز المؤهلات والتميّز</h2>
+
+          <div class="cards">
+            <div class="card">
+              <h3 class="ct" data-lang="en">ABIM Board Certification</h3>
+              <h3 class="ct" data-lang="ar" hidden>البورد الأمريكي في الطب الباطني (ABIM)</h3>
+              <p class="cd" data-lang="en">High level of training and education in the United States.</p>
+              <p class="cd" data-lang="ar" hidden>مستوى عالٍ من التدريب والتعليم الطبي في الولايات المتحدة.</p>
+              <div class="tag"><a class="underline" href="REPLACE_WITH_YOUR_ABIM_LINK" target="_blank" rel="noopener">Verification link</a></div>
+            </div>
+
+            <div class="card">
+              <h3 class="ct" data-lang="en">ESMO Examination — Talent Pool</h3>
+              <h3 class="ct" data-lang="ar" hidden>امتحان ESMO — قائمة المتميّزين</h3>
+              <p class="cd" data-lang="en">Listed on the ESMO Exam Talent Pool (Top 5, 2025).</p>
+              <p class="cd" data-lang="ar" hidden>مُدرج ضمن قائمة المتميّزين في امتحان ESMO (Top 5، 2025).</p>
+              <div class="tag"><a class="underline" href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">Open the list</a></div>
+            </div>
+
+            <div class="card">
+              <h3 class="ct" data-lang="en">ASCO In-Training Exam</h3>
+              <h3 class="ct" data-lang="ar" hidden>امتحان ASCO أثناء التدريب</h3>
+              <p class="cd" data-lang="en">ASCO In-Training Exam 2025 — ≥99th percentile.</p>
+              <p class="cd" data-lang="ar" hidden>امتحان ASCO لعام 2025 — ضمن ≥99th percentile.</p>
+            </div>
+          </div>
+
+          <!-- Conference photo (not in hero) -->
+          <div class="conf" aria-label="Conference photo">
+            <img src="photo.jpg" alt="Conference photo" />
+            <div class="overlay" aria-hidden="true"></div>
+            <div class="content">
+              <div class="box">
+                <h3 class="ct" data-lang="en">Professional engagement</h3>
+                <h3 class="ct" data-lang="ar" hidden>حضور ومشاركة علمية</h3>
+                <p class="cd" data-lang="en">Active participation in contemporary oncology education and congress environments.</p>
+                <p class="cd" data-lang="ar" hidden>حضور فعّال في بيئات التعليم والمؤتمرات العلمية الحديثة في طب الأورام.</p>
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card-sm">
-          <h3 style="margin-top:0">ASCO In-Training Exam</h3>
-          <p class="muted" style="margin:6px 0 0">High performance in in-training assessment reflecting strong oncology knowledge.</p>
+  <!-- ACADEMIC -->
+  <section class="section" id="academic">
+    <div class="wrap">
+      <div class="block">
+        <div class="block-inner">
+          <div class="kicker" data-lang="en">Academic</div>
+          <div class="kicker" data-lang="ar" hidden>الأبحاث</div>
+
+          <h2 class="h2" data-lang="en">Selected peer-reviewed work</h2>
+          <h2 class="h2" data-lang="ar" hidden>أبحاث منشورة (مختارة)</h2>
+
+          <ul class="list">
+            <li class="li">
+              <b data-lang="en">Gastrointestinal hemorrhage in gastrointestinal cancer: prevalence, predictors & interventions</b>
+              <b data-lang="ar" hidden>نزف الجهاز الهضمي لدى مرضى سرطانات الجهاز الهضمي: الانتشار والعوامل المتوقعة والتدخلات</b>
+              <span data-lang="en">World Journal of Gastrointestinal Endoscopy (Sep 2021) — Original article.</span>
+              <span data-lang="ar" hidden>World Journal of Gastrointestinal Endoscopy (سبتمبر 2021) — بحث أصيل.</span>
+            </li>
+
+            <li class="li">
+              <b data-lang="en">Living-donor liver transplantation in the United States: frequency trends, outcomes & center factors</b>
+              <b data-lang="ar" hidden>زراعة الكبد من متبرّع حي في الولايات المتحدة: التطور، النتائج، وعوامل المراكز</b>
+              <span data-lang="en">Liver Transplantation (Feb 2021) — Original article.</span>
+              <span data-lang="ar" hidden>Liver Transplantation (فبراير 2021) — بحث أصيل.</span>
+            </li>
+
+            <li class="li">
+              <b data-lang="en">Microbiological profile of diabetic foot infection in MENA: a systematic review</b>
+              <b data-lang="ar" hidden>الملف الجرثومي لالتهابات القدم السكري في الشرق الأوسط وشمال أفريقيا: مراجعة منهجية</b>
+              <span data-lang="en">Wounds Middle East (Feb 2019) — Systematic review.</span>
+              <span data-lang="ar" hidden>Wounds Middle East (فبراير 2019) — مراجعة منهجية.</span>
+            </li>
+          </ul>
+
+          <div style="height:18px;"></div>
+
+          <h2 class="h2" data-lang="en" style="font-size:clamp(22px,2vw,30px); margin-bottom:10px;">Teaching & presentations</h2>
+          <h2 class="h2" data-lang="ar" hidden style="font-size:clamp(22px,2vw,30px); margin-bottom:10px;">التعليم والعروض العلمية</h2>
+
+          <ul class="list">
+            <li class="li">
+              <b data-lang="en">Renal Cell Carcinoma: clinical insights, advances & NCCN guidance</b>
+              <b data-lang="ar" hidden>سرطان الخلايا الكلوية: رؤى سريرية وتطورات وإرشادات NCCN</b>
+              <span data-lang="en">Education of oncology fellows — January 10, 2024.</span>
+              <span data-lang="ar" hidden>تعليم زملاء طب الأورام — 10 يناير 2024.</span>
+            </li>
+
+            <li class="li">
+              <b data-lang="en">Colorectal cancer biology & pathophysiology</b>
+              <b data-lang="ar" hidden>بيولوجيا سرطان القولون والمستقيم والفيزيولوجيا المرضية</b>
+              <span data-lang="en">Conference lecture — August 11, 2024.</span>
+              <span data-lang="ar" hidden>محاضرة ضمن مؤتمر — 11 أغسطس 2024.</span>
+            </li>
+
+            <li class="li">
+              <b data-lang="en">NSCLC treatment update</b>
+              <b data-lang="ar" hidden>تحديثات علاج سرطان الرئة (غير صغير الخلايا)</b>
+              <span data-lang="en">Education of medical students and resident physicians — December 15, 2024.</span>
+              <span data-lang="ar" hidden>تعليم طلاب الطب والأطباء المقيمين — 15 ديسمبر 2024.</span>
+            </li>
+          </ul>
+
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="card-sm">
-        <h3 style="margin-top:0">Teaching & presentations</h3>
-        <p class="muted" style="margin:6px 0 0">Lectures, journal clubs and tumor boards for medical students, residents and fellows.</p>
-      </div>
-    </section>
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="block block-green">
+        <div class="block-inner">
+          <div class="kicker" data-lang="en">Contact</div>
+          <div class="kicker" data-lang="ar" hidden>تواصل</div>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Direct and simple</p>
-      </div>
+          <h2 class="h2" data-lang="en">Get in touch</h2>
+          <h2 class="h2" data-lang="ar" hidden>للتواصل</h2>
 
-      <div class="contact-grid">
-        <div class="contact-item">
-          <h3>WhatsApp</h3>
-          <p><a href="https://wa.me/96181902903" target="_blank" rel="noopener">+961 81 902 903</a></p>
+          <p class="p" data-lang="en" style="max-width:850px;">
+            For professional inquiries, collaborations, or appointments, you can reach me by email or WhatsApp.
+          </p>
+          <p class="p" data-lang="ar" hidden style="max-width:850px;">
+            للاستفسارات المهنية أو التعاون أو المواعيد، يمكن التواصل عبر البريد الإلكتروني أو واتساب.
+          </p>
+
+          <div class="actions" style="margin-top:14px;">
+            <a class="btn btn-wa" href="https://wa.me/REPLACE_WITH_YOUR_NUMBER_WITH_COUNTRY_CODE" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.003c4.368 0 7.926-3.558 7.93-7.93a7.9 7.9 0 0 0-2.326-5.606zm-5.607 12.24h-.002a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.656-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c.003-3.626 2.957-6.58 6.587-6.58a6.58 6.58 0 0 1 4.66 1.931 6.57 6.57 0 0 1 1.928 4.66c-.004 3.639-2.957 6.588-6.576 6.588"/>
+                <path d="M11.098 9.87c-.197-.1-1.17-.576-1.352-.64-.182-.065-.315-.1-.447.1-.132.197-.514.64-.63.772-.114.132-.232.15-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.1-1.372-.116-.197-.013-.303.087-.403.09-.09.197-.232.297-.348.1-.116.132-.197.197-.33.065-.132.033-.248-.017-.348-.05-.1-.447-1.075-.612-1.47-.16-.385-.323-.332-.447-.338l-.382-.007a.73.73 0 0 0-.53.248c-.182.197-.697.68-.697 1.654 0 .975.714 1.916.813 2.049.1.132 1.404 2.143 3.4 3.006.475.205.846.327 1.134.418.476.152.91.13 1.252.079.382-.058 1.17-.479 1.336-.943.165-.464.165-.862.116-.943-.05-.082-.182-.132-.38-.232"/>
+              </svg>
+              WhatsApp
+            </a>
+            <a class="btn btn-email" href="mailto:m.minhem1@gmail.com">Email</a>
+          </div>
+
         </div>
-
-        <div class="contact-item">
-          <h3>Email</h3>
-          <p><a href="mailto:contact@drminhem.com">contact@drminhem.com</a></p>
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ARABIC -->
-    <section id="arabic" class="rtl" aria-labelledby="arabic-title">
-      <div class="section-title">
-        <h2 id="arabic-title">العربية</h2>
-        <p>نبذة مختصرة</p>
-      </div>
-
-      <div class="card-sm">
-        <h3 style="margin-top:0">الدكتور محمد منعم</h3>
-        <p class="muted" style="margin:0 0 12px;">
-          رعاية أمراض الدم والأورام في لبنان مع تركيز على تواصل واضح وقرارات علاجية مبنية على الدليل العلمي ورعاية إنسانية.
-        </p>
-
-        <h3>الخبرات والتدريب</h3>
-        <ul class="muted" style="margin:8px 0 0;padding-left:18px">
-          <li>بكالوريوس علوم — الجامعة الأمريكية في بيروت</li>
-          <li>دكتوراه في الطب — الجامعة الأمريكية في بيروت</li>
-          <li>اختصاص أمراض الدم والأورام — جامعة البلمند</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    © <span id="y"></span> Dr. Mohamad Minhem • drminhem.com
+  <footer class="footer">
+    <div class="wrap">
+      <div data-lang="en">© <span id="year"></span> Mohamad Minhem, MD</div>
+      <div data-lang="ar" hidden>© <span id="year2"></span> محمد منعم – MD</div>
+    </div>
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // Year
+    const y = new Date().getFullYear();
+    document.getElementById('year').textContent = y;
+    document.getElementById('year2').textContent = y;
+
+    // Mobile menu
+    const nav = document.querySelector('.nav');
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+
+    // Language toggle
+    let current = 'en';
+    const langBtn = document.getElementById('langBtn');
+    const setLang = (lang) => {
+      current = lang;
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        const is = el.getAttribute('data-lang') === lang;
+        el.hidden = !is;
+      });
+      document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+      langBtn.textContent = lang === 'ar' ? 'English' : 'العربية';
+    };
+    langBtn.addEventListener('click', () => setLang(current === 'en' ? 'ar' : 'en'));
+    setLang('en');
   </script>
 </body>
 </html>
