@@ -4,9 +4,10 @@
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Arial, Helvetica, sans-serif"
-        font-size="86"
+        font-size="84"
         font-weight="700"
-        fill="#ffffff">
-    D<tspan font-size="64">r</tspan>M
+        fill="#ffffff"
+        letter-spacing="2">
+    MM
   </text>
 </svg>
