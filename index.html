@@ -517,6 +517,13 @@
         padding-right: max(var(--pad), env(safe-area-inset-right));
       }
     }
+    /* Hide stray navigation arrows in corners (RTL fix) */
+body[data-lang="ar"] .swiper-button-next,
+body[data-lang="ar"] .swiper-button-prev,
+body[data-lang="ar"] .slider-arrow,
+body[data-lang="ar"] .carousel-arrow{
+  display: none !important;
+}
   </style>
 </head>
 
