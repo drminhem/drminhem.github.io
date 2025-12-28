@@ -713,16 +713,22 @@
 }
 @media (max-width: 820px){
   .liOverlay{ display:flex; }
+
+  /* Disable iframe interaction on mobile so it can't capture vertical scroll */
   .liItem iframe{ pointer-events:none; }
 
-  .liCarousel, .liTrack, .liItem{
-    touch-action: pan-y;
+  /* Allow ONLY horizontal swipes on the carousel */
+  .liTrack{
+    touch-action: pan-x;
+    overscroll-behavior-x: contain;
+    overscroll-behavior-y: auto;
   }
 
-  .liTrack{
-    overscroll-behavior-x: contain;
+  /* Make sure nothing inside the carousel tries to do vertical panning */
+  .liCarousel, .liItem{
+    touch-action: pan-x;
   }
-}
+}  
   </style>
 </head>
 
