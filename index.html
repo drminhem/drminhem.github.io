@@ -27,35 +27,32 @@
     "addressCountry": "LB"
   }
 }
-  // Fallback snap behavior for browsers that ignore scroll-snap-stop
+</script>
+  <script>
 (function(){
-  const tracks = document.querySelectorAll('.liTrack');
+  const track = document.querySelector('.liTrack');
+  if(!track) return;
 
-  tracks.forEach(track => {
-    let t = null;
+  let startX = 0, startY = 0, isHoriz = false;
 
-    function snapToNearest(){
-      const items = Array.from(track.querySelectorAll('.liItem'));
-      if (!items.length) return;
+  track.addEventListener('touchstart', (e) => {
+    const t = e.touches[0];
+    startX = t.clientX;
+    startY = t.clientY;
+    isHoriz = false;
+  }, {passive:true});
 
-      const left = track.scrollLeft;
-      // find item whose left edge is closest to current scrollLeft
-      let best = items[0];
-      let bestDist = Infinity;
+  track.addEventListener('touchmove', (e) => {
+    const t = e.touches[0];
+    const dx = Math.abs(t.clientX - startX);
+    const dy = Math.abs(t.clientY - startY);
 
-      items.forEach(it => {
-        const dist = Math.abs(it.offsetLeft - left);
-        if (dist < bestDist) { best = it; bestDist = dist; }
-      });
-
-      track.scrollTo({ left: best.offsetLeft, behavior: 'smooth' });
+    // If user is clearly swiping horizontally, prevent vertical page scroll
+    if (dx > dy && dx > 8){
+      isHoriz = true;
+      e.preventDefault();
     }
-
-    track.addEventListener('scroll', () => {
-      clearTimeout(t);
-      t = setTimeout(snapToNearest, 120); // after the user stops scrolling
-    }, { passive: true });
-  });
+  }, {passive:false});
 })();
 </script>
   <link rel="canonical" href="https://drminhem.com/">
@@ -669,10 +666,7 @@
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
 }
-    .liItem{
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
+
 .liTrack::-webkit-scrollbar{height:10px}
 .liTrack::-webkit-scrollbar-thumb{
   background: rgba(15,26,18,.15);
@@ -748,19 +742,14 @@
   .liOverlay{ display:flex; }
   .liItem iframe{ pointer-events:none; }
 
-  /* Allow horizontal swipe on the carousel */
-  .liTrack{
-    touch-action: pan-x;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-  }
-
-  /* Keep vertical page scroll natural */
-  .liCarousel,
-  .liItem{
+  .liCarousel, .liTrack, .liItem{
     touch-action: pan-y;
   }
-}  
+
+  .liTrack{
+    overscroll-behavior-x: contain;
+  }
+}
   </style>
 </head>
 
