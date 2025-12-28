@@ -1,0 +1,38 @@
+{
+  "en": {
+    "hero": {
+      "eyebrow": "Hematology & Oncology",
+      "title": "Dr. Mohamad Minhem",
+      "sub": "Guideline-based cancer care & blood disorders, with clear plans and shared decisions.",
+      "lead": "Precision medicine when it matters (biomarkers, targeted therapy, immunotherapy) — delivered with transparency, safety, and practical communication.",
+      "portrait": "IMG_0644.jpeg"
+    },
+    "linkedin": {
+      "profile": "https://www.linkedin.com/in/mohamad-minhem/",
+      "posts": [
+        "https://www.linkedin.com/feed/update/urn:li:activity:7407135949408817152/",
+        "https://www.linkedin.com/feed/update/urn:li:activity:7386100386878717952/",
+        "https://www.linkedin.com/feed/update/urn:li:activity:7339062374840111104/",
+        "https://www.linkedin.com/feed/update/urn:li:activity:7198818158768451584/"
+      ]
+    }
+  },
+  "ar": {
+    "hero": {
+      "eyebrow": "أمراض الدم والأورام",
+      "title": "الدكتور محمد منعم",
+      "sub": "رعاية مبنية على الدليل العلمي لأمراض السرطان والدم، مع خطة واضحة ومشاركة المريض في القرار.",
+      "lead": "طب دقيق عندما يكون مفيدًا (تحاليل جينات الورم/واسمات، علاج موجّه، علاج مناعي) — بتواصل واضح وأمان علاجي وقرارات عملية.",
+      "portrait": "IMG_0644.jpeg"
+    },
+    "linkedin": {
+      "profile": "https://www.linkedin.com/in/mohamad-minhem/",
+      "posts": [
+        "https://www.linkedin.com/feed/update/urn:li:activity:7407135949408817152/",
+        "https://www.linkedin.com/feed/update/urn:li:activity:7386100386878717952/",
+        "https://www.linkedin.com/feed/update/urn:li:activity:7339062374840111104/",
+        "https://www.linkedin.com/feed/update/urn:li:activity:7198818158768451584/"
+      ]
+    }
+  }
+}
