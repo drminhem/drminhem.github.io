@@ -57,9 +57,10 @@
 
     /* IMPORTANT: Never fully hide content.
        We show EN by default; AR is hidden unless html[data-lang="ar"]. */
-    [data-lang="ar"]{display:none}
-    html[data-lang="ar"] [data-lang="en"]{display:none}
-    html[data-lang="ar"] [data-lang="ar"]{display:block}
+/* Language switching (fail-safe) */
+#lang-en, #lang-ar { display: none; }
+body[data-lang="en"] #lang-en { display: block; }
+body[data-lang="ar"] #lang-ar { display: block; }
 
     .rtl{direction:rtl;text-align:right}
 
@@ -463,8 +464,7 @@
     }
   </style>
 </head>
-
-<body>
+<body data-lang="en">
   <!-- Icons -->
   <svg width="0" height="0" style="position:absolute">
     <symbol id="i-whatsapp" viewBox="0 0 32 32">
@@ -486,7 +486,7 @@
   </svg>
 
   <!-- ENGLISH -->
-  <div data-lang="en">
+  <div id="en">
     <div class="topbar">
       <div class="wrap">
         <div class="nav">
@@ -808,7 +808,7 @@
   </div>
 
   <!-- ARABIC -->
-  <div data-lang="ar" class="rtl">
+  <div id="ar" class="rtl">
     <div class="topbar">
       <div class="wrap">
         <div class="nav">
@@ -1075,19 +1075,21 @@
     const LANG_KEY = 'site_lang';
 
     function setLang(lang){
-      const isAr = (lang === 'ar');
-      htmlEl.setAttribute('data-lang', isAr ? 'ar' : 'en');
-      htmlEl.setAttribute('lang', isAr ? 'ar' : 'en');
-      htmlEl.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+  const isAr = (lang === 'ar');
 
-      // close menus if open
-      mobileMenu?.classList.remove('open');
-      menuBtn?.setAttribute('aria-expanded','false');
-      mobileMenuAr?.classList.remove('open');
-      menuBtnAr?.setAttribute('aria-expanded','false');
+  document.body.setAttribute('data-lang', isAr ? 'ar' : 'en');
 
-      localStorage.setItem(LANG_KEY, isAr ? 'ar' : 'en');
-    }
+  document.documentElement.setAttribute('lang', isAr ? 'ar' : 'en');
+  document.documentElement.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+
+  // close menus if open
+  mobileMenu?.classList.remove('open');
+  menuBtn?.setAttribute('aria-expanded','false');
+  mobileMenuAr?.classList.remove('open');
+  menuBtnAr?.setAttribute('aria-expanded','false');
+
+  localStorage.setItem(LANG_KEY, isAr ? 'ar' : 'en');
+}
 
     // DOM refs
     const langToggle = document.getElementById('langToggle');
@@ -1102,7 +1104,7 @@
     // Init language
     const saved = localStorage.getItem(LANG_KEY);
     if (saved === 'ar' || saved === 'en') setLang(saved);
-    else setLang(htmlEl.getAttribute('data-lang') || 'en');
+else setLang(document.body.getAttribute('data-lang') || 'en');
 
     // Toggle buttons
     langToggle?.addEventListener('click', () => setLang('ar'));
