@@ -81,11 +81,7 @@
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-/* Flip ONLY directional arrows in Arabic */
-.rtl use[href="#i-arrow"]{
-  transform: scaleX(-1);
-  transform-origin: center;
-}
+
 /* Headings stay premium */
 .rtl h1,
 .rtl h2,
@@ -117,7 +113,11 @@
   padding-left: 0;
   padding-right: 18px;
 }
-
+/* Flip ONLY directional arrows in Arabic */
+.rtl use[href="#i-arrow"]{
+  transform: scaleX(-1);
+  transform-origin: center;
+}
 /* Safety: prevent any spacing inheritance */
 .rtl, .rtl *{
   letter-spacing: 0 !important;
