@@ -531,34 +531,34 @@
   font-size: 0.95rem;     /* was inherited (~0.9) */
   border-radius: 14px;   /* slightly rounder */
 }
-    /* TRUST BOX ALIGNMENT */
+  /* Center + justify content inside trust boxes */
 .trust{
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
+  text-align: center;        /* centers headings and links */
 }
 
-/* Make the top line (icon + title) align perfectly */
+/* Title line: center icon + text */
 .trust b{
-  display:flex;
-  align-items:center;      /* vertical align icon with text */
-  gap:8px;
-  line-height:1.15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.15;
+  text-align: center;
 }
 
-/* Normalize icon box */
-.trust b svg{
-  width:16px;
-  height:16px;
-  flex:0 0 16px;
-  display:block;           /* removes baseline wobble */
-  transform: translateY(1px); /* optional: nudge for optical centering */
-}
-
-/* Keep subtitle spacing consistent */
+/* Description text: justified but centered block */
 .trust span{
-  margin-top:8px;
-  line-height:1.35;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-top: 8px;
+}
+
+/* Icon normalization */
+.trust b svg{
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  display: block;
 }
   </style>
 </head>
