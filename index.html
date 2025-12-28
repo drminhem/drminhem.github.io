@@ -27,6 +27,36 @@
     "addressCountry": "LB"
   }
 }
+  // Fallback snap behavior for browsers that ignore scroll-snap-stop
+(function(){
+  const tracks = document.querySelectorAll('.liTrack');
+
+  tracks.forEach(track => {
+    let t = null;
+
+    function snapToNearest(){
+      const items = Array.from(track.querySelectorAll('.liItem'));
+      if (!items.length) return;
+
+      const left = track.scrollLeft;
+      // find item whose left edge is closest to current scrollLeft
+      let best = items[0];
+      let bestDist = Infinity;
+
+      items.forEach(it => {
+        const dist = Math.abs(it.offsetLeft - left);
+        if (dist < bestDist) { best = it; bestDist = dist; }
+      });
+
+      track.scrollTo({ left: best.offsetLeft, behavior: 'smooth' });
+    }
+
+    track.addEventListener('scroll', () => {
+      clearTimeout(t);
+      t = setTimeout(snapToNearest, 120); // after the user stops scrolling
+    }, { passive: true });
+  });
+})();
 </script>
   <link rel="canonical" href="https://drminhem.com/">
   <!-- Better Arabic font (clean + readable) + Inter for English -->
