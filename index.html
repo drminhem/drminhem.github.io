@@ -531,6 +531,35 @@
   font-size: 0.95rem;     /* was inherited (~0.9) */
   border-radius: 14px;   /* slightly rounder */
 }
+    /* TRUST BOX ALIGNMENT */
+.trust{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+
+/* Make the top line (icon + title) align perfectly */
+.trust b{
+  display:flex;
+  align-items:center;      /* vertical align icon with text */
+  gap:8px;
+  line-height:1.15;
+}
+
+/* Normalize icon box */
+.trust b svg{
+  width:16px;
+  height:16px;
+  flex:0 0 16px;
+  display:block;           /* removes baseline wobble */
+  transform: translateY(1px); /* optional: nudge for optical centering */
+}
+
+/* Keep subtitle spacing consistent */
+.trust span{
+  margin-top:8px;
+  line-height:1.35;
+}
   </style>
 </head>
 
