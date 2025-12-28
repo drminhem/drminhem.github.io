@@ -715,17 +715,26 @@
 @media (max-width: 820px){
   .liOverlay{ display:flex; }
 
-  /* ALWAYS locked: never capture touch inside iframe on mobile */
+  /* keep iframe locked on mobile */
   .liItem iframe{ pointer-events:none; }
 
-  /* Make page vertical scroll always win */
-  .liCarousel, .liTrack, .liItem{
+  /* IMPORTANT:
+     - Track should allow horizontal swipes
+     - Cards/page should allow vertical scroll */
+  .liTrack{
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+  }
+
+  .liItem{
     touch-action: pan-y;
   }
 
-  /* Horizontal swiping still works when user swipes sideways */
-  .liTrack{
-    overscroll-behavior-x: contain;
+  /* (optional) better momentum + less accidental selection */
+  .liTrack, .liItem, .liOpenBtn{
+    -webkit-tap-highlight-color: transparent;
   }
 }
   </style>
