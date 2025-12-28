@@ -517,15 +517,7 @@
         padding-right: max(var(--pad), env(safe-area-inset-right));
       }
     }
-  /* Safe logo handling (prevents RTL artifacts) */
-.site-logo{
-  display: block;
-  max-width: 100%;
-}
-
-body[data-lang="ar"] .site-logo{
-  display: none;
-}
+  
   </style>
 </head>
 
@@ -881,7 +873,7 @@ body[data-lang="ar"] .site-logo{
         <div class="nav">
           <div class="brand rtl">
             <div class="logo" aria-hidden="true">
-              <img src="logo.svg" alt="Logo" class="site-logo">
+              <img src="logo.svg" alt="" onerror="this.style.display='none'">
             </div>
             <div class="brandText">
               <span class="brandTitle">الدكتور محمد منعم</span>
