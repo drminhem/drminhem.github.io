@@ -113,10 +113,11 @@
   padding-left: 0;
   padding-right: 18px;
 }
-/* Flip ONLY directional arrows in Arabic */
-.rtl use[href="#i-arrow"]{
+/* RTL: flip ONLY the arrow SVG that contains #i-arrow */
+.rtl svg:has(use[href="#i-arrow"]){
   transform: scaleX(-1);
   transform-origin: center;
+  display: inline-block;
 }
 /* Safety: prevent any spacing inheritance */
 .rtl, .rtl *{
