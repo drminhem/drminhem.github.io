@@ -10,7 +10,7 @@
   <!-- Better Arabic font (clean + readable) + Inter for English -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
   />
 
   <style>
@@ -67,19 +67,67 @@
     body[data-lang="ar"] #en{display:none}
     body[data-lang="ar"] #ar{display:block}
 
-    /* Arabic direction + font */
-    .rtl{
-      direction:rtl;text-align:right;
-      font-family:"Noto Kufi Arabic",Tahoma,Arial,sans-serif;
-      letter-spacing:0;
-      font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-    .rtl h1, .rtl .sectionTitle{letter-spacing:0}
-    .rtl .k{letter-spacing:0; text-transform:none}
-    .rtl .eyebrow{letter-spacing:0; text-transform:none; font-weight:900}
-    .rtl .list{padding-left:0; padding-right:18px}
+   /* Arabic direction + font (pro + compact) */
+.rtl{
+  direction: rtl;
+  text-align: right;
+
+  /* Body text: compact + very readable */
+  font-family: "IBM Plex Sans Arabic","Noto Kufi Arabic",Tahoma,Arial,sans-serif;
+
+  /* Make Arabic more compact */
+  line-height: 1.45;
+  letter-spacing: 0;
+  word-spacing: -0.02em;
+
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings only: keep Noto Kufi for premium look */
+.rtl h1,
+.rtl h2,
+.rtl h3,
+.rtl .sectionTitle{
+  font-family: "Noto Kufi Arabic","IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+/* UI boxes/buttons/cards become denser */
+.rtl .card,
+.rtl .trust,
+.rtl .btn,
+.rtl .chip,
+.rtl .eyebrow{
+  line-height: 1.35;
+}
+
+/* Labels / small caps in Arabic */
+.rtl .k{
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.35;
+}
+
+/* Eyebrow pill */
+.rtl .eyebrow{
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 900;
+}
+
+/* Lists in Arabic */
+.rtl .list{
+  padding-left: 0;
+  padding-right: 18px;
+}
+
+/* Safety: prevent any inherited letter-spacing messing Arabic */
+.rtl, .rtl *{
+  letter-spacing: 0 !important;
+}
 
     /* Top bar */
     .topbar{
