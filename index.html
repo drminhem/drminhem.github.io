@@ -113,12 +113,7 @@
   padding-left: 0;
   padding-right: 18px;
 }
-/* RTL: flip ONLY the arrow SVG that contains #i-arrow */
-.rtl svg:has(use[href="#i-arrow"]){
-  transform: scaleX(-1);
-  transform-origin: center;
-  display: inline-block;
-}
+
 /* Safety: prevent any spacing inheritance */
 .rtl, .rtl *{
   letter-spacing: 0 !important;
@@ -1224,7 +1219,23 @@
         btn.textContent = (lang === 'ar') ? 'English' : 'العربية';
       });
     }
+function syncRtlArrows(){
+  const isAr = document.body.getAttribute('data-lang') === 'ar';
 
+  // Safari sometimes uses xlink:href instead of href
+  const uses = document.querySelectorAll(
+    'use[href="#i-arrow"], use[xlink\\:href="#i-arrow"]'
+  );
+
+  uses.forEach(u => {
+    const svg = u.closest('svg');
+    if (!svg) return;
+
+    svg.style.transform = isAr ? 'scaleX(-1)' : '';
+    svg.style.transformOrigin = 'center';
+    svg.style.display = 'inline-block';
+  });
+}
     function setLang(lang){
       const isAr = (lang === 'ar');
 
@@ -1246,6 +1257,7 @@
 
       syncLangButtons(isAr ? 'ar' : 'en');
       localStorage.setItem(LANG_KEY, isAr ? 'ar' : 'en');
+      syncRtlArrows();
     }
 
     function toggleLang(){
@@ -1299,6 +1311,7 @@
         mobileMenuAr.classList.remove('open'); menuBtnAr?.setAttribute('aria-expanded','false');
       }
     });
+    syncRtlArrows();
   </script>
 </body>
 </html>
