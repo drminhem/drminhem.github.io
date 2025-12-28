@@ -69,6 +69,12 @@
     body[data-lang="ar"] #en{display:none}
     body[data-lang="ar"] #ar{display:block}
 
+    .phone-ltr{
+  direction:ltr;
+  unicode-bidi:bidi-override;
+  display:inline-block;
+}
+    
   /* Arabic direction + font (compact UI) */
 .rtl{
   direction: rtl;
@@ -1157,7 +1163,12 @@
                   <div class="ico" aria-hidden="true"><svg width="18" height="18"><use href="#i-whatsapp"></use></svg></div>
                   <div>
                     <b style="display:block;font-weight:1000;color:rgba(15,26,18,.92)">واتساب</b>
-                    <span style="display:block;color:var(--muted);font-weight:800"><a href="https://wa.me/96181902903" target="_blank" rel="noopener">+961 81 902 903</a></span>
+                    <span style="display:block;color:var(--muted);font-weight:800"><a href="https://wa.me/96181902903"
+   target="_blank"
+   rel="noopener"
+   class="phone-ltr">
+  +961 81 902 903
+</a></span>
                   </div>
                 </div>
 
