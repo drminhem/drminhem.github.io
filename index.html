@@ -517,12 +517,14 @@
         padding-right: max(var(--pad), env(safe-area-inset-right));
       }
     }
-    /* Hide stray navigation arrows in corners (RTL fix) */
-body[data-lang="ar"] .swiper-button-next,
-body[data-lang="ar"] .swiper-button-prev,
-body[data-lang="ar"] .slider-arrow,
-body[data-lang="ar"] .carousel-arrow{
-  display: none !important;
+  /* Safe logo handling (prevents RTL artifacts) */
+.site-logo{
+  display: block;
+  max-width: 100%;
+}
+
+body[data-lang="ar"] .site-logo{
+  display: none;
 }
   </style>
 </head>
@@ -879,7 +881,7 @@ body[data-lang="ar"] .carousel-arrow{
         <div class="nav">
           <div class="brand rtl">
             <div class="logo" aria-hidden="true">
-              <img src="logo.svg" alt="" onerror="this.style.display='none'">
+              <img src="logo.svg" alt="Logo" class="site-logo">
             </div>
             <div class="brandText">
               <span class="brandTitle">الدكتور محمد منعم</span>
