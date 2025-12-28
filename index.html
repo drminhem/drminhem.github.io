@@ -7,7 +7,7 @@
   <title>Mohamad Minhem, MD | Hematology & Oncology • Lebanon</title>
   <meta name="description" content="Guideline-based hematology & oncology care in Lebanon. Precision medicine, clear plans, and patient-centered decisions." />
 
-  <!-- FIX #1: Proper Arabic font (Google Fonts) -->
+  <!-- Arabic font fix -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
@@ -40,7 +40,6 @@
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      /* FIX #2: Better font setup (EN default) */
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
       color:var(--text);
       background:
@@ -61,21 +60,15 @@
       padding-right: max(var(--pad), env(safe-area-inset-right));
     }
 
-    /* =========================
-       FIX #3: Language switching
-       - Default: show EN, hide AR (no blank page)
-       - When body[data-lang="ar"]: show AR, hide EN
-       ========================= */
+    /* === LANGUAGE SWITCHING (FIXED) === */
     #en{display:block}
     #ar{display:none}
     body[data-lang="ar"] #en{display:none}
     body[data-lang="ar"] #ar{display:block}
 
-    /* Arabic typography + shaping */
     .rtl{
       direction:rtl;
       text-align:right;
-      /* Arabic-friendly font first */
       font-family: Cairo, "Noto Kufi Arabic", "Noto Naskh Arabic", Tahoma, Arial, sans-serif;
       letter-spacing: 0;
       font-kerning: normal;
@@ -248,8 +241,7 @@
       text-transform:uppercase;
       font-size:.73rem;
     }
-    /* Arabic eyebrow: stop uppercase/letter-spacing distortion */
-    .rtl .eyebrow{letter-spacing:0; text-transform:none; font-weight:900}
+    .rtl .eyebrow{letter-spacing:0;text-transform:none;font-weight:900}
 
     .eyebrow .pulse{
       width:9px;height:9px;border-radius:999px;
@@ -367,7 +359,6 @@
       color:rgba(15,26,18,.95);
     }
     .rtl .sectionTitle{letter-spacing:0}
-
     .sectionSub{
       margin:8px 0 16px;
       color:var(--muted);
@@ -404,7 +395,7 @@
       font-weight:1000;
       margin:0 0 8px;
     }
-    .rtl .k{letter-spacing:0; text-transform:none}
+    .rtl .k{letter-spacing:0;text-transform:none}
 
     .card h3{margin:0 0 8px; font-size:1.12rem; color:rgba(15,26,18,.92)}
     .card p{margin:0; color:var(--muted); line-height:1.6; font-weight:700}
@@ -541,8 +532,7 @@
               <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
               Appointments
             </a>
-            <!-- one “toggle” button (label auto-updates) -->
-            <button class="langBtn js-lang-toggle" type="button" aria-label="Toggle language">العربية</button>
+            <button class="langBtn js-lang-toggle" type="button">العربية</button>
             <button class="menuBtn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu">☰</button>
           </div>
         </div>
@@ -557,7 +547,6 @@
       <a href="#contact-en">Contact</a>
     </div>
 
-    <!-- (Your EN content stays the same below) -->
     <header class="hero">
       <div class="wrap">
         <div class="heroGrid">
@@ -628,12 +617,203 @@
     </header>
 
     <main>
-      <!-- EN sections unchanged -->
-      <section id="care-en"> ... </section>
-      <section id="pillars-en"> ... </section>
-      <section id="background-en"> ... </section>
-      <section id="academic-en"> ... </section>
-      <section id="contact-en"> ... </section>
+      <section id="care-en">
+        <div class="wrap">
+          <h2 class="sectionTitle">Care that feels clear and safe</h2>
+          <p class="sectionSub">Less jargon. More structure. Decisions you can understand.</p>
+
+          <div class="grid2">
+            <div class="card">
+              <div class="cardPad">
+                <p class="k">What to expect</p>
+                <h3>Structured, step-by-step care</h3>
+                <ul class="list">
+                  <li><b>Clear plan</b> after each visit (what we know, what’s next, why).</li>
+                  <li><b>Evidence-first</b> decisions (NCCN/ESMO/ASCO when relevant).</li>
+                  <li><b>Precision testing</b> used selectively—only when it can change treatment.</li>
+                  <li><b>Supportive care</b> early (symptoms, side effects, quality of life).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="cardPad">
+                <p class="k">Quick questions</p>
+
+                <details>
+                  <summary>Do you offer second opinions?</summary>
+                  <p>Yes. I can review pathology, imaging, and prior treatments and provide a clear options-focused plan.</p>
+                </details>
+
+                <details>
+                  <summary>Can you review my tests before the visit?</summary>
+                  <p>Yes. Send pathology, imaging reports, and recent labs so the visit focuses on decisions.</p>
+                </details>
+
+                <details>
+                  <summary>Do you treat both cancer and blood disorders?</summary>
+                  <p>Yes. This includes cancers, anemia, clotting disorders, and platelet conditions.</p>
+                </details>
+
+                <details>
+                  <summary>Does every patient need chemotherapy?</summary>
+                  <p>No. Options may include targeted therapy, immunotherapy, chemotherapy, radiation, surgery, or observation.</p>
+                </details>
+
+                <details>
+                  <summary>Can a family member join by phone during the visit?</summary>
+                  <p>Yes. We can include a family member to support understanding and decisions.</p>
+                </details>
+
+                <details>
+                  <summary>How quickly can I get an appointment?</summary>
+                  <p>Urgent cases are prioritized. Message via WhatsApp or email and include your diagnosis and reports.</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pillars-en">
+        <div class="wrap">
+          <h2 class="sectionTitle">Three pillars</h2>
+          <p class="sectionSub">Modern oncology should be precise, evidence-driven, and human.</p>
+
+          <div class="grid3">
+            <article class="card">
+              <div class="media"><img src="precision-medicine.png" alt="Precision medicine" loading="lazy" decoding="async" /></div>
+              <div class="cardPad"><p class="k">01</p><h3>Precision medicine</h3><p>Biomarkers and targeted choices — tailored to the biology of each case.</p></div>
+            </article>
+            <article class="card">
+              <div class="media"><img src="evidence-based-care.png" alt="Evidence-based care" loading="lazy" decoding="async" /></div>
+              <div class="cardPad"><p class="k">02</p><h3>Evidence-based care</h3><p>Up-to-date guidelines, multidisciplinary thinking, and safe execution.</p></div>
+            </article>
+            <article class="card">
+              <div class="media"><img src="compassionate-care.png" alt="Compassionate support" loading="lazy" decoding="async" /></div>
+              <div class="cardPad"><p class="k">03</p><h3>Compassionate support</h3><p>Clear communication, shared decisions, and symptom-focused care early.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="background-en">
+        <div class="wrap">
+          <h2 class="sectionTitle">Background</h2>
+          <p class="sectionSub">Training and continuous learning — summarized.</p>
+
+          <div class="grid2">
+            <div class="card">
+              <div class="cardPad">
+                <p class="k">Education</p>
+                <ul class="list">
+                  <li><b>BS, Biology</b> — American University of Beirut (2009–2012)</li>
+                  <li><b>MD</b> — American University of Beirut (2012–2016)</li>
+                  <li><b>General Surgery Training</b> — UIC/MGH (2018–2019)</li>
+                  <li><b>Internal Medicine Residency</b> — Mercy Hospital & Medical Center; Loyola Medicine (2019–2022)</li>
+                  <li><b>Hematology & Oncology Fellowship</b> — University of Balamand (2023–2026)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="cardPad">
+                <p class="k">Recognitions</p>
+                <ul class="list">
+                  <li><b>ABIM</b> — Board Certified (Internal Medicine) • <a href="https://www.abim.org/verify-physician?type=id&id=446890" target="_blank" rel="noopener">verify</a></li>
+                  <li><b>ESMO Exam</b> — Top 5 (2025) • <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">official</a></li>
+                  <li><b>ASCO ITE</b> — ≥99th percentile (2025)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="academic-en">
+        <div class="wrap">
+          <h2 class="sectionTitle">Academic work</h2>
+          <p class="sectionSub">Selected items only — streamlined for readability.</p>
+
+          <div class="grid2">
+            <div class="card">
+              <div class="cardPad">
+                <p class="k">Publications</p>
+                <ul class="list">
+                  <li>GI hemorrhage in GI cancer — <em>World Journal of Gastrointestinal Endoscopy</em> (2021)</li>
+                  <li>Living-donor liver transplantation in the USA — <em>Liver Transplantation</em> (2021)</li>
+                  <li>Bariatric surgery & rectal cancer (abstract) — <em>American Journal of Gastroenterology</em> / ACG (2020)</li>
+                  <li>Diabetic foot infection in MENA (systematic review) — <em>Diabetic Foot Journal Middle East</em> (2019)</li>
+                  <li>TB presenting with GI symptoms — <em>ACP Hospitalist</em> (2021)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="cardPad">
+                <p class="k">Teaching</p>
+                <ul class="list">
+                  <li>Continuous teaching to medical students, residents, and fellows (heme/onc).</li>
+                  <li>Renal cell carcinoma: NCCN-guided approach.</li>
+                  <li>NSCLC treatment updates.</li>
+                  <li>Colorectal cancer biology & pathophysiology.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact-en">
+        <div class="wrap">
+          <h2 class="sectionTitle">Contact</h2>
+          <p class="sectionSub">Appointments and medical inquiries: WhatsApp or email.</p>
+
+          <div class="grid2">
+            <div class="card">
+              <div class="cardPad">
+                <div class="contactRow">
+                  <div class="ico" aria-hidden="true"><svg width="18" height="18"><use href="#i-whatsapp"></use></svg></div>
+                  <div>
+                    <b style="display:block;font-weight:1000;color:rgba(15,26,18,.92)">WhatsApp</b>
+                    <span style="display:block;color:var(--muted);font-weight:800"><a href="https://wa.me/96181902903" target="_blank" rel="noopener">+961 81 902 903</a></span>
+                  </div>
+                </div>
+
+                <div class="contactRow">
+                  <div class="ico" aria-hidden="true"><svg width="18" height="18"><use href="#i-mail"></use></svg></div>
+                  <div>
+                    <b style="display:block;font-weight:1000;color:rgba(15,26,18,.92)">Email</b>
+                    <span style="display:block;color:var(--muted);font-weight:800"><a href="mailto:contact@drminhem.com">contact@drminhem.com</a></span>
+                  </div>
+                </div>
+
+                <div class="contactRow">
+                  <div class="ico" aria-hidden="true">📍</div>
+                  <div>
+                    <b style="display:block;font-weight:1000;color:rgba(15,26,18,.92)">Location</b>
+                    <span style="display:block;color:var(--muted);font-weight:800">Lebanon</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="cardPad">
+                <p class="k">Before you message</p>
+                <ul class="list">
+                  <li>Main diagnosis (or concern) + where you were treated.</li>
+                  <li>Key documents: pathology, imaging reports, latest labs.</li>
+                  <li>Your top 3 questions.</li>
+                </ul>
+                <p style="margin:14px 0 0;color:var(--muted);font-weight:800">
+                  <b style="color:rgba(15,26,18,.92)">Note:</b> This site is informational and does not replace emergency care.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
@@ -674,8 +854,7 @@
               <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
               المواعيد
             </a>
-            <!-- same toggle button class (label auto-updates) -->
-            <button class="langBtn js-lang-toggle" type="button" aria-label="Toggle language">English</button>
+            <button class="langBtn js-lang-toggle" type="button">English</button>
             <button class="menuBtn" id="menuBtnAr" type="button" aria-expanded="false" aria-controls="mobileMenuAr">☰</button>
           </div>
         </div>
@@ -690,12 +869,209 @@
       <a href="#contact-ar">التواصل</a>
     </div>
 
-    <!-- AR content (your existing Arabic sections) -->
-    <header class="hero"> ... </header>
+    <header class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+          <div class="heroCard">
+            <div class="heroBody">
+              <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> أمراض الدم والأورام</div>
+              <h1>الدكتور محمد منعم</h1>
+              <p class="sub">رعاية مبنية على الدليل العلمي لأمراض السرطان والدم، مع خطة واضحة ومشاركة المريض في القرار.</p>
+              <p class="lead">
+                طب دقيق عندما يكون مفيدًا (واسمات حيوية، علاج موجّه، علاج مناعي) — بتواصل واضح، أمان علاجي، وقرارات عملية.
+              </p>
+
+              <div class="trustRow">
+                <div class="trust">
+                  <b><svg style="width:16px;height:16px;vertical-align:-3px;margin-left:6px"><use href="#i-shield"></use></svg>
+                    ABIM (أمريكا) — موثّق
+                  </b>
+                  <span>المجلس الأمريكي للباطنة •
+                    <a href="https://www.abim.org/verify-physician?type=id&id=446890" target="_blank" rel="noopener">التحقق الرسمي</a>
+                  </span>
+                </div>
+
+                <div class="trust">
+                  <b><svg style="width:16px;height:16px;vertical-align:-3px;margin-left:6px"><use href="#i-check"></use></svg>
+                    امتحان ESMO — ضمن أعلى 5 (2025)
+                  </b>
+                  <span>الجمعية الأوروبية للأورام (امتحان دولي للأورام) •
+                    <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">الصفحة الرسمية</a>
+                  </span>
+                </div>
+
+                <div class="trust">
+                  <b><svg style="width:16px;height:16px;vertical-align:-3px;margin-left:6px"><use href="#i-check"></use></svg>
+                    امتحان ASCO — ≥99th (2025)
+                  </b>
+                  <span>الجمعية الأمريكية للأورام • امتحان تدريبي</span>
+                </div>
+              </div>
+
+              <div class="ctaRow">
+                <a class="btn wa" href="https://wa.me/96181902903" target="_blank" rel="noopener">
+                  <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+                  واتساب
+                </a>
+                <a class="btn mail" href="mailto:contact@drminhem.com">
+                  <svg aria-hidden="true"><use href="#i-mail"></use></svg>
+                  إيميل
+                </a>
+                <a class="btn ghost" href="#care-ar">
+                  كيف أعمل
+                  <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="heroMedia">
+            <div class="portrait">
+              <img src="IMG_0644.jpeg" alt="الدكتور محمد منعم" loading="eager" decoding="async" />
+            </div>
+            <div class="quickNote">
+              <b>ما ستحصل عليه:</b> تشخيص واضح → فحوصات ضرورية → خيارات علاج → خطة متابعة، حسب الإرشادات وبما يناسب حالتك.
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <main>
-      <section id="care-ar"> ... </section>
-      <section id="pillars-ar"> ... </section>
-      <section id="contact-ar"> ... </section>
+      <section id="care-ar">
+        <div class="wrap">
+          <h2 class="sectionTitle">رعاية واضحة ومطمئنة</h2>
+          <p class="sectionSub">مصطلحات أقل. خطة أكثر. قرار مفهوم.</p>
+
+          <div class="grid2">
+            <div class="card rtl">
+              <div class="cardPad">
+                <p class="k">ماذا تتوقع</p>
+                <h3>خطة منظمة خطوة بخطوة</h3>
+                <ul class="list" style="padding-left:0;padding-right:18px">
+                  <li><b>خطة واضحة</b> بعد كل زيارة (ماذا نعرف، ماذا سنفعل، ولماذا).</li>
+                  <li><b>قرارات مبنية على الدليل</b> وفق الإرشادات عند الاقتضاء.</li>
+                  <li><b>فحوصات الطب الدقيق</b> عندما تغيّر القرار العلاجي فعلًا.</li>
+                  <li><b>رعاية داعمة مبكرة</b> للأعراض والآثار الجانبية وجودة الحياة.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card rtl">
+              <div class="cardPad">
+                <p class="k">أسئلة سريعة</p>
+
+                <details>
+                  <summary>هل تقدّم رأيًا طبيًا ثانيًا؟</summary>
+                  <p>نعم. يمكنني مراجعة التقارير وتقديم خطة خيارات واضحة.</p>
+                </details>
+
+                <details>
+                  <summary>هل يمكن إرسال التقارير قبل الموعد؟</summary>
+                  <p>نعم. أرسل تقارير الخزعة والتصوير والتحاليل الحديثة ليركّز الموعد على القرارات.</p>
+                </details>
+
+                <details>
+                  <summary>هل تعالج السرطان وأمراض الدم معًا؟</summary>
+                  <p>نعم. يشمل ذلك السرطانات، فقر الدم، التخثر، واضطرابات الصفائح.</p>
+                </details>
+
+                <details>
+                  <summary>هل كل مريض يحتاج كيميائي؟</summary>
+                  <p>لا. الخيارات قد تشمل علاجًا موجّهًا، مناعيًا، كيميائيًا، إشعاعًا، جراحة، أو متابعة دقيقة.</p>
+                </details>
+
+                <details>
+                  <summary>هل يمكن لأحد أفراد العائلة المشاركة عبر الهاتف؟</summary>
+                  <p>نعم. يمكن إشراك أحد أفراد العائلة لتسهيل الفهم واتخاذ القرار.</p>
+                </details>
+
+                <details>
+                  <summary>كم بسرعة يمكن الحصول على موعد؟</summary>
+                  <p>الحالات العاجلة تُعطى أولوية. تواصل عبر واتساب/إيميل وأرسل التشخيص والتقارير.</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pillars-ar">
+        <div class="wrap">
+          <h2 class="sectionTitle">ثلاث ركائز</h2>
+          <p class="sectionSub">الأورام الحديثة يجب أن تكون دقيقة، مبنية على الدليل، وإنسانية.</p>
+
+          <div class="grid3">
+            <article class="card rtl">
+              <div class="media"><img src="precision-medicine.png" alt="الطب الدقيق" loading="lazy" decoding="async" /></div>
+              <div class="cardPad"><p class="k">01</p><h3>الطب الدقيق</h3><p>واسمات حيوية وخيارات علاج موجّهة حسب طبيعة كل حالة.</p></div>
+            </article>
+            <article class="card rtl">
+              <div class="media"><img src="evidence-based-care.png" alt="رعاية مبنية على الدليل" loading="lazy" decoding="async" /></div>
+              <div class="cardPad"><p class="k">02</p><h3>رعاية مبنية على الدليل</h3><p>إرشادات حديثة، نهج متعدد التخصصات، وتنفيذ آمن.</p></div>
+            </article>
+            <article class="card rtl">
+              <div class="media"><img src="compassionate-care.png" alt="رعاية داعمة" loading="lazy" decoding="async" /></div>
+              <div class="cardPad"><p class="k">03</p><h3>رعاية داعمة إنسانية</h3><p>تواصل واضح ومشاركة القرار مع التركيز على الأعراض وجودة الحياة.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOTE: You had background-ar & academic-ar in the nav, but not the sections in your pasted code.
+           If you want them, I can translate and add them to match EN. For now I’m keeping your original exactly. -->
+
+      <section id="contact-ar">
+        <div class="wrap">
+          <h2 class="sectionTitle">التواصل</h2>
+          <p class="sectionSub">للمواعيد والاستفسارات الطبية: واتساب أو إيميل.</p>
+
+          <div class="grid2">
+            <div class="card rtl">
+              <div class="cardPad">
+                <div class="contactRow">
+                  <div class="ico" aria-hidden="true"><svg width="18" height="18"><use href="#i-whatsapp"></use></svg></div>
+                  <div>
+                    <b style="display:block;font-weight:1000;color:rgba(15,26,18,.92)">واتساب</b>
+                    <span style="display:block;color:var(--muted);font-weight:800"><a href="https://wa.me/96181902903" target="_blank" rel="noopener">+961 81 902 903</a></span>
+                  </div>
+                </div>
+
+                <div class="contactRow">
+                  <div class="ico" aria-hidden="true"><svg width="18" height="18"><use href="#i-mail"></use></svg></div>
+                  <div>
+                    <b style="display:block;font-weight:1000;color:rgba(15,26,18,.92)">إيميل</b>
+                    <span style="display:block;color:var(--muted);font-weight:800"><a href="mailto:contact@drminhem.com">contact@drminhem.com</a></span>
+                  </div>
+                </div>
+
+                <div class="contactRow">
+                  <div class="ico" aria-hidden="true">📍</div>
+                  <div>
+                    <b style="display:block;font-weight:1000;color:rgba(15,26,18,.92)">الموقع</b>
+                    <span style="display:block;color:var(--muted);font-weight:800">لبنان</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card rtl">
+              <div class="cardPad">
+                <p class="k">قبل إرسال الرسالة</p>
+                <ul class="list" style="padding-left:0;padding-right:18px">
+                  <li>التشخيص الأساسي (أو الشكوى) + أين تم العلاج.</li>
+                  <li>تقارير الخزعة/التصوير/تحاليل حديثة.</li>
+                  <li>أهم 3 أسئلة لديك.</li>
+                </ul>
+                <p style="margin:14px 0 0;color:var(--muted);font-weight:800">
+                  <b style="color:rgba(15,26,18,.92)">تنبيه:</b> هذا الموقع معلوماتي ولا يغني عن الطوارئ.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
     </main>
 
     <footer>
@@ -718,7 +1094,6 @@
 
     const LANG_KEY = 'site_lang';
 
-    // Labels for the toggle buttons
     function syncLangButtons(lang){
       document.querySelectorAll('.js-lang-toggle').forEach(btn => {
         btn.textContent = (lang === 'ar') ? 'English' : 'العربية';
@@ -753,12 +1128,12 @@
       setLang(current === 'ar' ? 'en' : 'ar');
     }
 
-    // Init language (default EN, never blank)
+    // Init language
     const saved = localStorage.getItem(LANG_KEY);
     if (saved === 'ar' || saved === 'en') setLang(saved);
     else setLang(document.body.getAttribute('data-lang') || 'en');
 
-    // Language toggle (one handler for both buttons)
+    // Toggle
     document.querySelectorAll('.js-lang-toggle').forEach(btn => {
       btn.addEventListener('click', toggleLang);
     });
