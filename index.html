@@ -60,20 +60,22 @@
       padding-right: max(var(--pad), env(safe-area-inset-right));
     }
 
-    /* === LANGUAGE SWITCHING (FIXED) === */
+    /* FIX: correct language switching for #en/#ar (no blank page) */
     #en{display:block}
     #ar{display:none}
     body[data-lang="ar"] #en{display:none}
     body[data-lang="ar"] #ar{display:block}
 
+    /* Arabic direction + font */
     .rtl{
-      direction:rtl;
-      text-align:right;
+      direction:rtl;text-align:right;
       font-family: Cairo, "Noto Kufi Arabic", "Noto Naskh Arabic", Tahoma, Arial, sans-serif;
-      letter-spacing: 0;
-      font-kerning: normal;
+      letter-spacing:0;
       font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     }
+    .rtl h1, .rtl .sectionTitle{letter-spacing:0}
+    .rtl .k{letter-spacing:0; text-transform:none}
+    .rtl .eyebrow{letter-spacing:0; text-transform:none; font-weight:900}
 
     /* Top bar */
     .topbar{
@@ -241,8 +243,6 @@
       text-transform:uppercase;
       font-size:.73rem;
     }
-    .rtl .eyebrow{letter-spacing:0;text-transform:none;font-weight:900}
-
     .eyebrow .pulse{
       width:9px;height:9px;border-radius:999px;
       background:var(--brand2);
@@ -255,8 +255,6 @@
       letter-spacing:-.02em;
       color:rgba(15,26,18,.95);
     }
-    .rtl h1{letter-spacing:0}
-
     .sub{
       margin:0 0 10px;
       color:rgba(15,26,18,.75);
@@ -358,7 +356,6 @@
       letter-spacing:-.01em;
       color:rgba(15,26,18,.95);
     }
-    .rtl .sectionTitle{letter-spacing:0}
     .sectionSub{
       margin:8px 0 16px;
       color:var(--muted);
@@ -395,8 +392,6 @@
       font-weight:1000;
       margin:0 0 8px;
     }
-    .rtl .k{letter-spacing:0;text-transform:none}
-
     .card h3{margin:0 0 8px; font-size:1.12rem; color:rgba(15,26,18,.92)}
     .card p{margin:0; color:var(--muted); line-height:1.6; font-weight:700}
     .list{margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.6; font-weight:700}
@@ -1018,8 +1013,8 @@
         </div>
       </section>
 
-      <!-- NOTE: You had background-ar & academic-ar in the nav, but not the sections in your pasted code.
-           If you want them, I can translate and add them to match EN. For now I’m keeping your original exactly. -->
+      <!-- You had links in Arabic nav for background/academic; you can add those sections later.
+           For now, keeping your original Arabic content exactly as provided. -->
 
       <section id="contact-ar">
         <div class="wrap">
@@ -1102,8 +1097,8 @@
 
     function setLang(lang){
       const isAr = (lang === 'ar');
-      document.body.setAttribute('data-lang', isAr ? 'ar' : 'en');
 
+      document.body.setAttribute('data-lang', isAr ? 'ar' : 'en');
       document.documentElement.setAttribute('data-lang', isAr ? 'ar' : 'en');
       document.documentElement.setAttribute('lang', isAr ? 'ar' : 'en');
       document.documentElement.setAttribute('dir', isAr ? 'rtl' : 'ltr');
@@ -1133,7 +1128,7 @@
     if (saved === 'ar' || saved === 'en') setLang(saved);
     else setLang(document.body.getAttribute('data-lang') || 'en');
 
-    // Toggle
+    // Toggle buttons
     document.querySelectorAll('.js-lang-toggle').forEach(btn => {
       btn.addEventListener('click', toggleLang);
     });
@@ -1141,6 +1136,7 @@
     // Mobile menus
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
+
     const menuBtnAr = document.getElementById('menuBtnAr');
     const mobileMenuAr = document.getElementById('mobileMenuAr');
 
