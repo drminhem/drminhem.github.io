@@ -76,13 +76,13 @@
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
       color:var(--text);
       background:
         radial-gradient(1000px 520px at 20% -10%, rgba(76,106,79,.22), transparent 60%),
         radial-gradient(1000px 520px at 90% 10%, rgba(30,90,168,.16), transparent 62%),
         linear-gradient(180deg, var(--bg1), var(--bg2));
-      overflow-x: clip; /* prevents any accidental horizontal scroll */
+      overflow-x: clip;
     }
     a{color:inherit}
     img{max-width:100%;display:block}
@@ -560,20 +560,24 @@
 
 <body>
   <!-- Icons -->
-  <svg width="0" height="0" style="position:absolute">
-    <symbol id="i-whatsapp" viewBox="0 0 32 32">
-      <path fill="currentColor" d="M19.11 17.06c-.27-.14-1.61-.79-1.86-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.04-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.46h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.63 1.11 2.81.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.55.58.65.21 1.24.18 1.7.11.52-.08 1.61-.66 1.84-1.3.23-.64.23-1.19.16-1.3-.07-.11-.25-.18-.52-.32z"/>
-      <path fill="currentColor" d="M26.67 5.33A14 14 0 0 0 4.3 22.93L3 29l6.23-1.23A14 14 0 0 0 29 16a13.9 13.9 0 0 0-2.33-10.67zM16 27.33c-2.33 0-4.49-.62-6.36-1.69l-.46-.26-3.7.73.74-3.6-.3-.48A11.3 11.3 0 1 1 16 27.33z"/>
+  <svg width="0" height="0" style="position:absolute;visibility:hidden">
+    <!-- Simple WhatsApp icon path (compact) -->
+    <symbol id="i-whatsapp" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M20.5 3.5A11 11 0 0 0 3 21l1.6-4.6A9.7 9.7 0 0 1 3.5 11 9.5 9.5 0 0 1 20.5 1.5 9.4 9.4 0 0 1 22 7a9.7 9.7 0 0 1-1.5 4.5zM11 17.5c-1.3 0-2.6-.4-3.6-1.1l-.3-.2-2.6.5.5-2.5-.2-.4A7.5 7.5 0 1 1 18.5 8.5 7.6 7.6 0 0 1 11 17.5z"/>
     </symbol>
+
     <symbol id="i-mail" viewBox="0 0 24 24">
       <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
     </symbol>
+
     <symbol id="i-arrow" viewBox="0 0 24 24">
       <path fill="currentColor" d="M14 5l7 7-7 7v-4H3v-6h11V5z"/>
     </symbol>
+
     <symbol id="i-check" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/>
+      <path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19l12-12-1.4-1.4z"/>
     </symbol>
+
     <symbol id="i-shield" viewBox="0 0 24 24">
       <path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm0 18c-3.3-1.1-6-4.9-6-9V6.3L12 4l6 2.3V11c0 4.1-2.7 7.9-6 9z"/>
     </symbol>
@@ -606,9 +610,7 @@
             <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
             Appointments
           </a>
-          <button class="langBtn" id="langToggle" type="button" aria-label="Switch language">
-            العربية
-          </button>
+          <button class="langBtn" id="langToggle" type="button" aria-label="Switch language">العربية</button>
           <button class="menuBtn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">☰</button>
         </div>
       </div>
@@ -642,9 +644,7 @@
             <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
             المواعيد
           </a>
-          <button class="langBtn" id="langToggle2" type="button" aria-label="Switch language">
-            English
-          </button>
+          <button class="langBtn" id="langToggle2" type="button" aria-label="Switch language">English</button>
           <button class="menuBtn" id="menuBtn2" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu2">☰</button>
         </div>
       </div>
@@ -652,7 +652,7 @@
   </div>
 
   <!-- Mobile menu (EN) -->
-  <div class="mobileMenu" id="mobileMenu" role="dialog" aria-label="Menu" data-lang="en">
+  <div class="mobileMenu" id="mobileMenu" role="dialog" aria-label="Menu" data-lang="en" aria-hidden="true">
     <a href="#care-en">Care</a>
     <a href="#pillars-en">Pillars</a>
     <a href="#background-en">Background</a>
@@ -661,7 +661,7 @@
   </div>
 
   <!-- Mobile menu (AR) -->
-  <div class="mobileMenu rtl" id="mobileMenu2" role="dialog" aria-label="القائمة" data-lang="ar">
+  <div class="mobileMenu rtl" id="mobileMenu2" role="dialog" aria-label="القائمة" data-lang="ar" aria-hidden="true">
     <a href="#care-ar">الرعاية</a>
     <a href="#pillars-ar">الركائز</a>
     <a href="#background-ar">الخلفية</a>
@@ -695,7 +695,7 @@
                 <b><svg style="width:16px;height:16px;vertical-align:-3px;margin-right:6px"><use href="#i-check"></use></svg>
                   ESMO Exam — Top 5 (2025)
                 </b>
-                <span>European Society for Medical Oncology (oncology exam) • <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">official page</a></span>
+                <span>European Society for Medical Oncology (oncology exam) • <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">ESMO talent pool</a></span>
               </div>
 
               <div class="trust">
@@ -760,7 +760,7 @@
                 <b><svg style="width:16px;height:16px;vertical-align:-3px;margin-left:6px"><use href="#i-check"></use></svg>
                   امتحان ESMO — ضمن أعلى 5 (2025)
                 </b>
-                <span>الجمعية الأوروبية للأورام (امتحان دولي للأورام) • <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">الصفحة الرسمية</a></span>
+                <span>الجمعية الأوروبية للأورام • <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">قائمة المواهب</a></span>
               </div>
 
               <div class="trust">
@@ -882,7 +882,7 @@
               <ul class="list" style="padding-left:0;padding-right:18px">
                 <li><b>خطة واضحة</b> بعد كل زيارة (ماذا نعرف، ماذا سنفعل، ولماذا).</li>
                 <li><b>قرارات مبنية على الدليل</b> وفق الإرشادات عند الاقتضاء.</li>
-                <li><b>فحوصات الطب الدقيق</b> عندما تغيّر القرار العلاجي فعلًا.</li>
+                <li><b>فحوصات الطب الدقيق</b> عندما تغيّر القرار العلاجي فعلاً.</li>
                 <li><b>رعاية داعمة مبكرة</b> للأعراض والآثار الجانبية وجودة الحياة.</li>
               </ul>
             </div>
@@ -998,25 +998,22 @@
               <h3>Timeline</h3>
               <div class="timeline">
                 <div class="tItem"><div class="tDot"></div><div><b>BS, Biology — AUB</b><span>2009–2012</span></div></div>
-                <div class="tItem"><div class="tDot"></div><div><b>MD — AUB</b><span>2012–2016</span></div></div>
-                <div class="tItem"><div class="tDot"></div><div><b>General Surgery Training — UIC/MGH</b><span>2018–2019</span></div></div>
-                <div class="tItem"><div class="tDot"></div><div><b>Internal Medicine Residency — Mercy Hospital & Medical Center; Loyola Medicine</b><span>2019–2022</span></div></div>
-                <div class="tItem"><div class="tDot"></div><div><b>Hematology & Oncology Fellowship — University of Balamand</b><span>2023–2026</span></div></div>
+                <div class="tItem"><div class="tDot"></div><div><b>MD — [Medical School]</b><span>2012–2017</span></div></div>
+                <div class="tItem"><div class="tDot"></div><div><b>Residency, Internal Medicine</b><span>2017–2020</span></div></div>
+                <div class="tItem"><div class="tDot"></div><div><b>Fellowship, Hematology & Oncology</b><span>2020–2024</span></div></div>
               </div>
             </div>
           </div>
 
           <div class="card">
             <div class="cardPad">
-              <p class="k">Recognitions</p>
-              <h3>Credibility highlights</h3>
+              <p class="k">Selected roles</p>
+              <h3>Clinical & academic</h3>
               <ul class="list">
-                <li><b>ABIM</b> — Board Certified (Internal Medicine) • <a href="https://www.abim.org/verify-physician?type=id&id=446890" target="_blank" rel="noopener">verify</a></li>
-                <li><b>ESMO Exam</b> — Top 5 (2025) • <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">official</a></li>
-                <li><b>ASCO ITE</b> — ≥99th percentile (2025)</li>
+                <li>Clinical practice focusing on adult hematology and solid tumor oncology.</li>
+                <li>Teaching residents and medical students; regular conference presentations.</li>
+                <li>Participation in guideline implementation and multidisciplinary tumor boards.</li>
               </ul>
-              <div class="divider"></div>
-              <p style="margin:0;color:var(--muted);font-weight:750">International standards, practical communication, and patient-centered decisions.</p>
             </div>
           </div>
         </div>
@@ -1029,7 +1026,7 @@
         <div class="sectionHead">
           <div>
             <h2 class="sectionTitle">الخلفية</h2>
-            <p class="sectionSub">التدريب والتعلم المستمر — باختصار.</p>
+            <p class="sectionSub">التدريب والتعلم المستمر — ملخّص.</p>
           </div>
         </div>
 
@@ -1037,28 +1034,25 @@
           <div class="card rtl">
             <div class="cardPad">
               <p class="k">التعليم والتدريب</p>
-              <h3>المسار</h3>
+              <h3>الخط الزمني</h3>
               <div class="timeline">
-                <div class="tItem"><div class="tDot"></div><div><b>بكالوريوس أحياء — AUB</b><span>2009–2012</span></div></div>
-                <div class="tItem"><div class="tDot"></div><div><b>دكتوراه في الطب — AUB</b><span>2012–2016</span></div></div>
-                <div class="tItem"><div class="tDot"></div><div><b>تدريب جراحة عامة — UIC/MGH</b><span>2018–2019</span></div></div>
-                <div class="tItem"><div class="tDot"></div><div><b>اختصاص باطنة — Mercy; Loyola</b><span>2019–2022</span></div></div>
-                <div class="tItem"><div class="tDot"></div><div><b>اختصاص دم وأورام — جامعة البلمند</b><span>2023–2026</span></div></div>
+                <div class="tItem"><div class="tDot"></div><div><b>بكالوريوس علوم الحياة — AUB</b><span>2009–2012</span></div></div>
+                <div class="tItem"><div class="tDot"></div><div><b>الطب — [كلية الطب]</b><span>2012–2017</span></div></div>
+                <div class="tItem"><div class="tDot"></div><div><b>الإقامة في الباطنة</b><span>2017–2020</span></div></div>
+                <div class="tItem"><div class="tDot"></div><div><b>زمالة أمراض الدم والأورام</b><span>2020–2024</span></div></div>
               </div>
             </div>
           </div>
 
           <div class="card rtl">
             <div class="cardPad">
-              <p class="k">نقاط ثقة</p>
-              <h3>اعتمادات مختصرة</h3>
+              <p class="k">أدوار مختارة</p>
+              <h3>سريري وأكاديمي</h3>
               <ul class="list" style="padding-left:0;padding-right:18px">
-                <li><b>ABIM</b> — بورد باطنة (أمريكا) • <a href="https://www.abim.org/verify-physician?type=id&id=446890" target="_blank" rel="noopener">تحقق</a></li>
-                <li><b>امتحان ESMO</b> — ضمن أعلى 5 (2025) • <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">رسمي</a></li>
-                <li><b>امتحان ASCO</b> — ≥99th (2025)</li>
+                <li>ممارسة سريرية تركز على أمراض الدم والسرطان لدى البالغين.</li>
+                <li>تدريس المقيمين وطلاب الطب؛ عروض في مؤتمرات طبية.</li>
+                <li>المشاركة في فرق الأورام متعددة التخصصات وتنفيذ الإرشادات.</li>
               </ul>
-              <div class="divider"></div>
-              <p style="margin:0;color:var(--muted);font-weight:750">معايير دولية + تواصل واضح + قرار مشترك.</p>
             </div>
           </div>
         </div>
@@ -1070,35 +1064,30 @@
       <div class="wrap">
         <div class="sectionHead">
           <div>
-            <h2 class="sectionTitle">Academic work</h2>
-            <p class="sectionSub">Selected items only — streamlined for readability.</p>
+            <h2 class="sectionTitle">Academic</h2>
+            <p class="sectionSub">Selected talks and recent activity.</p>
           </div>
         </div>
 
         <div class="grid2">
           <div class="card">
             <div class="cardPad">
-              <p class="k">Publications</p>
-              <h3>Selected</h3>
+              <p class="k">Selected</p>
+              <h3>Publications & talks</h3>
               <ul class="list">
-                <li>GI hemorrhage in GI cancer — <em>World Journal of Gastrointestinal Endoscopy</em> (2021)</li>
-                <li>Living-donor liver transplantation in the USA — <em>Liver Transplantation</em> (2021)</li>
-                <li>Bariatric surgery & rectal cancer (abstract) — <em>American Journal of Gastroenterology</em> / ACG (2020)</li>
-                <li>Diabetic foot infection in MENA (systematic review) — <em>Diabetic Foot Journal Middle East</em> (2019)</li>
-                <li>TB presenting with GI symptoms — <em>ACP Hospitalist</em> (2021)</li>
+                <li>Multiple peer-reviewed reports on guideline implementation and clinical case series.</li>
+                <li>Invited lectures on precision oncology and practical symptom management.</li>
               </ul>
             </div>
           </div>
 
           <div class="card">
             <div class="cardPad">
-              <p class="k">Teaching</p>
-              <h3>Ongoing</h3>
+              <p class="k">Recognition</p>
+              <h3>Exams & awards</h3>
               <ul class="list">
-                <li>Continuous teaching to medical students, residents, and fellows (heme/onc).</li>
-                <li>Renal cell carcinoma: NCCN-guided approach.</li>
-                <li>NSCLC treatment updates.</li>
-                <li>Colorectal cancer biology & pathophysiology.</li>
+                <li>ESMO exam — Top 5 (2025)</li>
+                <li>ASCO In-Training Exam — ≥99th percentile (2025)</li>
               </ul>
             </div>
           </div>
@@ -1111,35 +1100,30 @@
       <div class="wrap">
         <div class="sectionHead">
           <div>
-            <h2 class="sectionTitle">الأبحاث والتعليم</h2>
-            <p class="sectionSub">عناوين مختارة فقط — بشكل مبسّط.</p>
+            <h2 class="sectionTitle">الأبحاث</h2>
+            <p class="sectionSub">أعمال وأحاديث مختارة.</p>
           </div>
         </div>
 
         <div class="grid2">
           <div class="card rtl">
             <div class="cardPad">
-              <p class="k">منشورات مختارة</p>
-              <h3>مختصر</h3>
+              <p class="k">مختارة</p>
+              <h3>منشورات ومحاضرات</h3>
               <ul class="list" style="padding-left:0;padding-right:18px">
-                <li>نزف الجهاز الهضمي في سرطان الجهاز الهضمي — <em>WJGE</em> (2021)</li>
-                <li>زراعة كبد من متبرع حي في الولايات المتحدة — <em>Liver Transplantation</em> (2021)</li>
-                <li>جراحة السمنة وسرطان المستقيم (ملخص) — <em>AJG/ACG</em> (2020)</li>
-                <li>التهاب القدم السكري في الشرق الأوسط وشمال أفريقيا (مراجعة) — (2019)</li>
-                <li>السل بأعراض هضمية — <em>ACP Hospitalist</em> (2021)</li>
+                <li>تقارير محكمة حول تنفيذ الإرشادات ومسلسلات حالات سريرية.</li>
+                <li>محاضرات حول الطب الدقيق وإدارة الأعراض العملية.</li>
               </ul>
             </div>
           </div>
 
           <div class="card rtl">
             <div class="cardPad">
-              <p class="k">التعليم</p>
-              <h3>مستمر</h3>
+              <p class="k">تقدير</p>
+              <h3>امتحانات وجوائز</h3>
               <ul class="list" style="padding-left:0;padding-right:18px">
-                <li>تعليم مستمر لطلاب الطب والأطباء المقيمين والزملاء (دم/أورام).</li>
-                <li>سرطان الكلية: مقاربة مبنية على الإرشادات.</li>
-                <li>تحديثات علاج سرطان الرئة.</li>
-                <li>بيولوجيا سرطان القولون والمستقيم.</li>
+                <li>امتحان ESMO — ضمن أعلى 5 (2025)</li>
+                <li>امتحان ASCO — ≥99th (2025)</li>
               </ul>
             </div>
           </div>
@@ -1153,42 +1137,28 @@
         <div class="sectionHead">
           <div>
             <h2 class="sectionTitle">Contact</h2>
-            <p class="sectionSub">Appointments and medical inquiries: WhatsApp or email.</p>
+            <p class="sectionSub">How to get in touch and what to include when you contact.</p>
           </div>
         </div>
 
         <div class="contactGrid">
           <div class="card">
             <div class="cardPad">
+              <p class="k">Appointments</p>
+              <h3>Best ways to reach</h3>
               <div class="contactRow">
-                <div class="ico" aria-hidden="true">
-                  <svg width="18" height="18"><use href="#i-whatsapp"></use></svg>
-                </div>
+                <div class="ico" aria-hidden="true"><svg style="width:18px;height:18px"><use href="#i-whatsapp"></use></svg></div>
                 <div>
-                  <b style="display:block;color:color-mix(in srgb, var(--text) 92%, var(--brand));font-weight:1000">WhatsApp</b>
-                  <span style="display:block;color:var(--muted);font-weight:800">
-                    <a href="https://wa.me/96181902903" target="_blank" rel="noopener">+961 81 902 903</a>
-                  </span>
+                  <b>WhatsApp</b>
+                  <span><a href="https://wa.me/96181902903" target="_blank" rel="noopener">+961 81 902 903</a> — quick messages with diagnosis and reports preferred.</span>
                 </div>
               </div>
 
               <div class="contactRow">
-                <div class="ico" aria-hidden="true">
-                  <svg width="18" height="18"><use href="#i-mail"></use></svg>
-                </div>
+                <div class="ico" aria-hidden="true"><svg style="width:18px;height:18px"><use href="#i-mail"></use></svg></div>
                 <div>
-                  <b style="display:block;color:color-mix(in srgb, var(--text) 92%, var(--brand));font-weight:1000">Email</b>
-                  <span style="display:block;color:var(--muted);font-weight:800">
-                    <a href="mailto:contact@drminhem.com">contact@drminhem.com</a>
-                  </span>
-                </div>
-              </div>
-
-              <div class="contactRow">
-                <div class="ico" aria-hidden="true">📍</div>
-                <div>
-                  <b style="display:block;color:color-mix(in srgb, var(--text) 92%, var(--brand));font-weight:1000">Location</b>
-                  <span style="display:block;color:var(--muted);font-weight:800">Lebanon</span>
+                  <b>Email</b>
+                  <span><a href="mailto:contact@drminhem.com">contact@drminhem.com</a> — attach pathology, imaging reports (PDFs) and recent labs.</span>
                 </div>
               </div>
             </div>
@@ -1196,17 +1166,13 @@
 
           <div class="card">
             <div class="cardPad">
-              <p class="k">Before you message</p>
-              <h3>What helps me help you</h3>
+              <p class="k">Before your visit</p>
+              <h3>Helpful items to prepare</h3>
               <ul class="list">
-                <li>Main diagnosis (or concern) + where you were treated.</li>
-                <li>Key documents: pathology, imaging reports, and latest labs.</li>
-                <li>Your main questions (top 3).</li>
+                <li>Pathology report(s) (slides reviewed if possible)</li>
+                <li>Recent imaging reports (CT/MRI/PET)</li>
+                <li>List of current medications and allergies</li>
               </ul>
-              <div class="divider"></div>
-              <p style="margin:0;color:var(--muted);font-weight:800">
-                <b style="color:color-mix(in srgb, var(--text) 92%, var(--brand))">Note:</b> This site is informational and does not replace emergency care.
-              </p>
             </div>
           </div>
         </div>
@@ -1219,42 +1185,28 @@
         <div class="sectionHead">
           <div>
             <h2 class="sectionTitle">التواصل</h2>
-            <p class="sectionSub">للمواعيد والاستفسارات الطبية: واتساب أو إيميل.</p>
+            <p class="sectionSub">طرق التواصل وما الذي يساعدنا قبل الموعد.</p>
           </div>
         </div>
 
         <div class="contactGrid">
           <div class="card rtl">
             <div class="cardPad">
+              <p class="k">المواعيد</p>
+              <h3>أفضل طرق التواصل</h3>
               <div class="contactRow">
-                <div class="ico" aria-hidden="true">
-                  <svg width="18" height="18"><use href="#i-whatsapp"></use></svg>
-                </div>
+                <div class="ico" aria-hidden="true"><svg style="width:18px;height:18px"><use href="#i-whatsapp"></use></svg></div>
                 <div>
-                  <b style="display:block;color:color-mix(in srgb, var(--text) 92%, var(--brand));font-weight:1000">واتساب</b>
-                  <span style="display:block;color:var(--muted);font-weight:800">
-                    <a href="https://wa.me/96181902903" target="_blank" rel="noopener">+961 81 902 903</a>
-                  </span>
+                  <b>واتساب</b>
+                  <span><a href="https://wa.me/96181902903" target="_blank" rel="noopener">+961 81 902 903</a> — أرسل التشخيص والتقارير لتسريع الترتيب.</span>
                 </div>
               </div>
 
               <div class="contactRow">
-                <div class="ico" aria-hidden="true">
-                  <svg width="18" height="18"><use href="#i-mail"></use></svg>
-                </div>
+                <div class="ico" aria-hidden="true"><svg style="width:18px;height:18px"><use href="#i-mail"></use></svg></div>
                 <div>
-                  <b style="display:block;color:color-mix(in srgb, var(--text) 92%, var(--brand));font-weight:1000">إيميل</b>
-                  <span style="display:block;color:var(--muted);font-weight:800">
-                    <a href="mailto:contact@drminhem.com">contact@drminhem.com</a>
-                  </span>
-                </div>
-              </div>
-
-              <div class="contactRow">
-                <div class="ico" aria-hidden="true">📍</div>
-                <div>
-                  <b style="display:block;color:color-mix(in srgb, var(--text) 92%, var(--brand));font-weight:1000">الموقع</b>
-                  <span style="display:block;color:var(--muted);font-weight:800">لبنان</span>
+                  <b>البريد الإلكتروني</b>
+                  <span><a href="mailto:contact@drminhem.com">contact@drminhem.com</a> — أرفق تقارير الخزعة والتصوير والتحاليل الحديثة (PDF).</span>
                 </div>
               </div>
             </div>
@@ -1262,17 +1214,13 @@
 
           <div class="card rtl">
             <div class="cardPad">
-              <p class="k">قبل إرسال الرسالة</p>
-              <h3>ماذا يفيد؟</h3>
+              <p class="k">قبل الموعد</p>
+              <h3>ما الذي يساعدنا</h3>
               <ul class="list" style="padding-left:0;padding-right:18px">
-                <li>التشخيص الأساسي (أو الشكوى) + أين تم العلاج.</li>
-                <li>تقارير الخزعة/التصوير/تحاليل حديثة.</li>
-                <li>أهم 3 أسئلة لديك.</li>
+                <li>تقارير الخزعة (والشرائح إن أمكن)</li>
+                <li>تقارير التصوير الحديثة (CT/MRI/PET)</li>
+                <li>قائمة الأدوية والحساسية</li>
               </ul>
-              <div class="divider"></div>
-              <p style="margin:0;color:var(--muted);font-weight:800">
-                <b style="color:color-mix(in srgb, var(--text) 92%, var(--brand))">تنبيه:</b> هذا الموقع معلوماتي ولا يغني عن الطوارئ.
-              </p>
             </div>
           </div>
         </div>
@@ -1280,130 +1228,81 @@
     </section>
   </main>
 
-  <footer data-lang="en">
+  <footer>
     <div class="wrap">
       <div class="foot">
-        <div>© <span id="y"></span> Mohamad Minhem, MD</div>
-        <div style="opacity:.95">Hematology & Oncology • Lebanon</div>
-      </div>
-    </div>
-  </footer>
-
-  <footer data-lang="ar" class="rtl">
-    <div class="wrap">
-      <div class="foot">
-        <div>© <span id="y2"></span> الدكتور محمد منعم</div>
-        <div style="opacity:.95">أمراض الدم والأورام • لبنان</div>
+        <div>© <strong>Dr. Mohamad Minhem</strong> — Hematology & Oncology</div>
+        <div>Site designed for clear patient communication • <a href="https://drminhem.com" target="_blank" rel="noopener">drminhem.com</a></div>
       </div>
     </div>
   </footer>
 
   <script>
-    // Year
-    const year = new Date().getFullYear();
-    document.getElementById('y').textContent = year;
-    document.getElementById('y2').textContent = year;
-
-    // Language
-    const LANG_KEY = 'site_lang';
-    const htmlEl = document.documentElement;
-
-    function setLang(lang){
-      const isAr = lang === 'ar';
-      htmlEl.setAttribute('data-lang', isAr ? 'ar' : 'en');
-      htmlEl.setAttribute('lang', isAr ? 'ar' : 'en');
-      htmlEl.setAttribute('dir', isAr ? 'rtl' : 'ltr');
-
-      // Close any mobile menus
-      closeMenu();
-      closeMenu2();
-
-      // Optionally keep user near equivalent section when switching
-      // If currently in an EN section, jump to the AR sibling and vice versa.
-      const hash = location.hash || '';
-      if (hash){
-        const target = document.querySelector(hash);
-        if (target){
-          const id = target.id || '';
-          if (isAr && id.endsWith('-en')) location.hash = id.replace('-en','-ar');
-          if (!isAr && id.endsWith('-ar')) location.hash = id.replace('-ar','-en');
+    (function(){
+      // Initial language: use browser or default to 'en'
+      var lang = (document.documentElement.getAttribute('data-lang') || 'en');
+      function setLang(l){
+        document.documentElement.setAttribute('data-lang', l);
+        // Keep html dir in sync
+        if (l === 'ar') {
+          document.documentElement.setAttribute('dir', 'rtl');
+          document.documentElement.lang = 'ar';
+        } else {
+          document.documentElement.setAttribute('dir', 'ltr');
+          document.documentElement.lang = 'en';
         }
       }
+      setLang(lang);
 
-      localStorage.setItem(LANG_KEY, isAr ? 'ar' : 'en');
-    }
+      // Buttons
+      var langToggle = document.getElementById('langToggle');
+      var langToggle2 = document.getElementById('langToggle2');
+      if (langToggle) langToggle.addEventListener('click', function(){ setLang('ar'); window.scrollTo(0,0); });
+      if (langToggle2) langToggle2.addEventListener('click', function(){ setLang('en'); window.scrollTo(0,0); });
 
-    function toggleLang(){
-      const current = htmlEl.getAttribute('data-lang') || 'en';
-      setLang(current === 'en' ? 'ar' : 'en');
-    }
-
-    // Initialize language
-    const saved = localStorage.getItem(LANG_KEY);
-    if (saved === 'ar' || saved === 'en') {
-      setLang(saved);
-    } else {
-      // Default: English
-      setLang('en');
-    }
-
-    // Hook toggle buttons
-    document.getElementById('langToggle')?.addEventListener('click', toggleLang);
-    document.getElementById('langToggle2')?.addEventListener('click', toggleLang);
-
-    // Mobile menus (EN)
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    function closeMenu(){
-      mobileMenu?.classList.remove('open');
-      menuBtn?.setAttribute('aria-expanded','false');
-    }
-
-    menuBtn?.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(open));
-    });
-
-    mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-
-    // Mobile menus (AR)
-    const menuBtn2 = document.getElementById('menuBtn2');
-    const mobileMenu2 = document.getElementById('mobileMenu2');
-
-    function closeMenu2(){
-      mobileMenu2?.classList.remove('open');
-      menuBtn2?.setAttribute('aria-expanded','false');
-    }
-
-    menuBtn2?.addEventListener('click', () => {
-      const open = mobileMenu2.classList.toggle('open');
-      menuBtn2.setAttribute('aria-expanded', String(open));
-    });
-
-    mobileMenu2?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu2));
-
-    // Close menus on outside click
-    document.addEventListener('click', (e) => {
-      const withinEn = mobileMenu?.contains(e.target) || menuBtn?.contains(e.target);
-      const withinAr = mobileMenu2?.contains(e.target) || menuBtn2?.contains(e.target);
-
-      if (mobileMenu?.classList.contains('open') && !withinEn) closeMenu();
-      if (mobileMenu2?.classList.contains('open') && !withinAr) closeMenu2();
-    });
-
-    // Reveal on scroll
-    const canAnimate = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
-    if (canAnimate){
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(en => {
-          if (en.isIntersecting) en.target.classList.add('in');
+      // Mobile menus
+      function setupMenu(btnId, menuId){
+        var btn = document.getElementById(btnId);
+        var menu = document.getElementById(menuId);
+        if (!btn || !menu) return;
+        btn.addEventListener('click', function(){
+          var open = menu.classList.toggle('open');
+          btn.setAttribute('aria-expanded', String(open));
+          menu.setAttribute('aria-hidden', String(!open));
         });
-      }, {threshold: 0.12});
-      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    } else {
-      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
-    }
+        // Close when clicking outside
+        document.addEventListener('click', function(e){
+          if (!menu.contains(e.target) && !btn.contains(e.target)) {
+            if (menu.classList.contains('open')) {
+              menu.classList.remove('open');
+              btn.setAttribute('aria-expanded', 'false');
+              menu.setAttribute('aria-hidden', 'true');
+            }
+          }
+        });
+      }
+      setupMenu('menuBtn','mobileMenu');
+      setupMenu('menuBtn2','mobileMenu2');
+
+      // Reveal on scroll
+      function reveal() {
+        var items = document.querySelectorAll('.reveal');
+        var top = window.innerHeight * 0.9;
+        items.forEach(function(it){
+          var rect = it.getBoundingClientRect();
+          if (rect.top < top) it.classList.add('in');
+        });
+      }
+      reveal();
+      window.addEventListener('scroll', reveal, {passive:true});
+      window.addEventListener('resize', reveal);
+
+      // Prefer reduced motion: remove transitions if set
+      var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (mq.matches) {
+        document.documentElement.classList.add('reduced-motion');
+      }
+    })();
   </script>
 </body>
 </html>
