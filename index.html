@@ -10,8 +10,7 @@
   <!-- Better Arabic font (clean + readable) + Inter for English -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Noto+Kufi+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-  />
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">  />
 
   <style>
     :root{
@@ -67,35 +66,33 @@
     body[data-lang="ar"] #en{display:none}
     body[data-lang="ar"] #ar{display:block}
 
-   /* Arabic direction + font (pro + compact) */
+  /* Arabic direction + font (compact UI) */
 .rtl{
   direction: rtl;
   text-align: right;
 
-  /* Body text: compact + very readable */
-  font-family: "IBM Plex Sans Arabic","Noto Kufi Arabic",Tahoma,Arial,sans-serif;
+  /* Body text = compact */
+  font-family: "Almarai","IBM Plex Sans Arabic","Noto Kufi Arabic",Tahoma,Arial,sans-serif;
 
-  /* Make Arabic more compact */
   line-height: 1.45;
   letter-spacing: 0;
   word-spacing: -0.02em;
 
-  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Headings only: keep Noto Kufi for premium look */
+/* Headings stay premium */
 .rtl h1,
 .rtl h2,
 .rtl h3,
 .rtl .sectionTitle{
-  font-family: "Noto Kufi Arabic","IBM Plex Sans Arabic",Tahoma,Arial,sans-serif;
-  letter-spacing: 0;
+  font-family: "Noto Kufi Arabic","Almarai",sans-serif;
   line-height: 1.2;
+  letter-spacing: 0;
 }
 
-/* UI boxes/buttons/cards become denser */
+/* Make cards & pills tight */
 .rtl .card,
 .rtl .trust,
 .rtl .btn,
@@ -104,27 +101,20 @@
   line-height: 1.35;
 }
 
-/* Labels / small caps in Arabic */
+/* Labels */
 .rtl .k{
   letter-spacing: 0;
   text-transform: none;
-  line-height: 1.35;
+  line-height: 1.3;
 }
 
-/* Eyebrow pill */
-.rtl .eyebrow{
-  letter-spacing: 0;
-  text-transform: none;
-  font-weight: 900;
-}
-
-/* Lists in Arabic */
+/* Lists */
 .rtl .list{
   padding-left: 0;
   padding-right: 18px;
 }
 
-/* Safety: prevent any inherited letter-spacing messing Arabic */
+/* Safety: prevent any spacing inheritance */
 .rtl, .rtl *{
   letter-spacing: 0 !important;
 }
