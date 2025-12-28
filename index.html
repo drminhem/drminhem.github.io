@@ -639,7 +639,9 @@
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
 }
-
+.liTrack{
+  scroll-snap-stop: always;
+}
 .liTrack::-webkit-scrollbar{height:10px}
 .liTrack::-webkit-scrollbar-thumb{
   background: rgba(15,26,18,.15);
@@ -711,32 +713,23 @@
   gap:8px;
   cursor:pointer;
 }
-
 @media (max-width: 820px){
   .liOverlay{ display:flex; }
-
-  /* keep iframe locked on mobile */
   .liItem iframe{ pointer-events:none; }
 
-  /* IMPORTANT:
-     - Track should allow horizontal swipes
-     - Cards/page should allow vertical scroll */
+  /* Allow horizontal swipe on the carousel */
   .liTrack{
     touch-action: pan-x;
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
     overscroll-behavior-x: contain;
   }
 
+  /* Keep vertical page scroll natural */
+  .liCarousel,
   .liItem{
     touch-action: pan-y;
   }
-
-  /* (optional) better momentum + less accidental selection */
-  .liTrack, .liItem, .liOpenBtn{
-    -webkit-tap-highlight-color: transparent;
-  }
-}
+}  
   </style>
 </head>
 
