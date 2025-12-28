@@ -81,7 +81,11 @@
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-
+/* Flip ONLY directional arrows in Arabic */
+.rtl use[href="#i-arrow"]{
+  transform: scaleX(-1);
+  transform-origin: center;
+}
 /* Headings stay premium */
 .rtl h1,
 .rtl h2,
