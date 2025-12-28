@@ -559,12 +559,15 @@
     display:none !important;
   }
 }
-    /* ==============================
-   LinkedIn Featured Carousel
+   /* ==============================
+   LinkedIn Featured Carousel (PRO)
    ============================== */
-.liSection{
-  padding-top: 10px;
+:root{
+  --liBlue:#0A66C2; /* LinkedIn blue */
 }
+
+.liSection{ padding-top: 10px; }
+
 .liHeaderRow{
   display:flex;
   align-items:flex-end;
@@ -572,11 +575,43 @@
   gap:12px;
   margin:0 0 12px;
 }
+
 .liHint{
   color: var(--muted);
   font-weight: 750;
   font-size: .95rem;
   margin: 6px 0 0;
+}
+
+/* LinkedIn word in blue (like icon) */
+.liLink{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  font-weight:1000;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--stroke);
+  background:rgba(255,255,255,.9);
+  box-shadow: var(--shadow2);
+  transition: transform var(--speed) ease;
+  white-space:nowrap;
+}
+.liLink:hover{ transform: translateY(-1px); }
+.liLink:focus-visible{ outline:none; box-shadow: var(--shadow2), var(--ring); }
+
+.liWord{ color: var(--liBlue); font-weight:1000; letter-spacing:.01em; }
+.liIn{
+  display:inline-grid;
+  place-items:center;
+  width:22px;height:22px;
+  border-radius:6px;
+  background: var(--liBlue);
+  color:#fff;
+  font-weight:1000;
+  font-size:.9rem;
+  line-height:1;
 }
 
 .liCarousel{
@@ -588,7 +623,6 @@
   overflow:hidden;
 }
 
-/* Horizontal scroll track */
 .liTrack{
   display:grid;
   grid-auto-flow: column;
@@ -606,7 +640,6 @@
   overscroll-behavior-x: contain;
 }
 
-/* nicer scrollbar (optional) */
 .liTrack::-webkit-scrollbar{height:10px}
 .liTrack::-webkit-scrollbar-thumb{
   background: rgba(15,26,18,.15);
@@ -617,8 +650,8 @@
   border-radius: 999px;
 }
 
-/* Each embedded post card */
 .liItem{
+  position:relative;
   scroll-snap-align: start;
   border:1px solid var(--stroke);
   border-radius: 18px;
@@ -627,27 +660,63 @@
   overflow:hidden;
 }
 
-/* iframe sizing */
 .liItem iframe{
   width:100%;
-  height: 560px;           /* desktop */
+  height: 560px;
   border:0;
   display:block;
 }
 
-/* Mobile tweaks */
 @media (max-width: 640px){
   .liTrack{ grid-auto-columns: 86vw; }
   .liItem iframe{ height: 520px; }
 }
 
-/* RTL (Arabic) — keep the carousel LTR so it scrolls naturally left→right */
+/* Arabic: keep carousel scrolling LTR so newest appears left→right */
 .rtl .liCarousel,
 .rtl .liTrack{
   direction:ltr;
 }
 .rtl .liHeaderRow{
-  direction: rtl; /* header text stays RTL */
+  direction: rtl;
+}
+
+/* ==============================
+   Mobile nested-scroll fix (Tap to interact)
+   ============================== */
+.liOverlay{
+  position:absolute;
+  inset:0;
+  display:none;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px;
+  pointer-events:none;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 55%, rgba(255,255,255,.92));
+}
+
+.liInteractBtn,
+.liOpenBtn{
+  pointer-events:auto;
+  border:1px solid var(--stroke);
+  background: rgba(255,255,255,.95);
+  box-shadow: var(--shadow2);
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-weight: 950;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+}
+
+@media (max-width: 820px){
+  .liOverlay{ display:flex; }
+  .liItem iframe{ pointer-events:none; }
+  .liItem.isActive iframe{ pointer-events:auto; }
+  .liTrack{ touch-action: pan-x; }
 }
   </style>
 </head>
@@ -940,49 +1009,53 @@
         <h2 class="sectionTitle">Featured LinkedIn posts</h2>
         <p class="liHint">Selected professional updates & insights.</p>
       </div>
-      <a class="chip" href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener">
-        View profile
-        <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
+
+      <a class="liLink" href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+        <span class="liIn" aria-hidden="true">in</span>
+        <span class="liWord">LinkedIn</span>
       </a>
     </div>
 
     <div class="liCarousel" aria-label="Featured LinkedIn posts carousel">
       <div class="liTrack" role="list">
-        <div class="liItem" role="listitem">
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7198818158768451584"
-            loading="lazy"
-            title="LinkedIn post 1"
-            allowfullscreen
-          ></iframe>
+
+        <!-- NEWEST FIRST (reverse order) -->
+        <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7407135949408817152/">
+          <div class="liOverlay">
+            <button class="liInteractBtn" type="button">Tap to scroll post</button>
+            <a class="liOpenBtn" target="_blank" rel="noopener">Open in LinkedIn</a>
+          </div>
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7407135949408817152"
+                  loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
         </div>
 
-        <div class="liItem" role="listitem">
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7339062374840111104"
-            loading="lazy"
-            title="LinkedIn post 2"
-            allowfullscreen
-          ></iframe>
+        <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7386100386878717952/">
+          <div class="liOverlay">
+            <button class="liInteractBtn" type="button">Tap to scroll post</button>
+            <a class="liOpenBtn" target="_blank" rel="noopener">Open in LinkedIn</a>
+          </div>
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7386100386878717952"
+                  loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
         </div>
 
-        <div class="liItem" role="listitem">
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7386100386878717952"
-            loading="lazy"
-            title="LinkedIn post 3"
-            allowfullscreen
-          ></iframe>
+        <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7339062374840111104/">
+          <div class="liOverlay">
+            <button class="liInteractBtn" type="button">Tap to scroll post</button>
+            <a class="liOpenBtn" target="_blank" rel="noopener">Open in LinkedIn</a>
+          </div>
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7339062374840111104"
+                  loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
         </div>
 
-        <div class="liItem" role="listitem">
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7407135949408817152"
-            loading="lazy"
-            title="LinkedIn post 4"
-            allowfullscreen
-          ></iframe>
+        <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7198818158768451584/">
+          <div class="liOverlay">
+            <button class="liInteractBtn" type="button">Tap to scroll post</button>
+            <a class="liOpenBtn" target="_blank" rel="noopener">Open in LinkedIn</a>
+          </div>
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7198818158768451584"
+                  loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
         </div>
+
       </div>
     </div>
   </div>
@@ -1328,52 +1401,56 @@
   <div class="wrap">
     <div class="liHeaderRow">
       <div>
-        <h2 class="sectionTitle">منشورات مختارة على LinkedIn</h2>
+        <h2 class="sectionTitle">منشورات مختارة</h2>
         <p class="liHint">تحديثات مهنية ومحتوى تعليمي مختار.</p>
       </div>
-      <a class="chip" href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener">
-        عرض الحساب
-        <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
+
+      <a class="liLink" href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+        <span class="liIn" aria-hidden="true">in</span>
+        <span class="liWord">LinkedIn</span>
       </a>
     </div>
 
     <div class="liCarousel" aria-label="منشورات LinkedIn مختارة">
       <div class="liTrack" role="list">
-        <div class="liItem" role="listitem">
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7198818158768451584"
-            loading="lazy"
-            title="LinkedIn post 1"
-            allowfullscreen
-          ></iframe>
+
+        <!-- NEWEST FIRST (appears on the LEFT, then older to the right) -->
+        <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7407135949408817152/">
+          <div class="liOverlay">
+            <button class="liInteractBtn" type="button">اضغط للتصفح داخل المنشور</button>
+            <a class="liOpenBtn" target="_blank" rel="noopener">فتح على LinkedIn</a>
+          </div>
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7407135949408817152"
+                  loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
         </div>
 
-        <div class="liItem" role="listitem">
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7339062374840111104"
-            loading="lazy"
-            title="LinkedIn post 2"
-            allowfullscreen
-          ></iframe>
+        <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7386100386878717952/">
+          <div class="liOverlay">
+            <button class="liInteractBtn" type="button">اضغط للتصفح داخل المنشور</button>
+            <a class="liOpenBtn" target="_blank" rel="noopener">فتح على LinkedIn</a>
+          </div>
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7386100386878717952"
+                  loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
         </div>
 
-        <div class="liItem" role="listitem">
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7386100386878717952"
-            loading="lazy"
-            title="LinkedIn post 3"
-            allowfullscreen
-          ></iframe>
+        <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7339062374840111104/">
+          <div class="liOverlay">
+            <button class="liInteractBtn" type="button">اضغط للتصفح داخل المنشور</button>
+            <a class="liOpenBtn" target="_blank" rel="noopener">فتح على LinkedIn</a>
+          </div>
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7339062374840111104"
+                  loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
         </div>
 
-        <div class="liItem" role="listitem">
-          <iframe
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7407135949408817152"
-            loading="lazy"
-            title="LinkedIn post 4"
-            allowfullscreen
-          ></iframe>
+        <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7198818158768451584/">
+          <div class="liOverlay">
+            <button class="liInteractBtn" type="button">اضغط للتصفح داخل المنشور</button>
+            <a class="liOpenBtn" target="_blank" rel="noopener">فتح على LinkedIn</a>
+          </div>
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7198818158768451584"
+                  loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
         </div>
+
       </div>
     </div>
   </div>
@@ -1554,6 +1631,41 @@ function syncRtlArrows(){
       }
     });
     syncRtlArrows();
+    // LinkedIn iframe mobile interaction control (Tap-to-interact)
+(function(){
+  const items = document.querySelectorAll('.liItem');
+
+  // Set "Open in LinkedIn" links from data-li-url
+  items.forEach(item => {
+    const url = item.getAttribute('data-li-url');
+    const openBtn = item.querySelector('.liOpenBtn');
+    if (openBtn && url) openBtn.setAttribute('href', url);
+
+    const interactBtn = item.querySelector('.liInteractBtn');
+    if (interactBtn){
+      interactBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        // unlock only this one
+        items.forEach(x => x.classList.remove('isActive'));
+        item.classList.add('isActive');
+      });
+    }
+  });
+
+  // Tap anywhere outside the active post to relock
+  document.addEventListener('click', (e) => {
+    const active = document.querySelector('.liItem.isActive');
+    if (!active) return;
+    if (!active.contains(e.target)) active.classList.remove('isActive');
+  }, true);
+
+  // When user scrolls the page, relock (prevents “stuck” feeling)
+  window.addEventListener('scroll', () => {
+    const active = document.querySelector('.liItem.isActive');
+    if (active) active.classList.remove('isActive');
+  }, { passive:true });
+})();
   </script>
 </body>
 </html>
