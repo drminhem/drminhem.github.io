@@ -10,7 +10,9 @@
   <link rel="canonical" href="https://drminhem.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Preload a small set of fonts so you can switch fonts instantly from the admin editor -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Manrope:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;700;800&family=Poppins:wght@400;700;800&family=Lora:wght@400;700&family=Almarai:wght@400;700;800&family=Tajawal:wght@400;700;800&family=Cairo:wght@400;700;800&family=Noto+Kufi+Arabic:wght@400;700;800&family=IBM+Plex+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
     :root{
@@ -22,14 +24,19 @@
       --radius:22px; --max:1120px; --pad:18px;
       --ring: 0 0 0 4px rgba(76,106,79,.18);
       --speed: 220ms;
-      --chip:#ffffff;
+
+      /* Font variables (editable in admin) */
+      --font-en: "Inter";
+      --font-en-head: "Inter";
+      --font-ar: "Almarai";
+      --font-ar-head: "Noto Kufi Arabic";
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      font-family: var(--font-en, "Inter"), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
       color:var(--text);
       background:
         radial-gradient(1000px 520px at 20% -10%, rgba(76,106,79,.22), transparent 60%),
@@ -58,16 +65,16 @@
 
     .rtl{
       direction:rtl;text-align:right;
-      font-family:"Almarai","IBM Plex Sans Arabic","Noto Kufi Arabic",Tahoma,Arial,sans-serif;
+      font-family: var(--font-ar, "Almarai"), "IBM Plex Sans Arabic","Noto Kufi Arabic",Tahoma,Arial,sans-serif;
       line-height:1.45;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
+      letter-spacing:0 !important;
     }
     .rtl h1,.rtl h2,.rtl h3,.rtl .sectionTitle{
-      font-family:"Noto Kufi Arabic","Almarai",sans-serif;
+      font-family: var(--font-ar-head, "Noto Kufi Arabic"), var(--font-ar, "Almarai"), sans-serif;
       line-height:1.2;
     }
-    .rtl, .rtl *{letter-spacing:0 !important;}
     .rtl .list{padding-left:0;padding-right:18px;}
 
     .topbar{
@@ -207,6 +214,10 @@
       background:var(--brand2);
       box-shadow:0 0 0 6px rgba(76,106,79,.18);
     }
+
+    h1,h2,h3,.sectionTitle{
+      font-family: var(--font-en-head, var(--font-en, "Inter")), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+    }
     h1{
       margin:14px 0 8px;
       font-size: clamp(2.05rem, 3.5vw, 2.9rem);
@@ -266,7 +277,6 @@
     .btn.wa{background:var(--wa); color:#fff; border-color:rgba(0,0,0,.06)}
     .btn.mail{background:var(--accent); color:#fff; border-color:rgba(0,0,0,.06)}
     .btn.ghost{background:rgba(255,255,255,.86)}
-    .btn.social{background:rgba(255,255,255,.92)}
     .btn.linkedin{background:#0A66C2;color:#fff;border-color:rgba(0,0,0,.06)}
     .btn.x{background:#111;color:#fff;border-color:rgba(0,0,0,.06)}
     .btn.ig{background:#fff;color:#111;border-color:rgba(0,0,0,.10)}
@@ -446,7 +456,14 @@
       }
     }
 
-    /* ========= EDITOR UI ========= */
+    /* ========= ADMIN EDITOR UI (HIDDEN FOR NORMAL VISITORS) ========= */
+    .editorBar, .drawerOverlay, .drawer, .previewOverlay{display:none !important;}
+
+    body[data-admin="1"] .editorBar{display:flex !important;}
+    body[data-admin="1"] .drawerOverlay.open{display:block !important;}
+    body[data-admin="1"] .drawer{display:block !important;}
+    body[data-admin="1"] .previewOverlay.open{display:block !important;}
+
     .editorBar{
       position: fixed;
       left: 12px;
@@ -459,7 +476,6 @@
       box-shadow: var(--shadow);
       border-radius: 18px;
       padding: 10px;
-      display:flex;
       gap:10px;
       align-items:center;
       flex-wrap:wrap;
@@ -509,10 +525,8 @@
       position: fixed; inset: 0;
       background: rgba(15,26,18,.55);
       z-index: 10000;
-      display:none;
       padding: 14px;
     }
-    .previewOverlay.open{display:block}
     .previewPanel{
       width:100%; height:100%;
       border-radius: 18px;
@@ -537,9 +551,7 @@
       position:fixed; inset:0;
       background: rgba(15,26,18,.45);
       z-index: 10001;
-      display:none;
     }
-    .drawerOverlay.open{display:block}
     .drawer{
       position:fixed;
       left:12px; right:12px; bottom:82px;
@@ -550,6 +562,7 @@
       border-radius: 18px;
       box-shadow: var(--shadow);
       padding: 12px;
+      z-index: 10002;
     }
     .drawerTop{
       display:flex; justify-content:space-between; align-items:center;
@@ -608,7 +621,7 @@
   </style>
 </head>
 
-<body data-lang="en" data-edit="0">
+<body data-lang="en" data-edit="0" data-admin="0">
   <!-- Icons -->
   <svg width="0" height="0" style="position:absolute">
     <symbol id="i-whatsapp" viewBox="0 0 24 24">
@@ -625,9 +638,6 @@
     </symbol>
     <symbol id="i-shield" viewBox="0 0 24 24">
       <path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5l-8-3zm0 18c-3.3-1.1-6-4.9-6-9V6.3L12 4l6 2.3V11c0 4.1-2.7 7.9-6 9z"/>
-    </symbol>
-    <symbol id="i-edit" viewBox="0 0 24 24">
-      <path fill="currentColor" d="M3 17.25V21h3.75L17.8 9.95l-3.75-3.75L3 17.25zm18-11.5a1 1 0 0 0 0-1.41l-1.59-1.59a1 1 0 0 0-1.41 0l-1.13 1.13 3.75 3.75L21 5.75z"/>
     </symbol>
     <symbol id="i-link" viewBox="0 0 24 24">
       <path fill="currentColor" d="M3.9 12a5 5 0 0 1 5-5h3v2h-3a3 3 0 0 0 0 6h3v2h-3a5 5 0 0 1-5-5zm7-1h2v2h-2v-2zm4.1-4h3a5 5 0 0 1 0 10h-3v-2h3a3 3 0 0 0 0-6h-3V7z"/>
@@ -748,7 +758,6 @@
                       Email
                     </a>
 
-                    <!-- Social buttons (editable via Assets & Links panel) -->
                     <a data-link="linkedin_profile" class="btn linkedin" href="https://www.linkedin.com/" target="_blank" rel="noopener">
                       <svg aria-hidden="true"><use href="#i-in"></use></svg>
                       LinkedIn
@@ -938,12 +947,11 @@
             </div>
           </section>
 
-          <!-- ========= LINKEDIN POSTS SECTION ========= -->
           <section id="posts-en">
             <div class="wrap">
               <h2 class="sectionTitle">LinkedIn posts</h2>
               <p class="sectionSub">
-                Add your favorite posts (manual cards or embed). In edit mode you can also change the text here.
+                Add your favorite posts (manual cards or embed). In admin mode you can also change the text here.
               </p>
 
               <div class="grid2">
@@ -951,7 +959,7 @@
                   <div class="cardPad">
                     <p class="k">Featured</p>
                     <p style="margin:0;color:var(--muted);font-weight:800;line-height:1.6">
-                      Below are <b>post cards</b> (fast, looks clean, no third-party scripts). Use the editor panel to add/remove items.
+                      Below are <b>post cards</b> (fast, looks clean, no third-party scripts). Use the admin panel to add/remove items.
                     </p>
                   </div>
                 </div>
@@ -960,18 +968,16 @@
                   <div class="cardPad">
                     <p class="k">Embed option</p>
                     <p style="margin:0;color:var(--muted);font-weight:800;line-height:1.6">
-                      If you want the real LinkedIn embed (official look), you can add it in the editor panel too.
+                      If you want the real LinkedIn embed (official look), you can add it in the admin panel too.
                       Note: embeds may load slower and sometimes get blocked on some browsers.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <!-- Post cards container (rendered from JSON, editable via editor panel) -->
               <div style="height:14px"></div>
               <div class="gridPosts" id="postsGridEn" aria-label="LinkedIn posts list"></div>
 
-              <!-- Optional embed container -->
               <div style="height:14px"></div>
               <div class="card" id="liEmbedCardEn" style="display:none">
                 <div class="cardPad">
@@ -1308,7 +1314,6 @@
             </div>
           </section>
 
-          <!-- ========= LINKEDIN POSTS SECTION (AR) ========= -->
           <section id="posts-ar">
             <div class="wrap">
               <h2 class="sectionTitle">منشورات لينكدإن</h2>
@@ -1319,7 +1324,7 @@
                   <div class="cardPad">
                     <p class="k">مميزة</p>
                     <p style="margin:0;color:var(--muted);font-weight:800;line-height:1.6">
-                      أدناه كروت منشورات (سريعة وأنيقة). يمكنك التحكم بها من لوحة التحرير.
+                      أدناه كروت منشورات (سريعة وأنيقة). يمكنك التحكم بها من لوحة الإدارة.
                     </p>
                   </div>
                 </div>
@@ -1423,7 +1428,7 @@
   </div>
 
   <!-- =========================
-       EDITOR BAR
+       ADMIN EDITOR BAR (only shows on admin.drminhem.com or ?admin=1)
        ========================= -->
   <div class="editorBar" id="editorBar" aria-label="Editor toolbar">
     <div class="edGroup">
@@ -1431,7 +1436,7 @@
         <span class="dot" aria-hidden="true"></span>
         <span id="editLabel">Edit: OFF</span>
       </div>
-      <span class="edHint" id="edHint">Edit ON → click text → use B/I/U/H2/List/Link. Use “Assets & Links” to change images, URLs, socials, and LinkedIn posts.</span>
+      <span class="edHint" id="edHint">Admin mode: edit text, change fonts, links, images, and LinkedIn posts → then Download index.html.</span>
     </div>
 
     <div class="edSep" aria-hidden="true"></div>
@@ -1455,7 +1460,7 @@
     <div class="edGroup">
       <button class="edBtn" type="button" id="btnAssets">
         <svg aria-hidden="true" style="width:18px;height:18px"><use href="#i-image"></use></svg>
-        Assets, Socials & LinkedIn
+        Fonts, Assets & LinkedIn
       </button>
       <button class="edBtn" type="button" id="btnPreview">Preview</button>
       <button class="edBtn primary" type="button" id="btnDownload">Download index.html</button>
@@ -1467,7 +1472,7 @@
   <div class="previewOverlay" id="previewOverlay" role="dialog" aria-modal="true" aria-label="Preview">
     <div class="previewPanel">
       <div class="previewTop">
-        <b>Preview (generated index.html)</b>
+        <b>Preview (public view)</b>
         <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
           <button class="edBtn" type="button" id="previewLang">Toggle language</button>
           <button class="edBtn" type="button" id="closePreview">Close</button>
@@ -1477,13 +1482,14 @@
     </div>
   </div>
 
-  <!-- Assets & Links Drawer -->
+  <!-- Drawer -->
   <div class="drawerOverlay" id="drawerOverlay" aria-hidden="true"></div>
-  <div class="drawer" id="drawer" style="display:none" role="dialog" aria-modal="true" aria-label="Assets & Links">
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Admin panel">
     <div class="drawerTop">
-      <b>Assets, Socials & LinkedIn editor</b>
+      <b>Admin panel</b>
       <div class="tabs" role="tablist">
-        <button class="tabBtn active" type="button" data-tab="images">Images</button>
+        <button class="tabBtn active" type="button" data-tab="fonts">Fonts</button>
+        <button class="tabBtn" type="button" data-tab="images">Images</button>
         <button class="tabBtn" type="button" data-tab="links">Links</button>
         <button class="tabBtn" type="button" data-tab="socials">Social buttons</button>
         <button class="tabBtn" type="button" data-tab="linkedin">LinkedIn posts</button>
@@ -1491,55 +1497,105 @@
       <button class="edBtn" type="button" id="closeDrawer">Close</button>
     </div>
 
+    <!-- FONTS TAB -->
+    <div id="tab-fonts">
+      <div class="miniHint">Change fonts for English/Arabic body + headings. This is saved into the downloaded index.html.</div>
+      <div class="formGrid" style="margin-top:10px">
+        <div class="field">
+          <label>English body font</label>
+          <select id="font_en">
+            <option value="Inter">Inter (default)</option>
+            <option value="Manrope">Manrope</option>
+            <option value="Plus Jakarta Sans">Plus Jakarta Sans</option>
+            <option value="Poppins">Poppins</option>
+            <option value="Lora">Lora (serif)</option>
+          </select>
+          <div class="miniRow">
+            <button class="edBtn small" type="button" id="applyFontEn">Apply</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>English headings font</label>
+          <select id="font_en_head">
+            <option value="Inter">Inter (default)</option>
+            <option value="Manrope">Manrope</option>
+            <option value="Plus Jakarta Sans">Plus Jakarta Sans</option>
+            <option value="Poppins">Poppins</option>
+            <option value="Lora">Lora (serif)</option>
+          </select>
+          <div class="miniRow">
+            <button class="edBtn small" type="button" id="applyFontEnHead">Apply</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Arabic body font</label>
+          <select id="font_ar">
+            <option value="Almarai">Almarai (default)</option>
+            <option value="Tajawal">Tajawal</option>
+            <option value="Cairo">Cairo</option>
+            <option value="IBM Plex Sans Arabic">IBM Plex Sans Arabic</option>
+            <option value="Noto Kufi Arabic">Noto Kufi Arabic</option>
+          </select>
+          <div class="miniRow">
+            <button class="edBtn small" type="button" id="applyFontAr">Apply</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Arabic headings font</label>
+          <select id="font_ar_head">
+            <option value="Noto Kufi Arabic">Noto Kufi Arabic (default)</option>
+            <option value="Almarai">Almarai</option>
+            <option value="Tajawal">Tajawal</option>
+            <option value="Cairo">Cairo</option>
+            <option value="IBM Plex Sans Arabic">IBM Plex Sans Arabic</option>
+          </select>
+          <div class="miniRow">
+            <button class="edBtn small" type="button" id="applyFontArHead">Apply</button>
+          </div>
+        </div>
+
+        <div class="field fieldFull">
+          <label>Tip</label>
+          <textarea readonly>Fonts are applied using CSS variables and will be included in the downloaded index.html. Normal visitors will not see the admin panel unless you use admin.drminhem.com or add ?admin=1.</textarea>
+        </div>
+      </div>
+    </div>
+
     <!-- IMAGES TAB -->
-    <div id="tab-images">
-      <div class="miniHint">Change filenames/URLs for images. Works for BOTH English & Arabic (same image used).</div>
+    <div id="tab-images" style="display:none">
+      <div class="miniHint">Change filenames/URLs for images (works for both EN/AR).</div>
       <div class="formGrid" style="margin-top:10px">
         <div class="field">
           <label>Logo image (src)</label>
           <input id="img_logo" placeholder="logo.svg or https://..." />
           <div class="miniRow">
             <button class="edBtn small" type="button" data-img-apply="logo">Apply</button>
-            <span class="miniHint">Used in navbar for EN/AR.</span>
           </div>
         </div>
-
         <div class="field">
           <label>Portrait image (src)</label>
           <input id="img_portrait" placeholder="IMG_0644.jpeg or https://..." />
           <div class="miniRow">
             <button class="edBtn small" type="button" data-img-apply="portrait">Apply</button>
-            <span class="miniHint">Hero photo.</span>
           </div>
         </div>
-
         <div class="field">
           <label>Pillar 1 image (src)</label>
           <input id="img_pillar1" placeholder="precision-medicine.png or https://..." />
-          <div class="miniRow">
-            <button class="edBtn small" type="button" data-img-apply="pillar1">Apply</button>
-          </div>
+          <div class="miniRow"><button class="edBtn small" type="button" data-img-apply="pillar1">Apply</button></div>
         </div>
-
         <div class="field">
           <label>Pillar 2 image (src)</label>
           <input id="img_pillar2" placeholder="evidence-based-care.png or https://..." />
-          <div class="miniRow">
-            <button class="edBtn small" type="button" data-img-apply="pillar2">Apply</button>
-          </div>
+          <div class="miniRow"><button class="edBtn small" type="button" data-img-apply="pillar2">Apply</button></div>
         </div>
-
         <div class="field">
           <label>Pillar 3 image (src)</label>
           <input id="img_pillar3" placeholder="compassionate-care.png or https://..." />
-          <div class="miniRow">
-            <button class="edBtn small" type="button" data-img-apply="pillar3">Apply</button>
-          </div>
-        </div>
-
-        <div class="field fieldFull">
-          <label>Tip</label>
-          <textarea readonly>Use local filenames (recommended): upload the new images alongside index.html on Namecheap, with the exact same filenames you enter here. External URLs also work, but depend on that host.</textarea>
+          <div class="miniRow"><button class="edBtn small" type="button" data-img-apply="pillar3">Apply</button></div>
         </div>
       </div>
     </div>
@@ -1552,94 +1608,70 @@
         <div class="field">
           <label>WhatsApp number</label>
           <input id="link_wa_number" placeholder="+96181902903" />
-          <div class="miniRow">
-            <button class="edBtn small" type="button" id="applyWa">Apply</button>
-            <span class="miniHint">Updates all wa.me links + visible text.</span>
-          </div>
+          <div class="miniRow"><button class="edBtn small" type="button" id="applyWa">Apply</button></div>
         </div>
 
         <div class="field">
           <label>Email address</label>
           <input id="link_email_addr" placeholder="contact@drminhem.com" />
-          <div class="miniRow">
-            <button class="edBtn small" type="button" id="applyEmail">Apply</button>
-            <span class="miniHint">Updates all mailto + visible text.</span>
-          </div>
+          <div class="miniRow"><button class="edBtn small" type="button" id="applyEmail">Apply</button></div>
         </div>
 
         <div class="field">
           <label>ABIM verification URL</label>
           <input id="link_abim" placeholder="https://www.abim.org/verify-physician?type=id&id=..." />
-          <div class="miniRow">
-            <button class="edBtn small" type="button" data-link-apply="abim_verify">Apply</button>
-          </div>
+          <div class="miniRow"><button class="edBtn small" type="button" data-link-apply="abim_verify">Apply</button></div>
         </div>
 
         <div class="field">
           <label>ESMO Talent Pool URL</label>
           <input id="link_esmo" placeholder="https://www.esmo.org/..." />
-          <div class="miniRow">
-            <button class="edBtn small" type="button" data-link-apply="esmo_talent">Apply</button>
-          </div>
+          <div class="miniRow"><button class="edBtn small" type="button" data-link-apply="esmo_talent">Apply</button></div>
         </div>
 
         <div class="field">
           <label>Google Scholar URL</label>
           <input id="link_scholar" placeholder="https://scholar.google.com/..." />
-          <div class="miniRow">
-            <button class="edBtn small" type="button" data-link-apply="scholar">Apply</button>
-          </div>
+          <div class="miniRow"><button class="edBtn small" type="button" data-link-apply="scholar">Apply</button></div>
         </div>
 
         <div class="field fieldFull">
           <label>Add a NEW link anywhere</label>
-          <textarea readonly>Turn Edit ON → select text → press “Link” in toolbar → paste URL. That works for any new link you want to add anywhere on EN/AR pages.</textarea>
+          <textarea readonly>Turn Edit ON → select text → press “Link” in toolbar → paste URL.</textarea>
         </div>
-
       </div>
     </div>
 
     <!-- SOCIALS TAB -->
     <div id="tab-socials" style="display:none">
-      <div class="miniHint">These update the hero buttons + the “View profile” link in the LinkedIn section.</div>
+      <div class="miniHint">Updates hero buttons + “View profile”.</div>
       <div class="formGrid" style="margin-top:10px">
         <div class="field">
           <label>LinkedIn profile URL</label>
           <input id="social_linkedin" placeholder="https://www.linkedin.com/in/your-handle/" />
-          <div class="miniRow">
-            <button class="edBtn small" type="button" data-link-apply="linkedin_profile">Apply</button>
-          </div>
+          <div class="miniRow"><button class="edBtn small" type="button" data-link-apply="linkedin_profile">Apply</button></div>
         </div>
         <div class="field">
           <label>Instagram profile URL</label>
           <input id="social_instagram" placeholder="https://www.instagram.com/your-handle/" />
-          <div class="miniRow">
-            <button class="edBtn small" type="button" data-link-apply="instagram_profile">Apply</button>
-          </div>
+          <div class="miniRow"><button class="edBtn small" type="button" data-link-apply="instagram_profile">Apply</button></div>
         </div>
         <div class="field">
           <label>X profile URL</label>
           <input id="social_x" placeholder="https://x.com/your-handle" />
-          <div class="miniRow">
-            <button class="edBtn small" type="button" data-link-apply="x_profile">Apply</button>
-          </div>
+          <div class="miniRow"><button class="edBtn small" type="button" data-link-apply="x_profile">Apply</button></div>
         </div>
         <div class="field">
           <label>Facebook page URL (optional)</label>
           <input id="social_fb" placeholder="https://www.facebook.com/yourpage" />
-          <div class="miniRow">
-            <button class="edBtn small" type="button" id="applyFb">Apply & add button</button>
-            <span class="miniHint">Adds FB button to hero.</span>
-          </div>
+          <div class="miniRow"><button class="edBtn small" type="button" id="applyFb">Apply & add button</button></div>
         </div>
       </div>
     </div>
 
     <!-- LINKEDIN TAB -->
     <div id="tab-linkedin" style="display:none">
-      <div class="miniHint">
-        Add “post cards” (recommended) OR paste LinkedIn embed code (optional).
-      </div>
+      <div class="miniHint">Add “post cards” (recommended) OR paste LinkedIn embed HTML (optional).</div>
 
       <div class="formGrid" style="margin-top:10px">
         <div class="field fieldFull">
@@ -1650,51 +1682,49 @@
     "date":"2025-12-01",
     "summary":"1–2 lines describing the post.",
     "url":"https://www.linkedin.com/posts/....",
-    "cta_en":"Open on LinkedIn",
-    "cta_ar":"فتح على لينكدإن"
+    "title_ar":"...",
+    "summary_ar":"..."
   }
 ]'></textarea>
           <div class="miniRow">
             <button class="edBtn small" type="button" id="applyPosts">Apply posts</button>
             <button class="edBtn small" type="button" id="loadSamplePosts">Load sample</button>
-            <span class="miniHint">This renders to EN + AR automatically (title/summary can be bilingual inside JSON if you want).</span>
           </div>
         </div>
 
         <div class="field fieldFull">
-          <label>Optional: LinkedIn embed HTML (advanced)</label>
-          <textarea id="li_embed_html" placeholder='Paste embed HTML here (e.g., LinkedIn post embed snippet).'></textarea>
+          <label>Optional: LinkedIn embed HTML</label>
+          <textarea id="li_embed_html" placeholder="Paste embed HTML here (optional)."></textarea>
           <div class="miniRow">
             <button class="edBtn small" type="button" id="applyEmbed">Apply embed</button>
             <button class="edBtn small" type="button" id="clearEmbed">Clear embed</button>
-            <span class="miniHint">Embeds may be blocked or slower on some browsers.</span>
           </div>
         </div>
-      </div>
-
-      <div class="field fieldFull" style="margin-top:10px">
-        <label>Important note</label>
-        <textarea readonly>LinkedIn does NOT provide an official “RSS feed” for posts, and their API access is restricted. The most reliable way is to add your “Featured” posts manually (URLs), or paste the embed code for a few posts. This editor supports both.</textarea>
       </div>
     </div>
 
     <div class="miniRow" style="margin-top:10px">
-      <button class="edBtn primary" type="button" id="saveAssetsLinks">Save</button>
-      <span class="miniHint">Saved to your browser automatically (and included in Download).</span>
+      <button class="edBtn primary" type="button" id="saveAll">Save</button>
+      <span class="miniHint">Admin-only: saved to this browser + included in Download.</span>
     </div>
   </div>
 
   <script>
     const LANG_KEY = "site_lang";
-    const EDIT_KEY = "site_edits_html_v3";
-    const ASSET_KEY = "site_assets_links_v2";
-    const POSTS_KEY = "site_linkedin_posts_v1";
-    const EMBED_KEY = "site_linkedin_embed_v1";
+    const EDIT_KEY = "site_edits_html_v4";
+    const ASSET_KEY = "site_assets_links_v3";
+    const POSTS_KEY = "site_linkedin_posts_v2";
+    const EMBED_KEY = "site_linkedin_embed_v2";
+
+    function isAdminContext(){
+      const host = (location.hostname || "").toLowerCase();
+      const p = new URLSearchParams(location.search);
+      return host.startsWith("admin.") || p.get("admin") === "1";
+    }
 
     function syncRtlArrows(){
       const isAr = document.body.getAttribute("data-lang") === "ar";
-      const uses = document.querySelectorAll('use[href="#i-arrow"], use[xlink\\:href="#i-arrow"]');
-      uses.forEach(u => {
+      document.querySelectorAll('use[href="#i-arrow"], use[xlink\\:href="#i-arrow"]').forEach(u => {
         const svg = u.closest("svg");
         if(!svg) return;
         svg.style.transform = isAr ? "scaleX(-1)" : "";
@@ -1772,27 +1802,32 @@
     setLang(savedLang === "ar" ? "ar" : "en");
 
     /* =========================
-       EDIT MODE + PERSISTENCE
+       ADMIN GATE
        ========================= */
-    const editToggle = document.getElementById("toggleEdit");
-    const editLabel = document.getElementById("editLabel");
+    const ADMIN = isAdminContext();
+    document.body.setAttribute("data-admin", ADMIN ? "1" : "0");
+
+    /* =========================
+       EDIT MODE + PERSISTENCE (ADMIN ONLY)
+       ========================= */
     const rootEn = document.getElementById("contentRootEn");
     const rootAr = document.getElementById("contentRootAr");
 
     function isEditOn(){ return document.body.getAttribute("data-edit") === "1"; }
 
+    // Optimized: only common text elements become editable
+    const EDITABLE_SELECTOR = "h1,h2,h3,p,li,span,b,strong,em,i,small,summary,a";
     function setEditable(root, on){
-      root.querySelectorAll("*").forEach(el => {
+      root.querySelectorAll(EDITABLE_SELECTOR).forEach(el => {
         const tag = el.tagName.toLowerCase();
-        if (["script","style","iframe"].includes(tag)) return;
-        if (tag === "img") { el.setAttribute("contenteditable","false"); return; }
-        if (tag === "a" || tag === "button" || tag === "summary") {
-          el.setAttribute("contenteditable", on ? "true" : "false");
+        if(tag === "a" || tag === "summary"){
+          if(on) el.setAttribute("contenteditable","true");
+          else el.removeAttribute("contenteditable");
           return;
         }
-        el.setAttribute("contenteditable", on ? "true" : "false");
+        if(on) el.setAttribute("contenteditable","true");
+        else el.removeAttribute("contenteditable");
       });
-      root.setAttribute("contenteditable", on ? "true" : "false");
     }
 
     function saveEditsToLocal(){
@@ -1816,97 +1851,19 @@
         document.body.classList.add("editableOn");
         setEditable(rootEn, true);
         setEditable(rootAr, true);
-        editLabel.textContent = "Edit: ON";
+        document.getElementById("editLabel").textContent = "Edit: ON";
       }else{
         document.body.classList.remove("editableOn");
         setEditable(rootEn, false);
         setEditable(rootAr, false);
-        editLabel.textContent = "Edit: OFF";
-        saveEditsToLocal();
+        document.getElementById("editLabel").textContent = "Edit: OFF";
+        saveAllToLocal();
       }
-      document.body.focus();
     }
-
-    loadEditsFromLocal();
-    syncRtlArrows();
-
-    // After loading edits, we need to render LinkedIn posts again (elements may have been replaced)
-    // So we render posts after DOM edits are loaded.
-    /* =========================
-       FORMATTING (execCommand)
-       ========================= */
-    function ensureEdit(){
-      if(!isEditOn()){
-        alert("Turn Edit ON first.");
-        return false;
-      }
-      return true;
-    }
-    function exec(cmd, val=null){
-      if(!ensureEdit()) return;
-      try{ document.execCommand(cmd, false, val); }catch(e){}
-    }
-    document.querySelectorAll("[data-cmd]").forEach(btn => btn.addEventListener("click", () => exec(btn.getAttribute("data-cmd"))));
-    document.querySelectorAll("[data-block]").forEach(btn => btn.addEventListener("click", () => exec("formatBlock", btn.getAttribute("data-block").toUpperCase())));
-    document.getElementById("btnLink").addEventListener("click", () => {
-      if(!ensureEdit()) return;
-      const url = prompt("Paste link (https://...):");
-      if(!url) return;
-      exec("createLink", url);
-    });
-
-    editToggle.addEventListener("click", () => setEditMode(!isEditOn()));
-
-    let saveTimer = null;
-    function scheduleAutosave(){
-      if(!isEditOn()) return;
-      clearTimeout(saveTimer);
-      saveTimer = setTimeout(() => saveEditsToLocal(), 700);
-    }
-    rootEn.addEventListener("input", scheduleAutosave);
-    rootAr.addEventListener("input", scheduleAutosave);
 
     /* =========================
-       ASSETS, LINKS, SOCIALS
+       DOM HELPERS
        ========================= */
-    const drawer = document.getElementById("drawer");
-    const drawerOverlay = document.getElementById("drawerOverlay");
-    const btnAssets = document.getElementById("btnAssets");
-    const closeDrawer = document.getElementById("closeDrawer");
-    const saveAssetsLinks = document.getElementById("saveAssetsLinks");
-
-    const tabBtns = drawer.querySelectorAll(".tabBtn");
-
-    const tabImages = document.getElementById("tab-images");
-    const tabLinks = document.getElementById("tab-links");
-    const tabSocials = document.getElementById("tab-socials");
-    const tabLinkedin = document.getElementById("tab-linkedin");
-
-    function openDrawer(){
-      drawer.style.display = "block";
-      drawerOverlay.classList.add("open");
-      hydrateInputsFromDom();
-      hydrateFromSavedAll();
-      hydrateLinkedInInputs();
-    }
-    function closeDrawerFn(){
-      drawer.style.display = "none";
-      drawerOverlay.classList.remove("open");
-    }
-    btnAssets.addEventListener("click", openDrawer);
-    closeDrawer.addEventListener("click", closeDrawerFn);
-    drawerOverlay.addEventListener("click", closeDrawerFn);
-
-    tabBtns.forEach(b => b.addEventListener("click", () => {
-      tabBtns.forEach(x => x.classList.remove("active"));
-      b.classList.add("active");
-      const tab = b.getAttribute("data-tab");
-      tabImages.style.display   = (tab === "images")   ? "block" : "none";
-      tabLinks.style.display    = (tab === "links")    ? "block" : "none";
-      tabSocials.style.display  = (tab === "socials")  ? "block" : "none";
-      tabLinkedin.style.display = (tab === "linkedin") ? "block" : "none";
-    }));
-
     function qAll(sel){ return Array.from(document.querySelectorAll(sel)); }
 
     function getImgSrc(key){
@@ -1954,115 +1911,6 @@
       qAll('a[data-link="email"]').forEach(a => { a.textContent = em; });
     }
 
-    // Wire image apply buttons
-    qAll("[data-img-apply]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const key = btn.getAttribute("data-img-apply");
-        const input = document.getElementById(`img_${key}`);
-        const val = (input?.value || "").trim();
-        if(!val){ alert("Enter an image filename or URL first."); return; }
-        setImgSrc(key, val);
-        saveAllToLocal();
-      });
-    });
-
-    // Wire link apply buttons (ABIM/ESMO/Scholar + socials)
-    qAll("[data-link-apply]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const key = btn.getAttribute("data-link-apply");
-        const map = {
-          "abim_verify":"link_abim",
-          "esmo_talent":"link_esmo",
-          "scholar":"link_scholar",
-          "linkedin_profile":"social_linkedin",
-          "instagram_profile":"social_instagram",
-          "x_profile":"social_x"
-        };
-        const inputId = map[key] || null;
-        const input = inputId ? document.getElementById(inputId) : null;
-        const val = (input?.value || "").trim();
-        if(!val || !val.startsWith("http")){ alert("Enter a valid URL (starting with https://)"); return; }
-        setLinkHref(key, val);
-        saveAllToLocal();
-      });
-    });
-
-    document.getElementById("applyWa").addEventListener("click", () => {
-      const v = document.getElementById("link_wa_number").value;
-      applyWhatsApp(v);
-      saveAllToLocal();
-    });
-    document.getElementById("applyEmail").addEventListener("click", () => {
-      const v = document.getElementById("link_email_addr").value;
-      applyEmail(v);
-      saveAllToLocal();
-    });
-
-    // Facebook optional: apply and add a button (if not present, we add it)
-    document.getElementById("applyFb").addEventListener("click", () => {
-      const v = (document.getElementById("social_fb").value || "").trim();
-      if(!v || !v.startsWith("http")){ alert("Enter a valid Facebook URL (https://...)"); return; }
-      // create or update FB hero buttons in both languages
-      const existing = document.querySelector('a[data-link="facebook_profile"]');
-      if(existing){
-        setLinkHref("facebook_profile", v);
-      }else{
-        // Add to BOTH hero CTA rows
-        const btnHtmlEn = `
-          <a data-link="facebook_profile" class="btn fb" href="${v}" target="_blank" rel="noopener">
-            <svg aria-hidden="true"><use href="#i-fb"></use></svg>
-            Facebook
-          </a>`;
-        const btnHtmlAr = `
-          <a data-link="facebook_profile" class="btn fb" href="${v}" target="_blank" rel="noopener">
-            <svg aria-hidden="true"><use href="#i-fb"></use></svg>
-            فيسبوك
-          </a>`;
-        // Insert before "How I work" ghost button (best spot)
-        const enCta = document.querySelector('#en .ctaRow');
-        const arCta = document.querySelector('#ar .ctaRow');
-        if(enCta) enCta.insertAdjacentHTML("beforeend", btnHtmlEn);
-        if(arCta) arCta.insertAdjacentHTML("beforeend", btnHtmlAr);
-      }
-      saveAllToLocal();
-      alert("Facebook button added/updated.");
-    });
-
-    function hydrateInputsFromDom(){
-      // Images
-      document.getElementById("img_logo").value = getImgSrc("logo");
-      document.getElementById("img_portrait").value = getImgSrc("portrait");
-      document.getElementById("img_pillar1").value = getImgSrc("pillar1");
-      document.getElementById("img_pillar2").value = getImgSrc("pillar2");
-      document.getElementById("img_pillar3").value = getImgSrc("pillar3");
-
-      // Links
-      document.getElementById("link_abim").value = getLinkHref("abim_verify") || "";
-      document.getElementById("link_esmo").value = getLinkHref("esmo_talent") || "";
-      document.getElementById("link_scholar").value = getLinkHref("scholar") || "";
-
-      // WA number + email from visible text
-      document.getElementById("link_wa_number").value = (document.querySelector('a[data-link="wa"]')?.textContent || "").trim();
-      document.getElementById("link_email_addr").value = (document.querySelector('a[data-link="email"]')?.textContent || "").trim();
-
-      // Socials
-      document.getElementById("social_linkedin").value = getLinkHref("linkedin_profile") || "";
-      document.getElementById("social_instagram").value = getLinkHref("instagram_profile") || "";
-      document.getElementById("social_x").value = getLinkHref("x_profile") || "";
-      document.getElementById("social_fb").value = getLinkHref("facebook_profile") || "";
-    }
-
-    /* =========================
-       LINKEDIN POSTS (CARDS + OPTIONAL EMBED)
-       ========================= */
-    const postsGridEn = document.getElementById("postsGridEn");
-    const postsGridAr = document.getElementById("postsGridAr");
-
-    const liEmbedCardEn = document.getElementById("liEmbedCardEn");
-    const liEmbedHostEn = document.getElementById("liEmbedHostEn");
-    const liEmbedCardAr = document.getElementById("liEmbedCardAr");
-    const liEmbedHostAr = document.getElementById("liEmbedHostAr");
-
     function escapeHtml(s){
       return String(s || "")
         .replaceAll("&","&amp;")
@@ -2072,10 +1920,19 @@
         .replaceAll("'","&#039;");
     }
 
+    /* =========================
+       LINKEDIN POSTS
+       ========================= */
+    const postsGridEn = document.getElementById("postsGridEn");
+    const postsGridAr = document.getElementById("postsGridAr");
+    const liEmbedCardEn = document.getElementById("liEmbedCardEn");
+    const liEmbedHostEn = document.getElementById("liEmbedHostEn");
+    const liEmbedCardAr = document.getElementById("liEmbedCardAr");
+    const liEmbedHostAr = document.getElementById("liEmbedHostAr");
+
     function renderPosts(posts){
       if(!postsGridEn || !postsGridAr) return;
 
-      // If empty: show a nice placeholder
       if(!Array.isArray(posts) || posts.length === 0){
         postsGridEn.innerHTML = `
           <article class="card postCard">
@@ -2083,7 +1940,7 @@
               <div class="postBadge">in</div>
               <div class="postMeta">
                 <b>No posts yet</b>
-                <span>Add them from: Assets, Socials & LinkedIn → LinkedIn posts</span>
+                <span>Add them in admin panel → LinkedIn posts</span>
               </div>
             </div>
             <div class="postBody">
@@ -2098,19 +1955,19 @@
               <div class="postBadge">in</div>
               <div class="postMeta">
                 <b>لا توجد منشورات بعد</b>
-                <span>أضفها من: Assets, Socials & LinkedIn → LinkedIn posts</span>
+                <span>أضفها من لوحة الإدارة → منشورات لينكدإن</span>
               </div>
             </div>
             <div class="postBody">
               <p style="color:var(--muted);font-weight:800;line-height:1.6;margin:0">
-                نصيحة: ضع رابط منشور لينكدإن + ملخص قصير.
+                ضع رابط منشور لينكدإن + ملخص قصير.
               </p>
             </div>
           </article>`;
         return;
       }
 
-      const enHtml = posts.map((p, idx) => {
+      postsGridEn.innerHTML = posts.map((p, idx) => {
         const title = escapeHtml(p.title || `Post ${idx+1}`);
         const date = escapeHtml(p.date || "");
         const summary = escapeHtml(p.summary || "");
@@ -2138,8 +1995,7 @@
         `;
       }).join("");
 
-      const arHtml = posts.map((p, idx) => {
-        // You can keep Arabic inside title/summary if you want
+      postsGridAr.innerHTML = posts.map((p, idx) => {
         const title = escapeHtml(p.title_ar || p.title || `منشور ${idx+1}`);
         const date = escapeHtml(p.date || "");
         const summary = escapeHtml(p.summary_ar || p.summary || "");
@@ -2166,28 +2022,16 @@
           </article>
         `;
       }).join("");
-
-      postsGridEn.innerHTML = enHtml;
-      postsGridAr.innerHTML = arHtml;
     }
 
     function loadPostsFromLocal(){
-      try{
-        const raw = localStorage.getItem(POSTS_KEY);
-        if(!raw) return [];
-        return JSON.parse(raw) || [];
-      }catch(e){ return []; }
+      try{ return JSON.parse(localStorage.getItem(POSTS_KEY) || "[]"); }catch(e){ return []; }
     }
     function savePostsToLocal(posts){
       localStorage.setItem(POSTS_KEY, JSON.stringify(posts || []));
     }
-
-    function loadEmbedFromLocal(){
-      return localStorage.getItem(EMBED_KEY) || "";
-    }
-    function saveEmbedToLocal(html){
-      localStorage.setItem(EMBED_KEY, html || "");
-    }
+    function loadEmbedFromLocal(){ return localStorage.getItem(EMBED_KEY) || ""; }
+    function saveEmbedToLocal(html){ localStorage.setItem(EMBED_KEY, html || ""); }
 
     function applyEmbedToDom(html){
       const cleaned = (html || "").trim();
@@ -2204,89 +2048,17 @@
       }
     }
 
-    // Initial render on load
-    const initialPosts = loadPostsFromLocal();
-    renderPosts(initialPosts);
-    applyEmbedToDom(loadEmbedFromLocal());
-
-    function hydrateLinkedInInputs(){
-      const posts = loadPostsFromLocal();
-      document.getElementById("li_posts_json").value = JSON.stringify(posts, null, 2);
-      document.getElementById("li_embed_html").value = loadEmbedFromLocal();
-    }
-
-    document.getElementById("loadSamplePosts").addEventListener("click", () => {
-      const sample = [
-        {
-          title: "Highlights from ASCO / ESMO practice updates",
-          title_ar: "ملخصات عملية من تحديثات ASCO / ESMO",
-          date: "2025-12-01",
-          summary: "Short clinical takeaways and how they apply to daily practice in Lebanon.",
-          summary_ar: "نقاط مختصرة قابلة للتطبيق على الممارسة اليومية في لبنان.",
-          url: "https://www.linkedin.com/posts/",
-          cta_en: "Open on LinkedIn",
-          cta_ar: "فتح على لينكدإن"
-        },
-        {
-          title: "New paper: GI hemorrhage patterns in GI malignancies",
-          title_ar: "بحث جديد: أنماط نزيف الجهاز الهضمي في سرطانات الجهاز الهضمي",
-          date: "2025-11-15",
-          summary: "Key findings, practical implications, and limitations.",
-          summary_ar: "الخلاصة، الأثر العملي، والقيود.",
-          url: "https://www.linkedin.com/posts/",
-          cta_en: "Read the post",
-          cta_ar: "اقرأ المنشور"
-        }
-      ];
-      document.getElementById("li_posts_json").value = JSON.stringify(sample, null, 2);
-    });
-
-    document.getElementById("applyPosts").addEventListener("click", () => {
-      const raw = document.getElementById("li_posts_json").value;
-      try{
-        const posts = JSON.parse(raw);
-        if(!Array.isArray(posts)) throw new Error("Not an array");
-        // minimal validate: keep only items with url/title
-        const cleaned = posts.map(p => ({
-          title: p.title || "",
-          title_ar: p.title_ar || "",
-          date: p.date || "",
-          summary: p.summary || "",
-          summary_ar: p.summary_ar || "",
-          url: p.url || "",
-          cta_en: p.cta_en || "",
-          cta_ar: p.cta_ar || ""
-        })).filter(p => p.title || p.title_ar || p.url);
-        savePostsToLocal(cleaned);
-        renderPosts(cleaned);
-        saveAllToLocal();
-        alert("Posts updated.");
-      }catch(e){
-        alert("Invalid JSON. Tip: click “Load sample” first, then edit.");
-      }
-    });
-
-    document.getElementById("applyEmbed").addEventListener("click", () => {
-      const html = document.getElementById("li_embed_html").value || "";
-      saveEmbedToLocal(html);
-      applyEmbedToDom(html);
-      saveAllToLocal();
-      alert("Embed updated.");
-    });
-
-    document.getElementById("clearEmbed").addEventListener("click", () => {
-      document.getElementById("li_embed_html").value = "";
-      saveEmbedToLocal("");
-      applyEmbedToDom("");
-      saveAllToLocal();
-      alert("Embed cleared.");
-    });
-
     /* =========================
-       SAVE / LOAD ALL SETTINGS
+       SAVE / LOAD ALL (ADMIN ONLY)
        ========================= */
     function saveAssetsToLocal(){
       const payload = {
+        fonts:{
+          en: getCssVar("--font-en") || "Inter",
+          en_head: getCssVar("--font-en-head") || getCssVar("--font-en") || "Inter",
+          ar: getCssVar("--font-ar") || "Almarai",
+          ar_head: getCssVar("--font-ar-head") || "Noto Kufi Arabic"
+        },
         images:{
           logo: getImgSrc("logo"),
           portrait: getImgSrc("portrait"),
@@ -2312,147 +2084,361 @@
     function hydrateFromSavedAll(){
       try{
         const raw = localStorage.getItem(ASSET_KEY);
-        if(raw){
-          const p = JSON.parse(raw);
-          if(p?.images){
-            Object.entries(p.images).forEach(([k,v]) => { if(v) setImgSrc(k, v); });
-          }
-          if(p?.links){
-            const L = p.links;
-            if(L.abim_verify) setLinkHref("abim_verify", L.abim_verify);
-            if(L.esmo_talent) setLinkHref("esmo_talent", L.esmo_talent);
-            if(L.scholar) setLinkHref("scholar", L.scholar);
-            if(L.linkedin_profile) setLinkHref("linkedin_profile", L.linkedin_profile);
-            if(L.instagram_profile) setLinkHref("instagram_profile", L.instagram_profile);
-            if(L.x_profile) setLinkHref("x_profile", L.x_profile);
-            if(L.facebook_profile) setLinkHref("facebook_profile", L.facebook_profile);
-            if(L.wa_text) applyWhatsApp(L.wa_text);
-            if(L.email_text) applyEmail(L.email_text);
-          }
+        if(!raw) return;
+        const p = JSON.parse(raw);
+
+        if(p?.fonts){
+          applyFontVars(p.fonts.en, p.fonts.en_head, p.fonts.ar, p.fonts.ar_head);
+        }
+        if(p?.images){
+          Object.entries(p.images).forEach(([k,v]) => { if(v) setImgSrc(k, v); });
+        }
+        if(p?.links){
+          const L = p.links;
+          if(L.abim_verify) setLinkHref("abim_verify", L.abim_verify);
+          if(L.esmo_talent) setLinkHref("esmo_talent", L.esmo_talent);
+          if(L.scholar) setLinkHref("scholar", L.scholar);
+          if(L.linkedin_profile) setLinkHref("linkedin_profile", L.linkedin_profile);
+          if(L.instagram_profile) setLinkHref("instagram_profile", L.instagram_profile);
+          if(L.x_profile) setLinkHref("x_profile", L.x_profile);
+          if(L.facebook_profile) setLinkHref("facebook_profile", L.facebook_profile);
+          if(L.wa_text) applyWhatsApp(L.wa_text);
+          if(L.email_text) applyEmail(L.email_text);
         }
       }catch(e){}
-      // Posts + embed are separate keys; render already called above.
     }
 
     function saveAllToLocal(){
+      if(!ADMIN) return;
       saveEditsToLocal();
       saveAssetsToLocal();
-      // posts + embed already saved when applied
+      // Posts + embed saved when applied
     }
 
-    // Apply saved assets/links on load
-    hydrateFromSavedAll();
-
-    saveAssetsLinks.addEventListener("click", () => {
-      saveAllToLocal();
-      alert("Saved.");
-    });
+    function getCssVar(name){
+      const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+      return v.replace(/^["']|["']$/g,"");
+    }
+    function applyFontVars(en, enHead, ar, arHead){
+      if(en) document.documentElement.style.setProperty("--font-en", `"${en}"`);
+      if(enHead) document.documentElement.style.setProperty("--font-en-head", `"${enHead}"`);
+      if(ar) document.documentElement.style.setProperty("--font-ar", `"${ar}"`);
+      if(arHead) document.documentElement.style.setProperty("--font-ar-head", `"${arHead}"`);
+    }
 
     /* =========================
-       PREVIEW + DOWNLOAD
+       ADMIN WIRING (only if ADMIN)
        ========================= */
+    const editorBar = document.getElementById("editorBar");
+    const drawer = document.getElementById("drawer");
+    const drawerOverlay = document.getElementById("drawerOverlay");
     const previewOverlay = document.getElementById("previewOverlay");
     const previewFrame = document.getElementById("previewFrame");
-    const btnPreview = document.getElementById("btnPreview");
-    const btnDownload = document.getElementById("btnDownload");
-    const btnReset = document.getElementById("btnReset");
-    const closePreview = document.getElementById("closePreview");
-    const previewLang = document.getElementById("previewLang");
 
-    function stripEditorStuff(doc){
-      doc.querySelector("#editorBar")?.remove();
-      doc.querySelector("#previewOverlay")?.remove();
-      doc.querySelector("#drawer")?.remove();
-      doc.querySelector("#drawerOverlay")?.remove();
+    if(ADMIN){
+      // Load admin-local changes
+      loadEditsFromLocal();
+      hydrateFromSavedAll();
 
-      doc.body.setAttribute("data-edit","0");
-      doc.body.classList.remove("editableOn");
-      doc.querySelectorAll("[contenteditable]").forEach(el => el.removeAttribute("contenteditable"));
-      return doc;
-    }
+      // Render posts + embed from admin storage
+      renderPosts(loadPostsFromLocal());
+      applyEmbedToDom(loadEmbedFromLocal());
 
-    function buildExportHtml(){
-      // Ensure latest state
-      saveAllToLocal();
+      // Edit toggle
+      document.getElementById("toggleEdit").addEventListener("click", () => setEditMode(!isEditOn()));
 
-      const clone = document.documentElement.cloneNode(true);
-      const exportDoc = document.implementation.createHTMLDocument("index");
-      exportDoc.open();
-      exportDoc.write("<!doctype html>" + clone.outerHTML);
-      exportDoc.close();
+      // Formatting buttons
+      function ensureEdit(){ if(!isEditOn()){ alert("Turn Edit ON first."); return false; } return true; }
+      function exec(cmd, val=null){ if(!ensureEdit()) return; try{ document.execCommand(cmd, false, val); }catch(e){} }
+      document.querySelectorAll("[data-cmd]").forEach(btn => btn.addEventListener("click", () => exec(btn.getAttribute("data-cmd"))));
+      document.querySelectorAll("[data-block]").forEach(btn => btn.addEventListener("click", () => exec("formatBlock", btn.getAttribute("data-block").toUpperCase())));
+      document.getElementById("btnLink").addEventListener("click", () => {
+        if(!ensureEdit()) return;
+        const url = prompt("Paste link (https://...):");
+        if(url) exec("createLink", url);
+      });
 
-      stripEditorStuff(exportDoc);
-
-      // Keep language
-      const curLang = document.body.getAttribute("data-lang") || "en";
-      exportDoc.body.setAttribute("data-lang", curLang);
-
-      return "<!doctype html>\n" + exportDoc.documentElement.outerHTML;
-    }
-
-    function openPreview(){
-      const html = buildExportHtml();
-      previewFrame.srcdoc = html;
-      previewOverlay.classList.add("open");
-    }
-    function closePreviewFn(){
-      previewOverlay.classList.remove("open");
-      previewFrame.srcdoc = "";
-    }
-    function downloadIndex(){
-      const html = buildExportHtml();
-      const blob = new Blob([html], { type: "text/html;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "index.html";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-    }
-
-    btnPreview.addEventListener("click", openPreview);
-    closePreview.addEventListener("click", closePreviewFn);
-    previewOverlay.addEventListener("click", (e) => { if(e.target === previewOverlay) closePreviewFn(); });
-
-    previewLang.addEventListener("click", () => {
-      const cur = document.body.getAttribute("data-lang") || "en";
-      const next = (cur === "ar") ? "en" : "ar";
-      const old = document.body.getAttribute("data-lang");
-      document.body.setAttribute("data-lang", next);
-      const html = buildExportHtml();
-      document.body.setAttribute("data-lang", old);
-      previewFrame.srcdoc = html;
-    });
-
-    btnDownload.addEventListener("click", () => {
-      if(isEditOn()) setEditMode(false);
-      downloadIndex();
-    });
-
-    btnReset.addEventListener("click", () => {
-      if(!confirm("Reset ALL saved edits (text + assets/links + LinkedIn posts/embed) on this device? This cannot be undone.")) return;
-      localStorage.removeItem(EDIT_KEY);
-      localStorage.removeItem(ASSET_KEY);
-      localStorage.removeItem(POSTS_KEY);
-      localStorage.removeItem(EMBED_KEY);
-      location.reload();
-    });
-
-    /* Shortcuts */
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape"){
-        if(previewOverlay.classList.contains("open")) closePreviewFn();
-        if(drawerOverlay.classList.contains("open")) closeDrawerFn();
+      // Autosave text
+      let saveTimer = null;
+      function scheduleAutosave(){
+        if(!isEditOn()) return;
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(() => saveEditsToLocal(), 650);
       }
-      if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s"){
-        e.preventDefault();
+      rootEn.addEventListener("input", scheduleAutosave);
+      rootAr.addEventListener("input", scheduleAutosave);
+
+      // Drawer tabs
+      const tabBtns = drawer.querySelectorAll(".tabBtn");
+      const tabs = {
+        fonts: document.getElementById("tab-fonts"),
+        images: document.getElementById("tab-images"),
+        links: document.getElementById("tab-links"),
+        socials: document.getElementById("tab-socials"),
+        linkedin: document.getElementById("tab-linkedin"),
+      };
+
+      function showTab(key){
+        tabBtns.forEach(b => b.classList.toggle("active", b.getAttribute("data-tab") === key));
+        Object.entries(tabs).forEach(([k,el]) => el.style.display = (k===key) ? "block" : "none");
+      }
+      tabBtns.forEach(b => b.addEventListener("click", () => showTab(b.getAttribute("data-tab"))));
+
+      function openDrawer(){
+        drawerOverlay.classList.add("open");
+        // hydrate inputs
+        document.getElementById("img_logo").value = getImgSrc("logo");
+        document.getElementById("img_portrait").value = getImgSrc("portrait");
+        document.getElementById("img_pillar1").value = getImgSrc("pillar1");
+        document.getElementById("img_pillar2").value = getImgSrc("pillar2");
+        document.getElementById("img_pillar3").value = getImgSrc("pillar3");
+
+        document.getElementById("link_abim").value = getLinkHref("abim_verify") || "";
+        document.getElementById("link_esmo").value = getLinkHref("esmo_talent") || "";
+        document.getElementById("link_scholar").value = getLinkHref("scholar") || "";
+
+        document.getElementById("link_wa_number").value = (document.querySelector('a[data-link="wa"]')?.textContent || "").trim();
+        document.getElementById("link_email_addr").value = (document.querySelector('a[data-link="email"]')?.textContent || "").trim();
+
+        document.getElementById("social_linkedin").value = getLinkHref("linkedin_profile") || "";
+        document.getElementById("social_instagram").value = getLinkHref("instagram_profile") || "";
+        document.getElementById("social_x").value = getLinkHref("x_profile") || "";
+        document.getElementById("social_fb").value = getLinkHref("facebook_profile") || "";
+
+        // fonts
+        document.getElementById("font_en").value = getCssVar("--font-en") || "Inter";
+        document.getElementById("font_en_head").value = getCssVar("--font-en-head") || getCssVar("--font-en") || "Inter";
+        document.getElementById("font_ar").value = getCssVar("--font-ar") || "Almarai";
+        document.getElementById("font_ar_head").value = getCssVar("--font-ar-head") || "Noto Kufi Arabic";
+
+        // linkedin
+        document.getElementById("li_posts_json").value = JSON.stringify(loadPostsFromLocal(), null, 2);
+        document.getElementById("li_embed_html").value = loadEmbedFromLocal();
+
+        showTab("fonts");
+      }
+      function closeDrawer(){
+        drawerOverlay.classList.remove("open");
+      }
+
+      document.getElementById("btnAssets").addEventListener("click", openDrawer);
+      document.getElementById("closeDrawer").addEventListener("click", closeDrawer);
+      drawerOverlay.addEventListener("click", closeDrawer);
+
+      // Apply font buttons
+      document.getElementById("applyFontEn").addEventListener("click", () => {
+        applyFontVars(document.getElementById("font_en").value, null, null, null);
         saveAllToLocal();
-      }
-    });
+        alert("English body font applied.");
+      });
+      document.getElementById("applyFontEnHead").addEventListener("click", () => {
+        applyFontVars(null, document.getElementById("font_en_head").value, null, null);
+        saveAllToLocal();
+        alert("English headings font applied.");
+      });
+      document.getElementById("applyFontAr").addEventListener("click", () => {
+        applyFontVars(null, null, document.getElementById("font_ar").value, null);
+        saveAllToLocal();
+        alert("Arabic body font applied.");
+      });
+      document.getElementById("applyFontArHead").addEventListener("click", () => {
+        applyFontVars(null, null, null, document.getElementById("font_ar_head").value);
+        saveAllToLocal();
+        alert("Arabic headings font applied.");
+      });
 
-    // Final arrow sync
+      // Wire image apply
+      qAll("[data-img-apply]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const key = btn.getAttribute("data-img-apply");
+          const input = document.getElementById(`img_${key}`);
+          const val = (input?.value || "").trim();
+          if(!val){ alert("Enter an image filename or URL first."); return; }
+          setImgSrc(key, val);
+          saveAllToLocal();
+        });
+      });
+
+      // Wire link apply
+      qAll("[data-link-apply]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const key = btn.getAttribute("data-link-apply");
+          const map = {
+            "abim_verify":"link_abim",
+            "esmo_talent":"link_esmo",
+            "scholar":"link_scholar",
+            "linkedin_profile":"social_linkedin",
+            "instagram_profile":"social_instagram",
+            "x_profile":"social_x"
+          };
+          const inputId = map[key];
+          const val = (document.getElementById(inputId)?.value || "").trim();
+          if(!val || !val.startsWith("http")){ alert("Enter a valid URL (https://...)"); return; }
+          setLinkHref(key, val);
+          saveAllToLocal();
+        });
+      });
+
+      document.getElementById("applyWa").addEventListener("click", () => { applyWhatsApp(document.getElementById("link_wa_number").value); saveAllToLocal(); });
+      document.getElementById("applyEmail").addEventListener("click", () => { applyEmail(document.getElementById("link_email_addr").value); saveAllToLocal(); });
+
+      document.getElementById("applyFb").addEventListener("click", () => {
+        const v = (document.getElementById("social_fb").value || "").trim();
+        if(!v || !v.startsWith("http")){ alert("Enter a valid Facebook URL (https://...)"); return; }
+        const existing = document.querySelector('a[data-link="facebook_profile"]');
+        if(existing){
+          setLinkHref("facebook_profile", v);
+        }else{
+          const btnHtmlEn = `
+            <a data-link="facebook_profile" class="btn fb" href="${v}" target="_blank" rel="noopener">
+              <svg aria-hidden="true"><use href="#i-fb"></use></svg>
+              Facebook
+            </a>`;
+          const btnHtmlAr = `
+            <a data-link="facebook_profile" class="btn fb" href="${v}" target="_blank" rel="noopener">
+              <svg aria-hidden="true"><use href="#i-fb"></use></svg>
+              فيسبوك
+            </a>`;
+          document.querySelector('#en .ctaRow')?.insertAdjacentHTML("beforeend", btnHtmlEn);
+          document.querySelector('#ar .ctaRow')?.insertAdjacentHTML("beforeend", btnHtmlAr);
+        }
+        saveAllToLocal();
+        alert("Facebook button added/updated.");
+      });
+
+      // LinkedIn posts actions
+      document.getElementById("loadSamplePosts").addEventListener("click", () => {
+        const sample = [
+          {
+            title: "Highlights from ASCO / ESMO practice updates",
+            title_ar: "ملخصات عملية من تحديثات ASCO / ESMO",
+            date: "2025-12-01",
+            summary: "Short clinical takeaways and how they apply to daily practice in Lebanon.",
+            summary_ar: "نقاط مختصرة قابلة للتطبيق على الممارسة اليومية في لبنان.",
+            url: "https://www.linkedin.com/posts/"
+          }
+        ];
+        document.getElementById("li_posts_json").value = JSON.stringify(sample, null, 2);
+      });
+
+      document.getElementById("applyPosts").addEventListener("click", () => {
+        const raw = document.getElementById("li_posts_json").value;
+        try{
+          const posts = JSON.parse(raw);
+          if(!Array.isArray(posts)) throw new Error("Not array");
+          const cleaned = posts.map(p => ({
+            title: p.title || "",
+            title_ar: p.title_ar || "",
+            date: p.date || "",
+            summary: p.summary || "",
+            summary_ar: p.summary_ar || "",
+            url: p.url || "",
+            cta_en: p.cta_en || "",
+            cta_ar: p.cta_ar || ""
+          })).filter(p => p.title || p.title_ar || p.url);
+          savePostsToLocal(cleaned);
+          renderPosts(cleaned);
+          saveAllToLocal();
+          alert("Posts updated.");
+        }catch(e){
+          alert("Invalid JSON. Tip: click “Load sample” first, then edit.");
+        }
+      });
+
+      document.getElementById("applyEmbed").addEventListener("click", () => {
+        const html = document.getElementById("li_embed_html").value || "";
+        saveEmbedToLocal(html);
+        applyEmbedToDom(html);
+        saveAllToLocal();
+        alert("Embed updated.");
+      });
+      document.getElementById("clearEmbed").addEventListener("click", () => {
+        document.getElementById("li_embed_html").value = "";
+        saveEmbedToLocal("");
+        applyEmbedToDom("");
+        saveAllToLocal();
+        alert("Embed cleared.");
+      });
+
+      // Preview + download (exports this same file, but edit mode OFF)
+      function buildExportHtml(){
+        // turn edit off, remove contenteditable marks
+        setEditMode(false);
+        document.querySelectorAll("[contenteditable]").forEach(el => el.removeAttribute("contenteditable"));
+
+        // clone current live DOM (includes your edits + font vars inline)
+        const html = "<!doctype html>\n" + document.documentElement.outerHTML;
+        return html;
+      }
+
+      document.getElementById("btnPreview").addEventListener("click", () => {
+        const html = buildExportHtml();
+        previewFrame.srcdoc = html; // public view (admin bar hidden in preview)
+        previewOverlay.classList.add("open");
+      });
+      document.getElementById("closePreview").addEventListener("click", () => {
+        previewOverlay.classList.remove("open");
+        previewFrame.srcdoc = "";
+      });
+      previewOverlay.addEventListener("click", (e) => {
+        if(e.target === previewOverlay){
+          previewOverlay.classList.remove("open");
+          previewFrame.srcdoc = "";
+        }
+      });
+      document.getElementById("previewLang").addEventListener("click", () => {
+        const cur = document.body.getAttribute("data-lang") || "en";
+        setLang(cur === "ar" ? "en" : "ar");
+        const html = buildExportHtml();
+        previewFrame.srcdoc = html;
+      });
+
+      document.getElementById("btnDownload").addEventListener("click", () => {
+        const html = buildExportHtml();
+        const blob = new Blob([html], { type: "text/html;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "index.html";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      });
+
+      document.getElementById("saveAll").addEventListener("click", () => {
+        saveAllToLocal();
+        alert("Saved.");
+      });
+
+      document.getElementById("btnReset").addEventListener("click", () => {
+        if(!confirm("Reset ALL saved admin edits (this device only)?")) return;
+        localStorage.removeItem(EDIT_KEY);
+        localStorage.removeItem(ASSET_KEY);
+        localStorage.removeItem(POSTS_KEY);
+        localStorage.removeItem(EMBED_KEY);
+        location.reload();
+      });
+
+      // Shortcuts
+      document.addEventListener("keydown", (e) => {
+        if(e.key === "Escape"){
+          previewOverlay.classList.remove("open");
+          previewFrame.srcdoc = "";
+          drawerOverlay.classList.remove("open");
+        }
+        if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s"){
+          e.preventDefault();
+          saveAllToLocal();
+        }
+      });
+    } else {
+      // Public visitors: render posts/embed from the baked-in HTML only
+      // (no localStorage edits applied)
+      renderPosts([]); // keeps section clean if you didn't add posts yet
+      applyEmbedToDom("");
+    }
+
     syncRtlArrows();
   </script>
 </body>
