@@ -559,17 +559,19 @@
       .brandSub{display:none}
       section{padding:44px 0}
       .floatBadge{ left:8px; }
-      .floatBadge.tr{ right:8px; }
+      .floatBadge.tr{ right:8px; top:-18px; }   /* sit above the head, not over the face */
     }
     @media (max-width: 640px){
       .chip{ display:none; }                 /* hide the CTA on phones — it crowds the name; menu has it */
       .brandTitle{ font-size:.97rem; }
+      #en .brandTitle{ font-size: clamp(.7rem, 3.3vw, .95rem); }  /* EN full name is long — auto-fit down to ~360px, don't truncate */
       .brandTitle .nameFull{ display:none; }
       .brandTitle .nameShort{ display:inline; }
       .nav{ gap:8px; }
       .righttools{ gap:7px; }
       .langBtn{ padding:8px 10px; font-size:.88rem; gap:6px; }
       .langBtn svg{ width:16px; height:16px; }
+      #en .hero .eyebrow{ font-size: clamp(.62rem, 3.1vw, .8rem); letter-spacing:.04em; white-space:nowrap; }  /* keep "Cancer & Blood Specialist • Lebanon" on one line */
     }
   </style>
 </head>
@@ -608,7 +610,7 @@
           <a class="brand" href="#top-en" aria-label="Dr. Mohamad Minhem — home">
             <div class="logo" aria-hidden="true">MM</div>
             <div class="brandText">
-              <span class="brandTitle"><span class="nameFull">Dr. Mohamad Minhem, MD</span><span class="nameShort">Dr. Minhem</span></span>
+              <span class="brandTitle"><span class="nameFull">Dr. Mohamad Minhem</span><span class="nameShort">Dr. Mohamad Minhem</span></span>
               <span class="brandSub">Cancer &amp; Blood Specialist • Lebanon</span>
             </div>
           </a>
@@ -1066,7 +1068,7 @@
           <nav class="navlinks rtl" aria-label="القائمة الرئيسية">
             <a href="#care-ar">كيف أعمل</a>
             <a href="#recognition-ar">التقدير</a>
-            <a href="#background-ar">الخلفية</a>
+            <a href="#background-ar">الخلفية العلمية</a>
             <a href="#academic-ar">الأبحاث</a>
           </nav>
 
@@ -1085,7 +1087,7 @@
     <div class="mobileMenu rtl" id="mobileMenuAr" role="dialog" aria-label="القائمة">
       <a href="#care-ar">كيف أعمل</a>
       <a href="#recognition-ar">التقدير</a>
-      <a href="#background-ar">الخلفية</a>
+      <a href="#background-ar">الخلفية العلمية</a>
       <a href="#academic-ar">الأبحاث</a>
       <a href="#contact-ar">احجز استشارة</a>
     </div>
@@ -1304,7 +1306,7 @@
       <section id="background-ar" class="altBg">
         <div class="wrap">
           <div class="sectionHead reveal">
-            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-cap"></use></svg> الخلفية</div>
+            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-cap"></use></svg> الخلفية العلمية</div>
             <h2 class="sectionTitle">تدرّب في بيروت والولايات المتحدة</h2>
             <p class="sectionSub">سنوات من التدريب في مؤسسات مرموقة — لتكون في أيدٍ خبيرة.</p>
           </div>
