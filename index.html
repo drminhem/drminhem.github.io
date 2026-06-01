@@ -441,8 +441,8 @@
     .testimonial figcaption a{ color:var(--teal-600); font-weight:800; text-decoration:underline; text-decoration-color:rgba(14,154,167,.4); }
     @media (max-width:760px){
       .testimonial{ grid-template-columns:1fr; }
-      .tPhoto{ min-height:0; aspect-ratio:5/3; }
-      .tPhoto img{ position:static; object-position:50% 12%; }
+      .tPhoto{ min-height:0; aspect-ratio:5/4; }
+      .tPhoto img{ position:static; object-position:50% 28%; }
     }
     @media (max-width:560px){
       .tBody{ padding:22px 20px; }
@@ -563,8 +563,13 @@
     }
     @media (max-width: 640px){
       .chip{ display:none; }                 /* hide the CTA on phones — it crowds the name; menu has it */
+      .brandTitle{ font-size:.97rem; }
       .brandTitle .nameFull{ display:none; }
       .brandTitle .nameShort{ display:inline; }
+      .nav{ gap:8px; }
+      .righttools{ gap:7px; }
+      .langBtn{ padding:8px 10px; font-size:.88rem; gap:6px; }
+      .langBtn svg{ width:16px; height:16px; }
     }
   </style>
 </head>
@@ -1053,7 +1058,7 @@
           <a class="brand rtl" href="#top-ar" aria-label="الدكتور محمد منعم — الرئيسية">
             <div class="logo" aria-hidden="true">MM</div>
             <div class="brandText">
-              <span class="brandTitle"><span class="nameFull">الدكتور محمد منعم</span><span class="nameShort">د. منعم</span></span>
+              <span class="brandTitle"><span class="nameFull">الدكتور محمد منعم</span><span class="nameShort">د. محمد منعم</span></span>
               <span class="brandSub">أمراض الدم والأورام • لبنان</span>
             </div>
           </a>
