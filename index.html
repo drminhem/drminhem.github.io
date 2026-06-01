@@ -212,6 +212,7 @@
     }
     .brandText{min-width:0}
     .brandTitle{ display:block; font-weight:800; color:var(--navy); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:1.05rem; }
+    .brandTitle .nameShort{ display:none; }
     .brandSub{ display:block; font-weight:700; color:var(--teal-600); letter-spacing:.03em; font-size:.76rem; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-transform:uppercase; }
     .rtl .brandSub{ text-transform:none; font-size:.84rem; }
 
@@ -560,8 +561,10 @@
       .floatBadge{ left:8px; }
       .floatBadge.tr{ right:8px; }
     }
-    @media (max-width: 420px){
-      .chip span.chipTxt{ display:none; }
+    @media (max-width: 640px){
+      .chip{ display:none; }                 /* hide the CTA on phones — it crowds the name; menu has it */
+      .brandTitle .nameFull{ display:none; }
+      .brandTitle .nameShort{ display:inline; }
     }
   </style>
 </head>
@@ -600,7 +603,7 @@
           <a class="brand" href="#top-en" aria-label="Dr. Mohamad Minhem — home">
             <div class="logo" aria-hidden="true">MM</div>
             <div class="brandText">
-              <span class="brandTitle">Dr. Mohamad Minhem, MD</span>
+              <span class="brandTitle"><span class="nameFull">Dr. Mohamad Minhem, MD</span><span class="nameShort">Dr. Minhem</span></span>
               <span class="brandSub">Cancer &amp; Blood Specialist • Lebanon</span>
             </div>
           </a>
@@ -1050,7 +1053,7 @@
           <a class="brand rtl" href="#top-ar" aria-label="الدكتور محمد منعم — الرئيسية">
             <div class="logo" aria-hidden="true">MM</div>
             <div class="brandText">
-              <span class="brandTitle">الدكتور محمد منعم</span>
+              <span class="brandTitle"><span class="nameFull">الدكتور محمد منعم</span><span class="nameShort">د. منعم</span></span>
               <span class="brandSub">أمراض الدم والأورام • لبنان</span>
             </div>
           </a>
