@@ -319,20 +319,6 @@
       background: radial-gradient(60% 80% at 50% 100%, rgba(14,154,167,.30), transparent 70%);
       filter: blur(20px); z-index:-1;
     }
-    .floatBadge{
-      position:absolute; left:-14px; bottom:26px; z-index:2;
-      display:flex; align-items:center; gap:11px;
-      background:rgba(255,255,255,.96); backdrop-filter:blur(8px);
-      border:1px solid var(--line); border-radius:16px; padding:11px 16px 11px 12px;
-      box-shadow: var(--shadow2);
-    }
-    .floatBadge .bIco{ width:40px;height:40px;border-radius:11px; display:grid;place-items:center; background:var(--gold-50); color:var(--gold); flex:0 0 40px; }
-    .floatBadge .bIco svg{width:22px;height:22px}
-    .floatBadge b{ display:block; font-size:1.08rem; color:var(--navy); font-weight:900; line-height:1.1; }
-    .floatBadge span{ display:block; font-size:.85rem; color:var(--muted); font-weight:700; margin-top:2px; }
-    .floatBadge.tr{ left:auto; right:-14px; bottom:auto; top:22px; }
-    .floatBadge.tr .bIco{ background:var(--teal-50); color:var(--teal-600); }
-
     /* ---------- Credentials stat band ---------- */
     .statBand{ padding:18px 0 8px; }
     .statGrid{ display:grid; grid-template-columns: repeat(4,1fr); gap:14px; }
@@ -507,6 +493,13 @@
     @media (max-width:560px){ .liNav{ width:40px;height:40px; } .liNav svg{ width:18px;height:18px; } }
     .liHint{ display:inline-flex; align-items:center; gap:7px; margin:12px 2px 0; color:var(--teal-600); font-weight:800; font-size:.95rem; }
     .liHint svg{ width:16px;height:16px; }
+    .liTitle{ font-family:var(--serif); font-weight:600; color:var(--navy); font-size:clamp(1.3rem, 2.2vw, 1.6rem); letter-spacing:-.01em; margin:0; }
+    .rtl .liTitle{ font-family:var(--ar); font-weight:800; }
+    .liCap{ display:flex; align-items:center; gap:8px; margin:0; padding:11px 14px; font-weight:800; font-size:.92rem; color:var(--navy); background:linear-gradient(180deg, var(--teal-50), #fff); border-bottom:1px solid var(--line); }
+    .liCap svg{ width:15px; height:15px; flex:0 0 15px; color:var(--teal-600); }
+    .liItem.featured .liCap{ background:linear-gradient(180deg, var(--gold-50), #fff); }
+    .liItem.featured .liCap svg{ color:var(--gold); }
+    .rtl .liCap{ direction:rtl; text-align:right; }
 
     /* ---------- Social links ---------- */
     .social{ display:flex; gap:10px; flex-wrap:wrap; }
@@ -558,8 +551,6 @@
       .statGrid{ grid-template-columns: 1fr; }
       .brandSub{display:none}
       section{padding:44px 0}
-      .floatBadge{ left:8px; }
-      .floatBadge.tr{ right:8px; top:-18px; }   /* sit above the head, not over the face */
       /* ESMO photo: drop the caption below the image so it never overlays the face */
       .recoPhoto img{ display:block; }
       .recoCaption{ position:static; border-radius:0; padding:12px 16px; font-size:.9rem; }
@@ -574,7 +565,7 @@
       .righttools{ gap:7px; }
       .langBtn{ padding:8px 10px; font-size:.88rem; gap:6px; }
       .langBtn svg{ width:16px; height:16px; }
-      #en .hero .eyebrow{ font-size: clamp(.62rem, 3.1vw, .8rem); letter-spacing:.04em; white-space:nowrap; }  /* keep "Cancer & Blood Specialist • Lebanon" on one line */
+      #en .hero .eyebrow{ font-size: clamp(.62rem, 3.1vw, .8rem); letter-spacing:.04em; white-space:nowrap; }  /* keep "Accepting new patients • Lebanon" on one line */
     }
   </style>
 </head>
@@ -619,8 +610,8 @@
           </a>
 
           <nav class="navlinks" aria-label="Primary">
-            <a href="#care-en">How I work</a>
             <a href="#recognition-en">Recognition</a>
+            <a href="#care-en">How I work</a>
             <a href="#background-en">Background</a>
             <a href="#academic-en">Research</a>
           </nav>
@@ -638,8 +629,8 @@
     </div>
 
     <div class="mobileMenu" id="mobileMenu" role="dialog" aria-label="Menu">
-      <a href="#care-en">How I work</a>
       <a href="#recognition-en">Recognition</a>
+      <a href="#care-en">How I work</a>
       <a href="#background-en">Background</a>
       <a href="#academic-en">Research</a>
       <a href="#contact-en">Book a consultation</a>
@@ -649,9 +640,9 @@
       <div class="wrap">
         <div class="heroGrid">
           <div class="reveal">
-            <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Cancer &amp; Blood Specialist • Lebanon</div>
+            <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Accepting new patients • Lebanon</div>
             <h1 class="name">Dr. Mohamad Minhem</h1>
-            <p class="role">Cancer &amp; blood-disorder specialist <span style="white-space:nowrap">(Hematology–Oncology)</span>&nbsp;· <span style="white-space:nowrap">American Board–Certified</span> in the USA&nbsp;· trained in the United States</p>
+            <p class="role">Cancer &amp; blood-disorder specialist <span style="white-space:nowrap">(Hematology–Oncology)</span>&nbsp;· trained in the United States</p>
             <p class="lead">
               From your very first visit, you'll get a clear diagnosis and a treatment plan you can actually understand —
               using the same modern, targeted, and immune-based therapies offered in leading hospitals in the U.S. and Europe,
@@ -661,7 +652,7 @@
             <div class="heroChips">
               <span class="miniChip"><svg aria-hidden="true"><use href="#i-shield"></use></svg> American Board–Certified (USA)</span>
               <span class="miniChip star"><svg aria-hidden="true"><use href="#i-star"></use></svg> 100th percentile — Highest rank in U.S. oncology exam (ASCO)</span>
-              <span class="miniChip"><svg aria-hidden="true"><use href="#i-check"></use></svg> Top 5 worldwide — ESMO exam</span>
+              <span class="miniChip"><svg aria-hidden="true"><use href="#i-check"></use></svg> Top 5 worldwide — European oncology exam (ESMO)</span>
             </div>
 
             <div class="ctaRow">
@@ -680,14 +671,6 @@
           <div class="heroMedia reveal">
             <div class="portraitWrap">
               <img src="portrait.jpg" alt="Dr. Mohamad Minhem, cancer and blood-disorder specialist" width="1023" height="1537" loading="eager" decoding="async" fetchpriority="high" />
-            </div>
-            <div class="floatBadge tr">
-              <div class="bIco"><svg aria-hidden="true"><use href="#i-shield"></use></svg></div>
-              <div><b>U.S. Board</b><span>Certified physician (ABIM)</span></div>
-            </div>
-            <div class="floatBadge">
-              <div class="bIco"><svg aria-hidden="true"><use href="#i-star"></use></svg></div>
-              <div><b>100th percentile</b><span>Highest rank · ASCO exam · 2026</span></div>
             </div>
           </div>
         </div>
@@ -727,7 +710,111 @@
     </section>
 
     <main>
-      <section id="care-en">
+      <section id="recognition-en">
+        <div class="wrap">
+          <div class="sectionHead reveal">
+            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-globe"></use></svg> Recognition</div>
+            <h2 class="sectionTitle">Internationally recognized — for your peace of mind</h2>
+            <p class="sectionSub">You don't have to take my word for it — here is how the oncology world responded, in its own words and posts.</p>
+          </div>
+
+          <div class="recoGrid">
+            <div class="recoPhoto reveal">
+              <img src="esmo-conference.jpg" alt="Dr. Mohamad Minhem at the ESMO cancer congress 2025 in Berlin" width="994" height="994" loading="lazy" decoding="async" />
+              <div class="recoCaption">
+                <b>ESMO Congress 2025 — Berlin</b>
+                The world's leading cancer-medicine meeting (European Society for Medical Oncology, 50th anniversary).
+              </div>
+            </div>
+
+            <ul class="recoList reveal">
+              <li class="recoItem gold">
+                <div class="rIco"><svg aria-hidden="true"><use href="#i-star"></use></svg></div>
+                <div>
+                  <b>Featured by ESMO itself</b>
+                  <span>After his top-5 result, the <strong>European Society for Medical Oncology</strong> featured Dr. Minhem in its own posts — see ESMO's post below.</span>
+                </div>
+              </li>
+              <li class="recoItem">
+                <div class="rIco"><svg aria-hidden="true"><use href="#i-quote"></use></svg></div>
+                <div>
+                  <b>Congratulated publicly by senior oncologists</b>
+                  <span>Including <strong>Prof. Marwan Ghosn</strong>, one of Lebanon's most respected oncologists — read his words below.</span>
+                </div>
+              </li>
+              <li class="recoItem">
+                <div class="rIco"><svg aria-hidden="true"><use href="#i-check"></use></svg></div>
+                <div>
+                  <b>Listed in ESMO's official Talent Pool</b>
+                  <span>Publicly listed among the top performers worldwide on the ESMO examination. <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">ESMO official ↗</a></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <figure class="testimonial reveal">
+            <div class="tPhoto"><img src="ghosn-minhem.jpg" alt="Prof. Marwan Ghosn with Dr. Mohamad Minhem" width="720" height="1280" loading="lazy" decoding="async"></div>
+            <div class="tBody">
+              <svg class="tQuote" aria-hidden="true"><use href="#i-quote"></use></svg>
+              <blockquote>Proud moment for Lebanon and the future of oncology. I would like to congratulate Dr. Mohamad Minhem on achieving the 100th percentile on the ASCO exam — an exceptional accomplishment that reflects years of discipline, perseverance, and excellence… Well done, Mohamad Minhem — this is only the beginning.</blockquote>
+              <figcaption>
+                <b>Prof. Marwan Ghosn</b>
+                <span>Professor of Hematology–Oncology, Saint Joseph University of Beirut · <a href="https://www.linkedin.com/posts/marwan-ghosn-120095126_lebanon-medicaleducation-oncology-share-7451931046805131264-rpWA/" target="_blank" rel="noopener">View on LinkedIn ↗</a></span>
+              </figcaption>
+            </div>
+          </figure>
+
+          <div class="liHeaderRow reveal" style="margin-top:42px">
+            <div>
+              <h3 class="liTitle">Read the original posts</h3>
+              <p class="sectionSub" style="font-size:1.02rem;margin:8px 0 0">ESMO’s own post, the exam results, and moments from the world’s leading cancer meetings — straight from LinkedIn.</p>
+              <p class="liHint"><svg style="transform:rotate(180deg)" aria-hidden="true"><use href="#i-chev"></use></svg> Scroll, swipe, or use the arrows to see all posts</p>
+            </div>
+            <a class="liLink" href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+              <img class="liLogoImg" src="LinkedIn_logo.svg" alt="LinkedIn" loading="lazy" decoding="async">
+            </a>
+          </div>
+
+          <div class="liCarousel reveal" aria-label="Featured LinkedIn posts">
+            <button class="liNav prev" type="button" aria-label="Previous posts"><svg aria-hidden="true"><use href="#i-chev"></use></svg></button>
+            <button class="liNav next" type="button" aria-label="More posts"><svg aria-hidden="true"><use href="#i-chev"></use></svg></button>
+            <div class="liTrack" role="list">
+              <div class="liItem featured" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7457137792897318912/">
+                <p class="liCap"><svg aria-hidden="true"><use href="#i-star"></use></svg> ESMO’s official post — featuring Dr. Minhem</p>
+                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">Open post ↗</a></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7457137792897318912" loading="lazy" title="LinkedIn post — featured by ESMO" allowfullscreen></iframe>
+              </div>
+              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/posts/mohamad-minhem_oncology-hematology-lebanon-share-7450663794390843392-742u/">
+                <p class="liCap">The ASCO exam result (2026)</p>
+                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">Open post ↗</a></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7450663794390843392" loading="lazy" title="LinkedIn post — ASCO exam result" allowfullscreen></iframe>
+              </div>
+              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7407135949408817152/">
+                <p class="liCap">ESMO Top 5 — the announcement (2025)</p>
+                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">Open post ↗</a></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7407135949408817152" loading="lazy" title="LinkedIn post — ESMO Top 5" allowfullscreen></iframe>
+              </div>
+              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7386100386878717952/">
+                <p class="liCap">ESMO Congress 2025 — Berlin</p>
+                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">Open post ↗</a></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7386100386878717952" loading="lazy" title="LinkedIn post — ESMO Congress 2025" allowfullscreen></iframe>
+              </div>
+              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7339062374840111104/">
+                <p class="liCap">ASCO exam 2025</p>
+                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">Open post ↗</a></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7339062374840111104" loading="lazy" title="LinkedIn post — ASCO exam 2025" allowfullscreen></iframe>
+              </div>
+              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7198818158768451584/">
+                <p class="liCap">ASCO exam 2024</p>
+                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">Open post ↗</a></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7198818158768451584" loading="lazy" title="LinkedIn post — ASCO exam 2024" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="care-en" class="altBg">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-heart"></use></svg> How I work</div>
@@ -742,7 +829,7 @@
                 <h3>A clear plan, step by step</h3>
                 <ul class="list">
                   <li><b>A clear plan after every visit</b> — what we know, what comes next, and why.</li>
-                  <li><b>The latest treatments</b> — the same targeted and immune-based therapies used in top U.S. and European centers.</li>
+                  <li><b>The latest treatments</b> — including targeted and immune-based therapies, when they fit your case.</li>
                   <li><b>Smart testing</b> — advanced tumor and gene tests, used only when they can truly change your treatment.</li>
                   <li><b>Support from day one</b> — for pain, side effects, energy, and quality of life.</li>
                 </ul>
@@ -764,7 +851,7 @@
         </div>
       </section>
 
-      <section id="approach-en" class="altBg">
+      <section id="approach-en">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-target"></use></svg> My approach</div>
@@ -798,62 +885,6 @@
               </div>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section id="recognition-en">
-        <div class="wrap">
-          <div class="sectionHead reveal">
-            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-globe"></use></svg> Recognition</div>
-            <h2 class="sectionTitle">Internationally recognized — for your peace of mind</h2>
-            <p class="sectionSub">These results aren't just titles. They reflect a level of training and up-to-date knowledge that directly benefits your care.</p>
-          </div>
-
-          <div class="recoGrid">
-            <div class="recoPhoto reveal">
-              <img src="esmo-conference.jpg" alt="Dr. Mohamad Minhem at the ESMO cancer congress 2025 in Berlin" width="994" height="994" loading="lazy" decoding="async" />
-              <div class="recoCaption">
-                <b>ESMO Congress 2025 — Berlin</b>
-                The world's leading cancer-medicine meeting (European Society for Medical Oncology, 50th anniversary).
-              </div>
-            </div>
-
-            <ul class="recoList reveal">
-              <li class="recoItem gold">
-                <div class="rIco"><svg aria-hidden="true"><use href="#i-star"></use></svg></div>
-                <div>
-                  <b>100th percentile on the ASCO exam (2026) — highest rank</b>
-                  <span>Among oncology examinees across the U.S. and Lebanon, on the exam of the <strong>American Society of Clinical Oncology (ASCO)</strong> — the largest organization of cancer doctors in the world.</span>
-                </div>
-              </li>
-              <li class="recoItem">
-                <div class="rIco"><svg aria-hidden="true"><use href="#i-check"></use></svg></div>
-                <div>
-                  <b>Top 5 worldwide — ESMO exam (2025)</b>
-                  <span>Ranked among the five best worldwide on the exam of the <strong>European Society for Medical Oncology (ESMO)</strong>. <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">ESMO official ↗</a></span>
-                </div>
-              </li>
-              <li class="recoItem">
-                <div class="rIco"><svg aria-hidden="true"><use href="#i-quote"></use></svg></div>
-                <div>
-                  <b>Recognized within the oncology community</b>
-                  <span>Featured by ESMO and acknowledged by senior colleagues — including Prof. Marwan Ghosn, below.</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <figure class="testimonial reveal">
-            <div class="tPhoto"><img src="ghosn-minhem.jpg" alt="Prof. Marwan Ghosn with Dr. Mohamad Minhem" width="720" height="1280" loading="lazy" decoding="async"></div>
-            <div class="tBody">
-              <svg class="tQuote" aria-hidden="true"><use href="#i-quote"></use></svg>
-              <blockquote>Proud moment for Lebanon and the future of oncology. I would like to congratulate Dr. Mohamad Minhem on achieving the 100th percentile on the ASCO exam — an exceptional accomplishment that reflects years of discipline, perseverance, and excellence… Well done, Mohamad Minhem — this is only the beginning.</blockquote>
-              <figcaption>
-                <b>Prof. Marwan Ghosn</b>
-                <span>Professor of Hematology–Oncology, Saint Joseph University of Beirut · <a href="https://www.linkedin.com/posts/marwan-ghosn-120095126_lebanon-medicaleducation-oncology-share-7451931046805131264-rpWA/" target="_blank" rel="noopener">View on LinkedIn ↗</a></span>
-              </figcaption>
-            </div>
-          </figure>
         </div>
       </section>
 
@@ -898,7 +929,7 @@
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-flask"></use></svg> Research &amp; teaching</div>
-            <h2 class="sectionTitle">Research &amp; teaching</h2>
+            <h2 class="sectionTitle">Active in research — and teaching the next generation</h2>
             <p class="sectionSub">More than 30 published studies and abstracts. Full list on <a href="https://scholar.google.com/citations?user=_p93-ZoAAAAJ&hl=en" target="_blank" rel="noopener" style="color:var(--teal-600);font-weight:800">Google Scholar ↗</a></p>
           </div>
 
@@ -913,6 +944,7 @@
                   <li>Diabetic foot infection in the Middle East (review) — <em>Diabetic Foot Journal Middle East</em> (2019)</li>
                   <li>Tuberculosis presenting with digestive symptoms — <em>ACP Hospitalist</em> (2021)</li>
                 </ul>
+                <p class="note"><b>Why this matters to you:</b> staying active in research and teaching keeps your treatment plan aligned with the newest evidence.</p>
               </div>
             </div>
 
@@ -920,14 +952,9 @@
               <div class="cardPad">
                 <p class="k">Teaching</p>
                 <ul class="list">
-                  <li>Ongoing teaching for medical students, resident doctors, and specialists in training.</li>
-                  <li>Regular case discussions in lectures and multidisciplinary cancer meetings, covering:</li>
-                  <li>Breast cancer.</li>
-                  <li>Lung cancer — treatment updates.</li>
-                  <li>Colon &amp; rectal cancer.</li>
-                  <li>Prostate &amp; kidney cancer.</li>
-                  <li>Lymphoma &amp; leukemia (blood cancers).</li>
-                  <li>Blood disorders — anemia, clotting, and platelet conditions.</li>
+                  <li><b>Ongoing teaching</b> for medical students, resident doctors, and specialists in training.</li>
+                  <li><b>Regular case discussions</b> in lectures and multidisciplinary cancer meetings.</li>
+                  <li><b>Topics covered:</b> breast, lung, colon &amp; rectal, and prostate &amp; kidney cancers; lymphoma &amp; leukemia (blood cancers); and blood disorders such as anemia, clotting, and platelet conditions.</li>
                 </ul>
               </div>
             </div>
@@ -935,54 +962,7 @@
         </div>
       </section>
 
-      <section id="linkedin-en" class="altBg">
-        <div class="wrap">
-          <div class="liHeaderRow reveal">
-            <div class="sectionHead" style="margin:0">
-              <div class="eyebrow"><svg aria-hidden="true"><use href="#i-quote"></use></svg> Featured</div>
-              <h2 class="sectionTitle">Recognition &amp; updates</h2>
-              <p class="sectionSub" style="font-size:1.04rem">Selected posts — including recognition from ESMO and senior oncologists.</p>
-              <p class="liHint"><svg style="transform:rotate(180deg)" aria-hidden="true"><use href="#i-chev"></use></svg> Scroll, swipe, or use the arrows to see all posts</p>
-            </div>
-            <a class="liLink" href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-              <img class="liLogoImg" src="LinkedIn_logo.svg" alt="LinkedIn" loading="lazy" decoding="async">
-            </a>
-          </div>
-
-          <div class="liCarousel reveal" aria-label="Featured LinkedIn posts">
-            <button class="liNav prev" type="button" aria-label="Previous posts"><svg aria-hidden="true"><use href="#i-chev"></use></svg></button>
-            <button class="liNav next" type="button" aria-label="More posts"><svg aria-hidden="true"><use href="#i-chev"></use></svg></button>
-            <div class="liTrack" role="list">
-              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7457137792897318912/">
-                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">Open post ↗</a></div>
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7457137792897318912" loading="lazy" title="LinkedIn post — featured by ESMO" allowfullscreen></iframe>
-              </div>
-              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/posts/mohamad-minhem_oncology-hematology-lebanon-share-7450663794390843392-742u/">
-                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">Open post ↗</a></div>
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7450663794390843392" loading="lazy" title="LinkedIn post — Mohamad Minhem, MD" allowfullscreen></iframe>
-              </div>
-              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7407135949408817152/">
-                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">Open post ↗</a></div>
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7407135949408817152" loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
-              </div>
-              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7386100386878717952/">
-                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">Open post ↗</a></div>
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7386100386878717952" loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
-              </div>
-              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7339062374840111104/">
-                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">Open post ↗</a></div>
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7339062374840111104" loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
-              </div>
-              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7198818158768451584/">
-                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">Open post ↗</a></div>
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7198818158768451584" loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact-en">
+      <section id="contact-en" class="altBg">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-phone"></use></svg> Contact</div>
@@ -1069,8 +1049,8 @@
           </a>
 
           <nav class="navlinks rtl" aria-label="القائمة الرئيسية">
-            <a href="#care-ar">كيف أعمل</a>
             <a href="#recognition-ar">التقدير</a>
+            <a href="#care-ar">كيف أعمل</a>
             <a href="#background-ar">الخلفية العلمية</a>
             <a href="#academic-ar">الأبحاث</a>
           </nav>
@@ -1088,8 +1068,8 @@
     </div>
 
     <div class="mobileMenu rtl" id="mobileMenuAr" role="dialog" aria-label="القائمة">
-      <a href="#care-ar">كيف أعمل</a>
       <a href="#recognition-ar">التقدير</a>
+      <a href="#care-ar">كيف أعمل</a>
       <a href="#background-ar">الخلفية العلمية</a>
       <a href="#academic-ar">الأبحاث</a>
       <a href="#contact-ar">احجز استشارة</a>
@@ -1099,9 +1079,9 @@
       <div class="wrap">
         <div class="heroGrid">
           <div class="reveal">
-            <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> أمراض الدم والأورام • لبنان</div>
+            <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> أستقبل مرضى جدد • لبنان</div>
             <h1 class="name">الدكتور محمد منعم</h1>
-            <p class="role">اختصاصي أمراض الدم والأورام&nbsp;· حاصل على البورد الأمريكي (ABIM)&nbsp;· تدرّب في الولايات المتحدة</p>
+            <p class="role">اختصاصي أمراض الدم والأورام&nbsp;· تدرّب في الولايات المتحدة</p>
             <p class="lead">
               منذ زيارتك الأولى ستحصل على تشخيص واضح وخطة علاج تفهمها فعلاً — بأحدث العلاجات الموجَّهة والمناعية
               المعتمدة في كبرى مستشفيات أمريكا وأوروبا، مع إجابات صادقة وقرارات نتّخذها معاً.
@@ -1129,14 +1109,6 @@
           <div class="heroMedia reveal">
             <div class="portraitWrap">
               <img src="portrait.jpg" alt="الدكتور محمد منعم — اختصاصي أمراض السرطان والدم" width="1023" height="1537" loading="eager" decoding="async" />
-            </div>
-            <div class="floatBadge tr">
-              <div class="bIco"><svg aria-hidden="true"><use href="#i-shield"></use></svg></div>
-              <div><b>البورد الأمريكي</b><span>طبيب معتمد (ABIM)</span></div>
-            </div>
-            <div class="floatBadge">
-              <div class="bIco"><svg aria-hidden="true"><use href="#i-star"></use></svg></div>
-              <div><b>100%</b><span>أعلى مرتبة · امتحان ASCO · 2026</span></div>
             </div>
           </div>
         </div>
@@ -1176,7 +1148,111 @@
     </section>
 
     <main>
-      <section id="care-ar">
+      <section id="recognition-ar">
+        <div class="wrap">
+          <div class="sectionHead reveal">
+            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-globe"></use></svg> التقدير</div>
+            <h2 class="sectionTitle">تقدير دولي — لراحة بالك</h2>
+            <p class="sectionSub">لا تأخذ بكلامي وحده — إليك كيف تجاوب مجتمع طب الأورام، بكلماته ومنشوراته.</p>
+          </div>
+
+          <div class="recoGrid">
+            <div class="recoPhoto reveal">
+              <img src="esmo-conference.jpg" alt="الدكتور محمد منعم في مؤتمر الجمعية الأوروبية للأورام (ESMO) 2025 في برلين" width="994" height="994" loading="lazy" decoding="async" />
+              <div class="recoCaption">
+                <b>مؤتمر الجمعية الأوروبية للأورام (ESMO) 2025 — برلين</b>
+                أهم مؤتمر عالمي في طب الأورام (الذكرى الخمسون لتأسيس الجمعية).
+              </div>
+            </div>
+
+            <ul class="recoList reveal">
+              <li class="recoItem gold">
+                <div class="rIco"><svg aria-hidden="true"><use href="#i-star"></use></svg></div>
+                <div>
+                  <b>تسليط الضوء من ESMO نفسها</b>
+                  <span>بعد تصنيفه ضمن الأفضل 5 عالمياً، نشرت <strong>الجمعية الأوروبية للأورام (ESMO)</strong> منشوراً يظهر فيه د. منعم — شاهد منشورها أدناه.</span>
+                </div>
+              </li>
+              <li class="recoItem">
+                <div class="rIco"><svg aria-hidden="true"><use href="#i-quote"></use></svg></div>
+                <div>
+                  <b>تهنئة علنية من كبار أطباء الأورام</b>
+                  <span>ومنهم <strong>البروفيسور مروان غصن</strong>، أحد أبرز أطباء الأورام في لبنان — اقرأ كلماته أدناه.</span>
+                </div>
+              </li>
+              <li class="recoItem">
+                <div class="rIco"><svg aria-hidden="true"><use href="#i-check"></use></svg></div>
+                <div>
+                  <b>مدرج في قائمة الكفاءات الرسمية لدى ESMO</b>
+                  <span>إدراج علني ضمن أفضل المتقدمين عالمياً في امتحان الجمعية الأوروبية للأورام. <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">الصفحة الرسمية ↗</a></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <figure class="testimonial reveal">
+            <div class="tPhoto"><img src="ghosn-minhem.jpg" alt="البروفيسور مروان غصن مع الدكتور محمد منعم" width="720" height="1280" loading="lazy" decoding="async"></div>
+            <div class="tBody">
+              <svg class="tQuote" aria-hidden="true"><use href="#i-quote"></use></svg>
+              <blockquote>لحظة فخر للبنان ولمستقبل طب الأورام. أودّ أن أهنّئ الدكتور محمد منعم على تحقيقه أعلى نتيجة (100%) في امتحان الجمعية الأمريكية للأورام (ASCO) — إنجاز استثنائي يعكس سنوات من الانضباط والمثابرة والتميّز… أحسنت، وهذه ليست سوى البداية.</blockquote>
+              <figcaption>
+                <b>البروفيسور مروان غصن</b>
+                <span>أستاذ أمراض الدم والأورام، جامعة القدّيس يوسف، بيروت · <a href="https://www.linkedin.com/posts/marwan-ghosn-120095126_lebanon-medicaleducation-oncology-share-7451931046805131264-rpWA/" target="_blank" rel="noopener">عرض على LinkedIn ↗</a></span>
+              </figcaption>
+            </div>
+          </figure>
+
+          <div class="liHeaderRow reveal" style="margin-top:42px">
+            <div>
+              <h3 class="liTitle">اقرأ المنشورات الأصلية</h3>
+              <p class="sectionSub" style="font-size:1.04rem;margin:8px 0 0">منشور ESMO، ونتائج الامتحانات، ولقطات من أكبر مؤتمرات الأورام — مباشرة من LinkedIn.</p>
+              <p class="liHint"><svg style="transform:rotate(180deg)" aria-hidden="true"><use href="#i-chev"></use></svg> مرّر أو استخدم الأسهم لرؤية كل المنشورات</p>
+            </div>
+            <a class="liLink" href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+              <img class="liLogoImg" src="LinkedIn_logo.svg" alt="LinkedIn" loading="lazy" decoding="async">
+            </a>
+          </div>
+
+          <div class="liCarousel reveal" aria-label="منشورات LinkedIn مختارة">
+            <button class="liNav prev" type="button" aria-label="السابق"><svg aria-hidden="true"><use href="#i-chev"></use></svg></button>
+            <button class="liNav next" type="button" aria-label="المزيد"><svg aria-hidden="true"><use href="#i-chev"></use></svg></button>
+            <div class="liTrack" role="list">
+              <div class="liItem featured" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7457137792897318912/">
+                <p class="liCap"><svg aria-hidden="true"><use href="#i-star"></use></svg> منشور ESMO الرسمي — يظهر فيه د. منعم</p>
+                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">فتح المنشور ↗</a></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7457137792897318912" loading="lazy" title="LinkedIn post — featured by ESMO" allowfullscreen></iframe>
+              </div>
+              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/posts/mohamad-minhem_oncology-hematology-lebanon-share-7450663794390843392-742u/">
+                <p class="liCap">نتيجة امتحان ASCO (2026)</p>
+                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">فتح المنشور ↗</a></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7450663794390843392" loading="lazy" title="LinkedIn post — ASCO exam result" allowfullscreen></iframe>
+              </div>
+              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7407135949408817152/">
+                <p class="liCap">إعلان أفضل 5 عالمياً — ESMO (2025)</p>
+                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">فتح المنشور ↗</a></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7407135949408817152" loading="lazy" title="LinkedIn post — ESMO Top 5" allowfullscreen></iframe>
+              </div>
+              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7386100386878717952/">
+                <p class="liCap">مؤتمر ESMO 2025 — برلين</p>
+                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">فتح المنشور ↗</a></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7386100386878717952" loading="lazy" title="LinkedIn post — ESMO Congress 2025" allowfullscreen></iframe>
+              </div>
+              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7339062374840111104/">
+                <p class="liCap">امتحان ASCO 2025</p>
+                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">فتح المنشور ↗</a></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7339062374840111104" loading="lazy" title="LinkedIn post — ASCO exam 2025" allowfullscreen></iframe>
+              </div>
+              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7198818158768451584/">
+                <p class="liCap">امتحان ASCO 2024</p>
+                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">فتح المنشور ↗</a></div>
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7198818158768451584" loading="lazy" title="LinkedIn post — ASCO exam 2024" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="care-ar" class="altBg">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-heart"></use></svg> كيف أعمل</div>
@@ -1191,7 +1267,7 @@
                 <h3>خطة واضحة، خطوة بخطوة</h3>
                 <ul class="list">
                   <li><b>خطة واضحة بعد كل زيارة</b> — ماذا نعرف، وما الخطوة التالية، ولماذا.</li>
-                  <li><b>أحدث العلاجات</b> — العلاجات الموجَّهة والمناعية نفسها المعتمدة في كبرى مراكز أمريكا وأوروبا.</li>
+                  <li><b>أحدث العلاجات</b> — بما فيها العلاجات الموجَّهة والمناعية، عندما تناسب حالتك فعلاً.</li>
                   <li><b>فحوصات ذكية</b> — تحاليل متقدّمة للورم والجينات، تُستخدَم فقط عندما تغيّر العلاج فعلاً.</li>
                   <li><b>دعم من اليوم الأول</b> — للألم والآثار الجانبية والطاقة وجودة الحياة.</li>
                 </ul>
@@ -1213,7 +1289,7 @@
         </div>
       </section>
 
-      <section id="approach-ar" class="altBg">
+      <section id="approach-ar">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-target"></use></svg> منهجي</div>
@@ -1247,62 +1323,6 @@
               </div>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section id="recognition-ar">
-        <div class="wrap">
-          <div class="sectionHead reveal">
-            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-globe"></use></svg> التقدير</div>
-            <h2 class="sectionTitle">تقدير دولي — لراحة بالك</h2>
-            <p class="sectionSub">هذه النتائج ليست مجرّد ألقاب؛ إنها تعكس مستوى تدريب ومعرفة حديثة تنعكس مباشرةً على رعايتك.</p>
-          </div>
-
-          <div class="recoGrid">
-            <div class="recoPhoto reveal">
-              <img src="esmo-conference.jpg" alt="الدكتور محمد منعم في مؤتمر الجمعية الأوروبية للأورام (ESMO) 2025 في برلين" width="994" height="994" loading="lazy" decoding="async" />
-              <div class="recoCaption">
-                <b>مؤتمر الجمعية الأوروبية للأورام (ESMO) 2025 — برلين</b>
-                أهم مؤتمر عالمي في طب الأورام (الذكرى الخمسون لتأسيس الجمعية).
-              </div>
-            </div>
-
-            <ul class="recoList reveal">
-              <li class="recoItem gold">
-                <div class="rIco"><svg aria-hidden="true"><use href="#i-star"></use></svg></div>
-                <div>
-                  <b>100% في امتحان الجمعية الأمريكية للأورام (ASCO) — 2026 — أعلى مرتبة</b>
-                  <span>بين جميع المتقدمين لاختصاص الأورام في أمريكا ولبنان — <strong>الجمعية الأمريكية للأورام (ASCO)</strong>، أكبر منظمة لأطباء الأورام في العالم.</span>
-                </div>
-              </li>
-              <li class="recoItem">
-                <div class="rIco"><svg aria-hidden="true"><use href="#i-check"></use></svg></div>
-                <div>
-                  <b>ضمن أفضل 5 عالمياً — الجمعية الأوروبية للأورام (ESMO) · 2025</b>
-                  <span>من بين الأفضل 5 على مستوى العالم في امتحان <strong>الجمعية الأوروبية للأورام (ESMO)</strong>. <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">الصفحة الرسمية ↗</a></span>
-                </div>
-              </li>
-              <li class="recoItem">
-                <div class="rIco"><svg aria-hidden="true"><use href="#i-quote"></use></svg></div>
-                <div>
-                  <b>تقدير ضمن مجتمع الأورام</b>
-                  <span>تسليط الضوء من ESMO وتنويه من زملاء كبار في الاختصاص — ومنهم البروفيسور مروان غصن، أدناه.</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <figure class="testimonial reveal">
-            <div class="tPhoto"><img src="ghosn-minhem.jpg" alt="البروفيسور مروان غصن مع الدكتور محمد منعم" width="720" height="1280" loading="lazy" decoding="async"></div>
-            <div class="tBody">
-              <svg class="tQuote" aria-hidden="true"><use href="#i-quote"></use></svg>
-              <blockquote>لحظة فخر للبنان ولمستقبل طب الأورام. أودّ أن أهنّئ الدكتور محمد منعم على تحقيقه أعلى نتيجة (100%) في امتحان الجمعية الأمريكية للأورام (ASCO) — إنجاز استثنائي يعكس سنوات من الانضباط والمثابرة والتميّز… أحسنت، وهذه ليست سوى البداية.</blockquote>
-              <figcaption>
-                <b>البروفيسور مروان غصن</b>
-                <span>أستاذ أمراض الدم والأورام، جامعة القدّيس يوسف، بيروت · <a href="https://www.linkedin.com/posts/marwan-ghosn-120095126_lebanon-medicaleducation-oncology-share-7451931046805131264-rpWA/" target="_blank" rel="noopener">عرض على LinkedIn ↗</a></span>
-              </figcaption>
-            </div>
-          </figure>
         </div>
       </section>
 
@@ -1347,7 +1367,7 @@
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-flask"></use></svg> الأبحاث والتعليم</div>
-            <h2 class="sectionTitle">الأبحاث والتعليم</h2>
+            <h2 class="sectionTitle">نشاط بحثي مستمر — وتعليم للجيل القادم</h2>
             <p class="sectionSub">أكثر من 30 بحثاً وملخّصاً علمياً منشوراً. القائمة الكاملة على <a href="https://scholar.google.com/citations?user=_p93-ZoAAAAJ&hl=en" target="_blank" rel="noopener" style="color:var(--teal-600);font-weight:800">Google Scholar ↗</a></p>
           </div>
 
@@ -1369,14 +1389,9 @@
               <div class="cardPad">
                 <p class="k">التعليم</p>
                 <ul class="list">
-                  <li>تعليم مستمر لطلاب الطب والأطباء المقيمين والاختصاصيين قيد التدريب.</li>
-                  <li>مناقشة حالات في محاضرات واجتماعات علمية متعدّدة التخصّصات لعلاج السرطان، وتشمل:</li>
-                  <li>سرطان الثدي.</li>
-                  <li>سرطان الرئة — مستجدّات العلاج.</li>
-                  <li>سرطان القولون والمستقيم.</li>
-                  <li>سرطان البروستات والكِلى.</li>
-                  <li>اللمفوما وسرطان الدم (اللوكيميا).</li>
-                  <li>أمراض الدم — فقر الدم واضطرابات التخثّر والصفائح.</li>
+                  <li><b>تعليم مستمر</b> لطلاب الطب والأطباء المقيمين والاختصاصيين قيد التدريب.</li>
+                  <li><b>مناقشة حالات</b> في محاضرات واجتماعات علمية متعدّدة التخصّصات لعلاج السرطان.</li>
+                  <li><b>المواضيع تشمل:</b> سرطان الثدي والرئة والقولون والمستقيم والبروستات والكِلى؛ واللمفوما وسرطان الدم (اللوكيميا)؛ وأمراض الدم كفقر الدم واضطرابات التخثّر والصفائح.</li>
                 </ul>
               </div>
             </div>
@@ -1384,54 +1399,7 @@
         </div>
       </section>
 
-      <section id="linkedin-ar" class="altBg">
-        <div class="wrap">
-          <div class="liHeaderRow reveal">
-            <div class="sectionHead" style="margin:0">
-              <div class="eyebrow"><svg aria-hidden="true"><use href="#i-quote"></use></svg> مختارات</div>
-              <h2 class="sectionTitle">التقدير والتحديثات</h2>
-              <p class="sectionSub" style="font-size:1.04rem">منشورات مختارة — تشمل تقدير ESMO وكبار أطباء الأورام.</p>
-              <p class="liHint"><svg style="transform:rotate(180deg)" aria-hidden="true"><use href="#i-chev"></use></svg> مرّر أو استخدم الأسهم لرؤية كل المنشورات</p>
-            </div>
-            <a class="liLink" href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-              <img class="liLogoImg" src="LinkedIn_logo.svg" alt="LinkedIn" loading="lazy" decoding="async">
-            </a>
-          </div>
-
-          <div class="liCarousel reveal" aria-label="منشورات LinkedIn مختارة">
-            <button class="liNav prev" type="button" aria-label="السابق"><svg aria-hidden="true"><use href="#i-chev"></use></svg></button>
-            <button class="liNav next" type="button" aria-label="المزيد"><svg aria-hidden="true"><use href="#i-chev"></use></svg></button>
-            <div class="liTrack" role="list">
-              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7457137792897318912/">
-                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">فتح المنشور ↗</a></div>
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7457137792897318912" loading="lazy" title="LinkedIn post — featured by ESMO" allowfullscreen></iframe>
-              </div>
-              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/posts/mohamad-minhem_oncology-hematology-lebanon-share-7450663794390843392-742u/">
-                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">فتح المنشور ↗</a></div>
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7450663794390843392" loading="lazy" title="LinkedIn post — Mohamad Minhem, MD" allowfullscreen></iframe>
-              </div>
-              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7407135949408817152/">
-                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">فتح المنشور ↗</a></div>
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7407135949408817152" loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
-              </div>
-              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7386100386878717952/">
-                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">فتح المنشور ↗</a></div>
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7386100386878717952" loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
-              </div>
-              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7339062374840111104/">
-                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">فتح المنشور ↗</a></div>
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7339062374840111104" loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
-              </div>
-              <div class="liItem" role="listitem" data-li-url="https://www.linkedin.com/feed/update/urn:li:activity:7198818158768451584/">
-                <div class="liOverlay"><a class="liOpenBtn" target="_blank" rel="noopener">فتح المنشور ↗</a></div>
-                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7198818158768451584" loading="lazy" title="LinkedIn post" allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact-ar">
+      <section id="contact-ar" class="altBg">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-phone"></use></svg> التواصل</div>
