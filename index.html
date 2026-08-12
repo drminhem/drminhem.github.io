@@ -560,6 +560,8 @@
     .clinicCard .clinicNote{ margin:7px 0 0; color:var(--teal-600); font-size:.93rem; font-weight:800; }
     .clinicActions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
     .clinicActions .btn{ padding:11px 14px; font-size:.95rem; box-shadow:none; }
+    .clinicDetails{ display:inline-flex; align-items:center; gap:6px; margin-top:14px; color:var(--teal-600); font-weight:800; text-decoration:none; }
+    .clinicDetails:hover{ text-decoration:underline; text-underline-offset:3px; }
 
     /* ---------- Footer ---------- */
     footer{ padding:32px 0 48px; border-top:1px solid var(--line); color:var(--muted); margin-top:20px; }
@@ -703,10 +705,10 @@
             </div>
 
             <div class="ctaRow">
-              <a class="btn wa" href="https://wa.me/96181902903" target="_blank" rel="noopener">
-                <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> WhatsApp
+              <a class="btn wa" href="/booking.html?clinic=general&amp;lang=en">
+                <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> Book by WhatsApp
               </a>
-              <a class="btn primary" href="mailto:contact@drminhem.com">
+              <a class="btn primary" href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general">
                 <svg aria-hidden="true"><use href="#i-mail"></use></svg> Email
               </a>
               <a class="btn ghost" href="#care-en">
@@ -1024,13 +1026,14 @@
                 <div class="clinicCopy">
                   <h3>Tayouneh Clinic</h3>
                   <address>Tayouneh Clinics, Dubai Building, First Floor<br>Old Saida Road, Beirut</address>
-                  <p class="clinicNote">Consultations by appointment</p>
+                  <p class="clinicNote">Appointments generally available Tuesday &amp; Thursday, 8:00 AM–5:00 PM</p>
                 </div>
               </div>
               <div class="clinicActions">
-                <a class="btn primary" href="https://share.google/XnmLYOwT13rsTQKZ5" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"></use></svg> Get directions</a>
+                <a class="btn primary" href="https://share.google/XnmLYOwT13rsTQKZ5" target="_blank" rel="noopener" data-track="get_directions" data-clinic="tayouneh"><svg aria-hidden="true"><use href="#i-pin"></use></svg> Get directions</a>
                 <a class="btn wa" href="/booking.html?clinic=tayouneh&amp;lang=en"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> Book this clinic</a>
               </div>
+              <a class="clinicDetails" href="/tayouneh.html">Clinic details &amp; availability →</a>
             </article>
 
             <article class="clinicCard reveal">
@@ -1039,13 +1042,14 @@
                 <div class="clinicCopy">
                   <h3>Sodeco Clinic</h3>
                   <address>Sodeco Square, Block B, 6th Floor<br>Beirut</address>
-                  <p class="clinicNote">Consultations by appointment</p>
+                  <p class="clinicNote">Appointments generally available Monday &amp; Friday, 8:00 AM–12:00 PM</p>
                 </div>
               </div>
               <div class="clinicActions">
-                <a class="btn primary" href="https://maps.app.goo.gl/bqU3PonU9fr7E8uB9" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"></use></svg> Get directions</a>
+                <a class="btn primary" href="https://maps.app.goo.gl/bqU3PonU9fr7E8uB9" target="_blank" rel="noopener" data-track="get_directions" data-clinic="sodeco"><svg aria-hidden="true"><use href="#i-pin"></use></svg> Get directions</a>
                 <a class="btn wa" href="/booking.html?clinic=sodeco&amp;lang=en"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> Book this clinic</a>
               </div>
+              <a class="clinicDetails" href="/sodeco.html">Clinic details &amp; availability →</a>
             </article>
           </div>
 
@@ -1054,15 +1058,15 @@
               <div class="cardPad">
                 <div class="contactRow">
                   <div class="ico" aria-hidden="true"><svg><use href="#i-whatsapp"></use></svg></div>
-                  <div><b>WhatsApp</b><a href="https://wa.me/96181902903" target="_blank" rel="noopener">+961-81-902 903</a></div>
+                  <div><b>WhatsApp</b><a href="https://wa.me/96181902903" target="_blank" rel="noopener" data-track="contact_whatsapp" data-clinic="general">+961-81-902 903</a></div>
                 </div>
                 <div class="contactRow">
                   <div class="ico" aria-hidden="true"><svg><use href="#i-mail"></use></svg></div>
-                  <div><b>Email</b><a href="mailto:contact@drminhem.com">contact@drminhem.com</a></div>
+                  <div><b>Email</b><a href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general">contact@drminhem.com</a></div>
                 </div>
                 <div class="ctaRow" style="margin-top:18px">
-                  <a class="btn wa" href="https://wa.me/96181902903" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> Message on WhatsApp</a>
-                  <a class="btn primary" href="mailto:contact@drminhem.com"><svg aria-hidden="true"><use href="#i-mail"></use></svg> Send an email</a>
+                  <a class="btn wa" href="/booking.html?clinic=general&amp;lang=en"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> Book by WhatsApp</a>
+                  <a class="btn primary" href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general"><svg aria-hidden="true"><use href="#i-mail"></use></svg> Send an email</a>
                 </div>
                 <div style="margin-top:22px">
                   <p class="k">Connect &amp; follow</p>
@@ -1170,10 +1174,10 @@
             </div>
 
             <div class="ctaRow">
-              <a class="btn wa" href="https://wa.me/96181902903" target="_blank" rel="noopener">
-                <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> واتساب
+              <a class="btn wa" href="/booking.html?clinic=general&amp;lang=ar">
+                <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> احجز عبر واتساب
               </a>
-              <a class="btn primary" href="mailto:contact@drminhem.com">
+              <a class="btn primary" href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general">
                 <svg aria-hidden="true"><use href="#i-mail"></use></svg> بريد إلكتروني
               </a>
               <a class="btn ghost" href="#care-ar">
@@ -1490,13 +1494,14 @@
                 <div class="clinicCopy">
                   <h3>عيادة الطيونة</h3>
                   <address>عيادات الطيونة، مبنى دبي، الطابق الأول<br>طريق صيدا القديمة، بيروت</address>
-                  <p class="clinicNote">المعاينات بموعد مسبق</p>
+                  <p class="clinicNote">المواعيد متاحة عادةً الثلاثاء والخميس، من 8:00 صباحاً حتى 5:00 مساءً</p>
                 </div>
               </div>
               <div class="clinicActions">
-                <a class="btn primary" href="https://share.google/XnmLYOwT13rsTQKZ5" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"></use></svg> الاتجاهات</a>
+                <a class="btn primary" href="https://share.google/XnmLYOwT13rsTQKZ5" target="_blank" rel="noopener" data-track="get_directions" data-clinic="tayouneh"><svg aria-hidden="true"><use href="#i-pin"></use></svg> الاتجاهات</a>
                 <a class="btn wa" href="/booking.html?clinic=tayouneh&amp;lang=ar"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> احجز في هذه العيادة</a>
               </div>
+              <a class="clinicDetails" href="/tayouneh.html?lang=ar">تفاصيل العيادة والمواعيد ←</a>
             </article>
 
             <article class="clinicCard rtl reveal">
@@ -1505,13 +1510,14 @@
                 <div class="clinicCopy">
                   <h3>عيادة سوديكو</h3>
                   <address>سوديكو سكوير، المبنى B، الطابق السادس<br>بيروت</address>
-                  <p class="clinicNote">المعاينات بموعد مسبق</p>
+                  <p class="clinicNote">المواعيد متاحة عادةً الاثنين والجمعة، من 8:00 صباحاً حتى 12:00 ظهراً</p>
                 </div>
               </div>
               <div class="clinicActions">
-                <a class="btn primary" href="https://maps.app.goo.gl/bqU3PonU9fr7E8uB9" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"></use></svg> الاتجاهات</a>
+                <a class="btn primary" href="https://maps.app.goo.gl/bqU3PonU9fr7E8uB9" target="_blank" rel="noopener" data-track="get_directions" data-clinic="sodeco"><svg aria-hidden="true"><use href="#i-pin"></use></svg> الاتجاهات</a>
                 <a class="btn wa" href="/booking.html?clinic=sodeco&amp;lang=ar"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> احجز في هذه العيادة</a>
               </div>
+              <a class="clinicDetails" href="/sodeco.html?lang=ar">تفاصيل العيادة والمواعيد ←</a>
             </article>
           </div>
 
@@ -1520,15 +1526,15 @@
               <div class="cardPad">
                 <div class="contactRow">
                   <div class="ico" aria-hidden="true"><svg><use href="#i-whatsapp"></use></svg></div>
-                  <div><b>واتساب</b><a href="https://wa.me/96181902903" target="_blank" rel="noopener" class="phone-ltr">+961-81-902 903</a></div>
+                  <div><b>واتساب</b><a href="https://wa.me/96181902903" target="_blank" rel="noopener" class="phone-ltr" data-track="contact_whatsapp" data-clinic="general">+961-81-902 903</a></div>
                 </div>
                 <div class="contactRow">
                   <div class="ico" aria-hidden="true"><svg><use href="#i-mail"></use></svg></div>
-                  <div><b>بريد إلكتروني</b><a href="mailto:contact@drminhem.com">contact@drminhem.com</a></div>
+                  <div><b>بريد إلكتروني</b><a href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general">contact@drminhem.com</a></div>
                 </div>
                 <div class="ctaRow" style="margin-top:18px">
-                  <a class="btn wa" href="https://wa.me/96181902903" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> راسلني على واتساب</a>
-                  <a class="btn primary" href="mailto:contact@drminhem.com"><svg aria-hidden="true"><use href="#i-mail"></use></svg> أرسل بريداً</a>
+                  <a class="btn wa" href="/booking.html?clinic=general&amp;lang=ar"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> احجز عبر واتساب</a>
+                  <a class="btn primary" href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general"><svg aria-hidden="true"><use href="#i-mail"></use></svg> أرسل بريداً</a>
                 </div>
                 <div style="margin-top:22px">
                   <p class="k">للتواصل والمتابعة</p>
@@ -1632,6 +1638,18 @@
     else setLang(document.body.getAttribute('data-lang') || 'en');
 
     document.querySelectorAll('.js-lang-toggle').forEach(btn => btn.addEventListener('click', toggleLang));
+
+    // Secondary contact measurements. Appointment buttons use booking.html and remain the primary conversion.
+    document.querySelectorAll('[data-track]').forEach(link => {
+      link.addEventListener('click', () => {
+        if (typeof gtag !== 'function') return;
+        gtag('event', link.dataset.track, {
+          clinic_location: link.dataset.clinic || 'general',
+          contact_channel: link.dataset.track.replace('contact_', ''),
+          site_language: document.body.getAttribute('data-lang') || 'en'
+        });
+      });
+    });
 
     // Mobile menus
     const menuBtn = document.getElementById('menuBtn');
