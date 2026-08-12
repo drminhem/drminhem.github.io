@@ -9,13 +9,14 @@
   <link rel="canonical" href="https://drminhem.com/tayouneh.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Tayouneh Clinic — Dr. Mohamad Minhem">
-  <meta property="og:description" content="Appointments generally available Tuesday and Thursday, 8:00 AM–5:00 PM, by prior appointment.">
+  <meta property="og:description" content="Appointments generally available Tuesday and Thursday, 8:00 AM–5:00 PM, and Wednesday, 8:00 AM–12:00 PM, by prior appointment.">
   <meta property="og:url" content="https://drminhem.com/tayouneh.html">
   <meta property="og:image" content="https://drminhem.com/portrait.jpg">
   <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@500;600;700;800&amp;display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@500;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/clinic.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B46GF8Q2KX"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-B46GF8Q2KX');</script>
@@ -68,7 +69,7 @@
           </div>
         </div>
       </div>
-      <div class="portrait"><img src="/portrait.jpg" alt="Dr. Mohamad Minhem" width="1195" height="1316"></div>
+      <div class="portrait"><picture><source type="image/webp" srcset="/portrait-480.webp 480w, /portrait-900.webp 900w" sizes="(max-width: 520px) 196px, (max-width: 800px) 240px, 290px"><img src="/portrait.jpg" alt="Dr. Mohamad Minhem" width="1195" height="1316" decoding="async" fetchpriority="high"></picture></div>
     </div>
   </header>
 
@@ -79,13 +80,19 @@
           <div lang="en">
             <h2>Appointment availability</h2>
             <p>Appointments are generally available during the following times:</p>
-            <div class="schedule"><div class="scheduleRow"><span>Tuesday and Thursday</span><span>8:00 AM–5:00 PM</span></div></div>
+            <div class="schedule">
+              <div class="scheduleRow"><span>Tuesday and Thursday</span><span>8:00 AM–5:00 PM</span></div>
+              <div class="scheduleRow"><span>Wednesday</span><span>8:00 AM–12:00 PM</span></div>
+            </div>
             <p class="notice">By prior appointment. Availability may vary, so please confirm your visit on WhatsApp before coming.</p>
           </div>
           <div lang="ar">
             <h2>أوقات المواعيد</h2>
             <p>تكون المواعيد متاحة عادةً في الأوقات التالية:</p>
-            <div class="schedule"><div class="scheduleRow"><span>الثلاثاء والخميس</span><span>8:00 صباحاً–5:00 مساءً</span></div></div>
+            <div class="schedule">
+              <div class="scheduleRow"><span>الثلاثاء والخميس</span><span>8:00 صباحاً–5:00 مساءً</span></div>
+              <div class="scheduleRow"><span>الأربعاء</span><span>8:00 صباحاً–12:00 ظهراً</span></div>
+            </div>
             <p class="notice">بموعد مسبق. قد تتغيّر الأوقات، لذا يُرجى تأكيد الموعد عبر واتساب قبل الحضور.</p>
           </div>
         </section>
