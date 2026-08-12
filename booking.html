@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0f2d4a" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Opening WhatsApp — Dr. Mohamad Minhem</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B46GF8Q2KX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B46GF8Q2KX');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&amp;family=Inter:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme:light;
+      --bg:#eef5f8;
+      --surface:#fff;
+      --navy:#0f2d4a;
+      --muted:#51647a;
+      --teal:#0e9aa7;
+      --teal-dark:#0b8290;
+      --wa:#25d366;
+      --line:rgba(15,45,74,.1);
+    }
+    *{box-sizing:border-box}
+    html,body{min-height:100%}
+    body{
+      margin:0;
+      display:grid;
+      place-items:center;
+      padding:24px;
+      background:radial-gradient(circle at 50% 10%, #fff 0, var(--bg) 52%, #e5eff4 100%);
+      color:var(--navy);
+      font-family:Inter,system-ui,-apple-system,sans-serif;
+    }
+    .card{
+      width:min(100%,560px);
+      padding:38px 32px;
+      text-align:center;
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:0 22px 60px rgba(15,45,74,.13);
+    }
+    .mark{
+      width:68px;
+      height:68px;
+      margin:0 auto 22px;
+      display:grid;
+      place-items:center;
+      border-radius:20px;
+      background:linear-gradient(145deg,var(--teal),var(--teal-dark));
+      color:#fff;
+      font-size:1.15rem;
+      font-weight:800;
+      letter-spacing:.04em;
+    }
+    h1{margin:0;font-size:clamp(1.65rem,5vw,2.25rem);line-height:1.2}
+    p{margin:14px auto 0;max-width:42ch;color:var(--muted);font-size:1.05rem;line-height:1.65}
+    .clinic{color:var(--teal-dark);font-weight:800}
+    .spinner{
+      width:34px;
+      height:34px;
+      margin:24px auto;
+      border:4px solid rgba(14,154,167,.18);
+      border-top-color:var(--teal);
+      border-radius:50%;
+      animation:spin .8s linear infinite;
+    }
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 20px;
+      border-radius:14px;
+      background:var(--wa);
+      color:#fff;
+      text-decoration:none;
+      font-weight:800;
+      box-shadow:0 8px 20px rgba(37,211,102,.22);
+    }
+    .back{display:block;margin-top:18px;color:var(--teal-dark);font-weight:700;text-decoration:none}
+    [dir="rtl"] body{font-family:Cairo,Inter,system-ui,sans-serif}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media (prefers-reduced-motion:reduce){.spinner{animation:none;border-top-color:rgba(14,154,167,.18)}}
+    @media (max-width:520px){.card{padding:32px 22px}}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="mark" aria-hidden="true">MM</div>
+    <h1 id="title">Opening WhatsApp</h1>
+    <p id="message">Your appointment request for <span class="clinic" id="clinicName"></span> is ready.</p>
+    <div class="spinner" aria-hidden="true"></div>
+    <a class="button" id="continueLink" href="https://wa.me/96181902903">Continue to WhatsApp</a>
+    <a class="back" id="backLink" href="/">Return to the website</a>
+  </main>
+
+  <script>
+    (function(){
+      const params = new URLSearchParams(window.location.search);
+      const clinic = ['tayouneh','sodeco'].includes(params.get('clinic')) ? params.get('clinic') : 'general';
+      const language = params.get('lang') === 'ar' ? 'ar' : 'en';
+      const preview = params.get('preview') === '1';
+      const copy = {
+        en: {
+          title: 'Opening WhatsApp',
+          message: 'Your appointment request for {clinic} is ready.',
+          continue: 'Continue to WhatsApp',
+          back: 'Return to the website',
+          clinics: {tayouneh:'Tayouneh Clinic',sodeco:'Sodeco Clinic',general:'a private clinic'},
+          whatsapp: {
+            tayouneh:'Hello Dr. Minhem, I would like to book an appointment at the Tayouneh clinic.',
+            sodeco:'Hello Dr. Minhem, I would like to book an appointment at the Sodeco clinic.',
+            general:'Hello Dr. Minhem, I would like to book an appointment.'
+          }
+        },
+        ar: {
+          title: 'جارٍ فتح واتساب',
+          message: 'طلب موعدك في {clinic} جاهز.',
+          continue: 'المتابعة إلى واتساب',
+          back: 'العودة إلى الموقع',
+          clinics: {tayouneh:'عيادة الطيونة',sodeco:'عيادة سوديكو',general:'إحدى العيادات الخاصة'},
+          whatsapp: {
+            tayouneh:'مرحباً دكتور منعم، أودّ حجز موعد في عيادة الطيونة.',
+            sodeco:'مرحباً دكتور منعم، أودّ حجز موعد في عيادة سوديكو.',
+            general:'مرحباً دكتور منعم، أودّ حجز موعد.'
+          }
+        }
+      }[language];
+
+      document.documentElement.lang = language;
+      document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+      document.title = copy.title + ' — Dr. Mohamad Minhem';
+      document.getElementById('title').textContent = copy.title;
+      document.getElementById('message').innerHTML = copy.message.replace('{clinic}','<span class="clinic" id="clinicName"></span>');
+      document.getElementById('clinicName').textContent = copy.clinics[clinic];
+      document.getElementById('continueLink').textContent = copy.continue;
+      document.getElementById('backLink').textContent = copy.back;
+
+      const whatsappUrl = 'https://wa.me/96181902903?text=' + encodeURIComponent(copy.whatsapp[clinic]);
+      const continueLink = document.getElementById('continueLink');
+      continueLink.href = whatsappUrl;
+
+      let redirected = false;
+      function openWhatsApp(){
+        if (redirected) return;
+        redirected = true;
+        window.location.replace(whatsappUrl);
+      }
+
+      if (!preview) {
+        gtag('event','appointment_booking',{
+          clinic_location:clinic,
+          booking_channel:'whatsapp',
+          site_language:language,
+          transport_type:'beacon',
+          event_callback:openWhatsApp
+        });
+
+        window.setTimeout(openWhatsApp,1800);
+      }
+    })();
+  </script>
+  <noscript><p><a href="https://wa.me/96181902903">Continue to WhatsApp</a></p></noscript>
+</body>
+</html>
