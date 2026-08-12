@@ -99,7 +99,7 @@
   "mainEntity": [
     { "@type": "Question", "name": "What happens at the first appointment?", "acceptedAnswer": { "@type": "Answer", "text": "We review your history and reports together, explain your diagnosis in plain language, and agree on the next steps. You leave with a clear plan — not more confusion." } },
     { "@type": "Question", "name": "Can you review my case and explain my options?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Send your pathology, scans, and reports and I will review everything and walk you through every option clearly, so you can make a confident decision." } },
-    { "@type": "Question", "name": "What do you treat?", "acceptedAnswer": { "@type": "Answer", "text": "All cancers (tumors) and blood conditions — including anemia, clotting problems, and low or high blood counts." } },
+    { "@type": "Question", "name": "What do you treat?", "acceptedAnswer": { "@type": "Answer", "text": "Solid tumors—including breast, lung, colorectal and other digestive cancers, prostate, kidney, and other solid tumors—along with lymphoma, leukemia, other blood cancers, anemia, platelet and clotting disorders, and abnormal blood counts." } },
     { "@type": "Question", "name": "Will I need chemotherapy?", "acceptedAnswer": { "@type": "Answer", "text": "Not always. Many patients are treated with targeted therapy, immunotherapy, tablets, radiation, surgery, or simply close monitoring. We choose what truly fits your case." } },
     { "@type": "Question", "name": "Can a family member be with me?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Having a family member with you — in person or by phone — often makes understanding and decisions easier." } },
     { "@type": "Question", "name": "How soon can I be seen?", "acceptedAnswer": { "@type": "Answer", "text": "Urgent cases come first. Message me on WhatsApp with your diagnosis and reports and we will arrange a time quickly." } }
@@ -378,12 +378,62 @@
 
     /* ---------- Sections ---------- */
     section{padding:56px 0}
+    section[id], header[id]{scroll-margin-top:72px}
     .sectionHead{ max-width:80ch; margin:0 0 28px; }
     .sectionTitle{ font-family:var(--serif); font-weight:600; margin:12px 0 0; font-size: clamp(1.75rem, 3vw, 2.3rem); letter-spacing:-.015em; color:var(--navy); line-height:1.12; }
     .sectionSub{ margin:11px 0 0; color:var(--muted); line-height:1.7; font-weight:500; font-size:1.12rem; }
 
     .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; align-items:stretch; }
     .grid3{ display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
+
+    /* ---------- Conditions & consultations ---------- */
+    .scopeGrid{
+      display:grid; grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);
+      grid-template-rows:repeat(2,minmax(0,1fr)); gap:16px; margin:0 0 20px;
+    }
+    .scopeCard{
+      position:relative; overflow:hidden; padding:24px;
+      border:1px solid var(--line); border-radius:var(--radius); background:#fff;
+      box-shadow:var(--shadow3);
+    }
+    .scopeCard::after{
+      content:""; position:absolute; width:150px; height:150px; border-radius:50%;
+      right:-62px; bottom:-82px; background:rgba(14,154,167,.07); pointer-events:none;
+    }
+    .rtl .scopeCard::after{right:auto;left:-62px}
+    .scopeCard.solid{
+      grid-row:1 / span 2; padding:30px; display:flex; flex-direction:column;
+      background:linear-gradient(145deg,var(--navy),#124b65 68%,#087884);
+      border-color:transparent; box-shadow:0 18px 50px rgba(15,45,74,.18); color:#fff;
+    }
+    .scopeCard.solid::after{width:260px;height:260px;right:-90px;bottom:-130px;background:rgba(255,255,255,.07)}
+    .rtl .scopeCard.solid::after{right:auto;left:-90px}
+    .scopeTop{display:flex;align-items:center;gap:12px;margin-bottom:15px}
+    .scopeIcon{
+      width:48px;height:48px;border-radius:14px;display:grid;place-items:center;flex:0 0 48px;
+      color:var(--teal-600);background:var(--teal-50);border:1px solid rgba(14,154,167,.18);
+    }
+    .scopeIcon svg{width:25px;height:25px}
+    .scopeCard.solid .scopeIcon{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.18);color:#fff}
+    .scopeCard .k{margin:0 0 3px}
+    .scopeCard.solid .k{color:#aee7eb}
+    .scopeCard h3{margin:0 0 9px;color:var(--navy);font-size:1.23rem;line-height:1.3}
+    .scopeCard.solid h3{color:#fff;font-size:clamp(1.45rem,2.5vw,1.9rem);max-width:22ch}
+    .scopeCard p{margin:0;color:var(--muted);font-weight:500;font-size:1.03rem;line-height:1.7}
+    .scopeCard.solid p{color:rgba(255,255,255,.88);font-size:1.08rem;max-width:56ch}
+    .scopeTags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 24px}
+    .scopeTags span{
+      display:inline-flex;padding:7px 11px;border-radius:999px;
+      background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.18);
+      color:#fff;font-size:.88rem;font-weight:800;
+    }
+    .scopeAction{
+      display:inline-flex;align-items:center;align-self:flex-start;gap:8px;margin-top:auto;padding:12px 15px;
+      border-radius:12px;background:#fff;color:var(--navy);font-weight:900;text-decoration:none;
+      box-shadow:0 10px 24px rgba(5,28,45,.2);transition:transform var(--speed) ease,box-shadow var(--speed) ease;
+    }
+    .scopeAction:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(5,28,45,.26)}
+    .scopeAction svg{width:17px;height:17px}
 
     .card{ border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); box-shadow: var(--shadow3); overflow:hidden; }
     .cardPad{padding:26px 24px}
@@ -508,7 +558,7 @@
     .liTrack::-webkit-scrollbar-track{ background:rgba(15,45,74,.06); border-radius:999px; }
     .liItem{ position:relative; scroll-snap-align:start; border:1px solid var(--line); border-radius:16px; background:#fff; box-shadow:var(--shadow3); overflow:hidden; }
     .liItem iframe{ width:100%; height:820px; border:0; display:block; }
-    @media (max-width:640px){ .liTrack{ grid-auto-columns:90vw; } .liItem iframe{ height:760px; } }
+    @media (max-width:640px){ .liTrack{ grid-auto-columns:calc(100vw - 72px); } .liItem iframe{ height:760px; } }
     .rtl .liCarousel, .rtl .liTrack{ direction:ltr; }
     .rtl .liHeaderRow{ direction:rtl; }
     .liOverlay{ position:absolute; inset:0; display:none; align-items:flex-end; justify-content:flex-end; padding:12px; pointer-events:none; background:linear-gradient(180deg, rgba(255,255,255,0) 62%, rgba(255,255,255,.92)); }
@@ -538,6 +588,19 @@
     .liItem.featured .liCap{ background:linear-gradient(180deg, var(--gold-50), #fff); }
     .liItem.featured .liCap svg{ color:var(--gold); }
     .rtl .liCap{ direction:rtl; text-align:right; }
+
+    .liProof{margin-top:36px;border:1px solid rgba(14,154,167,.24);border-radius:var(--radius);background:linear-gradient(145deg,var(--teal-50),#fff);box-shadow:var(--shadow3)}
+    .liProof > summary{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 60px 22px 24px;background:transparent}
+    .rtl .liProof > summary{padding:22px 24px 22px 60px}
+    .liProof > summary:hover,.liProof[open] > summary{background:rgba(14,154,167,.06)}
+    .liProof[open] > summary{border-bottom:1px solid var(--line)}
+    .liProofTitle{display:block;color:var(--navy);font-family:var(--serif);font-size:1.3rem;font-weight:700;line-height:1.25}
+    .rtl .liProofTitle{font-family:var(--ar);font-weight:800}
+    .liProofSub{display:block;margin-top:4px;color:var(--muted);font-size:.96rem;font-weight:600;line-height:1.5}
+    .liProofBadge{display:inline-flex;flex:0 0 auto;padding:7px 11px;border-radius:999px;background:#fff;border:1px solid rgba(14,154,167,.26);color:var(--teal-600);font-size:.82rem;font-weight:900}
+    .liProofBody{padding:20px}
+    .liProofBody p{padding:0}
+    .liProof .liHeaderRow{margin-top:0!important}
 
     /* ---------- Social links ---------- */
     .social{ display:flex; gap:10px; flex-wrap:wrap; }
@@ -578,7 +641,7 @@
     .altBg{ background:var(--bg-alt); border-top:1px solid var(--line-2); border-bottom:1px solid var(--line-2); }
 
     /* ---------- Reveal animation (JS-gated) ---------- */
-    html.js .reveal{ opacity:0; transform: translateY(20px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+    html.js .reveal{ opacity:0; transform: translateY(8px); transition: opacity .38s cubic-bezier(.2,.7,.2,1), transform .38s cubic-bezier(.2,.7,.2,1); }
     html.js .reveal.in{ opacity:1; transform:none; }
 
     @media (prefers-reduced-motion: reduce){
@@ -588,13 +651,23 @@
     }
 
     /* ---------- Responsive ---------- */
+    @media (min-width:1400px){
+      .brand{flex:0 0 auto}
+      .brandText{min-width:281px}
+    }
+    @media (min-width:981px) and (max-width:1399px){
+      .brandSub{display:none}
+    }
     @media (max-width: 980px){
       .heroGrid{ grid-template-columns:1fr; gap:30px; }
       .heroMedia{ max-width:440px; margin:0 auto; width:100%; }
+      .heroMedia::before{left:0;right:0}
       .statGrid{ grid-template-columns: 1fr 1fr; }
       .grid2{grid-template-columns:1fr}
       .grid3{grid-template-columns:1fr}
       .recoGrid{ grid-template-columns:1fr; gap:24px; }
+      .scopeGrid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+      .scopeCard.solid{grid-column:1 / -1;grid-row:auto}
       .navlinks{display:none}
       .menuBtn{display:inline-flex}
     }
@@ -623,6 +696,11 @@
       #en .brandTitle{ font-size: clamp(.7rem, 3.3vw, .95rem); }  /* EN full name is long — auto-fit down to ~360px, don't truncate */
       .brandTitle .nameFull{ display:none; }
       .brandTitle .nameShort{ display:inline; }
+      .scopeGrid{grid-template-columns:1fr}
+      .scopeCard.solid{grid-column:auto;padding:24px}
+      .liProof > summary,.rtl .liProof > summary{align-items:flex-start;padding-top:19px;padding-bottom:19px}
+      .liProofBadge{display:none}
+      .liProofBody{padding:14px}
       .nav{ gap:8px; }
       .righttools{ gap:7px; }
       .langBtn{ padding:8px 10px; font-size:.88rem; gap:6px; }
@@ -674,10 +752,10 @@
           </a>
 
           <nav class="navlinks" aria-label="Primary">
+            <a href="#care-en">How I can help</a>
+            <a href="#contact-en">Clinics</a>
             <a href="#recognition-en">Recognition</a>
-            <a href="#care-en">How I work</a>
             <a href="#background-en">Background</a>
-            <a href="#academic-en">Research</a>
           </nav>
 
           <div class="righttools">
@@ -693,11 +771,11 @@
     </div>
 
     <div class="mobileMenu" id="mobileMenu" role="dialog" aria-label="Menu">
+      <a href="#care-en">How I can help</a>
+      <a href="#contact-en">Clinics &amp; appointments</a>
       <a href="#recognition-en">Recognition</a>
-      <a href="#care-en">How I work</a>
       <a href="#background-en">Background</a>
       <a href="#academic-en">Research</a>
-      <a href="#contact-en">Book a consultation</a>
     </div>
 
     <header class="hero" id="top-en">
@@ -708,9 +786,8 @@
             <h1 class="name">Dr. Mohamad Minhem</h1>
             <p class="role">Cancer &amp; blood-disorder specialist <span style="white-space:nowrap">(Hematology–Oncology)</span>&nbsp;· trained in the United States</p>
             <p class="lead">
-              From your very first visit, you'll get a clear diagnosis and a treatment plan you can actually understand —
-              using the same modern, targeted, and immune-based therapies offered in leading hospitals in the U.S. and Europe,
-              with honest answers and decisions we make together.
+              Clear answers, evidence-based care, and a treatment plan built around your individual case — from diagnosis
+              and second opinions to modern targeted and immune-based therapies, with decisions we make together.
             </p>
 
             <div class="heroChips">
@@ -834,7 +911,16 @@
             </div>
           </figure>
 
-          <div class="liHeaderRow reveal" style="margin-top:42px">
+          <details class="liProof reveal">
+            <summary>
+              <span>
+                <span class="liProofTitle">Original LinkedIn evidence</span>
+                <span class="liProofSub">Browse all six verified posts without leaving this page.</span>
+              </span>
+              <span class="liProofBadge">6 verified posts</span>
+            </summary>
+            <div class="liProofBody">
+          <div class="liHeaderRow">
             <div>
               <h3 class="liTitle">Read the original posts</h3>
               <p class="sectionSub" style="font-size:1.02rem;margin:8px 0 0">ESMO’s own post, the exam results, and moments from the world’s leading cancer meetings — straight from LinkedIn.</p>
@@ -845,7 +931,7 @@
             </a>
           </div>
 
-          <div class="liCarousel reveal" aria-label="Featured LinkedIn posts">
+          <div class="liCarousel" aria-label="Featured LinkedIn posts">
             <button class="liNav prev" type="button" aria-label="Previous posts"><svg aria-hidden="true"><use href="#i-chev"></use></svg></button>
             <button class="liNav next" type="button" aria-label="More posts"><svg aria-hidden="true"><use href="#i-chev"></use></svg></button>
             <div class="liTrack" role="list">
@@ -881,15 +967,54 @@
               </div>
             </div>
           </div>
+            </div>
+          </details>
         </div>
       </section>
 
       <section id="care-en" class="altBg">
         <div class="wrap">
           <div class="sectionHead reveal">
-            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-heart"></use></svg> How I work</div>
-            <h2 class="sectionTitle">Care that's clear, modern, and on your side</h2>
-            <p class="sectionSub">No confusing medical jargon. You'll always know what's happening, what comes next, and why.</p>
+            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-heart"></use></svg> How I can help</div>
+            <h2 class="sectionTitle">Cancer and blood-disorder care, built around your case</h2>
+            <p class="sectionSub">From a new diagnosis or second opinion to treatment planning and follow-up, the first step is understanding exactly what you need.</p>
+          </div>
+
+          <div class="scopeGrid reveal" aria-label="Conditions and consultations">
+            <article class="scopeCard solid">
+              <div class="scopeTop">
+                <div class="scopeIcon"><svg aria-hidden="true"><use href="#i-target"></use></svg></div>
+                <div>
+                  <p class="k">Solid tumors</p>
+                  <h3>Cancer consultations across major solid tumors</h3>
+                </div>
+              </div>
+              <p>Including breast, lung, colorectal and other digestive cancers, prostate, kidney, and other solid tumors. Care can include diagnosis review, treatment planning, second opinions, and follow-up.</p>
+              <div class="scopeTags" aria-label="Consultation types"><span>New diagnosis</span><span>Treatment planning</span><span>Second opinions</span></div>
+              <a class="scopeAction" href="#contact-en">Discuss my case <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+            </article>
+
+            <article class="scopeCard">
+              <div class="scopeTop">
+                <div class="scopeIcon"><svg aria-hidden="true"><use href="#i-flask"></use></svg></div>
+                <div>
+                  <p class="k">Blood cancers</p>
+                  <h3>Lymphoma, leukemia &amp; related blood cancers</h3>
+                </div>
+              </div>
+              <p>Clear review of the diagnosis and a personalized plan for treatment, monitoring, and supportive care.</p>
+            </article>
+
+            <article class="scopeCard">
+              <div class="scopeTop">
+                <div class="scopeIcon"><svg aria-hidden="true"><use href="#i-heart"></use></svg></div>
+                <div>
+                  <p class="k">Blood disorders</p>
+                  <h3>Non-cancer blood conditions</h3>
+                </div>
+              </div>
+              <p>Anemia, platelet and clotting disorders, and low or high blood counts—investigated and explained clearly.</p>
+            </article>
           </div>
 
           <div class="grid2">
@@ -911,7 +1036,7 @@
                 <p class="k">Common questions</p>
                 <details open><summary>What happens at the first appointment?</summary><p>We review your history and reports together, explain your diagnosis in plain language, and agree on the next steps. You leave with a clear plan — not more confusion.</p></details>
                 <details><summary>Can you review my case and explain my options?</summary><p>Yes. Send your pathology, scans, and reports, and I'll review everything and walk you through every option clearly, so you can make a confident decision.</p></details>
-                <details><summary>What do you treat?</summary><p>All cancers (tumors) and blood conditions — including anemia, clotting problems, and low or high blood counts.</p></details>
+                <details><summary>What do you treat?</summary><p>Solid tumors—including breast, lung, colorectal and other digestive cancers, prostate, kidney, and other solid tumors—along with lymphoma, leukemia, other blood cancers, anemia, platelet and clotting disorders, and abnormal blood counts.</p></details>
                 <details><summary>Will I need chemotherapy?</summary><p>Not always. Many patients are treated with targeted therapy, immunotherapy, tablets, radiation, surgery, or simply close monitoring. We choose what truly fits your case.</p></details>
                 <details><summary>Can a family member be with me?</summary><p>Absolutely. Having a family member with you — in person or by phone — often makes understanding and decisions easier.</p></details>
                 <details><summary>How soon can I be seen?</summary><p>Urgent cases come first. Message me on WhatsApp with your diagnosis and reports and we'll arrange a time quickly.</p></details>
@@ -1153,10 +1278,10 @@
           </a>
 
           <nav class="navlinks rtl" aria-label="القائمة الرئيسية">
+            <a href="#care-ar">كيف أساعدك</a>
+            <a href="#contact-ar">العيادات</a>
             <a href="#recognition-ar">التقدير</a>
-            <a href="#care-ar">كيف أعمل</a>
             <a href="#background-ar">الخلفية العلمية</a>
-            <a href="#academic-ar">الأبحاث</a>
           </nav>
 
           <div class="righttools">
@@ -1172,11 +1297,11 @@
     </div>
 
     <div class="mobileMenu rtl" id="mobileMenuAr" role="dialog" aria-label="القائمة">
+      <a href="#care-ar">كيف أساعدك</a>
+      <a href="#contact-ar">العيادات والمواعيد</a>
       <a href="#recognition-ar">التقدير</a>
-      <a href="#care-ar">كيف أعمل</a>
       <a href="#background-ar">الخلفية العلمية</a>
       <a href="#academic-ar">الأبحاث</a>
-      <a href="#contact-ar">احجز استشارة</a>
     </div>
 
     <header class="hero" id="top-ar">
@@ -1187,8 +1312,8 @@
             <h1 class="name">الدكتور محمد منعم</h1>
             <p class="role">اختصاصي أمراض الدم والأورام&nbsp;· تدرّب في الولايات المتحدة</p>
             <p class="lead">
-              منذ زيارتك الأولى ستحصل على تشخيص واضح وخطة علاج تفهمها فعلاً — بأحدث العلاجات الموجَّهة والمناعية
-              المعتمدة في كبرى مستشفيات أمريكا وأوروبا، مع إجابات صادقة وقرارات نتّخذها معاً.
+              إجابات واضحة، ورعاية مبنية على الدليل، وخطة علاج مصمّمة لحالتك — من التشخيص والرأي الطبي الثاني
+              إلى أحدث العلاجات الموجّهة والمناعية، بقرارات نتّخذها معاً.
             </p>
 
             <div class="heroChips">
@@ -1312,7 +1437,16 @@
             </div>
           </figure>
 
-          <div class="liHeaderRow reveal" style="margin-top:42px">
+          <details class="liProof reveal">
+            <summary>
+              <span>
+                <span class="liProofTitle">المنشورات الأصلية على LinkedIn</span>
+                <span class="liProofSub">تصفّح المنشورات الستة الموثّقة من دون مغادرة الصفحة.</span>
+              </span>
+              <span class="liProofBadge">6 منشورات موثّقة</span>
+            </summary>
+            <div class="liProofBody">
+          <div class="liHeaderRow">
             <div>
               <h3 class="liTitle">اقرأ المنشورات الأصلية</h3>
               <p class="sectionSub" style="font-size:1.04rem;margin:8px 0 0">منشور ESMO، ونتائج الامتحانات، ولقطات من أكبر مؤتمرات الأورام — مباشرة من LinkedIn.</p>
@@ -1323,7 +1457,7 @@
             </a>
           </div>
 
-          <div class="liCarousel reveal" aria-label="منشورات LinkedIn مختارة">
+          <div class="liCarousel" aria-label="منشورات LinkedIn مختارة">
             <button class="liNav prev" type="button" aria-label="السابق"><svg aria-hidden="true"><use href="#i-chev"></use></svg></button>
             <button class="liNav next" type="button" aria-label="المزيد"><svg aria-hidden="true"><use href="#i-chev"></use></svg></button>
             <div class="liTrack" role="list">
@@ -1359,15 +1493,54 @@
               </div>
             </div>
           </div>
+            </div>
+          </details>
         </div>
       </section>
 
       <section id="care-ar" class="altBg">
         <div class="wrap">
           <div class="sectionHead reveal">
-            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-heart"></use></svg> كيف أعمل</div>
-            <h2 class="sectionTitle">رعاية واضحة وحديثة وإلى جانبك</h2>
-            <p class="sectionSub">بلا مصطلحات طبية معقّدة. ستعرف دائماً ما الذي يحدث، وما الخطوة التالية، ولماذا.</p>
+            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-heart"></use></svg> كيف أساعدك</div>
+            <h2 class="sectionTitle">رعاية الأورام وأمراض الدم، مصمّمة لحالتك</h2>
+            <p class="sectionSub">من التشخيص الجديد أو الرأي الطبي الثاني إلى اختيار العلاج والمتابعة، تبدأ الخطوة الأولى بفهم ما تحتاجه بالضبط.</p>
+          </div>
+
+          <div class="scopeGrid reveal" aria-label="الحالات والاستشارات">
+            <article class="scopeCard solid rtl">
+              <div class="scopeTop">
+                <div class="scopeIcon"><svg aria-hidden="true"><use href="#i-target"></use></svg></div>
+                <div>
+                  <p class="k">الأورام الصلبة</p>
+                  <h3>استشارات وعلاج لمختلف الأورام الصلبة</h3>
+                </div>
+              </div>
+              <p>بما فيها سرطانات الثدي والرئة والقولون والمستقيم، وسرطانات الجهاز الهضمي الأخرى، والبروستات والكِلى، وغيرها من الأورام الصلبة. وتشمل الرعاية مراجعة التشخيص، ووضع خطة العلاج، والرأي الطبي الثاني، والمتابعة.</p>
+              <div class="scopeTags" aria-label="أنواع الاستشارات"><span>تشخيص جديد</span><span>خطة علاج</span><span>رأي طبي ثانٍ</span></div>
+              <a class="scopeAction" href="#contact-ar">ناقش حالتك معي <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+            </article>
+
+            <article class="scopeCard rtl">
+              <div class="scopeTop">
+                <div class="scopeIcon"><svg aria-hidden="true"><use href="#i-flask"></use></svg></div>
+                <div>
+                  <p class="k">سرطانات الدم</p>
+                  <h3>اللمفوما واللوكيميا وسرطانات الدم الأخرى</h3>
+                </div>
+              </div>
+              <p>مراجعة واضحة للتشخيص ووضع خطة شخصية للعلاج والمتابعة والرعاية الداعمة.</p>
+            </article>
+
+            <article class="scopeCard rtl">
+              <div class="scopeTop">
+                <div class="scopeIcon"><svg aria-hidden="true"><use href="#i-heart"></use></svg></div>
+                <div>
+                  <p class="k">أمراض الدم</p>
+                  <h3>أمراض الدم غير السرطانية</h3>
+                </div>
+              </div>
+              <p>فقر الدم، واضطرابات الصفائح والتخثّر، وارتفاع أو انخفاض تعداد خلايا الدم—مع فحوصات دقيقة وشرح واضح.</p>
+            </article>
           </div>
 
           <div class="grid2">
@@ -1389,7 +1562,7 @@
                 <p class="k">أسئلة شائعة</p>
                 <details open><summary>ماذا يحدث في الموعد الأول؟</summary><p>نراجع معاً تاريخك الطبي وتقاريرك، ونشرح التشخيص بلغة بسيطة، ونتّفق على الخطوات التالية. تخرج بخطة واضحة — لا بمزيد من الحيرة.</p></details>
                 <details><summary>هل يمكنك مراجعة حالتي وشرح الخيارات المتاحة؟</summary><p>نعم. أرسل تقرير الخزعة والصور والتقارير، وسأراجع كل شيء وأشرح لك كل خيار بوضوح لتتّخذ قرارك بثقة.</p></details>
-                <details><summary>ما الأمراض التي تعالجها؟</summary><p>جميع أنواع السرطان (الأورام) وأمراض الدم — بما في ذلك فقر الدم، اضطرابات التخثّر، وارتفاع أو انخفاض خلايا الدم.</p></details>
+                <details><summary>ما الأمراض التي تعالجها؟</summary><p>الأورام الصلبة — بما فيها سرطانات الثدي والرئة والقولون والمستقيم، وسرطانات الجهاز الهضمي الأخرى، والبروستات والكِلى، وغيرها — إلى جانب اللمفوما واللوكيميا وسرطانات الدم الأخرى، وفقر الدم، واضطرابات الصفائح والتخثّر، واضطرابات تعداد خلايا الدم.</p></details>
                 <details><summary>هل سأحتاج علاجاً كيميائياً؟</summary><p>ليس دائماً. كثير من المرضى يُعالَجون بعلاج موجّه، أو مناعي، أو أقراص، أو إشعاع، أو جراحة، أو متابعة دقيقة فقط. نختار ما يناسب حالتك فعلاً.</p></details>
                 <details><summary>هل يمكن لأحد أفراد العائلة الحضور معي؟</summary><p>بالتأكيد. وجود أحد أفراد العائلة معك — حضورياً أو عبر الهاتف — يسهّل الفهم واتخاذ القرار.</p></details>
                 <details><summary>كم بسرعة يمكنني الحصول على موعد؟</summary><p>الحالات العاجلة لها الأولوية. راسلني عبر واتساب مع ذكر التشخيص والتقارير وسنرتّب موعداً سريعاً.</p></details>
@@ -1624,6 +1797,19 @@
     if (y) y.textContent = year;
     if (yAr) yAr.textContent = year;
 
+    // Put patient decisions first while keeping the complete credentials and research sections.
+    function prioritizePatientSections(lang){
+      const main = document.querySelector('#' + lang + ' main');
+      const recognition = document.getElementById('recognition-' + lang);
+      const care = document.getElementById('care-' + lang);
+      const contact = document.getElementById('contact-' + lang);
+      if (!main || !recognition || !care || !contact) return;
+      main.insertBefore(care, recognition);
+      main.insertBefore(contact, recognition);
+    }
+    prioritizePatientSections('en');
+    prioritizePatientSections('ar');
+
     const LANG_KEY = 'site_lang';
 
     function syncLangButtons(lang){
@@ -1723,6 +1909,12 @@
       const url = item.getAttribute('data-li-url');
       const openBtn = item.querySelector('.liOpenBtn');
       if (openBtn && url) openBtn.setAttribute('href', url);
+    });
+
+    document.querySelectorAll('.liProof').forEach(proof => {
+      proof.addEventListener('toggle', () => {
+        if (proof.open) requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
+      });
     });
 
     // LinkedIn carousel arrows (prev/next) + end-state disabling
