@@ -15,7 +15,8 @@
   <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@500;600;700;800&amp;display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@500;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="/clinic.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B46GF8Q2KX"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-B46GF8Q2KX');</script>
@@ -68,7 +69,7 @@
           </div>
         </div>
       </div>
-      <div class="portrait"><img src="/portrait.jpg" alt="Dr. Mohamad Minhem" width="1195" height="1316"></div>
+      <div class="portrait"><picture><source type="image/webp" srcset="/portrait-480.webp 480w, /portrait-900.webp 900w" sizes="(max-width: 520px) 196px, (max-width: 800px) 240px, 290px"><img src="/portrait.jpg" alt="Dr. Mohamad Minhem" width="1195" height="1316" decoding="async" fetchpriority="high"></picture></div>
     </div>
   </header>
 

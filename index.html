@@ -116,7 +116,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" /></noscript>
 
   <style>
     :root{
@@ -133,7 +134,7 @@
       --muted:     #51647a;
       --gold:      #c98a2b;
       --gold-50:   #fbf2e2;
-      --wa:        #25D366;
+      --wa:        #0b7652;
 
       --line:   rgba(15,45,74,.10);
       --line-2: rgba(15,45,74,.07);
@@ -246,7 +247,7 @@
     .brandText{min-width:0}
     .brandTitle{ display:block; font-weight:800; color:var(--navy); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:1.05rem; }
     .brandTitle .nameShort{ display:none; }
-    .brandSub{ display:block; font-weight:700; color:var(--teal-600); letter-spacing:.03em; font-size:.76rem; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-transform:uppercase; }
+    .brandSub{ display:block; font-weight:700; color:#087884; letter-spacing:.03em; font-size:.76rem; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-transform:uppercase; }
     .rtl .brandSub{ text-transform:none; font-size:.84rem; }
 
     .navlinks{ display:flex; align-items:center; gap:2px; font-weight:700; }
@@ -272,7 +273,7 @@
     .langBtn{
       display:inline-flex; align-items:center; justify-content:center; gap:7px;
       padding:11px 15px; border-radius:12px;
-      border:1.5px solid rgba(14,154,167,.45); background:var(--teal-50); color:var(--teal-600);
+      border:1.5px solid rgba(14,154,167,.45); background:var(--teal-50); color:#087884;
       box-shadow: var(--shadow3); cursor:pointer; font-weight:800; font-size:1rem;
       transition: transform var(--speed) ease, background var(--speed) ease; white-space:nowrap;
     }
@@ -297,7 +298,7 @@
       display:inline-flex; align-items:center; gap:9px;
       padding:8px 14px; border-radius:999px;
       border:1px solid rgba(14,154,167,.30); background:var(--teal-50);
-      color:var(--teal-600); font-weight:800; letter-spacing:.08em;
+      color:#087884; font-weight:800; letter-spacing:.08em;
       text-transform:uppercase; font-size:.8rem;
     }
     .eyebrow svg{width:15px;height:15px}
@@ -314,7 +315,7 @@
     .btn:focus-visible{outline:none; box-shadow: var(--ring)}
     .btn svg{width:19px;height:19px}
     .btn.wa{background:var(--wa); color:#fff; border-color:rgba(0,0,0,.05)}
-    .btn.primary{background: linear-gradient(150deg, var(--teal), var(--teal-600)); color:#fff; border-color:rgba(0,0,0,.05)}
+    .btn.primary{background: linear-gradient(150deg, #087884, #087582); color:#fff; border-color:rgba(0,0,0,.05)}
     .btn.ghost{background:rgba(255,255,255,.7)}
 
     /* ---------- Hero ---------- */
@@ -345,6 +346,7 @@
       box-shadow: var(--shadow); border:6px solid #fff;
       aspect-ratio: 4 / 5; background:#dce6ee;
     }
+    .portraitWrap picture{ display:block; width:100%; height:100%; }
     .portraitWrap img{ width:100%; height:100%; object-fit:cover; object-position:center 16%; }
     .portraitWrap::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 60%, rgba(15,45,74,.22)); }
     .heroMedia::before{
@@ -427,6 +429,7 @@
     /* ---------- Recognition ---------- */
     .recoGrid{ display:grid; grid-template-columns: .95fr 1.05fr; gap:28px; align-items:center; }
     .recoPhoto{ position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); border:6px solid #fff; }
+    .recoPhoto picture{ display:block; }
     .recoPhoto img{ width:100%; height:100%; object-fit:cover; aspect-ratio: 1 / 1; }
     .recoCaption{
       position:absolute; left:14px; right:14px; bottom:14px;
@@ -447,6 +450,7 @@
     /* ---------- Testimonial ---------- */
     .testimonial{ margin:26px 0 0; display:grid; grid-template-columns:300px 1fr; gap:0; background:linear-gradient(180deg, var(--teal-50), #fff); border:1px solid rgba(14,154,167,.25); border-radius:var(--radius); box-shadow:var(--shadow3); overflow:hidden; }
     .tPhoto{ position:relative; min-height:330px; background:#dce6ee; }
+    .tPhoto picture{ position:absolute; inset:0; display:block; }
     .tPhoto img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 15%; }
     .tBody{ position:relative; padding:30px 30px 26px; }
     .testimonial .tQuote{ position:absolute; top:22px; left:24px; width:40px; height:40px; color:rgba(14,154,167,.30); }
@@ -461,6 +465,7 @@
     @media (max-width:760px){
       .testimonial{ grid-template-columns:1fr; }
       .tPhoto{ min-height:0; aspect-ratio:5/4; }
+      .tPhoto picture{ position:static; width:100%; height:100%; }
       .tPhoto img{ position:static; object-position:50% 28%; }
     }
     @media (max-width:560px){
@@ -563,6 +568,8 @@
     .clinicDetails{ display:inline-flex; align-items:center; gap:6px; margin-top:14px; color:var(--teal-600); font-weight:800; text-decoration:none; }
     .clinicDetails:hover{ text-decoration:underline; text-underline-offset:3px; }
 
+    .mobileBookingBar{ display:none; }
+
     /* ---------- Footer ---------- */
     footer{ padding:32px 0 48px; border-top:1px solid var(--line); color:var(--muted); margin-top:20px; }
     .foot{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center; font-weight:600; font-size:1.02rem; }
@@ -593,6 +600,14 @@
     }
     @media (max-width: 720px){
       .clinicGrid{ grid-template-columns:1fr; }
+      body{ padding-bottom:76px; }
+      .mobileBookingBar{
+        display:block; position:fixed; left:0; right:0; bottom:0; z-index:80;
+        padding:10px max(12px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+        background:rgba(255,255,255,.96); border-top:1px solid var(--line); box-shadow:0 -8px 28px rgba(15,45,74,.12);
+        backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+      }
+      .mobileBookingBar .btn{ width:100%; justify-content:center; min-height:50px; padding:11px 16px; }
     }
     @media (max-width: 560px){
       .statGrid{ grid-template-columns: 1fr; }
@@ -650,7 +665,7 @@
     <div class="topbar">
       <div class="wrap">
         <div class="nav">
-          <a class="brand" href="#top-en" aria-label="Dr. Mohamad Minhem — home">
+          <a class="brand" href="#top-en">
             <div class="logo" aria-hidden="true">MM</div>
             <div class="brandText">
               <span class="brandTitle"><span class="nameFull">Dr. Mohamad Minhem</span><span class="nameShort">Dr. Mohamad Minhem</span></span>
@@ -719,7 +734,10 @@
 
           <div class="heroMedia reveal">
             <div class="portraitWrap">
-              <img src="portrait.jpg" alt="Dr. Mohamad Minhem, cancer and blood-disorder specialist" width="1195" height="1316" loading="eager" decoding="async" fetchpriority="high" />
+              <picture>
+                <source type="image/webp" srcset="portrait-480.webp 480w, portrait-900.webp 900w" sizes="(max-width:520px) calc(100vw - 36px), (max-width:980px) 440px, 510px" />
+                <img src="portrait.jpg" alt="Dr. Mohamad Minhem, cancer and blood-disorder specialist" width="1195" height="1316" loading="eager" decoding="async" fetchpriority="high" />
+              </picture>
             </div>
           </div>
         </div>
@@ -769,7 +787,10 @@
 
           <div class="recoGrid">
             <div class="recoPhoto reveal">
-              <img src="esmo-conference.jpg" alt="Dr. Mohamad Minhem at the ESMO cancer congress 2025 in Berlin" width="994" height="994" loading="lazy" decoding="async" />
+              <picture>
+                <source type="image/webp" srcset="esmo-conference-480.webp 480w, esmo-conference-800.webp 800w" sizes="(max-width:560px) calc(100vw - 36px), 430px" />
+                <img src="esmo-conference.jpg" alt="Dr. Mohamad Minhem at the ESMO cancer congress 2025 in Berlin" width="994" height="994" loading="lazy" decoding="async" />
+              </picture>
               <div class="recoCaption">
                 <b>ESMO Congress 2025 — Berlin</b>
                 The world's leading cancer-medicine meeting (European Society for Medical Oncology, 50th anniversary).
@@ -802,7 +823,7 @@
           </div>
 
           <figure class="testimonial reveal">
-            <div class="tPhoto"><img src="ghosn-minhem.jpg" alt="Prof. Marwan Ghosn with Dr. Mohamad Minhem" width="720" height="1280" loading="lazy" decoding="async"></div>
+            <div class="tPhoto"><picture><source type="image/webp" srcset="ghosn-minhem-360.webp 360w, ghosn-minhem-720.webp 720w" sizes="(max-width:640px) calc(100vw - 36px), 300px"><img src="ghosn-minhem.jpg" alt="Prof. Marwan Ghosn with Dr. Mohamad Minhem" width="720" height="1280" loading="lazy" decoding="async"></picture></div>
             <div class="tBody">
               <svg class="tQuote" aria-hidden="true"><use href="#i-quote"></use></svg>
               <blockquote>Proud moment for Lebanon and the future of oncology. I would like to congratulate Dr. Mohamad Minhem on achieving the 100th percentile on the ASCO exam — an exceptional accomplishment that reflects years of discipline, perseverance, and excellence… Well done, Mohamad Minhem — this is only the beginning.</blockquote>
@@ -820,7 +841,7 @@
               <p class="liHint"><svg style="transform:rotate(180deg)" aria-hidden="true"><use href="#i-chev"></use></svg> Scroll, swipe, or use the arrows to see all posts</p>
             </div>
             <a class="liLink" href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-              <img class="liLogoImg" src="LinkedIn_logo.svg" alt="LinkedIn" loading="lazy" decoding="async">
+              <img class="liLogoImg" src="LinkedIn_logo.svg" alt="LinkedIn" width="96" height="24" loading="lazy" decoding="async">
             </a>
           </div>
 
@@ -1026,7 +1047,7 @@
                 <div class="clinicCopy">
                   <h3>Tayouneh Clinic</h3>
                   <address>Tayouneh Clinics, Dubai Building, First Floor<br>Old Saida Road, Beirut</address>
-                  <p class="clinicNote">Appointments generally available Tuesday &amp; Thursday, 8:00 AM–5:00 PM</p>
+                  <p class="clinicNote">Appointments generally available Tuesday &amp; Thursday, 8:00 AM–5:00 PM; Wednesday, 8:00 AM–12:00 PM</p>
                 </div>
               </div>
               <div class="clinicActions">
@@ -1075,7 +1096,7 @@
                     <a class="socialBtn" href="https://www.instagram.com/drminhem/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"></use></svg></a>
                     <a class="socialBtn" href="https://www.facebook.com/profile.php?id=61585887935067" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg aria-hidden="true"><use href="#i-facebook"></use></svg></a>
                     <a class="socialBtn" href="https://scholar.google.com/citations?user=_p93-ZoAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg aria-hidden="true"><use href="#i-scholar"></use></svg></a>
-                    <a class="socialBtn mono" href="https://www.researchgate.net/profile/Mohamad-Minhem" target="_blank" rel="noopener" aria-label="ResearchGate" title="ResearchGate">RG</a>
+                    <a class="socialBtn mono" href="https://www.researchgate.net/profile/Mohamad-Minhem" target="_blank" rel="noopener" aria-label="RG — ResearchGate" title="ResearchGate">RG</a>
                   </div>
                 </div>
                 <p class="note"><b>Colleagues &amp; professionals:</b> for patient referrals, lectures and teaching, research collaboration, or media inquiries — email or <a href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" style="color:var(--teal-600);font-weight:800">LinkedIn</a> works best.</p>
@@ -1108,11 +1129,14 @@
             <a class="socialBtn sm" href="https://www.instagram.com/drminhem/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"></use></svg></a>
             <a class="socialBtn sm" href="https://www.facebook.com/profile.php?id=61585887935067" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg aria-hidden="true"><use href="#i-facebook"></use></svg></a>
             <a class="socialBtn sm" href="https://scholar.google.com/citations?user=_p93-ZoAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg aria-hidden="true"><use href="#i-scholar"></use></svg></a>
-            <a class="socialBtn sm mono" href="https://www.researchgate.net/profile/Mohamad-Minhem" target="_blank" rel="noopener" aria-label="ResearchGate" title="ResearchGate">RG</a>
+            <a class="socialBtn sm mono" href="https://www.researchgate.net/profile/Mohamad-Minhem" target="_blank" rel="noopener" aria-label="RG — ResearchGate" title="ResearchGate">RG</a>
           </div>
         </div>
       </div>
     </footer>
+    <div class="mobileBookingBar">
+      <a class="btn wa" href="/booking.html?clinic=general&amp;lang=en"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> Book an appointment by WhatsApp</a>
+    </div>
   </div>
 
   <!-- ============================ ARABIC ============================ -->
@@ -1120,7 +1144,7 @@
     <div class="topbar">
       <div class="wrap">
         <div class="nav">
-          <a class="brand rtl" href="#top-ar" aria-label="الدكتور محمد منعم — الرئيسية">
+          <a class="brand rtl" href="#top-ar">
             <div class="logo" aria-hidden="true">MM</div>
             <div class="brandText">
               <span class="brandTitle"><span class="nameFull">الدكتور محمد منعم</span><span class="nameShort">د. محمد منعم</span></span>
@@ -1188,7 +1212,10 @@
 
           <div class="heroMedia reveal">
             <div class="portraitWrap">
-              <img src="portrait.jpg" alt="الدكتور محمد منعم — اختصاصي أمراض السرطان والدم" width="1195" height="1316" loading="eager" decoding="async" />
+              <picture>
+                <source type="image/webp" srcset="portrait-480.webp 480w, portrait-900.webp 900w" sizes="(max-width:520px) calc(100vw - 36px), (max-width:980px) 440px, 510px" />
+                <img src="portrait.jpg" alt="الدكتور محمد منعم — اختصاصي أمراض السرطان والدم" width="1195" height="1316" loading="lazy" decoding="async" />
+              </picture>
             </div>
           </div>
         </div>
@@ -1238,7 +1265,10 @@
 
           <div class="recoGrid">
             <div class="recoPhoto reveal">
-              <img src="esmo-conference.jpg" alt="الدكتور محمد منعم في مؤتمر الجمعية الأوروبية للأورام (ESMO) 2025 في برلين" width="994" height="994" loading="lazy" decoding="async" />
+              <picture>
+                <source type="image/webp" srcset="esmo-conference-480.webp 480w, esmo-conference-800.webp 800w" sizes="(max-width:560px) calc(100vw - 36px), 430px" />
+                <img src="esmo-conference.jpg" alt="الدكتور محمد منعم في مؤتمر الجمعية الأوروبية للأورام (ESMO) 2025 في برلين" width="994" height="994" loading="lazy" decoding="async" />
+              </picture>
               <div class="recoCaption">
                 <b>مؤتمر الجمعية الأوروبية للأورام (ESMO) 2025 — برلين</b>
                 أهم مؤتمر عالمي في طب الأورام (الذكرى الخمسون لتأسيس الجمعية).
@@ -1271,7 +1301,7 @@
           </div>
 
           <figure class="testimonial reveal">
-            <div class="tPhoto"><img src="ghosn-minhem.jpg" alt="البروفيسور مروان غصن مع الدكتور محمد منعم" width="720" height="1280" loading="lazy" decoding="async"></div>
+            <div class="tPhoto"><picture><source type="image/webp" srcset="ghosn-minhem-360.webp 360w, ghosn-minhem-720.webp 720w" sizes="(max-width:640px) calc(100vw - 36px), 300px"><img src="ghosn-minhem.jpg" alt="البروفيسور مروان غصن مع الدكتور محمد منعم" width="720" height="1280" loading="lazy" decoding="async"></picture></div>
             <div class="tBody">
               <svg class="tQuote" aria-hidden="true"><use href="#i-quote"></use></svg>
               <blockquote>لحظة فخر للبنان ولمستقبل طب الأورام. أودّ أن أهنّئ الدكتور محمد منعم على تحقيقه أعلى نتيجة (100%) في امتحان الجمعية الأمريكية للأورام (ASCO) — إنجاز استثنائي يعكس سنوات من الانضباط والمثابرة والتميّز… أحسنت، وهذه ليست سوى البداية.</blockquote>
@@ -1289,7 +1319,7 @@
               <p class="liHint"><svg style="transform:rotate(180deg)" aria-hidden="true"><use href="#i-chev"></use></svg> مرّر أو استخدم الأسهم لرؤية كل المنشورات</p>
             </div>
             <a class="liLink" href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-              <img class="liLogoImg" src="LinkedIn_logo.svg" alt="LinkedIn" loading="lazy" decoding="async">
+              <img class="liLogoImg" src="LinkedIn_logo.svg" alt="LinkedIn" width="96" height="24" loading="lazy" decoding="async">
             </a>
           </div>
 
@@ -1494,7 +1524,7 @@
                 <div class="clinicCopy">
                   <h3>عيادة الطيونة</h3>
                   <address>عيادات الطيونة، مبنى دبي، الطابق الأول<br>طريق صيدا القديمة، بيروت</address>
-                  <p class="clinicNote">المواعيد متاحة عادةً الثلاثاء والخميس، من 8:00 صباحاً حتى 5:00 مساءً</p>
+                  <p class="clinicNote">المواعيد متاحة عادةً الثلاثاء والخميس، من 8:00 صباحاً حتى 5:00 مساءً؛ والأربعاء، من 8:00 صباحاً حتى 12:00 ظهراً</p>
                 </div>
               </div>
               <div class="clinicActions">
@@ -1543,7 +1573,7 @@
                     <a class="socialBtn" href="https://www.instagram.com/drminhem/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"></use></svg></a>
                     <a class="socialBtn" href="https://www.facebook.com/profile.php?id=61585887935067" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg aria-hidden="true"><use href="#i-facebook"></use></svg></a>
                     <a class="socialBtn" href="https://scholar.google.com/citations?user=_p93-ZoAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg aria-hidden="true"><use href="#i-scholar"></use></svg></a>
-                    <a class="socialBtn mono" href="https://www.researchgate.net/profile/Mohamad-Minhem" target="_blank" rel="noopener" aria-label="ResearchGate" title="ResearchGate">RG</a>
+                    <a class="socialBtn mono" href="https://www.researchgate.net/profile/Mohamad-Minhem" target="_blank" rel="noopener" aria-label="RG — ResearchGate" title="ResearchGate">RG</a>
                   </div>
                 </div>
                 <p class="note"><b>للزملاء والجهات المهنية:</b> لإحالة المرضى، أو المحاضرات والتعليم، أو التعاون البحثي، أو التواصل الإعلامي — الأفضل عبر البريد الإلكتروني أو <a href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" style="color:var(--teal-600);font-weight:800">LinkedIn</a>.</p>
@@ -1576,11 +1606,14 @@
             <a class="socialBtn sm" href="https://www.instagram.com/drminhem/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"></use></svg></a>
             <a class="socialBtn sm" href="https://www.facebook.com/profile.php?id=61585887935067" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg aria-hidden="true"><use href="#i-facebook"></use></svg></a>
             <a class="socialBtn sm" href="https://scholar.google.com/citations?user=_p93-ZoAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg aria-hidden="true"><use href="#i-scholar"></use></svg></a>
-            <a class="socialBtn sm mono" href="https://www.researchgate.net/profile/Mohamad-Minhem" target="_blank" rel="noopener" aria-label="ResearchGate" title="ResearchGate">RG</a>
+            <a class="socialBtn sm mono" href="https://www.researchgate.net/profile/Mohamad-Minhem" target="_blank" rel="noopener" aria-label="RG — ResearchGate" title="ResearchGate">RG</a>
           </div>
         </div>
       </div>
     </footer>
+    <div class="mobileBookingBar rtl">
+      <a class="btn wa" href="/booking.html?clinic=general&amp;lang=ar"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> احجز موعداً عبر واتساب</a>
+    </div>
   </div>
 
   <script>
