@@ -50,6 +50,8 @@ a{color:inherit}
 .langButton:hover,.navLink:hover{border-color:var(--teal);color:var(--teal-dark)}
 .hero{padding:52px 0 40px;background:linear-gradient(150deg,#fff 0%,#eef7fa 62%,#e9f1f7 100%)}
 .heroGrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,310px);gap:42px;align-items:center}
+.backLink{display:none;color:var(--teal-dark);font-weight:800;text-decoration:none}
+.backLink:hover{text-decoration:underline;text-underline-offset:4px}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--teal-dark);font-weight:800;font-size:.91rem;letter-spacing:.02em;text-transform:uppercase}
 .eyebrow::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 6px rgba(14,154,167,.12)}
 h1{margin:18px 0 14px;color:var(--navy);font-family:Fraunces,Georgia,serif;font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.04;letter-spacing:-.035em}
@@ -95,6 +97,7 @@ body[data-lang="ar"] h1{font-family:Cairo,sans-serif;font-weight:800;letter-spac
   .wrap{width:min(100% - 24px,1080px)}
   .navInner{min-height:64px}
   .navLink{display:none}
+  .backLink{display:inline-flex;margin-bottom:16px}
   .hero{padding:28px 0 34px}
   .portrait{max-width:210px;padding:7px;border-radius:22px}
   .portrait img{border-radius:16px}
