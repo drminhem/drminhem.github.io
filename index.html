@@ -335,7 +335,8 @@
       padding:9px 14px; border-radius:999px; font-weight:700; font-size:1rem;
       border:1px solid var(--line); background:var(--surface); color:var(--navy); box-shadow:var(--shadow3);
     }
-    .miniChip svg{width:16px;height:16px; color:var(--teal)}
+    .miniChip svg{width:17px;height:17px; color:var(--teal); flex:0 0 auto}
+    .miniChip.star{border-color:rgba(201,138,43,.24)}
     .miniChip.star svg{color:var(--gold)}
 
     .ctaRow{display:flex; flex-wrap:wrap; gap:11px;}
@@ -358,13 +359,14 @@
     .statBand{ padding:18px 0 8px; }
     .statGrid{ display:grid; grid-template-columns: repeat(4,1fr); gap:14px; }
     .stat{
-      position:relative; background:var(--surface); border:1px solid var(--line);
+      position:relative; overflow:hidden; background:var(--surface); border:1px solid var(--line);
       border-radius:var(--radius2); padding:20px 18px; box-shadow: var(--shadow3);
       transition: transform var(--speed) ease, box-shadow var(--speed) ease;
     }
+    .stat::before{ content:""; position:absolute; inset:0 0 auto; height:3px; background:linear-gradient(90deg,var(--teal),rgba(14,154,167,.16)); }
     .stat:hover{ transform:translateY(-3px); box-shadow:var(--shadow2); }
-    .stat .sIco{ width:42px;height:42px;border-radius:11px; display:grid;place-items:center; background:var(--teal-50); color:var(--teal-600); margin-bottom:12px; }
-    .stat .sIco svg{width:23px;height:23px}
+    .stat .sIco{ width:46px;height:46px;border-radius:12px; display:grid;place-items:center; background:var(--teal-50); color:var(--teal-600); margin-bottom:12px; }
+    .stat .sIco svg{width:25px;height:25px}
     .stat .num{ font-family:var(--serif); font-weight:700; font-size:2rem; line-height:1; color:var(--navy); }
     .rtl .stat .num{ font-family:var(--ar); font-weight:700; }
     .stat .lbl{ display:block; margin-top:8px; font-weight:800; color:var(--ink); font-size:1.04rem; }
@@ -372,6 +374,7 @@
     .stat .sub a{ color:var(--teal-600); text-decoration:underline; text-decoration-color:rgba(14,154,167,.4); font-weight:800; }
     .stat .sub a:hover{ text-decoration-color:var(--teal-600); }
     .stat.gold{ background: linear-gradient(180deg, var(--gold-50), #fff); border-color:rgba(201,138,43,.3); }
+    .stat.gold::before{ background:linear-gradient(90deg,var(--gold),rgba(201,138,43,.15)); }
     .stat.gold .sIco{ background:#fff; color:var(--gold); }
     .stat.gold .num{ color:var(--gold); }
     .stat .tag{ position:absolute; top:16px; right:16px; font-size:.9rem; font-weight:900; letter-spacing:.04em; text-transform:uppercase; color:var(--gold); background:#fff; border:1px solid rgba(201,138,43,.35); padding:4px 10px; border-radius:999px; }
@@ -684,6 +687,24 @@
       .langBtn{ padding:9px 11px; font-size:1rem; gap:6px; }
       .langBtn svg{ width:16px; height:16px; }
       #en .hero .eyebrow{ max-width:100%; font-size:.9rem; letter-spacing:.02em; line-height:1.5; }
+      .heroGrid > .reveal:first-child{display:flex;flex-direction:column}
+      .hero .ctaRow{order:1;margin-bottom:20px}
+      .hero .heroChips{order:2;width:100%;gap:10px;margin-bottom:26px}
+      .hero .ctaRow .btn{width:100%;min-height:52px;justify-content:center}
+      .hero .miniChip{
+        width:100%; align-items:center; gap:12px; padding:12px 13px; border-radius:16px;
+        line-height:1.5; background:linear-gradient(120deg,rgba(228,245,246,.9),#fff 38%);
+        border-color:rgba(15,45,74,.12); box-shadow:0 8px 24px rgba(15,45,74,.07);
+      }
+      .hero .miniChip svg{
+        box-sizing:content-box; width:21px; height:21px; padding:7px; border-radius:10px;
+        background:var(--teal-50); flex:0 0 auto;
+      }
+      .hero .miniChip.star{background:linear-gradient(120deg,var(--gold-50),#fff 42%);border-color:rgba(201,138,43,.3)}
+      .hero .miniChip.star svg{background:#fff8ed}
+      .stat{padding:22px 20px}
+      .stat .sIco{width:54px;height:54px;border-radius:14px;margin-bottom:14px}
+      .stat .sIco svg{width:30px;height:30px}
       .clinicCard{ padding:20px; }
       .clinicActions .btn{ flex:1 1 150px; justify-content:center; }
     }
@@ -1732,6 +1753,19 @@
     const saved = localStorage.getItem(LANG_KEY);
     if (saved === 'ar' || saved === 'en') setLang(saved);
     else setLang(document.body.getAttribute('data-lang') || 'en');
+
+    // Keep direct links accurate after the patient-first section reordering.
+    const initialTargetId = decodeURIComponent(window.location.hash.slice(1));
+    if (initialTargetId) {
+      if (initialTargetId.endsWith('-ar')) setLang('ar');
+      if (initialTargetId.endsWith('-en')) setLang('en');
+      const scrollToInitialTarget = () => window.setTimeout(() => requestAnimationFrame(() => {
+        document.getElementById(initialTargetId)?.scrollIntoView({ block: 'start' });
+      }), 0);
+      const settleInitialTarget = () => (document.fonts?.ready || Promise.resolve()).then(scrollToInitialTarget);
+      if (document.readyState === 'complete') settleInitialTarget();
+      else window.addEventListener('load', settleInitialTarget, { once: true });
+    }
 
     document.querySelectorAll('.js-lang-toggle').forEach(btn => btn.addEventListener('click', toggleLang));
 
