@@ -302,7 +302,7 @@
       text-transform:uppercase; font-size:.92rem; line-height:1.45;
     }
     .eyebrow svg{width:15px;height:15px}
-    .eyebrow .pulse{ width:8px;height:8px;border-radius:999px; background:var(--teal); box-shadow:0 0 0 5px rgba(14,154,167,.18); }
+    .eyebrow .pulse{ width:9px;height:9px;min-width:9px;aspect-ratio:1;border-radius:50%; flex:0 0 9px; background:var(--teal); box-shadow:0 0 0 5px rgba(14,154,167,.18); }
 
     .btn{
       display:inline-flex; align-items:center; gap:10px;
@@ -661,7 +661,10 @@
         padding:10px max(12px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
         background:rgba(255,255,255,.96); border-top:1px solid var(--line); box-shadow:0 -8px 28px rgba(15,45,74,.12);
         backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+        opacity:0; visibility:hidden; pointer-events:none; transform:translateY(calc(100% + 12px));
+        transition:opacity var(--speed) ease,transform var(--speed) ease,visibility 0s linear var(--speed);
       }
+      .mobileBookingBar.is-visible{ opacity:1; visibility:visible; pointer-events:auto; transform:none; transition-delay:0s; }
       .mobileBookingBar .btn{ width:100%; justify-content:center; min-height:50px; padding:11px 16px; }
     }
     @media (max-width: 560px){
@@ -1743,6 +1746,7 @@
       syncLangButtons(isAr ? 'ar' : 'en');
       localStorage.setItem(LANG_KEY, isAr ? 'ar' : 'en');
       syncRtlArrows();
+      requestAnimationFrame(updateMobileBookingBars);
     }
     function toggleLang(){
       const current = document.body.getAttribute('data-lang') || 'en';
@@ -1768,6 +1772,41 @@
     }
 
     document.querySelectorAll('.js-lang-toggle').forEach(btn => btn.addEventListener('click', toggleLang));
+
+    // On phones, show one booking action at a time: the in-page action first,
+    // then the sticky shortcut only after that action has scrolled away.
+    function updateMobileBookingBars(){
+      const isMobile = window.matchMedia('(max-width: 720px)').matches;
+      const topbarBottom = document.querySelector('.topbar')?.getBoundingClientRect().bottom || 0;
+      document.querySelectorAll('#en, #ar').forEach(pane => {
+        const bar = pane.querySelector('.mobileBookingBar');
+        const heroActions = pane.querySelector('.hero .ctaRow');
+        if (!bar || !heroActions || !isMobile || getComputedStyle(pane).display === 'none') {
+          bar?.classList.remove('is-visible');
+          return;
+        }
+
+        const heroActionsRect = heroActions.getBoundingClientRect();
+        const passedHeroAction = heroActionsRect.bottom < topbarBottom + 8;
+        const conflictVisible = [...pane.querySelectorAll('.clinicGrid, .closingContact')].some(section => {
+          const rect = section.getBoundingClientRect();
+          return rect.top < window.innerHeight - 68 && rect.bottom > topbarBottom;
+        });
+        bar.classList.toggle('is-visible', passedHeroAction && !conflictVisible);
+      });
+    }
+
+    let mobileBookingFrame = 0;
+    function scheduleMobileBookingUpdate(){
+      if (mobileBookingFrame) return;
+      mobileBookingFrame = requestAnimationFrame(() => {
+        mobileBookingFrame = 0;
+        updateMobileBookingBars();
+      });
+    }
+    window.addEventListener('scroll', scheduleMobileBookingUpdate, { passive:true });
+    window.addEventListener('resize', scheduleMobileBookingUpdate);
+    window.addEventListener('load', scheduleMobileBookingUpdate, { once:true });
 
     // Secondary contact measurements. Appointment buttons use booking.html and remain the primary conversion.
     document.querySelectorAll('[data-track]').forEach(link => {
