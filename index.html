@@ -560,14 +560,14 @@
     .contactRow a, .contactRow .v{ display:block; color:var(--muted); font-weight:600; margin-top:2px; text-decoration:underline; text-decoration-color:rgba(14,154,167,.32); text-underline-offset:3px; font-size:1.02rem; }
     .contactRow a:hover{ color:var(--teal-600); }
     .clinicGrid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:0 0 16px; }
-    .clinicCard{ border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow3); padding:24px; transition:transform var(--speed) ease,box-shadow var(--speed) ease,border-color var(--speed) ease; }
+    .clinicCard{ display:flex; flex-direction:column; border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow3); padding:24px; transition:transform var(--speed) ease,box-shadow var(--speed) ease,border-color var(--speed) ease; }
     .clinicCard:hover{ transform:translateY(-2px); box-shadow:var(--shadow2); border-color:rgba(14,154,167,.24); }
     .clinicTop{ display:flex; gap:14px; align-items:flex-start; }
     .clinicCopy{ min-width:0; }
     .clinicCard h3{ margin:1px 0 7px; color:var(--navy); font-size:1.2rem; font-weight:800; }
     .clinicCard address{ color:var(--muted); font-style:normal; font-weight:600; font-size:1.01rem; line-height:1.65; }
     .clinicCard .clinicNote{ margin:7px 0 0; color:var(--teal-600); font-size:1rem; font-weight:800; }
-    .clinicActions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .clinicActions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:auto; padding-top:18px; }
     .clinicActions .btn{ padding:12px 15px; font-size:1rem; box-shadow:none; }
     .clinicDetails{ display:inline-flex; align-items:center; gap:6px; margin-top:14px; color:var(--teal-600); font-weight:800; text-decoration:none; }
     .clinicDetails:hover{ text-decoration:underline; text-underline-offset:3px; }
@@ -631,6 +631,10 @@
       .brandSub{display:none}
       .brandTitle .nameFull{display:none}
       .brandTitle .nameShort{display:inline}
+    }
+    @media (min-width:981px){
+      .clinicActions{grid-template-columns:repeat(2,minmax(0,1fr));display:grid}
+      .clinicActions .btn{width:100%;justify-content:center}
     }
     @media (max-width: 980px){
       .heroGrid{ grid-template-columns:1fr; gap:30px; }
