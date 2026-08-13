@@ -324,10 +324,10 @@
     .name{
       font-family:var(--serif); font-weight:600;
       margin:16px 0 8px; font-size: clamp(2.4rem, 4.4vw, 3.4rem);
-      line-height:1.03; letter-spacing:-.015em; color:var(--navy);
+      line-height:1.03; letter-spacing:-.015em; color:var(--navy); text-wrap:balance;
     }
     .role{ margin:0 0 16px; color:var(--teal-600); font-weight:800; font-size:1.12rem; line-height:1.45; }
-    .lead{ margin:0 0 22px; color:var(--ink); line-height:1.7; max-width:58ch; font-size:1.16rem; font-weight:500; }
+    .lead{ margin:0 0 22px; color:var(--ink); line-height:1.7; max-width:58ch; font-size:1.16rem; font-weight:500; text-wrap:pretty; }
 
     .heroChips{ display:flex; flex-wrap:wrap; gap:9px; margin:0 0 24px; }
     .miniChip{
@@ -380,9 +380,9 @@
     /* ---------- Sections ---------- */
     section{padding:56px 0}
     section[id], header[id]{scroll-margin-top:72px}
-    .sectionHead{ max-width:80ch; margin:0 0 28px; }
-    .sectionTitle{ font-family:var(--serif); font-weight:600; margin:12px 0 0; font-size: clamp(1.75rem, 3vw, 2.3rem); letter-spacing:-.015em; color:var(--navy); line-height:1.12; }
-    .sectionSub{ margin:11px 0 0; color:var(--muted); line-height:1.7; font-weight:500; font-size:1.12rem; }
+    .sectionHead{ max-width:72ch; margin:0 0 30px; }
+    .sectionTitle{ font-family:var(--serif); font-weight:600; margin:12px 0 0; font-size: clamp(1.75rem, 3vw, 2.3rem); letter-spacing:-.015em; color:var(--navy); line-height:1.15; text-wrap:balance; }
+    .sectionSub{ margin:11px 0 0; color:var(--muted); line-height:1.75; font-weight:500; font-size:1.12rem; text-wrap:pretty; }
 
     .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap:16px; align-items:stretch; }
     .grid3{ display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
@@ -418,7 +418,7 @@
     .scopeCard.solid .scopeIcon{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.18);color:#fff}
     .scopeCard .k{margin:0 0 3px}
     .scopeCard.solid .k{color:#aee7eb}
-    .scopeCard h3{margin:0 0 9px;color:var(--navy);font-size:1.23rem;line-height:1.3}
+    .scopeCard h3{margin:0 0 9px;color:var(--navy);font-size:1.23rem;line-height:1.3;text-wrap:balance}
     .scopeCard.solid h3{color:#fff;font-size:clamp(1.45rem,2.5vw,1.9rem);max-width:22ch}
     .scopeCard p{margin:0;color:var(--muted);font-weight:500;font-size:1.03rem;line-height:1.7}
     .scopeCard.solid p{color:rgba(255,255,255,.88);font-size:1.08rem;max-width:56ch}
@@ -439,7 +439,7 @@
     .card{ border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); box-shadow: var(--shadow3); overflow:hidden; }
     .cardPad{padding:26px 24px}
     .k{ letter-spacing:.09em; text-transform:uppercase; color:var(--teal-600); font-size:.92rem; font-weight:900; margin:0 0 12px; }
-    .card h3{margin:0 0 10px; font-size:1.22rem; color:var(--navy); font-weight:800}
+    .card h3{margin:0 0 10px; font-size:1.22rem; color:var(--navy); font-weight:800; text-wrap:balance}
     .card p{margin:0; color:var(--muted); line-height:1.7; font-weight:500; font-size:1.04rem}
     .list{margin:14px 0 0; padding-left:22px; color:var(--muted); line-height:1.72; font-weight:500; font-size:1.04rem}
     .list li{margin:12px 0}
@@ -548,8 +548,8 @@
     .socialBtn:hover{ transform:translateY(-2px); color:var(--teal-600); border-color:rgba(14,154,167,.4); }
     .socialBtn:focus-visible{ outline:none; box-shadow:var(--ring); }
     .socialBtn svg{ width:22px; height:22px; }
-    .socialBtn.sm{ width:38px; height:38px; }
-    .socialBtn.sm svg{ width:18px; height:18px; }
+    .socialBtn.sm{ width:44px; height:44px; }
+    .socialBtn.sm svg{ width:20px; height:20px; }
 
     /* ---------- Contact ---------- */
     .contactRow{ display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--line-2); }
@@ -557,10 +557,11 @@
     .ico{ width:46px;height:46px;border-radius:13px; background:var(--teal-50); color:var(--teal-600); display:grid;place-items:center; flex:0 0 46px; }
     .ico svg{width:21px;height:21px}
     .contactRow b{ display:block; font-weight:800; color:var(--navy); font-size:1.06rem; }
-    .contactRow a, .contactRow .v{ display:block; color:var(--muted); font-weight:600; margin-top:2px; text-decoration:none; font-size:1.02rem; }
+    .contactRow a, .contactRow .v{ display:block; color:var(--muted); font-weight:600; margin-top:2px; text-decoration:underline; text-decoration-color:rgba(14,154,167,.32); text-underline-offset:3px; font-size:1.02rem; }
     .contactRow a:hover{ color:var(--teal-600); }
     .clinicGrid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:0 0 16px; }
-    .clinicCard{ border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow3); padding:24px; }
+    .clinicCard{ border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow3); padding:24px; transition:transform var(--speed) ease,box-shadow var(--speed) ease,border-color var(--speed) ease; }
+    .clinicCard:hover{ transform:translateY(-2px); box-shadow:var(--shadow2); border-color:rgba(14,154,167,.24); }
     .clinicTop{ display:flex; gap:14px; align-items:flex-start; }
     .clinicCopy{ min-width:0; }
     .clinicCard h3{ margin:1px 0 7px; color:var(--navy); font-size:1.2rem; font-weight:800; }
@@ -570,6 +571,8 @@
     .clinicActions .btn{ padding:12px 15px; font-size:1rem; box-shadow:none; }
     .clinicDetails{ display:inline-flex; align-items:center; gap:6px; margin-top:14px; color:var(--teal-600); font-weight:800; text-decoration:none; }
     .clinicDetails:hover{ text-decoration:underline; text-underline-offset:3px; }
+    .contactCard{ background:linear-gradient(180deg,var(--teal-50),#fff 48%); border-color:rgba(14,154,167,.22); }
+    .contactInfoGrid{ align-items:start; }
 
     .mobileBookingBar{ display:none; }
 
@@ -616,7 +619,7 @@
     @media (prefers-reduced-motion: reduce){
       html{scroll-behavior:auto}
       html.js .reveal{ opacity:1; transform:none; transition:none; }
-      *{animation:none !important}
+      *{animation:none !important; transition:none !important}
     }
 
     /* ---------- Responsive ---------- */
@@ -626,6 +629,8 @@
     }
     @media (min-width:981px) and (max-width:1399px){
       .brandSub{display:none}
+      .brandTitle .nameFull{display:none}
+      .brandTitle .nameShort{display:inline}
     }
     @media (max-width: 980px){
       .heroGrid{ grid-template-columns:1fr; gap:30px; }
@@ -772,11 +777,8 @@
               <a class="btn wa" href="/booking.html?clinic=general&amp;lang=en" target="_blank" rel="noopener">
                 <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> Book by WhatsApp
               </a>
-              <a class="btn primary" href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general">
-                <svg aria-hidden="true"><use href="#i-mail"></use></svg> Email
-              </a>
-              <a class="btn ghost" href="#care-en">
-                How I can help <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
+              <a class="btn ghost" href="#contact-en">
+                Clinics &amp; availability <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
               </a>
             </div>
           </div>
@@ -886,7 +888,7 @@
         </div>
       </section>
 
-      <section id="care-en" class="altBg">
+      <section id="care-en">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-heart"></use></svg> How I can help</div>
@@ -960,7 +962,7 @@
         </div>
       </section>
 
-      <section id="approach-en">
+      <section id="approach-en" class="altBg">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-target"></use></svg> My approach</div>
@@ -997,7 +999,7 @@
         </div>
       </section>
 
-      <section id="background-en" class="altBg">
+      <section id="background-en">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-cap"></use></svg> Background</div>
@@ -1034,7 +1036,7 @@
         </div>
       </section>
 
-      <section id="academic-en">
+      <section id="academic-en" class="altBg">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-flask"></use></svg> Research &amp; teaching</div>
@@ -1113,9 +1115,10 @@
             </article>
           </div>
 
-          <div class="grid2">
-            <div class="card reveal">
+          <div class="grid2 contactInfoGrid">
+            <div class="card contactCard reveal">
               <div class="cardPad">
+                <p class="k">Direct contact</p>
                 <div class="contactRow">
                   <div class="ico" aria-hidden="true"><svg><use href="#i-whatsapp"></use></svg></div>
                   <div><b>WhatsApp</b><a href="https://wa.me/96181902903" target="_blank" rel="noopener" data-track="contact_whatsapp" data-clinic="general">+961-81-902 903</a></div>
@@ -1123,20 +1126,6 @@
                 <div class="contactRow">
                   <div class="ico" aria-hidden="true"><svg><use href="#i-mail"></use></svg></div>
                   <div><b>Email</b><a href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general">contact@drminhem.com</a></div>
-                </div>
-                <div class="ctaRow" style="margin-top:18px">
-                  <a class="btn wa" href="/booking.html?clinic=general&amp;lang=en" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> Book by WhatsApp</a>
-                  <a class="btn primary" href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general"><svg aria-hidden="true"><use href="#i-mail"></use></svg> Send an email</a>
-                </div>
-                <div style="margin-top:22px">
-                  <p class="k">Connect &amp; follow</p>
-                  <div class="social">
-                    <a class="socialBtn" href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
-                    <a class="socialBtn" href="https://www.instagram.com/drminhem/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"></use></svg></a>
-                    <a class="socialBtn" href="https://www.facebook.com/profile.php?id=61585887935067" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg aria-hidden="true"><use href="#i-facebook"></use></svg></a>
-                    <a class="socialBtn" href="https://scholar.google.com/citations?user=_p93-ZoAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg aria-hidden="true"><use href="#i-scholar"></use></svg></a>
-                    <a class="socialBtn mono" href="https://www.researchgate.net/profile/Mohamad-Minhem" target="_blank" rel="noopener" aria-label="RG — ResearchGate" title="ResearchGate">RG</a>
-                  </div>
                 </div>
                 <p class="note"><b>Colleagues &amp; professionals:</b> for patient referrals, lectures and teaching, research collaboration, or media inquiries — email or <a href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" style="color:var(--teal-600);font-weight:800">LinkedIn</a> works best.</p>
               </div>
@@ -1170,7 +1159,7 @@
           </div>
           <div class="closingLinks" aria-label="Contact options">
             <a class="closingItem" href="tel:+96181902903" data-track="contact_phone" data-clinic="general">
-              <svg aria-hidden="true"><use href="#i-phone"></use></svg><span><b>Phone &amp; WhatsApp</b><small>+961 81 902 903</small></span>
+              <svg aria-hidden="true"><use href="#i-phone"></use></svg><span><b>Phone</b><small>+961 81 902 903</small></span>
             </a>
             <a class="closingItem" href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general">
               <svg aria-hidden="true"><use href="#i-mail"></use></svg><span><b>Email</b><small>contact@drminhem.com</small></span>
@@ -1262,11 +1251,8 @@
               <a class="btn wa" href="/booking.html?clinic=general&amp;lang=ar" target="_blank" rel="noopener">
                 <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> احجز عبر واتساب
               </a>
-              <a class="btn primary" href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general">
-                <svg aria-hidden="true"><use href="#i-mail"></use></svg> بريد إلكتروني
-              </a>
-              <a class="btn ghost" href="#care-ar">
-                كيف أساعدك <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
+              <a class="btn ghost" href="#contact-ar">
+                العيادات والمواعيد <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
               </a>
             </div>
           </div>
@@ -1376,7 +1362,7 @@
         </div>
       </section>
 
-      <section id="care-ar" class="altBg">
+      <section id="care-ar">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-heart"></use></svg> كيف أساعدك</div>
@@ -1450,7 +1436,7 @@
         </div>
       </section>
 
-      <section id="approach-ar">
+      <section id="approach-ar" class="altBg">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-target"></use></svg> منهجي</div>
@@ -1487,7 +1473,7 @@
         </div>
       </section>
 
-      <section id="background-ar" class="altBg">
+      <section id="background-ar">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-cap"></use></svg> الخلفية العلمية</div>
@@ -1524,7 +1510,7 @@
         </div>
       </section>
 
-      <section id="academic-ar">
+      <section id="academic-ar" class="altBg">
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-flask"></use></svg> الأبحاث والتعليم</div>
@@ -1602,9 +1588,10 @@
             </article>
           </div>
 
-          <div class="grid2">
-            <div class="card rtl reveal">
+          <div class="grid2 contactInfoGrid">
+            <div class="card contactCard rtl reveal">
               <div class="cardPad">
+                <p class="k">تواصل مباشر</p>
                 <div class="contactRow">
                   <div class="ico" aria-hidden="true"><svg><use href="#i-whatsapp"></use></svg></div>
                   <div><b>واتساب</b><a href="https://wa.me/96181902903" target="_blank" rel="noopener" class="phone-ltr" data-track="contact_whatsapp" data-clinic="general">+961-81-902 903</a></div>
@@ -1612,20 +1599,6 @@
                 <div class="contactRow">
                   <div class="ico" aria-hidden="true"><svg><use href="#i-mail"></use></svg></div>
                   <div><b>بريد إلكتروني</b><a href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general">contact@drminhem.com</a></div>
-                </div>
-                <div class="ctaRow" style="margin-top:18px">
-                  <a class="btn wa" href="/booking.html?clinic=general&amp;lang=ar" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> احجز عبر واتساب</a>
-                  <a class="btn primary" href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general"><svg aria-hidden="true"><use href="#i-mail"></use></svg> أرسل بريداً</a>
-                </div>
-                <div style="margin-top:22px">
-                  <p class="k">للتواصل والمتابعة</p>
-                  <div class="social">
-                    <a class="socialBtn" href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
-                    <a class="socialBtn" href="https://www.instagram.com/drminhem/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg aria-hidden="true"><use href="#i-instagram"></use></svg></a>
-                    <a class="socialBtn" href="https://www.facebook.com/profile.php?id=61585887935067" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg aria-hidden="true"><use href="#i-facebook"></use></svg></a>
-                    <a class="socialBtn" href="https://scholar.google.com/citations?user=_p93-ZoAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg aria-hidden="true"><use href="#i-scholar"></use></svg></a>
-                    <a class="socialBtn mono" href="https://www.researchgate.net/profile/Mohamad-Minhem" target="_blank" rel="noopener" aria-label="RG — ResearchGate" title="ResearchGate">RG</a>
-                  </div>
                 </div>
                 <p class="note"><b>للزملاء والجهات المهنية:</b> لإحالة المرضى، أو المحاضرات والتعليم، أو التعاون البحثي، أو التواصل الإعلامي — الأفضل عبر البريد الإلكتروني أو <a href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" style="color:var(--teal-600);font-weight:800">LinkedIn</a>.</p>
               </div>
@@ -1659,7 +1632,7 @@
           </div>
           <div class="closingLinks" aria-label="خيارات التواصل">
             <a class="closingItem" href="tel:+96181902903" data-track="contact_phone" data-clinic="general">
-              <svg aria-hidden="true"><use href="#i-phone"></use></svg><span><b>الهاتف وواتساب</b><small class="phone-ltr">+961 81 902 903</small></span>
+              <svg aria-hidden="true"><use href="#i-phone"></use></svg><span><b>الهاتف</b><small class="phone-ltr">+961 81 902 903</small></span>
             </a>
             <a class="closingItem" href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general">
               <svg aria-hidden="true"><use href="#i-mail"></use></svg><span><b>البريد الإلكتروني</b><small>contact@drminhem.com</small></span>
