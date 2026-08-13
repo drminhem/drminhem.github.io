@@ -155,7 +155,7 @@
     }
 
     *{box-sizing:border-box}
-    html{ scroll-behavior:smooth; font-size:17px; }
+    html{ scroll-behavior:smooth; font-size:18px; }
     body{
       margin:0;
       font-family: var(--sans);
@@ -165,7 +165,7 @@
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
       font-size: 1rem;
-      line-height: 1.65;
+      line-height: 1.7;
     }
     a{color:inherit}
     img{max-width:100%;display:block}
@@ -247,8 +247,8 @@
     .brandText{min-width:0}
     .brandTitle{ display:block; font-weight:800; color:var(--navy); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:1.05rem; }
     .brandTitle .nameShort{ display:none; }
-    .brandSub{ display:block; font-weight:700; color:#087884; letter-spacing:.03em; font-size:.76rem; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-transform:uppercase; }
-    .rtl .brandSub{ text-transform:none; font-size:.84rem; }
+    .brandSub{ display:block; font-weight:700; color:#087884; letter-spacing:.03em; font-size:.9rem; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-transform:uppercase; }
+    .rtl .brandSub{ text-transform:none; font-size:.95rem; }
 
     .navlinks{ display:flex; align-items:center; gap:2px; font-weight:700; }
     .navlinks a{
@@ -262,7 +262,7 @@
       display:inline-flex; align-items:center; gap:8px;
       padding:11px 16px; border-radius:12px;
       background: linear-gradient(150deg, var(--teal), var(--teal-600));
-      color:#fff; text-decoration:none; font-weight:800; font-size:.98rem;
+      color:#fff; text-decoration:none; font-weight:800; font-size:1rem;
       box-shadow: 0 8px 20px rgba(14,154,167,.30); transition: transform var(--speed) ease, filter var(--speed) ease; white-space:nowrap;
     }
     .chip:hover{transform: translateY(-1px); filter:brightness(1.06)}
@@ -299,7 +299,7 @@
       padding:8px 14px; border-radius:999px;
       border:1px solid rgba(14,154,167,.30); background:var(--teal-50);
       color:#087884; font-weight:800; letter-spacing:.08em;
-      text-transform:uppercase; font-size:.8rem;
+      text-transform:uppercase; font-size:.92rem; line-height:1.45;
     }
     .eyebrow svg{width:15px;height:15px}
     .eyebrow .pulse{ width:8px;height:8px;border-radius:999px; background:var(--teal); box-shadow:0 0 0 5px rgba(14,154,167,.18); }
@@ -332,7 +332,7 @@
     .heroChips{ display:flex; flex-wrap:wrap; gap:9px; margin:0 0 24px; }
     .miniChip{
       display:inline-flex; align-items:center; gap:8px;
-      padding:9px 14px; border-radius:999px; font-weight:700; font-size:.96rem;
+      padding:9px 14px; border-radius:999px; font-weight:700; font-size:1rem;
       border:1px solid var(--line); background:var(--surface); color:var(--navy); box-shadow:var(--shadow3);
     }
     .miniChip svg{width:16px;height:16px; color:var(--teal)}
@@ -368,13 +368,13 @@
     .stat .num{ font-family:var(--serif); font-weight:700; font-size:2rem; line-height:1; color:var(--navy); }
     .rtl .stat .num{ font-family:var(--ar); font-weight:700; }
     .stat .lbl{ display:block; margin-top:8px; font-weight:800; color:var(--ink); font-size:1.04rem; }
-    .stat .sub{ display:block; margin-top:5px; color:var(--muted); font-weight:500; font-size:.96rem; line-height:1.5; }
+    .stat .sub{ display:block; margin-top:5px; color:var(--muted); font-weight:500; font-size:1rem; line-height:1.6; }
     .stat .sub a{ color:var(--teal-600); text-decoration:underline; text-decoration-color:rgba(14,154,167,.4); font-weight:800; }
     .stat .sub a:hover{ text-decoration-color:var(--teal-600); }
     .stat.gold{ background: linear-gradient(180deg, var(--gold-50), #fff); border-color:rgba(201,138,43,.3); }
     .stat.gold .sIco{ background:#fff; color:var(--gold); }
     .stat.gold .num{ color:var(--gold); }
-    .stat .tag{ position:absolute; top:16px; right:16px; font-size:.7rem; font-weight:900; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); background:#fff; border:1px solid rgba(201,138,43,.35); padding:3px 9px; border-radius:999px; }
+    .stat .tag{ position:absolute; top:16px; right:16px; font-size:.9rem; font-weight:900; letter-spacing:.04em; text-transform:uppercase; color:var(--gold); background:#fff; border:1px solid rgba(201,138,43,.35); padding:4px 10px; border-radius:999px; }
     .rtl .stat .tag{ right:auto; left:16px; text-transform:none; }
 
     /* ---------- Sections ---------- */
@@ -426,7 +426,7 @@
     .scopeTags span{
       display:inline-flex;padding:7px 11px;border-radius:999px;
       background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.18);
-      color:#fff;font-size:.88rem;font-weight:800;
+      color:#fff;font-size:.96rem;font-weight:800;
     }
     .scopeAction{
       display:inline-flex;align-items:center;align-self:flex-start;gap:8px;margin-top:auto;padding:12px 15px;
@@ -438,7 +438,7 @@
 
     .card{ border:1px solid var(--line); background:var(--surface); border-radius:var(--radius); box-shadow: var(--shadow3); overflow:hidden; }
     .cardPad{padding:26px 24px}
-    .k{ letter-spacing:.12em; text-transform:uppercase; color:var(--teal-600); font-size:.82rem; font-weight:900; margin:0 0 12px; }
+    .k{ letter-spacing:.09em; text-transform:uppercase; color:var(--teal-600); font-size:.92rem; font-weight:900; margin:0 0 12px; }
     .card h3{margin:0 0 10px; font-size:1.22rem; color:var(--navy); font-weight:800}
     .card p{margin:0; color:var(--muted); line-height:1.7; font-weight:500; font-size:1.04rem}
     .list{margin:14px 0 0; padding-left:22px; color:var(--muted); line-height:1.72; font-weight:500; font-size:1.04rem}
@@ -485,7 +485,7 @@
     .recoCaption{
       position:absolute; left:14px; right:14px; bottom:14px;
       background:rgba(15,45,74,.80); backdrop-filter:blur(6px); color:#fff;
-      border-radius:12px; padding:11px 14px; font-weight:600; font-size:.94rem; line-height:1.4;
+      border-radius:12px; padding:12px 15px; font-weight:600; font-size:1rem; line-height:1.55;
     }
     .recoCaption b{ display:block; font-weight:900; font-size:1rem; margin-bottom:2px; }
     .recoList{ list-style:none; margin:0; padding:0; }
@@ -532,7 +532,7 @@
     .timeline li{ position:relative; padding:0 0 24px; }
     .timeline li:last-child{ padding-bottom:0; }
     .timeline li::before{ content:""; position:absolute; left:-28px; top:5px; width:14px;height:14px;border-radius:50%; background:#fff; border:3px solid var(--teal); box-shadow:0 0 0 4px rgba(14,154,167,.12); }
-    .timeline .yr{ font-weight:900; color:var(--teal-600); font-size:.9rem; }
+    .timeline .yr{ font-weight:900; color:var(--teal-600); font-size:1rem; }
     .timeline .ti{ display:block; font-weight:800; color:var(--navy); margin-top:3px; font-size:1.08rem; }
     .timeline .pl{ display:block; color:var(--muted); font-weight:500; font-size:1rem; margin-top:2px; }
     .rtl .timeline{ padding:0 28px 0 0; }
@@ -544,7 +544,7 @@
 
     /* ---------- Social links ---------- */
     .social{ display:flex; gap:10px; flex-wrap:wrap; }
-    .socialBtn{ width:46px; height:46px; border-radius:12px; display:grid; place-items:center; border:1px solid var(--line); background:var(--surface); color:var(--navy); box-shadow:var(--shadow3); text-decoration:none; font-weight:900; font-size:.86rem; letter-spacing:.02em; transition:transform var(--speed) ease, color var(--speed) ease, border-color var(--speed) ease; }
+    .socialBtn{ width:48px; height:48px; border-radius:12px; display:grid; place-items:center; border:1px solid var(--line); background:var(--surface); color:var(--navy); box-shadow:var(--shadow3); text-decoration:none; font-weight:900; font-size:1rem; letter-spacing:.02em; transition:transform var(--speed) ease, color var(--speed) ease, border-color var(--speed) ease; }
     .socialBtn:hover{ transform:translateY(-2px); color:var(--teal-600); border-color:rgba(14,154,167,.4); }
     .socialBtn:focus-visible{ outline:none; box-shadow:var(--ring); }
     .socialBtn svg{ width:22px; height:22px; }
@@ -565,9 +565,9 @@
     .clinicCopy{ min-width:0; }
     .clinicCard h3{ margin:1px 0 7px; color:var(--navy); font-size:1.2rem; font-weight:800; }
     .clinicCard address{ color:var(--muted); font-style:normal; font-weight:600; font-size:1.01rem; line-height:1.65; }
-    .clinicCard .clinicNote{ margin:7px 0 0; color:var(--teal-600); font-size:.93rem; font-weight:800; }
+    .clinicCard .clinicNote{ margin:7px 0 0; color:var(--teal-600); font-size:1rem; font-weight:800; }
     .clinicActions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
-    .clinicActions .btn{ padding:11px 14px; font-size:.95rem; box-shadow:none; }
+    .clinicActions .btn{ padding:12px 15px; font-size:1rem; box-shadow:none; }
     .clinicDetails{ display:inline-flex; align-items:center; gap:6px; margin-top:14px; color:var(--teal-600); font-weight:800; text-decoration:none; }
     .clinicDetails:hover{ text-decoration:underline; text-underline-offset:3px; }
 
@@ -628,21 +628,20 @@
       section{padding:44px 0}
       /* ESMO photo: drop the caption below the image so it never overlays the face */
       .recoPhoto img{ display:block; }
-      .recoCaption{ position:static; border-radius:0; padding:12px 16px; font-size:.9rem; }
+      .recoCaption{ position:static; border-radius:0; padding:14px 16px; font-size:1rem; }
     }
     @media (max-width: 640px){
       .chip{ display:none; }                 /* hide the CTA on phones — it crowds the name; menu has it */
-      .brandTitle{ font-size:.97rem; }
-      #en .brandTitle{ font-size: clamp(.7rem, 3.3vw, .95rem); }  /* EN full name is long — auto-fit down to ~360px, don't truncate */
+      .brandTitle, #en .brandTitle{ font-size:1rem; }
       .brandTitle .nameFull{ display:none; }
       .brandTitle .nameShort{ display:inline; }
       .scopeGrid{grid-template-columns:1fr}
       .scopeCard.solid{grid-column:auto;padding:24px}
       .nav{ gap:8px; }
       .righttools{ gap:7px; }
-      .langBtn{ padding:8px 10px; font-size:.88rem; gap:6px; }
+      .langBtn{ padding:9px 11px; font-size:1rem; gap:6px; }
       .langBtn svg{ width:16px; height:16px; }
-      #en .hero .eyebrow{ font-size: clamp(.66rem, 3.1vw, .82rem); letter-spacing:.03em; line-height:1.35; }
+      #en .hero .eyebrow{ max-width:100%; font-size:.9rem; letter-spacing:.02em; line-height:1.5; }
       .clinicCard{ padding:20px; }
       .clinicActions .btn{ flex:1 1 150px; justify-content:center; }
     }
@@ -686,7 +685,7 @@
           <a class="brand" href="#top-en">
             <div class="logo" aria-hidden="true">MM</div>
             <div class="brandText">
-              <span class="brandTitle"><span class="nameFull">Dr. Mohamad Minhem</span><span class="nameShort">Dr. Mohamad Minhem</span></span>
+              <span class="brandTitle"><span class="nameFull">Dr. Mohamad Minhem</span><span class="nameShort">Dr. Minhem</span></span>
               <span class="brandSub">Cancer &amp; Blood Specialist • Lebanon</span>
             </div>
           </a>
