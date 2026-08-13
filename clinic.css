@@ -21,7 +21,7 @@ body{
   line-height:1.65;
 }
 body[data-lang="en"] [lang="ar"],body[data-lang="ar"] [lang="en"]{display:none!important}
-body[data-lang="ar"]{font-family:Cairo,system-ui,sans-serif}
+body[data-lang="ar"]{font-family:"Noto Sans Arabic",system-ui,sans-serif}
 a{color:inherit}
 .wrap{width:min(1080px,calc(100% - 36px));margin-inline:auto}
 .siteNav{
@@ -55,7 +55,7 @@ a{color:inherit}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--teal-dark);font-weight:800;font-size:.91rem;letter-spacing:.02em;text-transform:uppercase}
 .eyebrow::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 6px rgba(14,154,167,.12)}
 h1{margin:18px 0 14px;color:var(--navy);font-family:Fraunces,Georgia,serif;font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.04;letter-spacing:-.035em}
-body[data-lang="ar"] h1{font-family:Cairo,sans-serif;font-weight:800;letter-spacing:0}
+body[data-lang="ar"] h1{font-family:"Noto Sans Arabic",sans-serif;font-weight:700;letter-spacing:0}
 .lead{font-size:clamp(1.08rem,2vw,1.28rem);color:var(--muted);max-width:720px;margin:0}
 .portrait{width:100%;max-width:310px;justify-self:end;background:#fff;border:1px solid var(--line);border-radius:28px;padding:10px;box-shadow:var(--shadow)}
 .portrait picture{display:block}
