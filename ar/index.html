@@ -94,34 +94,18 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "ماذا يحدث في الموعد الأول؟",
+      "name": "هل يمكنني طلب رأي طبي ثانٍ؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "نراجع معاً تاريخك الطبي وتقاريرك، ونشرح التشخيص بلغة بسيطة، ونتّفق على الخطوات التالية. تخرج بخطة واضحة — لا بمزيد من الحيرة."
+        "text": "نعم. أحضر التقارير والتوصيات العلاجية المتوفرة لديك لمراجعتها معاً."
       }
     },
     {
       "@type": "Question",
-      "name": "هل يمكنك مراجعة حالتي وشرح الخيارات المتاحة؟",
+      "name": "هل سأحتاج إلى علاج كيميائي؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "نعم. أحضر تقرير الخزعة والصور والتقارير إلى الاستشارة. نراجع التشخيص ونناقش الخيارات المتاحة معاً."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "ما الأمراض التي تعالجها؟",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "الأورام — بما فيها سرطانات الثدي والرئة والقولون والمستقيم، وسرطانات الجهاز الهضمي الأخرى، والبروستات والكِلى، وغيرها — إلى جانب اللمفوما واللوكيميا وسرطانات الدم الأخرى، وفقر الدم، واضطرابات الصفائح والتخثّر، واضطرابات تعداد خلايا الدم."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "هل سأحتاج علاجاً كيميائياً؟",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ليس دائماً. كثير من المرضى يُعالَجون بعلاج موجّه، أو مناعي، أو أقراص، أو إشعاع، أو جراحة، أو متابعة دقيقة فقط. نختار ما يناسب حالتك فعلاً."
+        "text": "ليس دائماً. تعتمد الخيارات على نوع السرطان ومرحلته ونتائج الفحوصات وحالتك الصحية. نناقش ما إذا كان العلاج الكيميائي أو خيار آخر مناسباً لحالتك."
       }
     },
     {
@@ -129,15 +113,15 @@
       "name": "هل يمكن لأحد أفراد العائلة الحضور معي؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "بالتأكيد. وجود أحد أفراد العائلة معك — حضورياً أو عبر الهاتف — يسهّل الفهم واتخاذ القرار."
+        "text": "نعم. يمكنك اصطحاب أحد أفراد العائلة للمساعدة في مناقشة أسئلتك والخطوات التالية."
       }
     },
     {
       "@type": "Question",
-      "name": "كم بسرعة يمكنني الحصول على موعد؟",
+      "name": "كيف أؤكّد موعدي؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "تُرتَّب المواعيد مسبقاً في كلتا العيادتين، مع مرونة في المواعيد. تواصل معنا عبر واتساب أو الهاتف لتأكيد وقت مناسب قبل الحضور."
+        "text": "أرسل طلب موعد عبر واتساب أو اتصل. المواعيد مرنة وتُرتَّب مسبقاً في كلتا العيادتين؛ أكّد الوقت قبل الحضور."
       }
     }
   ]
@@ -212,9 +196,9 @@
           </nav>
 
           <div class="righttools">
-            <a class="chip" href="#contact-ar">
+            <a class="chip" href="/booking.html?clinic=sodeco&amp;lang=ar" target="_blank" rel="noopener">
               <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
-              <span class="chipTxt">احجز استشارة</span>
+              <span class="chipTxt">اطلب موعداً في سوديكو</span>
             </a>
             <a class="langBtn" data-language-link href="/" hreflang="en" lang="en"><svg aria-hidden="true"><use href="#i-globe"></use></svg> English</a>
             <button class="menuBtn" aria-label="افتح قائمة التنقل" id="menuBtnAr" type="button" aria-expanded="false" aria-controls="mobileMenuAr">☰</button>
@@ -224,46 +208,38 @@
     </div>
 
     <div class="mobileMenu rtl" id="mobileMenuAr" role="dialog" aria-label="القائمة">
-      <a href="#care-ar">كيف أساعدك</a>
-      <a href="#contact-ar">العيادات والمواعيد</a>
-      <a href="#recognition-ar">التقدير</a>
-      <a href="#background-ar">الخلفية العلمية</a>
-      <a href="#academic-ar">الأبحاث</a>
+            <a href="#care-ar">الاستشارات</a>
+            <a href="#contact-ar">العيادات</a>
+            <a href="#guides-ar">دليل المريض</a>
+            <a href="#background-ar">عن الدكتور منعم</a>
+            <a href="#faq-ar">أسئلة عملية</a>
     </div>
 
-    <header class="hero" id="top-ar">
+    <header class="hero patientHero" id="top-ar">
       <div class="wrap">
         <div class="heroGrid">
           <div class="reveal">
-            <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> أستقبل مرضى جدد • سوديكو والطيونة، بيروت</div>
-            <h1 class="name">الدكتور محمد منعم</h1>
-            <p class="role">اختصاصي أمراض الدم والأورام&nbsp;· تدرّب في الولايات المتحدة</p>
-            <p class="lead">
-              إجابات واضحة، ورعاية مبنية على الدليل، وخطة علاج مصمّمة لحالتك — من التشخيص
-              إلى أحدث العلاجات الموجّهة والمناعية.
-            </p>
+            <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> استشارات الأورام وأمراض الدم • بيروت</div>
+            <h1 class="name">افهم تشخيصك.<br>وخطّط للخطوة التالية.</h1>
+            <p class="role">الدكتور محمد منعم · اختصاصي أمراض الدم والأورام · تدرّب في الولايات المتحدة</p>
+            <p class="lead">راجع تقاريرك وناقش خيارات العلاج، أو اطلب رأياً طبياً ثانياً حول خطة مقترحة.</p>
 
             <div class="heroChips">
               <span class="miniChip"><svg aria-hidden="true"><use href="#i-shield"></use></svg> حاصل على البورد الأمريكي (ABIM)</span>
-              <span class="miniChip star"><svg aria-hidden="true"><use href="#i-star"></use></svg> 100% — أعلى مرتبة في امتحان الجمعية الأمريكية للأورام (ASCO)</span>
-              <span class="miniChip"><svg aria-hidden="true"><use href="#i-check"></use></svg> ضمن أفضل 5 عالمياً — الجمعية الأوروبية للأورام (ESMO)</span>
             </div>
 
             <div class="ctaRow">
-              <a class="btn wa" href="/booking.html?clinic=general&amp;lang=ar" target="_blank" rel="noopener">
-                <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> احجز عبر واتساب
-              </a>
-              <a class="btn ghost" href="#contact-ar">
-                العيادات والمواعيد <svg aria-hidden="true"><use href="#i-arrow"></use></svg>
-              </a>
+              <a class="btn wa" href="/booking.html?clinic=sodeco&amp;lang=ar" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> اطلب استشارة في سوديكو</a>
             </div>
+            <p class="heroLocation">سوديكو سكوير · المبنى B · الطابق السادس، بيروت</p>
+            <p class="heroAlternatives"><a href="tel:+96181902903" data-track="contact_phone" data-clinic="sodeco">اتصل <bdi dir="ltr">+961 81 902 903</bdi></a> · <a href="/ar/tayouneh.html">تتوفر المواعيد أيضاً في عيادة الطيونة</a></p>
           </div>
 
           <div class="heroMedia reveal">
             <div class="portraitWrap">
               <picture>
-                <source type="image/webp" srcset="/portrait-480.webp 480w, /portrait-900.webp 900w" sizes="(max-width:520px) calc(100vw - 36px), (max-width:980px) 440px, 510px" />
-                <img src="/portrait.jpg" alt="الدكتور محمد منعم — اختصاصي أمراض السرطان والدم" width="1195" height="1316" loading="lazy" decoding="async" />
+                <source type="image/webp" srcset="/portrait-480.webp 480w, /portrait-900.webp 900w" sizes="(max-width:640px) 138px, (max-width:980px) 188px, 308px" />
+                <img src="/portrait.jpg" alt="الدكتور محمد منعم — اختصاصي أمراض السرطان والدم" width="1195" height="1316" loading="eager" decoding="async" fetchpriority="high" />
               </picture>
             </div>
           </div>
@@ -271,21 +247,119 @@
       </div>
     </header>
 
-    <section class="statBand" aria-label="الشهادات والتميّز" style="padding-top:36px">
-      <div class="wrap">
-        <div class="statGrid reveal">
+    <main id="main-ar">
+      <section id="care-ar">
+        <div class="wrap">
+          <div class="sectionHead reveal">
+            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-heart"></use></svg> كيف أساعدك</div>
+            <h2 class="sectionTitle">استشارة تساعدك في قرارك التالي</h2>
+            <p class="sectionSub">اختر ما يناسب حالتك للبدء.</p>
+          </div>
+          <div class="scopeGrid reveal">
+            <article class="scopeCard solid rtl">
+              <div class="scopeTop"><div class="scopeIcon"><svg aria-hidden="true"><use href="#i-target"></use></svg></div><div><p class="k">تشخيص جديد</p><h3>افهم تشخيص السرطان</h3></div></div>
+              <p>مراجعة التشخيص والتقارير، ومناقشة خيارات العلاج المناسبة، والتخطيط للخطوات التالية.</p>
+              <a class="scopeAction" href="/ar/cancer-consultation.html">استشارات السرطان <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+            </article>
+            <article class="scopeCard rtl">
+              <div class="scopeTop"><div class="scopeIcon"><svg aria-hidden="true"><use href="#i-book"></use></svg></div><div><p class="k">رأي طبي ثانٍ</p><h3>راجع خيارات العلاج</h3></div></div>
+              <p>مناقشة تشخيص قائم أو خطة علاج مقترحة، مع إتاحة المجال لأسئلتك ومخاوفك.</p>
+              <a class="scopeAction" href="/ar/cancer-consultation.html">استشارة لرأي طبي ثانٍ <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+            </article>
+            <article class="scopeCard rtl">
+              <div class="scopeTop"><div class="scopeIcon"><svg aria-hidden="true"><use href="#i-flask"></use></svg></div><div><p class="k">سرطانات الدم</p><h3>اللمفوما واللوكيميا والورم النقوي المتعدد</h3></div></div>
+              <p>مراجعة تقارير أمراض الدم، ومناقشة العلاج والمتابعة والرعاية الداعمة بحسب حالتك.</p>
+              <a class="scopeAction" href="/ar/blood-cancer-consultation.html">استشارات سرطانات الدم <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+            </article>
+          </div>
+          <p class="secondaryCare"><b>أمراض الدم الأخرى:</b> استشارات لفقر الدم، واضطرابات الصفائح والتخثّر، واضطرابات تعداد خلايا الدم.</p>
+        </div>
+      </section>
+
+      <section id="approach-ar" class="altBg">
+        <div class="wrap">
+          <div class="sectionHead reveal">
+            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-book"></use></svg> استشارتك الأولى</div>
+            <h2 class="sectionTitle">من تقاريرك إلى الخطوات التالية</h2>
+          </div>
+          <div class="grid3">
+            <article class="card pillar rtl reveal"><div class="cardPad"><span class="pnum">01</span><div class="pIco"><svg aria-hidden="true"><use href="#i-book"></use></svg></div><h3>مراجعة المعلومات</h3><p>تاريخك الطبي، وتقرير الخزعة أو الأنسجة، والصور، وتحاليل الدم ذات الصلة.</p></div></article>
+            <article class="card pillar rtl reveal"><div class="cardPad"><span class="pnum">02</span><div class="pIco"><svg aria-hidden="true"><use href="#i-target"></use></svg></div><h3>مناقشة الخيارات</h3><p>معنى النتائج، والعلاجات التي قد تناسب حالتك، وفوائدها وآثارها الجانبية المحتملة.</p></div></article>
+            <article class="card pillar rtl reveal"><div class="cardPad"><span class="pnum">03</span><div class="pIco"><svg aria-hidden="true"><use href="#i-heart"></use></svg></div><h3>التخطيط للخطوة التالية</h3><p>المعلومات الإضافية عند الحاجة، وخطة العلاج أو المراقبة، مع مناقشة أسئلتك وتفضيلاتك.</p></div></article>
+          </div>
+          <p class="visitChecklist"><b>أحضر ما يتوفر لديك:</b> تقارير الخزعة والصور، وتحاليل الدم الحديثة، وقائمة أدويتك، وأسئلتك الأساسية. ويفيد ملخّص العلاج السابق عند طلب رأي طبي ثانٍ.</p>
+        </div>
+      </section>
+
+      <section id="contact-ar" class="altBg">
+        <div class="wrap">
+          <div class="sectionHead reveal">
+            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-phone"></use></svg> التواصل</div>
+            <h2 class="sectionTitle">المواعيد في سوديكو والطيونة</h2>
+            <p class="sectionSub">كلتا العيادتين بموعد مسبق فقط، مع مرونة في المواعيد. تواصل معنا لتأكيد الوقت قبل الحضور.</p>
+          </div>
+
+          <div class="clinicGrid">
+            <article class="clinicCard rtl reveal">
+              <div class="clinicTop">
+                <div class="ico" aria-hidden="true"><svg><use href="#i-pin"></use></svg></div>
+                <div class="clinicCopy">
+                  <h3>عيادة سوديكو</h3>
+                  <address>سوديكو سكوير، المبنى B، الطابق السادس<br>بيروت</address>
+                  <p class="clinicNote">بموعد مسبق فقط، مع مرونة في المواعيد. تواصل معنا لترتيب وقت مناسب.</p>
+                </div>
+              </div>
+              <div class="clinicActions">
+                <a class="btn wa" href="/booking.html?clinic=sodeco&amp;lang=ar" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> اطلب موعداً في سوديكو</a>
+                <a class="btn primary" href="https://www.google.com/maps/place/Dr.+Mohamad+Minhem/@33.8862415,35.508857,754m/data=!3m2!1e3!4b1!4m6!3m5!1s0x151f17cc56c23f57:0xbce4d1d09856242c!8m2!3d33.8862415!4d35.508857!16s%2Fg%2F11zys4g959" target="_blank" rel="noopener" data-track="get_directions" data-clinic="sodeco"><svg aria-hidden="true"><use href="#i-pin"></use></svg> الاتجاهات</a>
+              </div>
+              <a class="clinicDetails" href="/ar/sodeco.html">تفاصيل العيادة والمواعيد ←</a>
+            </article>
+
+            <article class="clinicCard rtl reveal">
+              <div class="clinicTop">
+                <div class="ico" aria-hidden="true"><svg><use href="#i-pin"></use></svg></div>
+                <div class="clinicCopy">
+                  <h3>عيادة الطيونة</h3>
+                  <address>عيادات الطيونة، مبنى دبي، الطابق الأول<br>طريق صيدا القديمة، بيروت</address>
+                  <p class="clinicNote">بموعد مسبق فقط، مع مرونة في المواعيد. تواصل معنا لترتيب وقت مناسب.</p>
+                </div>
+              </div>
+              <div class="clinicActions">
+                <a class="btn wa" href="/booking.html?clinic=tayouneh&amp;lang=ar" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> اطلب موعداً في الطيونة</a>
+                <a class="btn primary" href="https://share.google/XnmLYOwT13rsTQKZ5" target="_blank" rel="noopener" data-track="get_directions" data-clinic="tayouneh"><svg aria-hidden="true"><use href="#i-pin"></use></svg> الاتجاهات</a>
+              </div>
+              <a class="clinicDetails" href="/ar/tayouneh.html">تفاصيل العيادة والمواعيد ←</a>
+            </article>
+          </div>
+
+          <div class="contactStrip" role="group" aria-label="الهاتف والبريد الإلكتروني">
+            <a href="tel:+96181902903" data-track="contact_phone" data-clinic="general">اتصل لترتيب موعد: <bdi dir="ltr">+961 81 902 903</bdi></a>
+            <a href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general"><bdi dir="ltr">contact@drminhem.com</bdi></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="recognition-ar">
+        <div class="wrap">
+          <div class="sectionHead reveal">
+            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-shield"></use></svg> المؤهلات</div>
+            <h2 class="sectionTitle">التدريب والشهادات</h2>
+            <p class="sectionSub">تدريب في الولايات المتحدة ونتائج في امتحانات الأورام الدولية، مع روابط للمصادر الأصلية.</p>
+          </div>
+        <div class="statGrid credentialStats reveal">
           <div class="stat gold">
             <span class="tag">الأعلى</span>
             <div class="sIco"><svg aria-hidden="true"><use href="#i-star"></use></svg></div>
             <div class="num">100%</div>
             <span class="lbl">في امتحان الجمعية الأمريكية للأورام (ASCO) — 2026</span>
-            <span class="sub">لم يحصل أحد على نتيجة أعلى — بين جميع المتقدمين لاختصاص الأورام في أمريكا ولبنان. الجمعية الأمريكية للأورام (ASCO)، أكبر منظمة لأطباء الأورام في العالم.</span>
+            <span class="sub">امتحان الجمعية الأمريكية لعلم الأورام.</span>
           </div>
           <div class="stat">
             <div class="sIco"><svg aria-hidden="true"><use href="#i-check"></use></svg></div>
             <div class="num">أفضل 5</div>
             <span class="lbl">عالمياً — الجمعية الأوروبية للأورام (ESMO) · 2025</span>
-            <span class="sub">ضمن أفضل 5 على مستوى العالم في امتحان الجمعية الأوروبية للأورام (ESMO). <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">الصفحة الرسمية</a></span>
+            <span class="sub">الجمعية الأوروبية لعلم الأورام. <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener">الصفحة الرسمية</a></span>
           </div>
           <div class="stat">
             <div class="sIco"><svg aria-hidden="true"><use href="#i-shield"></use></svg></div>
@@ -293,25 +367,9 @@
             <span class="lbl">طبيب معتمد</span>
             <span class="sub">البورد الأمريكي في الطب الباطني (ABIM)، الولايات المتحدة. <a href="https://www.abim.org/verify-physician?type=id&id=446890" target="_blank" rel="noopener">تحقّق</a></span>
           </div>
-          <div class="stat">
-            <div class="sIco"><svg aria-hidden="true"><use href="#i-flask"></use></svg></div>
-            <div class="num">+30</div>
-            <span class="lbl">بحثاً منشوراً</span>
-            <span class="sub">أبحاث وملخّصات علمية محكّمة. <a href="https://scholar.google.com/citations?user=_p93-ZoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></span>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <main id="main-ar">
-      <section id="recognition-ar">
-        <div class="wrap">
-          <div class="sectionHead reveal">
-            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-globe"></use></svg> التقدير</div>
-            <h2 class="sectionTitle">تقدير دولي — لراحة بالك</h2>
-            <p class="sectionSub">لا تأخذ بكلامي وحده — إليك كيف تجاوب مجتمع طب الأورام، بكلماته وتقديره العلني.</p>
-          </div>
-
+          <p><a class="certificateLink" href="/balamand-distinguished-achievement-2026.jpg" target="_blank" rel="noopener" data-certificate="ar">عرض شهادة جامعة البلمند <svg aria-hidden="true"><use href="#i-expand"></use></svg></a></p>
+          <details class="disclosure"><summary>تفاصيل التقدير والصور والشهادة</summary>
           <div class="recoGrid">
             <div class="recoPhoto reveal">
               <picture>
@@ -374,118 +432,34 @@
             </div>
           </article>
 
+          </details>
         </div>
       </section>
 
-      <section id="care-ar">
+      <section id="guides-ar" class="altBg">
         <div class="wrap">
           <div class="sectionHead reveal">
-            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-heart"></use></svg> كيف أساعدك</div>
-            <h2 class="sectionTitle">رعاية الأورام وأمراض الدم، مصمّمة لحالتك</h2>
-            <p class="sectionSub">من التشخيص الجديد أو الرأي الطبي الثاني إلى اختيار العلاج والمتابعة، تبدأ الخطوة الأولى بفهم ما تحتاجه بالضبط.</p>
+            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-book"></use></svg> معلومات للمرضى</div>
+            <h2 class="sectionTitle">تعرّف على نوع السرطان</h2>
+            <p class="sectionSub">ما يمكن مناقشته في الاستشارة، والتقارير المفيدة، والأسئلة التي يمكنك طرحها.</p>
           </div>
-
-          <div class="scopeGrid reveal" aria-label="الحالات والاستشارات">
-            <article class="scopeCard solid rtl">
-              <div class="scopeTop">
-                <div class="scopeIcon"><svg aria-hidden="true"><use href="#i-target"></use></svg></div>
-                <div>
-                  <p class="k">الأورام</p>
-                  <h3>استشارات وعلاج لمختلف الأورام</h3>
-                </div>
-              </div>
-              <p>بما فيها سرطانات الثدي والرئة والقولون والمستقيم، وسرطانات الجهاز الهضمي الأخرى، والبروستات والكِلى، وغيرها من الأورام. وتشمل الرعاية مراجعة التشخيص، ووضع خطة العلاج، والرأي الطبي الثاني، والمتابعة.</p>
-              <div class="scopeTags" aria-label="أنواع الاستشارات"><span>تشخيص جديد</span><span>خطة علاج</span><span>رأي طبي ثانٍ</span></div>
-              <a class="scopeAction" href="/ar/cancer-consultation.html">تشخيص جديد ورأي طبي ثانٍ <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-
-            <article class="scopeCard rtl">
-              <div class="scopeTop">
-                <div class="scopeIcon"><svg aria-hidden="true"><use href="#i-flask"></use></svg></div>
-                <div>
-                  <p class="k">سرطانات الدم</p>
-                  <h3>اللمفوما واللوكيميا وسرطانات الدم الأخرى</h3>
-                </div>
-              </div>
-              <p>مراجعة واضحة للتشخيص ووضع خطة شخصية للعلاج والمتابعة والرعاية الداعمة.</p>
-            <a class="scopeAction" href="/ar/blood-cancer-consultation.html">استشارات سرطانات الدم <svg aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-            </article>
-
-            <article class="scopeCard rtl">
-              <div class="scopeTop">
-                <div class="scopeIcon"><svg aria-hidden="true"><use href="#i-heart"></use></svg></div>
-                <div>
-                  <p class="k">أمراض الدم</p>
-                  <h3>أمراض الدم غير السرطانية</h3>
-                </div>
-              </div>
-              <p>فقر الدم، واضطرابات الصفائح والتخثّر، وارتفاع أو انخفاض تعداد خلايا الدم—مع فحوصات دقيقة وشرح واضح.</p>
-            </article>
-          </div>
-
-          <div class="grid2">
-            <div class="card rtl reveal">
-              <div class="cardPad">
-                <p class="k">ماذا تتوقّع</p>
-                <h3>خطة واضحة، خطوة بخطوة</h3>
-                <ul class="list">
-                  <li><b>خطة واضحة بعد كل زيارة</b> — ماذا نعرف، وما الخطوة التالية، ولماذا.</li>
-                  <li><b>أحدث العلاجات</b> — بما فيها العلاجات الموجَّهة والمناعية، عندما تناسب حالتك فعلاً.</li>
-                  <li><b>فحوصات ذكية</b> — تحاليل متقدّمة للورم والجينات، تُستخدَم فقط عندما تغيّر العلاج فعلاً.</li>
-                  <li><b>دعم من اليوم الأول</b> — للألم والآثار الجانبية والطاقة وجودة الحياة.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="card rtl reveal">
-              <div class="cardPad">
-                <p class="k">أسئلة شائعة</p>
-                <details open><summary>ماذا يحدث في الموعد الأول؟</summary><p>نراجع معاً تاريخك الطبي وتقاريرك، ونشرح التشخيص بلغة بسيطة، ونتّفق على الخطوات التالية. تخرج بخطة واضحة — لا بمزيد من الحيرة.</p></details>
-                <details><summary>هل يمكنك مراجعة حالتي وشرح الخيارات المتاحة؟</summary><p>نعم. أحضر تقرير الخزعة والصور والتقارير إلى الاستشارة. نراجع التشخيص ونناقش الخيارات المتاحة معاً.</p></details>
-                <details><summary>ما الأمراض التي تعالجها؟</summary><p>الأورام — بما فيها سرطانات الثدي والرئة والقولون والمستقيم، وسرطانات الجهاز الهضمي الأخرى، والبروستات والكِلى، وغيرها — إلى جانب اللمفوما واللوكيميا وسرطانات الدم الأخرى، وفقر الدم، واضطرابات الصفائح والتخثّر، واضطرابات تعداد خلايا الدم.</p></details>
-                <details><summary>هل سأحتاج علاجاً كيميائياً؟</summary><p>ليس دائماً. كثير من المرضى يُعالَجون بعلاج موجّه، أو مناعي، أو أقراص، أو إشعاع، أو جراحة، أو متابعة دقيقة فقط. نختار ما يناسب حالتك فعلاً.</p></details>
-                <details><summary>هل يمكن لأحد أفراد العائلة الحضور معي؟</summary><p>بالتأكيد. وجود أحد أفراد العائلة معك — حضورياً أو عبر الهاتف — يسهّل الفهم واتخاذ القرار.</p></details>
-                <details><summary>كم بسرعة يمكنني الحصول على موعد؟</summary><p>تُرتَّب المواعيد مسبقاً في كلتا العيادتين، مع مرونة في المواعيد. تواصل معنا عبر واتساب أو الهاتف لتأكيد وقت مناسب قبل الحضور.</p></details>
-              </div>
-            </div>
+          <div class="guideGroups">
+            <div><h3>الأورام</h3><ul class="guideLinks"><li><a href="/ar/breast-cancer.html">سرطان الثدي</a></li><li><a href="/ar/lung-cancer.html">سرطان الرئة</a></li><li><a href="/ar/colorectal-cancer.html">سرطان القولون والمستقيم</a></li><li><a href="/ar/prostate-cancer.html">سرطان البروستات</a></li><li><a href="/ar/bladder-cancer.html">سرطان المثانة</a></li><li><a href="/ar/stomach-cancer.html">سرطان المعدة</a></li><li><a href="/ar/pancreatic-cancer.html">سرطان البنكرياس</a></li></ul></div>
+            <div><h3>سرطانات الدم</h3><ul class="guideLinks"><li><a href="/ar/lymphoma.html">اللمفوما</a></li><li><a href="/ar/leukemia.html">اللوكيميا</a></li><li><a href="/ar/multiple-myeloma.html">الورم النقوي المتعدد</a></li></ul></div>
           </div>
         </div>
       </section>
 
-      <section id="approach-ar" class="altBg">
+      <section id="faq-ar">
         <div class="wrap">
-          <div class="sectionHead reveal">
-            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-target"></use></svg> منهجي</div>
-            <h2 class="sectionTitle">ثلاثة أمور يمكنك الاعتماد عليها</h2>
-            <p class="sectionSub">رعاية السرطان الحديثة يجب أن تكون دقيقة، ومبنية على دليل حقيقي، وإنسانية — في آنٍ واحد.</p>
+          <h2 class="sectionTitle">أسئلة عملية</h2>
+          <div class="faqList">
+            <details><summary>هل يمكنني طلب رأي طبي ثانٍ؟</summary><p>نعم. أحضر التقارير والتوصيات العلاجية المتوفرة لديك لمراجعتها معاً.</p></details>
+            <details><summary>هل سأحتاج إلى علاج كيميائي؟</summary><p>ليس دائماً. تعتمد الخيارات على نوع السرطان ومرحلته ونتائج الفحوصات وحالتك الصحية. نناقش ما إذا كان العلاج الكيميائي أو خيار آخر مناسباً لحالتك.</p></details>
+            <details><summary>هل يمكن لأحد أفراد العائلة الحضور معي؟</summary><p>نعم. يمكنك اصطحاب أحد أفراد العائلة للمساعدة في مناقشة أسئلتك والخطوات التالية.</p></details>
+            <details><summary>كيف أؤكّد موعدي؟</summary><p>أرسل طلب موعد عبر واتساب أو اتصل. المواعيد مرنة وتُرتَّب مسبقاً في كلتا العيادتين؛ أكّد الوقت قبل الحضور.</p></details>
           </div>
-
-          <div class="grid3">
-            <article class="card pillar rtl reveal">
-              <div class="cardPad">
-                <span class="pnum">01</span>
-                <div class="pIco"><svg aria-hidden="true"><use href="#i-target"></use></svg></div>
-                <h3>علاج مفصّل على حالتك</h3>
-                <p>نستخدم تحاليل الورم والجينات لاختيار علاج موجَّه لسرطانك تحديداً — وليس علاجاً واحداً يناسب الجميع.</p>
-              </div>
-            </article>
-            <article class="card pillar rtl reveal">
-              <div class="cardPad">
-                <span class="pnum">02</span>
-                <div class="pIco"><svg aria-hidden="true"><use href="#i-book"></use></svg></div>
-                <h3>مبنيّ على أحدث الأدلة</h3>
-                <p>خطتك تتبع أحدث الإرشادات العالمية لعلاج السرطان — نفسها المعتمدة في أمريكا وأوروبا — وتُناقَش مع فريق من الاختصاصيين.</p>
-              </div>
-            </article>
-            <article class="card pillar rtl reveal">
-              <div class="cardPad">
-                <span class="pnum">03</span>
-                <div class="pIco"><svg aria-hidden="true"><use href="#i-heart"></use></svg></div>
-                <h3>رعاية للإنسان كاملاً</h3>
-                <p>حوار واضح، وقرارات نتّخذها معاً، ودعم مبكر للأعراض — حتى لا تشعر أنت وعائلتك بالوحدة أبداً.</p>
-              </div>
-            </article>
-          </div>
+          <p class="note">هذا الموقع للمعلومات ولا يغني عن رعاية الطوارئ. في الحالات الطارئة توجّه إلى أقرب قسم طوارئ.</p>
         </div>
       </section>
 
@@ -493,10 +467,11 @@
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-cap"></use></svg> الخلفية العلمية</div>
-            <h2 class="sectionTitle">تدرّب في بيروت والولايات المتحدة</h2>
-            <p class="sectionSub">سنوات من التدريب في مؤسسات مرموقة — لتكون في أيدٍ خبيرة.</p>
+            <h2 class="sectionTitle">عن الدكتور منعم</h2>
+            <p class="sectionSub">دراسة الطب في بيروت، وتدريب تخصّصي في لبنان والولايات المتحدة.</p>
           </div>
 
+          <details class="disclosure"><summary>الدراسة والتدريب والشهادات</summary>
           <div class="grid2">
             <div class="card rtl reveal">
               <div class="cardPad">
@@ -519,10 +494,10 @@
                   <li><b>100% في امتحان الجمعية الأمريكية للأورام (ASCO) — 2026</b> — أعلى مرتبة.</li>
                   <li><b>ضمن أفضل 5 عالمياً — الجمعية الأوروبية للأورام (ESMO) · 2025</b>. <a href="https://www.esmo.org/career-development/esmo-examination/esmo-exam-talent-pool" target="_blank" rel="noopener" style="color:var(--teal-600);font-weight:800">الصفحة الرسمية</a></li>
                 </ul>
-                <p class="note"><b>لماذا يهمّك هذا؟</b> لأنه يعكس مستوى التدريب خلف رعايتك — لكن الأهم دائماً خطة علاج مبنية على <em>حالتك أنت</em>.</p>
               </div>
             </div>
           </div>
+          </details>
         </div>
       </section>
 
@@ -530,10 +505,11 @@
         <div class="wrap">
           <div class="sectionHead reveal">
             <div class="eyebrow"><svg aria-hidden="true"><use href="#i-flask"></use></svg> الأبحاث والتعليم</div>
-            <h2 class="sectionTitle">نشاط بحثي مستمر — وتعليم للجيل القادم</h2>
+            <h2 class="sectionTitle">الأبحاث والتعليم</h2>
             <p class="sectionSub">أكثر من 30 بحثاً وملخّصاً علمياً منشوراً. القائمة الكاملة على <a href="https://scholar.google.com/citations?user=_p93-ZoAAAAJ&hl=en" target="_blank" rel="noopener" style="color:var(--teal-600);font-weight:800">Google Scholar ↗</a></p>
           </div>
 
+          <details class="disclosure"><summary>أبحاث مختارة والتعليم والتواصل المهني</summary>
           <div class="grid2">
             <div class="card rtl reveal">
               <div class="cardPad">
@@ -544,7 +520,6 @@
                   <li>جراحة إنقاص الوزن وسرطان المستقيم — عُرض في المؤتمر الأمريكي لأمراض الجهاز الهضمي (2020).</li>
                   <li>مراجعة علمية عن التهابات القدم السكري في الشرق الأوسط (2019).</li>
                 </ul>
-                <p class="note"><b>لماذا هذا يهمّك؟</b> لأنه يساعدني على مواكبة أحدث الأدلة وتقديم خطة علاج حديثة وواضحة.</p>
               </div>
             </div>
 
@@ -559,80 +534,8 @@
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section id="contact-ar" class="altBg">
-        <div class="wrap">
-          <div class="sectionHead reveal">
-            <div class="eyebrow"><svg aria-hidden="true"><use href="#i-phone"></use></svg> التواصل</div>
-            <h2 class="sectionTitle">احجز استشارة</h2>
-            <p class="sectionSub">اختر العيادة الخاصة الأنسب لك، ثم تواصل عبر واتساب أو البريد الإلكتروني — أقرأ كل رسالة بنفسي.</p>
-          </div>
-
-          <div class="clinicGrid">
-            <article class="clinicCard rtl reveal">
-              <div class="clinicTop">
-                <div class="ico" aria-hidden="true"><svg><use href="#i-pin"></use></svg></div>
-                <div class="clinicCopy">
-                  <h3>عيادة سوديكو</h3>
-                  <address>سوديكو سكوير، المبنى B، الطابق السادس<br>بيروت</address>
-                  <p class="clinicNote">بموعد مسبق فقط، مع مرونة في المواعيد. تواصل معنا لترتيب وقت مناسب.</p>
-                </div>
-              </div>
-              <div class="clinicActions">
-                <a class="btn primary" href="https://www.google.com/maps/place/Dr.+Mohamad+Minhem/@33.8862415,35.508857,754m/data=!3m2!1e3!4b1!4m6!3m5!1s0x151f17cc56c23f57:0xbce4d1d09856242c!8m2!3d33.8862415!4d35.508857!16s%2Fg%2F11zys4g959" target="_blank" rel="noopener" data-track="get_directions" data-clinic="sodeco"><svg aria-hidden="true"><use href="#i-pin"></use></svg> الاتجاهات</a>
-                <a class="btn wa" href="/booking.html?clinic=sodeco&amp;lang=ar" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> احجز في هذه العيادة</a>
-              </div>
-              <a class="clinicDetails" href="/ar/sodeco.html">تفاصيل العيادة والمواعيد ←</a>
-            </article>
-
-            <article class="clinicCard rtl reveal">
-              <div class="clinicTop">
-                <div class="ico" aria-hidden="true"><svg><use href="#i-pin"></use></svg></div>
-                <div class="clinicCopy">
-                  <h3>عيادة الطيونة</h3>
-                  <address>عيادات الطيونة، مبنى دبي، الطابق الأول<br>طريق صيدا القديمة، بيروت</address>
-                  <p class="clinicNote">بموعد مسبق فقط، مع مرونة في المواعيد. تواصل معنا لترتيب وقت مناسب.</p>
-                </div>
-              </div>
-              <div class="clinicActions">
-                <a class="btn primary" href="https://share.google/XnmLYOwT13rsTQKZ5" target="_blank" rel="noopener" data-track="get_directions" data-clinic="tayouneh"><svg aria-hidden="true"><use href="#i-pin"></use></svg> الاتجاهات</a>
-                <a class="btn wa" href="/booking.html?clinic=tayouneh&amp;lang=ar" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> احجز في هذه العيادة</a>
-              </div>
-              <a class="clinicDetails" href="/ar/tayouneh.html">تفاصيل العيادة والمواعيد ←</a>
-            </article>
-          </div>
-
-          <div class="grid2 contactInfoGrid">
-            <div class="card contactCard rtl reveal">
-              <div class="cardPad">
-                <p class="k">تواصل مباشر</p>
-                <div class="contactRow">
-                  <div class="ico" aria-hidden="true"><svg><use href="#i-whatsapp"></use></svg></div>
-                  <div><b>واتساب</b><a href="https://wa.me/96181902903" target="_blank" rel="noopener" class="phone-ltr" data-track="contact_whatsapp" data-clinic="general">+961-81-902 903</a></div>
-                </div>
-                <div class="contactRow">
-                  <div class="ico" aria-hidden="true"><svg><use href="#i-mail"></use></svg></div>
-                  <div><b>بريد إلكتروني</b><a href="mailto:contact@drminhem.com" data-track="contact_email" data-clinic="general">contact@drminhem.com</a></div>
-                </div>
-                <p class="note"><b>للزملاء والجهات المهنية:</b> لإحالة المرضى، أو المحاضرات والتعليم، أو التعاون البحثي، أو التواصل الإعلامي — الأفضل عبر البريد الإلكتروني أو <a href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener" style="color:var(--teal-600);font-weight:800">LinkedIn</a>.</p>
-              </div>
-            </div>
-
-            <div class="card rtl reveal">
-              <div class="cardPad">
-                <p class="k">ما الذي تحضره إلى الاستشارة</p>
-                <ul class="list">
-                  <li>تشخيصك الأساسي (أو شكواك)، وأين تلقّيت العلاج.</li>
-                  <li>المستندات المهمة: تقرير الخزعة، تقارير الصور، وأحدث تحاليل الدم.</li>
-                  <li>قائمة بالأدوية التي تتناولها حالياً.</li>
-                  <li>أهم 3 أسئلة لديك.</li>
-                </ul>
-                <p class="note"><b>تنبيه:</b> هذا الموقع للمعلومات ولا يغني عن رعاية الطوارئ. في الحالات الطارئة توجّه إلى أقرب قسم طوارئ.</p>
-              </div>
-            </div>
-          </div>
+          <p class="note"><b>للزملاء والجهات المهنية:</b> للإحالات والتعليم والأبحاث والتواصل الإعلامي، تواصل عبر <a href="mailto:contact@drminhem.com">البريد الإلكتروني</a> أو <a href="https://www.linkedin.com/in/mohamad-minhem/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+          </details>
         </div>
       </section>
     </main>
@@ -642,11 +545,11 @@
         <section class="closingContact rtl" aria-labelledby="closing-title-ar">
           <div class="closingIntro">
             <p class="closingEyebrow">هل أنت جاهز لترتيب استشارة؟</p>
-            <h2 id="closing-title-ar">خذ الخطوة التالية</h2>
-            <p>لحجز موعد، أرسل رسالة عبر واتساب. ويمكنك أيضاً الاتصال أو إرسال بريد إلكتروني.</p>
-            <a class="btn wa" href="/booking.html?clinic=general&amp;lang=ar" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> احجز عبر واتساب</a>
+            <h2 id="closing-title-ar">رتّب استشارتك</h2>
+            <p>اطلب موعداً في سوديكو، أو اختر الطيونة أدناه. أكّد اليوم والوقت قبل الحضور.</p>
+            <a class="btn wa" href="/booking.html?clinic=sodeco&amp;lang=ar" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> اطلب استشارة في سوديكو</a>
           </div>
-          <div class="closingLinks" aria-label="خيارات التواصل">
+          <div class="closingLinks" role="group" aria-label="خيارات التواصل">
             <a class="closingItem" href="tel:+96181902903" data-track="contact_phone" data-clinic="general">
               <svg aria-hidden="true"><use href="#i-phone"></use></svg><span><b>الهاتف</b><small class="phone-ltr">+961 81 902 903</small></span>
             </a>
@@ -674,7 +577,7 @@
       </div>
     </footer>
     <div class="mobileBookingBar rtl">
-      <a class="btn wa" href="/booking.html?clinic=general&amp;lang=ar" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> احجز موعداً عبر واتساب</a>
+      <a class="btn wa" href="/booking.html?clinic=sodeco&amp;lang=ar" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> اطلب موعداً في سوديكو</a>
     </div>
   </div>
 

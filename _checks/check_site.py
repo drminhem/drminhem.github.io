@@ -2,6 +2,8 @@
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, urljoin, unquote
+from urllib.robotparser import RobotFileParser
+from datetime import date
 import json, re, subprocess, xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
 class Page(HTMLParser):
@@ -68,27 +70,42 @@ sitemap=ET.parse(ROOT/'sitemap.xml');ns={'sm':'http://www.sitemaps.org/schemas/s
 listed=[x.text for x in sitemap.findall('sm:url/sm:loc',ns)]
 manifest_path=ROOT/'_content/generated.json'
 manifest=json.loads(manifest_path.read_text()) if manifest_path.exists() else {'slugs':[]}
+page_dates=json.loads((ROOT/'_content/page_dates.json').read_text())
 assert sorted(listed)==sorted(urls) and len(urls)==10+2*len(manifest['slugs'])
+assert set(page_dates)=={url.removeprefix(site) for url in urls}
+for path,dates in page_dates.items():
+ assert 'last_modified' in dates,path
+ assert all(date.fromisoformat(value).isoformat()==value for value in dates.values()),path
+ if 'sources_checked' in dates:assert dates['sources_checked']<=dates['last_modified'],path
 for slug in manifest['slugs']:
  for lang in ['en','ar']:
   name=('ar/' if lang=='ar' else '')+slug+'.html'
   page=pages[name]
-  assert page.find('p',**{'data-source-check':manifest['date']}),name
+  dates=page_dates['/'+name]
+  assert page.find('p',**{'data-source-check':dates['sources_checked']}),name
   assert 'Draft for clinical review' not in files[name] and 'مسودة للمراجعة الطبية' not in files[name],name
   assert page.find('h2',id='sources'),name
-  assert len(page.find('a',href='/booking.html?clinic=sodeco&lang='+lang))==1,name
+  assert len(page.find('a',href='/booking.html?clinic=sodeco&lang='+lang))==2,name
   assert len(page.find('a',href='/booking.html?clinic=tayouneh&lang='+lang))==1,name
+  assert not page.find('a',href='/booking.html?clinic=general&lang='+lang),name
+  primary_label='Request a consultation at Sodeco' if lang=='en' else 'اطلب استشارة في سوديكو'
+  assert '>'+primary_label+'</a>' in files[name],name
+  assert page.find('p',**{'class':'clinicLocation'}),name
   raw=re.search(r'<script type="application/ld\+json">(.*?)</script>',files[name],re.S).group(1)
   schema=json.loads(raw)
   assert schema['@type']=='MedicalWebPage' and len(schema['citation'])>=2,name
   assert 'reviewedBy' not in schema and 'author' not in schema,name
-  assert schema['dateModified']==manifest['date'],name
+  assert schema['dateModified']==dates['last_modified'],name
   assert pages[('ar/' if lang=='ar' else '')+'cancer-consultation.html'].find('a',href='/'+name),name
   if slug in {'lymphoma','leukemia','multiple-myeloma'}:
    assert pages[('ar/' if lang=='ar' else '')+'blood-cancer-consultation.html'].find('a',href='/'+name),name
 for entry in sitemap.findall('sm:url',ns):
  loc=entry.find('sm:loc',ns).text
+ assert entry.find('sm:lastmod',ns).text==page_dates[loc.removeprefix(site)]['last_modified'],loc
  assert len(entry.findall('x:link',ns))==3,loc
+robots=RobotFileParser();robots.parse((ROOT/'robots.txt').read_text().splitlines())
+assert robots.can_fetch('Googlebot',site+'/booking.html'),'Booking noindex must be crawlable'
+assert site+'/booking.html' not in listed
 # Both homepage and Sodeco schema use the doctor's verified listing.
 for filename in ['index.html','ar/index.html','sodeco.html','ar/sodeco.html']:
  assert '0xbce4d1d09856242c' in files[filename]

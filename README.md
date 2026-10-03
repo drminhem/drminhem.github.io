@@ -18,13 +18,13 @@ node _checks/browser_check.cjs
 
 If Playwright is installed outside this checkout, set `NODE_PATH` to its parent `node_modules` directory. Set `CHROME_PATH` if Chrome is installed elsewhere. Browser screenshots and results go to `../evidence/`. `_checks/` is excluded from GitHub Pages by Jekyll's underscore-directory convention.
 
-The static check protects the original English/Arabic credential lines against baseline `5612dbd`, permitting only the separately authorized reversal of clinic order in the surrounding location phrase, and verifies metadata, reciprocal language links, internal links/assets/anchors, JSON-LD, map identity, hours removal, and the thirty-page sitemap. Browser checks cover desktop, 390px and 320px widths, JavaScript-disabled navigation, menus, certificate dialogs, legacy URLs, and booking intent. Browser tests do not contact WhatsApp or send analytics.
+The static check protects the original English/Arabic credential lines against baseline `5612dbd`, permitting only the separately authorized reversal of clinic order in the surrounding location phrase, and verifies metadata, reciprocal language links, internal links/assets/anchors, JSON-LD, map identity, hours removal, and the thirty-page sitemap. Browser checks cover desktop, 390px and 320px widths, JavaScript-disabled navigation, menus, certificate dialogs, legacy URLs, booking intent, content visibility when the enhancement script fails, and mobile appointment actions before portraits. Browser tests do not contact WhatsApp or send analytics.
 
 ## Analytics and appointments
 
 `analytics.js` retains the existing GA4 property `G-B46GF8Q2KX`; no new property is introduced. It loads only on the production hostname, and never for `?preview=1`. Pageview URLs exclude query strings and fragments; referrers are reduced to the origin. Contact event attributes remain fixed clinic/language/channel values. Do not add patient details or message text to event parameters or URLs.
 
-The historical `appointment_booking` event still fires before opening WhatsApp. It represents intent to open WhatsApp, **not** a completed appointment, consultation, or confirmed inquiry. `booking.html` stays outside the sitemap and is marked noindex. Use `/booking.html?clinic=sodeco&lang=ar&preview=1` to inspect its Arabic fallback without redirecting.
+The historical `appointment_booking` event still fires before opening WhatsApp. It represents intent to open WhatsApp, **not** a completed appointment, consultation, or confirmed inquiry. `booking.html` stays outside the sitemap and is marked noindex. It is crawlable in `robots.txt` so search engines can read that instruction. Use `/booking.html?clinic=sodeco&lang=ar&preview=1` to inspect its Arabic fallback without redirecting.
 
 ## Publication boundary
 
@@ -46,6 +46,8 @@ node _checks/runtime_check.cjs
 `--batch 1` is for the initial five-page milestone on a checkout that has not generated batch two; the generator does not delete later files. For ordinary edits, regenerate the full set with `--batch 2`.
 
 The displayed source-check date records when the supporting information was checked. It is not a physician-review date. No physician authorship or completed clinical review is claimed, and no schema author or reviewedBy field is assigned. Internal metadata records publication authorization separately from formal clinical review, which has not been recorded. The approved release removes the former draft-only labels without inventing a reviewer attribution.
+
+`_content/page_dates.json` records editorial dates separately for each canonical English and Arabic URL. Change a page's `last_modified` only after a significant content or functionality change to that page; the generator uses it for the sitemap and guide `dateModified` schema. Regenerating files or making a shared styling change does not refresh every date. Each guide also has an independent `sources_checked` date used for its visible source-check label. Update that date only when its supporting information has actually been checked, never merely because wording or layout changed. For a new guide, add both language URLs to this file before generation. Keep these dates accurate and rerun the static check after regeneration.
 
 Every guide has distinct clinical content, three consultation discussion topics, three patient questions, relevant existing reports to bring if available, conditional treatment language, and source links. Mentioning a treatment or investigation does not assert local/on-site provision. The acute-leukemia guide directs suspected or new acute disease to prompt medical assessment, rather than routine booking. No video service, fee, treatment-facility access, or outcome promise is added.
 

@@ -61,8 +61,29 @@ for(const slug of guideSlugs) routes.push('/'+slug+'.html','/ar/'+slug+'.html');
  // Certificate dialog still opens and closes in both languages.
  for(const lang of ['en','ar']) {
   await page.goto(base+(lang==='ar'?'/ar/':'/'));
+  await page.locator('[data-certificate]').first().evaluate(el=>{let p=el.parentElement;while(p){if(p.tagName==='DETAILS')p.open=true;p=p.parentElement;}});
   await page.locator('[data-certificate]').first().click();assert.equal(await page.locator('#certificate-dialog').evaluate(e=>e.open),true);
   await page.keyboard.press('Escape');assert.equal(await page.locator('#certificate-dialog').evaluate(e=>e.open),false);
+ }
+ // Patient content remains visible when the enhancement script fails.
+ const resilient=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'no-preference'});
+ await resilient.route('**/site.js',route=>route.abort());
+ const rp=await resilient.newPage();
+ for(const lang of ['en','ar']){
+  await rp.goto(base+(lang==='ar'?'/ar/':'/'));
+  assert.equal(await rp.locator('.hero h1').evaluate(el=>getComputedStyle(el.closest('.reveal')).opacity),'1');
+  assert.equal(await rp.locator('.clinicCard').first().evaluate(el=>getComputedStyle(el).opacity),'1');
+  const sections=await rp.locator('main > section').evaluateAll(els=>els.map(el=>el.id));
+  assert.ok(sections.indexOf('care-'+lang)<sections.indexOf('contact-'+lang));
+  assert.ok(sections.indexOf('contact-'+lang)<sections.indexOf('recognition-'+lang));
+  assert.equal(new URL(await rp.locator('.hero .ctaRow a[href^="/booking.html"]').getAttribute('href'),base).searchParams.get('clinic'),'sodeco');
+ }
+ await resilient.close();
+ // On clinic/consultation pages, the mobile appointment action precedes the portrait.
+ for(const route of routes.filter(r=>r!=='/'&&r!=='/ar/')){
+  await page.goto(base+route);
+  const boxes=await page.locator('.hero').evaluate(hero=>({action:hero.querySelector('a[href^="/booking.html"]').getBoundingClientRect().top,portrait:hero.querySelector('.portrait').getBoundingClientRect().top}));
+  assert.ok(boxes.action<boxes.portrait,route+' mobile action order');
  }
  // Every appointment href uses only controlled clinic/language values.
  for(const route of routes){await page.goto(base+route);for(const href of await page.locator('a[href^="/booking.html"]').evaluateAll(as=>as.map(a=>a.getAttribute('href')))){
@@ -86,7 +107,7 @@ for(const slug of guideSlugs) routes.push('/'+slug+'.html','/ar/'+slug+'.html');
  const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const np=await nojs.newPage();
  for(const route of routes){assert.equal((await np.goto(base+route)).status(),200);assert.equal(await np.locator('h1').isVisible(),true);const lang=await np.getAttribute('html','lang');await np.locator('[data-language-link]').click();assert.notEqual(await np.getAttribute('html','lang'),lang);}
  assert.deepEqual(errors,[]);assert.equal(network.some(u=>/googletagmanager|google-analytics|wa\.me/.test(u)),false);
- fs.writeFileSync(path.join(evidence,'browser-results.json'),JSON.stringify({results,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,screenshots:shots.map(s=>s[1])},null,2));
+ fs.writeFileSync(path.join(evidence,'browser-results.json'),JSON.stringify({results,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,scriptFailureVisible:true,mobileActionBeforePortrait:true,screenshots:shots.map(s=>s[1])},null,2));
  console.log(`PASS: ${routes.length} pages × desktop / 390px / 320px; ${routes.length} no-JS language switches; legacy links, menus, certificates, appointment intent, sitemap/robots, no page errors and no analytics/WhatsApp requests.`);
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

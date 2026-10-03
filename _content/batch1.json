@@ -19,9 +19,9 @@
     "en": {
       "name": "Breast cancer",
       "title": "Breast cancer consultation",
-      "lead": "Unsure what ER, PR or HER2 means for your care? Review your breast cancer results and proposed plan, including a second opinion.",
+      "lead": "Understand your breast cancer results and treatment options, whether you have a new diagnosis or want a second opinion.",
       "intro_title": "Understanding your breast cancer results",
-      "intro": "Breast cancers differ in their tissue features and hormone receptor results. The biopsy, imaging and extent of disease help explain which treatment approaches may be relevant.",
+      "intro": "Your biopsy and scans help show the type of breast cancer and how far it has spread. Hormone receptor results and other tumor features also help guide the treatment discussion.",
       "topics": [
         {
           "title": "What do my biopsy results mean?",
@@ -51,9 +51,9 @@
     "ar": {
       "name": "سرطان الثدي",
       "title": "استشارة لسرطان الثدي",
-      "lead": "ماذا تعني نتائج ER وPR وHER2 بالنسبة إلى علاجك؟ استشارة لمراجعة نتائج سرطان الثدي والخطة المقترحة، أو للحصول على رأي ثانٍ.",
+      "lead": "لفهم نتائج فحوص سرطان الثدي وخيارات العلاج، بعد تشخيص جديد أو عند طلب رأي طبي ثانٍ.",
       "intro_title": "فهم نتائج فحوص سرطان الثدي",
-      "intro": "تختلف سرطانات الثدي في خصائص الأنسجة ونتائج مستقبلات الهرمونات. تساعد الخزعة والصور ومدى انتشار المرض في توضيح الخيارات العلاجية التي قد تناسب الحالة.",
+      "intro": "تساعد الخزعة والصور في تحديد نوع سرطان الثدي ومدى انتشاره. وتساعد نتائج مستقبلات الهرمونات وخصائص الورم الأخرى أيضاً في توجيه مناقشة العلاج.",
       "topics": [
         {
           "title": "ماذا تعني نتائج الخزعة؟",
@@ -101,7 +101,7 @@
     "en": {
       "name": "Lung cancer",
       "title": "Lung cancer consultation",
-      "lead": "A lung cancer report may leave questions about subtype and tumor tests. Review what the results mean for your plan or seek a second opinion.",
+      "lead": "Understand which type of lung cancer you have and what your test results mean for treatment, including when seeking a second opinion.",
       "intro_title": "Why the exact lung cancer type matters",
       "intro": "Small cell and non-small cell lung cancers have different treatment approaches. The tissue diagnosis and extent of disease are essential starting points; a scan alone does not provide every answer.",
       "topics": [
@@ -134,7 +134,7 @@
     "ar": {
       "name": "سرطان الرئة",
       "title": "استشارة لسرطان الرئة",
-      "lead": "قد يترك تقرير سرطان الرئة أسئلة عن النوع الدقيق وفحوص الورم. استشارة لفهم أثر النتائج في الخطة أو للحصول على رأي ثانٍ.",
+      "lead": "لفهم نوع سرطان الرئة لديك وما تعنيه نتائج الفحوص بالنسبة إلى العلاج، بما في ذلك عند طلب رأي طبي ثانٍ.",
       "intro_title": "لماذا يهم تحديد نوع سرطان الرئة؟",
       "intro": "تختلف طرق علاج سرطان الرئة صغير الخلايا عن غير صغير الخلايا. يبدأ التقييم بتشخيص الأنسجة وتحديد مدى انتشار المرض؛ فالصورة وحدها لا تجيب عن جميع الأسئلة.",
       "topics": [
@@ -185,7 +185,7 @@
     "en": {
       "name": "Colorectal cancer",
       "title": "Colon and rectal cancer consultation",
-      "lead": "Does the tumor location change the plan? Review colon or rectal cancer results and treatment order, including a second opinion.",
+      "lead": "Understand how the location of colon or rectal cancer affects treatment, and review your proposed plan or seek a second opinion.",
       "intro_title": "Colon and rectal cancer are not identical",
       "intro": "The colon and rectum are different parts of the large bowel. The tumor's exact location and extent affect planning, including the possible role of radiation in rectal cancer.",
       "topics": [
@@ -218,7 +218,7 @@
     "ar": {
       "name": "سرطان القولون والمستقيم",
       "title": "استشارة لسرطان القولون والمستقيم",
-      "lead": "هل يغيّر موقع الورم الخطة؟ استشارة لمراجعة نتائج سرطان القولون أو المستقيم وترتيب العلاج، أو للحصول على رأي ثانٍ.",
+      "lead": "لفهم كيف يؤثر موقع سرطان القولون أو المستقيم في العلاج، ومراجعة الخطة المقترحة أو طلب رأي طبي ثانٍ.",
       "intro_title": "الفرق بين سرطان القولون وسرطان المستقيم",
       "intro": "القولون والمستقيم جزءان مختلفان من الأمعاء الغليظة. يؤثر موقع الورم بدقة ومدى انتشاره في الخطة، بما في ذلك الدور المحتمل للعلاج الإشعاعي في سرطان المستقيم.",
       "topics": [
@@ -353,7 +353,7 @@
     "en": {
       "name": "Bladder cancer",
       "title": "Bladder cancer consultation",
-      "lead": "Does the report show muscle involvement? Review your bladder cancer results and proposed plan, including a second opinion alongside care with your urologist.",
+      "lead": "Understand your bladder cancer results and treatment options, or seek a second opinion alongside care with your urologist.",
       "intro_title": "Why muscle involvement matters",
       "intro": "A key distinction is whether bladder cancer has reached the muscle layer of the bladder wall. This differs from tumor grade, which describes how abnormal the cells look.",
       "topics": [
@@ -386,7 +386,7 @@
     "ar": {
       "name": "سرطان المثانة",
       "title": "استشارة لسرطان المثانة",
-      "lead": "هل يوضح التقرير إصابة عضلة المثانة؟ استشارة لمراجعة نتائج سرطان المثانة والخطة المقترحة، أو لطلب رأي ثانٍ إلى جانب الرعاية مع طبيب المسالك البولية.",
+      "lead": "لفهم نتائج فحوص سرطان المثانة وخيارات العلاج، أو طلب رأي طبي ثانٍ إلى جانب المتابعة مع طبيب المسالك البولية.",
       "intro_title": "لماذا تهم إصابة عضلة المثانة؟",
       "intro": "من الفروق الأساسية تحديد ما إذا كان السرطان قد وصل إلى الطبقة العضلية في جدار المثانة. وهذا يختلف عن درجة الورم، التي تصف مدى اختلاف الخلايا عن شكلها الطبيعي.",
       "topics": [

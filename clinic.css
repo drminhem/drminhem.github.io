@@ -90,7 +90,7 @@ body[data-lang="ar"] h1{font-family:"Tajawal",sans-serif;font-weight:700;line-he
   .hero{padding:36px 0}
   .heroGrid,.grid{grid-template-columns:1fr}
   .heroGrid{gap:26px}
-  .portrait{max-width:260px;justify-self:center;order:-1}
+  .portrait{max-width:180px;justify-self:center}
   .quickGrid{grid-template-columns:1fr}
 }
 @media(max-width:520px){
@@ -99,7 +99,7 @@ body[data-lang="ar"] h1{font-family:"Tajawal",sans-serif;font-weight:700;line-he
   .navLink{display:none}
   .backLink{display:flex;margin-bottom:16px}
   .hero{padding:28px 0 34px}
-  .portrait{max-width:210px;padding:7px;border-radius:22px}
+  .portrait{max-width:160px;padding:7px;border-radius:22px}
   .portrait img{border-radius:16px}
   .card{padding:20px}
   .actions .button{width:100%}
@@ -137,3 +137,8 @@ body[data-lang="ar"].consultation h1{line-height:1.45}
 .guideLink:hover{border-color:var(--teal-dark);color:var(--teal-dark)}
 @media(max-width:800px){.conditionGuide .navLink{display:none}}
 @media(max-width:520px){.guideLinks{grid-template-columns:1fr}.conditionGuide .eyebrow{font-size:.92rem}}
+
+/* Keep the purpose and appointment action ahead of the portrait on small screens. */
+.clinicLocation{margin:16px 0 0;color:var(--muted);font-size:1rem;line-height:1.6}
+.clinicLocation a{color:var(--teal-dark);font-weight:700;text-underline-offset:3px}
+@media(max-width:520px){.hero .actions{margin-top:22px}.content{padding-top:30px}.quickCard{padding:18px}.quickCard h3{margin-top:0}.hero .notice{padding:12px 14px}}

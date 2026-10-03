@@ -6,11 +6,11 @@
       --navy:      #0f2d4a;
       --navy-700:  #16395d;
       --teal:      #0e9aa7;
-      --teal-600:  #0b8290;
+      --teal-600:  #087582;
       --teal-50:   #e4f5f6;
       --ink:       #182a38;
       --muted:     #51647a;
-      --gold:      #c98a2b;
+      --gold:      #916019;
       --gold-50:   #fbf2e2;
       --wa:        #0b7652;
 
@@ -531,13 +531,11 @@
 
     .altBg{ background:var(--bg-alt); border-top:1px solid var(--line-2); border-bottom:1px solid var(--line-2); }
 
-    /* ---------- Reveal animation (JS-gated) ---------- */
-    html.js .reveal{ opacity:0; transform: translateY(8px); transition: opacity .38s cubic-bezier(.2,.7,.2,1), transform .38s cubic-bezier(.2,.7,.2,1); }
-    html.js .reveal.in{ opacity:1; transform:none; }
+    /* Content stays visible even if enhancement scripts fail to load. */
+    .reveal{opacity:1;transform:none}
 
     @media (prefers-reduced-motion: reduce){
       html{scroll-behavior:auto}
-      html.js .reveal{ opacity:1; transform:none; transition:none; }
       *{animation:none !important; transition:none !important}
     }
 
@@ -607,8 +605,8 @@
       .langBtn svg{ width:16px; height:16px; }
       #en .hero .eyebrow{ max-width:100%; font-size:.9rem; letter-spacing:.02em; line-height:1.5; }
       .heroGrid > .reveal:first-child{display:flex;flex-direction:column}
-      .hero .ctaRow{order:1;margin-bottom:20px}
-      .hero .heroChips{order:2;width:100%;gap:10px;margin-bottom:26px}
+      .hero .ctaRow{margin-bottom:16px}
+      .hero .heroChips{width:100%;gap:10px;margin-bottom:18px}
       .hero .ctaRow .btn{width:100%;min-height:52px;justify-content:center}
       .hero .miniChip{
         width:100%; align-items:center; gap:12px; padding:12px 13px; border-radius:16px;
@@ -635,3 +633,82 @@
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--teal-600);outline-offset:4px}
 .skipLink{position:fixed;top:8px;inset-inline-start:8px;transform:translateY(-150%);z-index:100;background:white;padding:12px;color:var(--navy);font-weight:700}
 .skipLink:focus{transform:none}
+
+/* Patient decisions come first; extended professional detail stays available. */
+.patientHero .heroGrid{grid-template-columns:minmax(0,1.5fr) minmax(240px,.7fr);gap:36px}
+.patientHero .heroMedia{max-width:320px;justify-self:end}
+.patientHero .name{font-size:clamp(2rem,3.8vw,3rem);line-height:1.15}
+.heroLocation{margin:0 0 14px;color:var(--muted);font-weight:600;line-height:1.6}
+.heroAlternatives{margin:14px 0 0;color:var(--muted);line-height:1.6}
+.heroAlternatives a,.secondaryCare a{color:var(--teal-600);font-weight:750;text-underline-offset:3px}
+.disclosure{margin-top:22px}
+.disclosure > summary{font-size:1.05rem}
+.disclosure > :not(summary){margin-inline:22px}
+.disclosure > :last-child{margin-bottom:22px}
+.disclosure .statGrid{margin-top:20px}
+.disclosure .grid2{margin-top:20px}
+.guideLinks{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.guideLinks a{display:inline-flex;align-items:center;min-height:46px;padding:9px 14px;background:#fff;border:1px solid var(--line);border-radius:12px;color:var(--navy);text-decoration:none;font-weight:700}
+.guideLinks a:hover{border-color:var(--teal-600);color:var(--teal-600)}
+.secondaryCare{margin-top:18px;color:var(--muted);line-height:1.7}
+@media(max-width:980px){
+ .patientHero .heroGrid{grid-template-columns:1fr;gap:22px}
+ .patientHero .heroMedia{max-width:200px;justify-self:center}
+}
+@media(max-width:640px){
+ .patientHero .name{font-size:2rem;line-height:1.2;margin-top:12px}
+ .patientHero .heroMedia{max-width:150px}
+ .patientHero .heroChips{margin-bottom:16px}
+ .patientHero .miniChip{padding:9px 12px}
+ .patientHero .miniChip svg{width:18px;height:18px;padding:4px}
+ .patientHero .heroLocation{font-size:1rem;margin-bottom:12px}
+ .patientHero .heroAlternatives{margin-top:0;font-size:1rem}
+ .disclosure > :not(summary){margin-inline:16px}
+ .guideLinks{gap:8px}
+ .guideLinks a{padding:8px 12px}
+}
+.credentialStats{grid-template-columns:repeat(3,minmax(0,1fr))}
+.visitChecklist{margin:22px 0 0;padding:18px 20px;background:#fff;border:1px solid var(--line);border-radius:14px;line-height:1.7;color:var(--muted)}
+.visitChecklist b{color:var(--navy)}
+.contactStrip{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:20px}
+.contactStrip a{display:inline-flex;align-items:center;min-height:44px;gap:5px;color:var(--teal-600);font-weight:700;text-underline-offset:3px;overflow-wrap:anywhere}
+.guideGroups{display:grid;grid-template-columns:1.6fr 1fr;gap:24px}
+.guideGroups h3{color:var(--navy)}
+.guideLinks{list-style:none;padding:0}
+.faqList{margin-top:24px}
+.scopeAction{margin-top:18px}
+.scopeCard.solid .scopeAction{margin-top:auto}
+@media(max-width:640px){
+ .credentialStats,.guideGroups{grid-template-columns:1fr}
+ .guideGroups{gap:12px}
+ .scopeCard.solid .scopeAction{margin-top:18px}
+ .contactStrip{display:grid;gap:8px}
+ .contactStrip a{display:block;padding:9px 0}
+ .visitChecklist{padding:16px}
+ .pillar .cardPad{padding:20px}
+ .pillar .pIco{display:none}
+ .sectionHead{margin-bottom:24px}
+}
+@media(max-width:640px){
+ .pillar .pnum{position:static;display:block;color:var(--teal-600);font-family:var(--sans);font-size:1rem;margin-bottom:6px}
+ .patientHero .role{font-size:1.05rem;line-height:1.5}
+ .patientHero .lead{font-size:1.1rem;line-height:1.7}
+ .rtl .patientHero .lead{font-size:1.15rem;line-height:1.8}
+}
+@media(max-width:640px){
+ .patientHero .ctaRow .btn{font-size:1rem;padding-inline:13px;gap:8px}
+ .scopeCard,.scopeCard.solid{padding:20px}
+ .scopeCard h3,.scopeCard.solid h3{font-size:1.25rem}
+ .scopeTop{margin-bottom:10px}
+ .scopeCard p,.scopeCard.solid p{font-size:1rem}
+ .pillar .cardPad{display:grid;grid-template-columns:30px minmax(0,1fr);column-gap:12px}
+ .pillar .pnum{grid-column:1;grid-row:1 / span 2;margin:0;font-weight:800}
+ .pillar h3,.pillar p{grid-column:2}
+ .credentialStats .stat{display:grid;grid-template-columns:90px minmax(0,1fr);gap:0 14px;padding:18px}
+ .credentialStats .sIco,.credentialStats .tag{display:none}
+ .credentialStats .num{grid-column:1;grid-row:1 / span 2;align-self:center;font-size:1.5rem;line-height:1.25}
+ .credentialStats .lbl{grid-column:2;margin:0;font-size:1rem}
+ .credentialStats .sub{grid-column:2;font-size:.95rem}
+ .guideGroups h3{margin:0 0 10px}
+ .guideGroups .guideLinks{margin-top:0}
+}

@@ -21,7 +21,7 @@
       "title": "Stomach cancer consultation",
       "lead": "Make sense of your biopsy and scans, and discuss the options for a new diagnosis or a second opinion.",
       "intro_title": "Understanding the exact diagnosis",
-      "intro": "Most stomach cancers are adenocarcinomas arising in the stomach lining. Other tumors, such as gastric lymphoma or a gastrointestinal stromal tumor (GIST), need different treatment discussions. The biopsy identifies the type; staging assesses its extent.",
+      "intro": "The biopsy identifies the tumor type, while staging tests show its extent. Most stomach cancers arise in the lining and are called adenocarcinomas. Other tumors, such as stomach lymphoma or a gastrointestinal stromal tumor (GIST), need different treatment discussions.",
       "topics": [
         {
           "title": "Connect the biopsy with the scans",
@@ -54,7 +54,7 @@
       "title": "استشارة سرطان المعدة",
       "lead": "لفهم نتائج الخزعة والصور ومناقشة الخيارات بعد تشخيص جديد أو للحصول على رأي طبي ثانٍ.",
       "intro_title": "فهم نوع الورم بدقة",
-      "intro": "معظم سرطانات المعدة من النوع الغدي الذي ينشأ في بطانتها. أما أورام المعدة الأخرى، مثل اللمفوما وأورام السدى المعدية المعوية (GIST)، فتختلف مناقشة علاجها. تحدد الخزعة نوع الورم، وتوضح فحوص تحديد المرحلة مدى انتشاره.",
+      "intro": "تحدد الخزعة نوع الورم، وتوضح فحوص تحديد المرحلة مدى انتشاره. معظم سرطانات المعدة من النوع الغدي الذي ينشأ في بطانتها. أما أورام المعدة الأخرى، مثل اللمفوما وأورام السدى المعدية المعوية (GIST)، فتختلف مناقشة علاجها.",
       "topics": [
         {
           "title": "ربط نتائج الخزعة بالصور",
@@ -103,7 +103,7 @@
     "en": {
       "name": "Lymphoma",
       "title": "Lymphoma consultation",
-      "lead": "Understand your lymphoma subtype and how the biopsy, scans and symptoms shape the treatment discussion.",
+      "lead": "Understand which type of lymphoma you have and how the biopsy, scans and symptoms help guide the treatment discussion.",
       "intro_title": "The subtype makes a difference",
       "intro": "Lymphoma includes Hodgkin lymphoma and many non-Hodgkin subtypes. Some non-Hodgkin lymphomas grow slowly, while others progress more quickly. Their evaluation and treatment plans differ.",
       "topics": [
@@ -136,7 +136,7 @@
     "ar": {
       "name": "اللمفوما",
       "title": "استشارة اللمفوما",
-      "lead": "لفهم نوع اللمفوما وكيف تؤثر نتائج الخزعة والصور والأعراض في مناقشة العلاج.",
+      "lead": "لفهم نوع اللمفوما لديك وكيف تساعد نتائج الخزعة والصور والأعراض في توجيه مناقشة العلاج.",
       "intro_title": "نوع اللمفوما يوجّه الخطة",
       "intro": "تشمل اللمفوما لمفوما هودجكين وأنواعاً عديدة من اللمفوما اللاهودجكينية. بعض الأنواع اللاهودجكينية بطيئة النمو، بينما يتطور بعضها الآخر بسرعة أكبر. لذلك تختلف فحوص تقييمها وخطط علاجها.",
       "topics": [
@@ -275,7 +275,7 @@
     "en": {
       "name": "Multiple myeloma",
       "title": "Multiple myeloma consultation",
-      "lead": "Bring the protein, marrow and imaging findings together to understand your diagnosis and treatment choices.",
+      "lead": "Understand your myeloma diagnosis and treatment choices through a review of the tests you already have.",
       "intro_title": "Understanding plasma-cell disease",
       "intro": "Myeloma arises from plasma cells in the bone marrow and can affect bones, blood counts and kidney function. Related conditions, including MGUS and smoldering myeloma, differ from active myeloma and need their own assessment.",
       "topics": [
@@ -308,7 +308,7 @@
     "ar": {
       "name": "الورم النقوي المتعدد (المايلوما)",
       "title": "استشارة الورم النقوي المتعدد (المايلوما)",
-      "lead": "لربط نتائج البروتينات ونخاع العظم والصور، وفهم التشخيص وخيارات العلاج.",
+      "lead": "لفهم تشخيص المايلوما وخيارات العلاج من خلال مراجعة نتائج الفحوص المتوفرة لديك.",
       "intro_title": "فهم مرض الخلايا البلازمية",
       "intro": "تنشأ المايلوما من الخلايا البلازمية في نخاع العظم، وقد تؤثر في العظام وتعداد الدم ووظائف الكلى. وتختلف عنها حالات مرتبطة بها، مثل الاعتلال الغامائي وحيد النسيلة غير محدد الأهمية (MGUS) والمايلوما الكامنة، ولكل منها تقييمه الخاص.",
       "topics": [
@@ -361,7 +361,7 @@
       "title": "Pancreatic cancer consultation",
       "lead": "Understand what the scans and biopsy show, what may guide treatment selection, and the questions for a second opinion.",
       "intro_title": "Type and extent guide the discussion",
-      "intro": "Pancreatic cancers include different tumor types. The common exocrine cancers and pancreatic neuroendocrine tumors have different treatment pathways. The precise diagnosis and extent of disease shape the next discussion.",
+      "intro": "The exact type of pancreatic cancer and how far it has spread help guide the treatment discussion. Common exocrine cancers and pancreatic neuroendocrine tumors have different treatment pathways.",
       "topics": [
         {
           "title": "Review the diagnosis and surgical assessment",
@@ -394,7 +394,7 @@
       "title": "استشارة سرطان البنكرياس",
       "lead": "لفهم نتائج الصور والخزعة وما قد يوجّه اختيار العلاج، ومناقشة أسئلتك عند طلب رأي طبي ثانٍ.",
       "intro_title": "نوع الورم ومداه يوجّهان المناقشة",
-      "intro": "توجد أنواع مختلفة من أورام البنكرياس. تختلف خطط علاج السرطانات الشائعة الناشئة من الخلايا خارجية الإفراز عن خطط الأورام العصبية الصماوية في البنكرياس. يوجّه التشخيص الدقيق ومدى المرض مناقشة الخطوات التالية.",
+      "intro": "يساعد تحديد نوع سرطان البنكرياس ومدى انتشاره في مناقشة الخطوات التالية. تختلف خطط علاج السرطانات الشائعة الناشئة من الخلايا خارجية الإفراز عن خطط الأورام العصبية الصماوية في البنكرياس.",
       "topics": [
         {
           "title": "مراجعة التشخيص وتقييم دور الجراحة",

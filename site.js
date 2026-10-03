@@ -40,19 +40,6 @@
     if (y) y.textContent = year;
     if (yAr) yAr.textContent = year;
 
-    // Put patient decisions first while keeping the complete credentials and research sections.
-    function prioritizePatientSections(lang){
-      const main = document.querySelector('#' + lang + ' main');
-      const recognition = document.getElementById('recognition-' + lang);
-      const care = document.getElementById('care-' + lang);
-      const contact = document.getElementById('contact-' + lang);
-      if (!main || !recognition || !care || !contact) return;
-      main.insertBefore(care, recognition);
-      main.insertBefore(contact, recognition);
-    }
-    prioritizePatientSections('en');
-    prioritizePatientSections('ar');
-
     function syncRtlArrows(){
       const isAr = document.body.getAttribute('data-lang') === 'ar';
       const uses = document.querySelectorAll('use[href="#i-arrow"], use[xlink\\:href="#i-arrow"]');
@@ -64,7 +51,7 @@
         svg.style.display = 'inline-block';
       });
     }
-    // Keep direct links accurate after the patient-first section reordering.
+    // Settle direct links after fonts and images have loaded.
     let initialTargetId = '';
     try { initialTargetId = decodeURIComponent(window.location.hash.slice(1)); } catch (_) {}
     if (initialTargetId) {
@@ -157,22 +144,6 @@
     });
 
     syncRtlArrows();
-
-    // Scroll reveal
-    (function(){
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const els = document.querySelectorAll('.reveal');
-      if (reduce || !('IntersectionObserver' in window)){
-        els.forEach(el => el.classList.add('in'));
-        return;
-      }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
-      els.forEach(el => io.observe(el));
-    })();
 
     document.addEventListener('keydown', event => {
       if (event.key !== 'Escape') return;
