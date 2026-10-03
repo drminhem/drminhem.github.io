@@ -123,3 +123,18 @@ body[data-lang="ar"].consultation h1{line-height:1.45}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button:hover{transform:none}}
 
 .content .actions + .quickGrid{margin-top:18px}
+
+/* Condition guides reuse the existing consultation design. */
+.draftLabel{display:inline-block;margin:0 0 16px;padding:5px 11px;border:1px solid #d8c394;border-radius:8px;background:#fff7e7;color:#664a15;font-size:.9rem;font-weight:700}
+.guideIntro{max-width:800px;margin-bottom:22px}
+.guideSection{margin-top:28px}
+.conditionGuide .quickCard h3{line-height:1.45;margin:0 0 12px}
+.conditionGuide .quickCard p{margin:0}
+.guideSources{margin-top:32px;padding-top:4px;border-top:1px solid var(--line)}
+.guideSources a{color:var(--teal-dark);text-underline-offset:3px;overflow-wrap:anywhere}
+.reviewStatus,.guideDisclaimer{font-size:.94rem;color:var(--muted)}
+.guideLinks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0 28px}
+.guideLink{display:flex;align-items:center;min-height:56px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:12px 16px;text-decoration:none;color:var(--navy);font-weight:750}
+.guideLink:hover{border-color:var(--teal-dark);color:var(--teal-dark)}
+@media(max-width:800px){.conditionGuide .navLink{display:none}}
+@media(max-width:520px){.guideLinks{grid-template-columns:1fr}.conditionGuide .eyebrow{font-size:.92rem}}

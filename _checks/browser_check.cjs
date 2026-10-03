@@ -6,6 +6,9 @@ const path = require('node:path');
 const base = 'http://127.0.0.1:8765';
 const evidence = path.resolve(__dirname, '../../evidence');
 const routes = ['/', '/ar/', '/sodeco.html', '/ar/sodeco.html', '/tayouneh.html', '/ar/tayouneh.html', '/cancer-consultation.html', '/ar/cancer-consultation.html', '/blood-cancer-consultation.html', '/ar/blood-cancer-consultation.html'];
+const manifestPath=path.resolve(__dirname,'../_content/generated.json');
+const guideSlugs=fs.existsSync(manifestPath)?JSON.parse(fs.readFileSync(manifestPath,'utf8')).slugs:[];
+for(const slug of guideSlugs) routes.push('/'+slug+'.html','/ar/'+slug+'.html');
 (async () => {
  fs.mkdirSync(evidence,{recursive:true});
  const browser = await chromium.launch({headless:true, executablePath:process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
@@ -78,11 +81,12 @@ const routes = ['/', '/ar/', '/sodeco.html', '/ar/sodeco.html', '/tayouneh.html'
  assert.equal((await context.request.get(base+'/sitemap.xml')).status(),200);
  assert.equal((await context.request.get(base+'/robots.txt')).status(),200);
  const shots=[['/','home-en-desktop.png',1365,900,false],['/ar/','home-ar-mobile.png',390,844,false],['/sodeco.html','sodeco-en-desktop.png',1365,1000,true],['/ar/sodeco.html','sodeco-ar-mobile.png',390,844,true],['/cancer-consultation.html','cancer-en-desktop.png',1365,900,true],['/ar/cancer-consultation.html','cancer-ar-mobile.png',390,844,true],['/blood-cancer-consultation.html','blood-cancer-en-mobile.png',390,844,true],['/ar/blood-cancer-consultation.html','blood-cancer-ar-mobile.png',390,844,true]];
+ for(const slug of guideSlugs){shots.push(['/'+slug+'.html',slug+'-en-desktop.png',1365,900,true],['/ar/'+slug+'.html',slug+'-ar-mobile.png',390,844,true]);}
  for(const [route,name,width,height,fullPage] of shots){await page.setViewportSize({width,height});await page.goto(base+route);await page.evaluate(()=>document.fonts.ready);await page.screenshot({path:path.join(evidence,name),fullPage});}
  const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const np=await nojs.newPage();
  for(const route of routes){assert.equal((await np.goto(base+route)).status(),200);assert.equal(await np.locator('h1').isVisible(),true);const lang=await np.getAttribute('html','lang');await np.locator('[data-language-link]').click();assert.notEqual(await np.getAttribute('html','lang'),lang);}
  assert.deepEqual(errors,[]);assert.equal(network.some(u=>/googletagmanager|google-analytics|wa\.me/.test(u)),false);
- fs.writeFileSync(path.join(evidence,'browser-results.json'),JSON.stringify({results,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:10,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,screenshots:shots.map(s=>s[1])},null,2));
- console.log('PASS: 10 pages × desktop / 390px / 320px; 10 no-JS language switches; legacy links, menus, certificates, appointment intent, sitemap/robots, no page errors and no analytics/WhatsApp requests.');
+ fs.writeFileSync(path.join(evidence,'browser-results.json'),JSON.stringify({results,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,screenshots:shots.map(s=>s[1])},null,2));
+ console.log(`PASS: ${routes.length} pages × desktop / 390px / 320px; ${routes.length} no-JS language switches; legacy links, menus, certificates, appointment intent, sitemap/robots, no page errors and no analytics/WhatsApp requests.`);
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

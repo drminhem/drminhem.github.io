@@ -64,7 +64,25 @@ for line in protected:assert line in combined,('Credential changed',line)
 assert len(protected)>10
 sitemap=ET.parse(ROOT/'sitemap.xml');ns={'sm':'http://www.sitemaps.org/schemas/sitemap/0.9','x':'http://www.w3.org/1999/xhtml'}
 listed=[x.text for x in sitemap.findall('sm:url/sm:loc',ns)]
-assert sorted(listed)==sorted(urls) and len(urls)==10
+manifest_path=ROOT/'_content/generated.json'
+manifest=json.loads(manifest_path.read_text()) if manifest_path.exists() else {'slugs':[]}
+assert sorted(listed)==sorted(urls) and len(urls)==10+2*len(manifest['slugs'])
+for slug in manifest['slugs']:
+ for lang in ['en','ar']:
+  name=('ar/' if lang=='ar' else '')+slug+'.html'
+  page=pages[name]
+  assert page.find('p',**{'data-clinical-review':'pending'}),name
+  assert page.find('h2',id='sources'),name
+  assert len(page.find('a',href='/booking.html?clinic=sodeco&lang='+lang))==1,name
+  assert len(page.find('a',href='/booking.html?clinic=tayouneh&lang='+lang))==1,name
+  raw=re.search(r'<script type="application/ld\+json">(.*?)</script>',files[name],re.S).group(1)
+  schema=json.loads(raw)
+  assert schema['@type']=='MedicalWebPage' and len(schema['citation'])>=2,name
+  assert 'reviewedBy' not in schema and 'author' not in schema,name
+  assert schema['dateModified']==manifest['date'],name
+  assert pages[('ar/' if lang=='ar' else '')+'cancer-consultation.html'].find('a',href='/'+name),name
+  if slug in {'lymphoma','leukemia','multiple-myeloma'}:
+   assert pages[('ar/' if lang=='ar' else '')+'blood-cancer-consultation.html'].find('a',href='/'+name),name
 for entry in sitemap.findall('sm:url',ns):
  loc=entry.find('sm:loc',ns).text
  assert len(entry.findall('x:link',ns))==3,loc

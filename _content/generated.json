@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-03",
+  "batch": 2,
+  "slugs": [
+    "breast-cancer",
+    "lung-cancer",
+    "colorectal-cancer",
+    "prostate-cancer",
+    "bladder-cancer",
+    "stomach-cancer",
+    "lymphoma",
+    "leukemia",
+    "multiple-myeloma",
+    "pancreatic-cancer"
+  ],
+  "clinical_review": "pending"
+}
