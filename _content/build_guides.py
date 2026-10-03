@@ -1,4 +1,4 @@
-"""Generate static bilingual condition guides. Clinical drafts require physician review.
+"""Generate static bilingual condition guides with factual source-check metadata.
 Run: python3 _content/build_guides.py --batch 1  (or --batch 2 for all ten).
 """
 from pathlib import Path
@@ -13,8 +13,7 @@ LABELS={
  'en':{
   'brand':'Dr. Mohamad Minhem','home':'Home & clinics','language':'العربية',
   'skip':'Skip to content','navigation':'Main navigation','eyebrow':'Cancer consultations · Beirut',
-  'draft':'Draft for clinical review','review':'Clinical review by Dr. Mohamad Minhem is pending. This draft has not been published.',
-  'date':'Sources checked and draft updated: 3 October 2026.',
+  'date':'Sources checked: 3 October 2026.',
   'help':'How I can help','tailored':'A treatment plan tailored to your cancer, test results, overall health and preferences, informed by current evidence.',
   'bring':'Reports to bring, if available','existing':'Bring the reports you already have. This list does not mean every test is needed.',
   'medications':'Please also bring your medication list, previous treatment records, and questions.',
@@ -31,8 +30,7 @@ LABELS={
  'ar':{
   'brand':'د. محمد منعم','home':'الرئيسية والعيادات','language':'English',
   'skip':'انتقل إلى المحتوى','navigation':'التنقل الرئيسي','eyebrow':'استشارات الأورام · بيروت',
-  'draft':'مسودة للمراجعة الطبية','review':'بانتظار المراجعة الطبية من الدكتور محمد منعم. لم تُنشر هذه المسودة بعد.',
-  'date':'تاريخ التحقّق من المصادر وتحديث المسودة: 3 تشرين الأول 2026.',
+  'date':'تاريخ التحقّق من المصادر: 3 تشرين الأول 2026.',
   'help':'كيف أساعدك؟','tailored':'خطة علاج تراعي نوع السرطان ونتائج فحوصاتك وصحتك العامة وتفضيلاتك، وتستند إلى الأدلة العلمية الحالية.',
   'bring':'تقارير تحضرها إن توفّرت','existing':'أحضر التقارير المتوفّرة لديك. لا تعني هذه القائمة أنّك تحتاج إلى كل فحص مذكور.',
   'medications':'أحضر أيضاً قائمة أدويتك وسجلات العلاجات السابقة والأسئلة التي تودّ مناقشتها.',
@@ -75,7 +73,7 @@ def page_for(item,lang):
  parent='blood-cancer-consultation' if slug in BLOOD else 'cancer-consultation'
  parent_label=c['blood'] if slug in BLOOD else c['cancer']
  return head+f'''
-<!-- Generated from _content/batch*.json by _content/build_guides.py. Clinical review pending. -->
+<!-- Generated from _content/batch*.json by _content/build_guides.py. -->
 <body data-lang="{lang}" class="consultation conditionGuide">
   <a class="skipLink" href="#main">{c['skip']}</a>
   <nav class="siteNav" aria-label="{c['navigation']}"><div class="wrap navInner">
@@ -86,7 +84,6 @@ def page_for(item,lang):
   </div></nav>
   <header class="hero"><div class="wrap heroGrid"><div>
     <a class="backLink" href="{base}{parent}.html">{parent_label}</a>
-    <p class="draftLabel">{c['draft']}</p>
     <div class="eyebrow">{c['eyebrow']}</div>
     <h1>{e(d['title'])}{' in Beirut' if lang=='en' else ' في بيروت'}</h1><p class="lead">{e(d['lead'])}</p>
     <div class="actions"><a class="button whatsapp" href="/booking.html?clinic=general&amp;lang={lang}" target="_blank" rel="noopener">{c['book']}</a>
@@ -108,7 +105,7 @@ def page_for(item,lang):
     <section aria-labelledby="locations"><h2 class="sectionTitle" id="locations">{c['clinics']}</h2><div class="grid">{clinics}</div></section>
     <section class="guideSources" aria-labelledby="sources"><h2 class="sectionTitle" id="sources">{c['sources']}</h2>
       <ul class="details">{sources}</ul><p>{c['source_note']}</p>
-      <p class="reviewStatus" data-clinical-review="pending">{c['date']} {c['review']}</p>
+      <p class="reviewStatus" data-source-check="{DATE}">{c['date']}</p>
     </section>
     <p class="guideDisclaimer">{c['emergency']}</p>
     <section><h2 class="sectionTitle">{c['related']}</h2><div class="actions">
@@ -157,7 +154,7 @@ def main():
   for url in [en,ar]:
    entries.append(f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{DATE}</lastmod>\n    <xhtml:link rel="alternate" hreflang="en" href="{en}"/>\n    <xhtml:link rel="alternate" hreflang="ar" href="{ar}"/>\n    <xhtml:link rel="alternate" hreflang="x-default" href="{en}"/>\n  </url>')
  (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'+'\n'.join(entries)+'\n</urlset>\n')
- (ROOT/'_content/generated.json').write_text(json.dumps({'date':DATE,'batch':args.batch,'slugs':[i['slug'] for i in items],'clinical_review':'pending'},indent=2)+'\n')
+ (ROOT/'_content/generated.json').write_text(json.dumps({'date':DATE,'batch':args.batch,'slugs':[i['slug'] for i in items],'clinical_review':'not_recorded','publication':'authorized'},indent=2)+'\n')
  language=ROOT/'language.js';s=language.read_text();s=re.sub(r'  const pages = \[.*?\];', '  const pages = '+json.dumps(['/'+n for n in names])+';',s);language.write_text(s)
- print(f'Generated {len(items)*2} bilingual condition pages; {len(names)*2} sitemap URLs; clinical review pending.')
+ print(f'Generated {len(items)*2} bilingual condition pages; {len(names)*2} sitemap URLs; publication authorized, no physician-review claim.')
 if __name__=='__main__':main()

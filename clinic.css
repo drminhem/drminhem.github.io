@@ -1,7 +1,7 @@
 :root{
   --navy:#0f2d4a;
   --ink:#1d3346;
-  --muted:#607486;
+  --muted:#51647a;
   --teal:#0e9aa7;
   --teal-dark:#087884;
   --teal-soft:#e8f7f8;
@@ -125,7 +125,6 @@ body[data-lang="ar"].consultation h1{line-height:1.45}
 .content .actions + .quickGrid{margin-top:18px}
 
 /* Condition guides reuse the existing consultation design. */
-.draftLabel{display:inline-block;margin:0 0 16px;padding:5px 11px;border:1px solid #d8c394;border-radius:8px;background:#fff7e7;color:#664a15;font-size:.9rem;font-weight:700}
 .guideIntro{max-width:800px;margin-bottom:22px}
 .guideSection{margin-top:28px}
 .conditionGuide .quickCard h3{line-height:1.45;margin:0 0 12px}

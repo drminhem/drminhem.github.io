@@ -13,5 +13,6 @@
     "multiple-myeloma",
     "pancreatic-cancer"
   ],
-  "clinical_review": "pending"
+  "clinical_review": "not_recorded",
+  "publication": "authorized"
 }

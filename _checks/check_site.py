@@ -71,7 +71,8 @@ for slug in manifest['slugs']:
  for lang in ['en','ar']:
   name=('ar/' if lang=='ar' else '')+slug+'.html'
   page=pages[name]
-  assert page.find('p',**{'data-clinical-review':'pending'}),name
+  assert page.find('p',**{'data-source-check':manifest['date']}),name
+  assert 'Draft for clinical review' not in files[name] and 'مسودة للمراجعة الطبية' not in files[name],name
   assert page.find('h2',id='sources'),name
   assert len(page.find('a',href='/booking.html?clinic=sodeco&lang='+lang))==1,name
   assert len(page.find('a',href='/booking.html?clinic=tayouneh&lang='+lang))==1,name
