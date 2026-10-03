@@ -56,11 +56,13 @@ for filename,text in files.items():
    assert (ROOT/target).is_file(),(filename,link,'missing file')
    if parsed.fragment and target in pages:assert parsed.fragment in pages[target].ids,(filename,link,'missing anchor')
  assert all(a.get('alt') for a in p.find('img')),filename
-# Preserve every complete original source line containing American Board wording, in either language.
+# Preserve original credential lines; only the authorized clinic-order phrase may differ.
 original=subprocess.check_output(['git','show','5612dbd:index.html'],cwd=ROOT,text=True)
 combined=files['index.html']+files['ar/index.html']
 protected=[line.strip() for line in original.splitlines() if 'American Board' in line or 'البورد الأمريكي' in line]
-for line in protected:assert line in combined,('Credential changed',line)
+for line in protected:
+ expected=line.replace('Tayouneh and Sodeco','Sodeco and Tayouneh')
+ assert expected in combined,('Credential changed',line)
 assert len(protected)>10
 sitemap=ET.parse(ROOT/'sitemap.xml');ns={'sm':'http://www.sitemaps.org/schemas/sitemap/0.9','x':'http://www.w3.org/1999/xhtml'}
 listed=[x.text for x in sitemap.findall('sm:url/sm:loc',ns)]
@@ -91,4 +93,4 @@ for entry in sitemap.findall('sm:url',ns):
 for filename in ['index.html','ar/index.html','sodeco.html','ar/sodeco.html']:
  assert '0xbce4d1d09856242c' in files[filename]
 assert 'gtag(\'event\',\'appointment_booking\'' in files['booking.html']
-print(f'PASS: {len(urls)} pages, canonical/hreflang reciprocity, sitemap, internal assets/anchors, JSON-LD, scheduling/maps, and {len(protected)} exact American Board source lines.')
+print(f'PASS: {len(urls)} pages, canonical/hreflang reciprocity, sitemap, internal assets/anchors, JSON-LD, scheduling/maps, and {len(protected)} protected American Board wording checks.')
