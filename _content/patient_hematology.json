@@ -1,0 +1,278 @@
+[
+  {
+    "slug": "non-cancer-blood-conditions",
+    "category": "hematology",
+    "sources": [
+      {
+        "title": "NHLBI: Anemia",
+        "url": "https://www.nhlbi.nih.gov/health/anemia"
+      },
+      {
+        "title": "NHLBI: Anemia treatment and management",
+        "url": "https://www.nhlbi.nih.gov/health/anemia/treatment"
+      },
+      {
+        "title": "MedlinePlus: Complete blood count",
+        "url": "https://medlineplus.gov/lab-tests/complete-blood-count-cbc/"
+      },
+      {
+        "title": "NHLBI: Platelet disorders",
+        "url": "https://www.nhlbi.nih.gov/health/platelet-disorders"
+      },
+      {
+        "title": "NHLBI: Bleeding disorders diagnosis",
+        "url": "https://www.nhlbi.nih.gov/health/bleeding-disorders/diagnosis"
+      }
+    ],
+    "en": {
+      "title": "Non-cancer blood conditions",
+      "description": "Understand anemia, platelet and clotting disorders, and abnormal blood counts. Learn what to discuss and bring to a hematology consultation in Beirut.",
+      "answer": "A referral to a hematologist does not automatically mean cancer. Hematology also covers anemia, platelet and clotting disorders, and unexplained changes in blood counts. These are sometimes called benign blood conditions. Here, benign means non-cancerous; it does not mean that a condition is always mild or can be ignored.",
+      "sections": [
+        {
+          "id": "anemia",
+          "title": "Anemia: find the cause first",
+          "paragraphs": [
+            "Anemia can cause tiredness, weakness, dizziness or breathlessness. Iron deficiency is one possible cause, but blood loss, vitamin deficiencies and other illnesses can also be involved. The treatment depends on the explanation, not just the hemoglobin number.",
+            "Do not start iron simply because you feel tired or your blood count is low. Iron is useful when indicated, but unnecessary supplementation can be harmful."
+          ]
+        },
+        {
+          "id": "blood-counts",
+          "title": "An abnormal blood count needs context",
+          "paragraphs": [
+            "A complete blood count, often called a CBC, measures red cells, white cells and platelets. A result outside the laboratory range is not a cancer diagnosis. Infection, medicines and other factors can affect the results.",
+            "Your doctor considers which cells are affected, how much the result has changed, previous tests and your symptoms. Further testing or a repeat count may be appropriate; everyone does not need the same tests."
+          ]
+        },
+        {
+          "id": "platelets-clotting",
+          "title": "Platelets, bleeding and clotting",
+          "paragraphs": [
+            "Platelets help stop bleeding. Problems with their number or function can lead to bruising, bleeding or, in some conditions, blood clots. A platelet number alone does not explain the cause or determine treatment.",
+            "A consultation can address an abnormal platelet result or a known clotting disorder. Mention previous bleeding or clots, your medicines, and any family history. These details help guide the assessment."
+          ]
+        },
+        {
+          "id": "prepare",
+          "title": "Make the consultation useful",
+          "paragraphs": [
+            "Bring available reports rather than arranging a large set of tests yourself. The consultation can help clarify what the results mean and which next steps are appropriate."
+          ],
+          "bullets": [
+            "Recent and older blood counts, with dates.",
+            "Existing iron, vitamin or clotting results and relevant medical reports.",
+            "A list of medicines and supplements, plus when your symptoms began."
+          ]
+        }
+      ],
+      "questions": [
+        "What are the possible explanations for my result?",
+        "Do I need treatment, further tests or monitoring?",
+        "Which changes should make me seek help sooner?"
+      ],
+      "related": [
+        "easy-bruising",
+        "cancer-symptoms"
+      ],
+      "urgent": {
+        "title": "Follow urgent instructions",
+        "text": "If your doctor or laboratory tells you a result needs urgent assessment, follow that advice immediately. Do not wait for a routine appointment or a WhatsApp reply."
+      },
+      "consultation_note": "Dr. Minhem sees patients with anemia, platelet and clotting disorders, and abnormal blood counts. Bring current and previous reports to discuss what the findings mean and the next steps."
+    },
+    "ar": {
+      "title": "أمراض الدم غير السرطانية",
+      "description": "معلومات عن فقر الدم واضطرابات الصفائح والتخثّر وتغيّرات تعداد الدم، وما يمكن مناقشته وإحضاره إلى استشارة أمراض الدم في بيروت.",
+      "answer": "الإحالة إلى اختصاصي أمراض الدم لا تعني تلقائياً وجود سرطان. يشمل هذا التخصص أيضاً فقر الدم واضطرابات الصفائح والتخثّر والتغيّرات غير المفسّرة في تعداد الدم. تُسمّى هذه الحالات أحياناً أمراض الدم الحميدة. والمقصود بكلمة حميدة هنا أنها غير سرطانية، لا أنها بسيطة دائماً أو يمكن إهمالها.",
+      "sections": [
+        {
+          "id": "anemia",
+          "title": "فقر الدم: معرفة السبب أولاً",
+          "paragraphs": [
+            "قد يسبّب فقر الدم التعب أو الضعف أو الدوخة أو ضيق النفس. نقص الحديد أحد أسبابه، لكن فقدان الدم ونقص بعض الفيتامينات وأمراضاً أخرى قد تكون وراءه أيضاً. يعتمد العلاج على السبب، وليس على رقم الهيموغلوبين وحده.",
+            "لا تبدأ بتناول الحديد لمجرد الشعور بالتعب أو انخفاض تعداد الدم. يفيد الحديد عند الحاجة إليه، لكن تناوله دون داعٍ قد يسبّب ضرراً."
+          ]
+        },
+        {
+          "id": "blood-counts",
+          "title": "قراءة تعداد الدم ضمن الصورة الكاملة",
+          "paragraphs": [
+            "يقيس تعداد الدم الكامل، أو CBC، خلايا الدم الحمراء والبيضاء والصفائح. وجود نتيجة خارج المجال المرجعي للمختبر لا يشكّل تشخيصاً بالسرطان. قد تؤثّر العدوى والأدوية وعوامل أخرى في النتائج.",
+            "ينظر الطبيب إلى نوع الخلايا المتأثّرة وحجم التغيّر والنتائج السابقة والأعراض. قد يلزم تكرار التحليل أو إجراء فحوص إضافية، لكن الفحوص المناسبة تختلف من شخص إلى آخر."
+          ]
+        },
+        {
+          "id": "platelets-clotting",
+          "title": "الصفائح والنزيف والتخثّر",
+          "paragraphs": [
+            "تساعد الصفائح على إيقاف النزيف. وقد تؤدّي الاضطرابات في عددها أو وظيفتها إلى الكدمات أو النزيف، وفي بعض الحالات إلى جلطات دموية. لا يكفي عدد الصفائح وحده لتحديد السبب أو العلاج.",
+            "يمكن مناقشة نتيجة غير طبيعية للصفائح أو اضطراب تخثّر معروف خلال الاستشارة. أخبر الطبيب عن أي نزيف أو جلطات سابقة، والأدوية التي تتناولها، وأي حالات مشابهة في العائلة. تساعد هذه التفاصيل في توجيه التقييم."
+          ]
+        },
+        {
+          "id": "prepare",
+          "title": "التحضير للاستشارة",
+          "paragraphs": [
+            "أحضر التقارير المتوفّرة لديك بدلاً من إجراء مجموعة كبيرة من الفحوص من تلقاء نفسك. تساعد الاستشارة على فهم النتائج وتحديد الخطوات التالية المناسبة."
+          ],
+          "bullets": [
+            "تحاليل تعداد الدم الحديثة والقديمة مع تواريخها.",
+            "نتائج الحديد أو الفيتامينات أو التخثّر المتوفّرة والتقارير الطبية ذات الصلة.",
+            "قائمة بالأدوية والمكمّلات، وملاحظات عن وقت بدء الأعراض."
+          ]
+        }
+      ],
+      "questions": [
+        "ما الأسباب المحتملة لهذه النتيجة؟",
+        "هل أحتاج إلى علاج أم فحوص إضافية أم متابعة؟",
+        "ما التغيّرات التي تستدعي طلب المساعدة مبكراً؟"
+      ],
+      "related": [
+        "easy-bruising",
+        "cancer-symptoms"
+      ],
+      "urgent": {
+        "title": "التزم بالتوجيهات العاجلة",
+        "text": "إذا أبلغك الطبيب أو المختبر أن النتيجة تستدعي تقييماً عاجلاً، اتبع هذه التوجيهات فوراً. لا تنتظر موعداً عادياً أو رداً عبر واتساب."
+      },
+      "consultation_note": "يستقبل د. منعم المرضى المصابين بفقر الدم واضطرابات الصفائح والتخثّر واضطرابات تعداد خلايا الدم. أحضر التقارير الحديثة والسابقة لمناقشة دلالاتها والخطوات التالية."
+    }
+  },
+  {
+    "slug": "easy-bruising",
+    "category": "hematology",
+    "sources": [
+      {
+        "title": "Mayo Clinic: Easy bruising",
+        "url": "https://www.mayoclinic.org/healthy-lifestyle/healthy-aging/in-depth/easy-bruising/art-20045762"
+      },
+      {
+        "title": "NHLBI: Bleeding disorders symptoms",
+        "url": "https://www.nhlbi.nih.gov/health/bleeding-disorders/symptoms"
+      },
+      {
+        "title": "NHLBI: Bleeding disorders diagnosis",
+        "url": "https://www.nhlbi.nih.gov/health/bleeding-disorders/diagnosis"
+      },
+      {
+        "title": "MedlinePlus: Bleeding into the skin",
+        "url": "https://medlineplus.gov/ency/article/003235.htm"
+      }
+    ],
+    "en": {
+      "title": "Easy bruising and unusual bleeding",
+      "description": "When unexplained bruising or unusual bleeding needs medical assessment, what may cause it, and how to prepare for a hematology consultation.",
+      "answer": "An occasional bruise after a bump is common. Repeated, large or unexplained bruises deserve medical assessment, especially when there is other bleeding. Bruising alone does not establish a cancer diagnosis. Your symptoms, medicines and medical history help determine what needs checking.",
+      "sections": [
+        {
+          "id": "causes",
+          "title": "Why bruising can happen",
+          "paragraphs": [
+            "Small injuries and thinner skin with age can make bruising easier. Medicines such as blood thinners, aspirin and some painkillers, as well as certain supplements, can contribute. Other causes include platelet or clotting problems.",
+            "Do not stop prescribed blood thinners or other medicines on your own. Ask the prescribing clinician about new bruising and whether any changes are needed."
+          ]
+        },
+        {
+          "id": "assessment",
+          "title": "When to seek an assessment",
+          "paragraphs": [
+            "Arrange a medical assessment for bruising that is new, frequent, unusually large or happening without an obvious injury. Unexplained bruises that persist also deserve attention. Tell the doctor about other bleeding, including:"
+          ],
+          "bullets": [
+            "Repeated nosebleeds or bleeding from the gums.",
+            "Unusually heavy periods or prolonged bleeding after dental work.",
+            "New tiny red or purple spots on the skin."
+          ]
+        },
+        {
+          "id": "what-to-expect",
+          "title": "What the doctor may check",
+          "paragraphs": [
+            "The assessment starts with the pattern of bruising, an examination, and your medical and family history. A complete blood count with platelet count and tests of blood clotting may be considered. The choice depends on the findings; a single test may not explain every bleeding problem.",
+            "Mention bleeding after operations or childbirth, recent illnesses, and whether relatives have similar problems. A long-standing tendency and a sudden change may lead to different questions."
+          ]
+        },
+        {
+          "id": "prepare",
+          "title": "What to bring",
+          "paragraphs": [
+            "Bring previous blood or clotting results if available and a complete medication list, including supplements and medicines bought without a prescription. Dated photos can help show bruises that have faded before the visit.",
+            "Note when the bruises began, where they appeared, any injury, and how long bleeding lasted. You do not need to diagnose the cause before seeking help."
+          ]
+        }
+      ],
+      "questions": [
+        "Could any of my medicines be contributing?",
+        "Do I need blood tests or a hematology assessment?",
+        "What bleeding should prompt urgent medical care?"
+      ],
+      "related": [
+        "non-cancer-blood-conditions",
+        "cancer-symptoms"
+      ],
+      "urgent": {
+        "title": "Bleeding that needs urgent care",
+        "text": "Seek urgent medical care for heavy bleeding or bleeding that does not stop with firm pressure. Do not wait for a routine appointment or a WhatsApp reply."
+      },
+      "consultation_note": "Discuss unexplained bruising or bleeding with Dr. Minhem, including your medicines and any blood-test results. The assessment can help clarify whether a blood condition needs further investigation."
+    },
+    "ar": {
+      "title": "سهولة ظهور الكدمات والنزيف غير المعتاد",
+      "description": "متى تستدعي الكدمات غير المفسّرة أو النزيف غير المعتاد تقييماً طبياً، وما الأسباب المحتملة وكيف تستعد لاستشارة أمراض الدم.",
+      "answer": "ظهور كدمة أحياناً بعد ارتطام أمر شائع. لكن الكدمات المتكرّرة أو الكبيرة أو غير المفسّرة تستدعي تقييماً طبياً، خصوصاً إذا رافقها نزيف آخر. لا تكفي الكدمات وحدها لتشخيص السرطان. تساعد الأعراض والأدوية والتاريخ الطبي في تحديد ما يحتاج إلى فحص.",
+      "sections": [
+        {
+          "id": "causes",
+          "title": "لماذا تظهر الكدمات بسهولة؟",
+          "paragraphs": [
+            "قد تسهّل الإصابات البسيطة ورقّة الجلد مع التقدّم في العمر ظهور الكدمات. وقد تساهم أيضاً مميّعات الدم والأسبرين وبعض المسكّنات أو المكمّلات. وتشمل الأسباب الأخرى اضطرابات الصفائح أو التخثّر.",
+            "لا توقف مميّعات الدم الموصوفة أو أي دواء آخر من تلقاء نفسك. أخبر الطبيب الذي وصف الدواء بالكدمات الجديدة واسأله إن كان يلزم أي تعديل."
+          ]
+        },
+        {
+          "id": "assessment",
+          "title": "متى تطلب التقييم الطبي؟",
+          "paragraphs": [
+            "اطلب تقييماً طبياً إذا كانت الكدمات جديدة أو متكرّرة أو كبيرة بشكل غير معتاد أو ظهرت دون إصابة واضحة. وتستدعي الكدمات غير المفسّرة التي لا تزول الانتباه أيضاً. أخبر الطبيب عن أي نزيف آخر، مثل:"
+          ],
+          "bullets": [
+            "نزيف الأنف المتكرّر أو نزيف اللثة.",
+            "غزارة الدورة الشهرية بشكل غير معتاد أو استمرار النزيف بعد علاج الأسنان.",
+            "ظهور نقاط حمراء أو أرجوانية صغيرة جديدة على الجلد."
+          ]
+        },
+        {
+          "id": "what-to-expect",
+          "title": "ما الذي قد يفحصه الطبيب؟",
+          "paragraphs": [
+            "يبدأ التقييم بمراجعة نمط ظهور الكدمات والفحص السريري والتاريخ الطبي والعائلي. قد يطلب الطبيب تعداد الدم مع الصفائح وفحوص التخثّر بحسب المعطيات. لا يفسّر فحص واحد بالضرورة جميع مشكلات النزيف.",
+            "اذكر أي نزيف بعد العمليات أو الولادة، والأمراض الحديثة، وأي مشكلات مشابهة لدى الأقارب. قد تختلف الأسئلة بحسب ما إذا كانت سهولة النزيف قديمة أو ظهرت فجأة."
+          ]
+        },
+        {
+          "id": "prepare",
+          "title": "ماذا تحضر إلى الموعد؟",
+          "paragraphs": [
+            "أحضر تحاليل الدم أو التخثّر السابقة إن توفّرت، وقائمة كاملة بالأدوية، بما فيها المكمّلات والأدوية التي تُباع دون وصفة. وقد تساعد صور مؤرّخة في توضيح الكدمات التي اختفت قبل الزيارة.",
+            "دوّن متى بدأت الكدمات وأماكن ظهورها، وأي إصابة سبقتها، ومدة استمرار النزيف. لا تحتاج إلى معرفة التشخيص قبل طلب المساعدة."
+          ]
+        }
+      ],
+      "questions": [
+        "هل يمكن أن تساهم الأدوية التي أتناولها في ظهور الكدمات؟",
+        "هل أحتاج إلى تحاليل دم أو تقييم لدى اختصاصي أمراض الدم؟",
+        "ما أنواع النزيف التي تستدعي رعاية طبية عاجلة؟"
+      ],
+      "related": [
+        "non-cancer-blood-conditions",
+        "cancer-symptoms"
+      ],
+      "urgent": {
+        "title": "نزيف يستدعي رعاية عاجلة",
+        "text": "اطلب رعاية طبية عاجلة عند حدوث نزيف غزير أو نزيف لا يتوقّف بالضغط المباشر والثابت. لا تنتظر موعداً عادياً أو رداً عبر واتساب."
+      },
+      "consultation_note": "ناقش مع د. منعم الكدمات أو النزف غير المفسّر، مع مراجعة أدويتك ونتائج تحاليل الدم إن توفّرت. يساعد التقييم على توضيح ما إذا كانت هناك مشكلة دموية تحتاج إلى فحوص إضافية."
+    }
+  }
+]

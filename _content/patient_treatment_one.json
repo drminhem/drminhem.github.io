@@ -1,0 +1,270 @@
+[
+  {
+    "slug": "biopsy-cancer-spread",
+    "category": "treatment",
+    "sources": [
+      {
+        "title": "NCI — Common Cancer Myths and Misconceptions",
+        "url": "https://www.cancer.gov/about-cancer/causes-prevention/risk/myths"
+      },
+      {
+        "title": "NCI — How Cancer Is Diagnosed",
+        "url": "https://www.cancer.gov/about-cancer/diagnosis-staging/diagnosis"
+      },
+      {
+        "title": "American Cancer Society — Biopsy and Cytology Tests",
+        "url": "https://www.cancer.org/cancer/diagnosis-staging/tests/biopsy-and-cytology-tests.html"
+      },
+      {
+        "title": "American Cancer Society — How Is a Biopsy Done?",
+        "url": "https://www.cancer.org/cancer/diagnosis-staging/tests/biopsy-and-cytology-tests/biopsy-types.html"
+      },
+      {
+        "title": "American Cancer Society — Tests for Soft Tissue Sarcomas",
+        "url": "https://www.cancer.org/cancer/types/soft-tissue-sarcoma/detection-diagnosis-staging/how-diagnosed.html"
+      },
+      {
+        "title": "RadiologyInfo (ACR/RSNA) — General Biopsy",
+        "url": "https://www.radiologyinfo.org/en/info/biopgen"
+      }
+    ],
+    "en": {
+      "title": "Can a biopsy make cancer spread?",
+      "description": "Understand why biopsies matter, why cancer spread from a biopsy is extremely uncommon, and what to ask before the procedure.",
+      "answer": "With appropriate technique, the chance of a biopsy causing cancer to spread is extremely low. The risk depends on the suspected cancer, its location and the sampling method. Your team can explain the benefits and risks of the recommended procedure.",
+      "sections": [
+        {
+          "id": "why-biopsy",
+          "title": "Why is a biopsy recommended?",
+          "paragraphs": [
+            "A scan can show an abnormal area, but often cannot establish exactly what it is. Examining a tissue sample can distinguish cancer from other conditions and identify the cancer type.",
+            "Further tests on the sample may help select treatment. A biopsy recommendation does not itself mean you have cancer; many abnormal findings have other causes."
+          ]
+        },
+        {
+          "id": "individual-risk",
+          "title": "Why does the biopsy method matter?",
+          "paragraphs": [
+            "Samples may be taken with a needle, during endoscopy, or through surgery. The choice depends on the location and the information needed. Some tumors require particular planning; for example, suspected sarcomas should be assessed by clinicians experienced with these tumors.",
+            "Your team should explain why the proposed approach is suitable and whether another approach would be preferable. A general statement about biopsy safety cannot replace that discussion."
+          ]
+        },
+        {
+          "id": "preparation",
+          "title": "Prepare for the procedure",
+          "paragraphs": [
+            "Tell the team about medicines, supplements, allergies and bleeding problems. Ask for instructions about blood thinners, eating, drinking and transport afterward. Do not stop prescribed medicines on your own.",
+            "Possible complications include bleeding, infection or injury to nearby structures, depending on the biopsy. Ask which symptoms should prompt a call and how to obtain urgent help afterward."
+          ]
+        },
+        {
+          "id": "results",
+          "title": "What happens after the biopsy?",
+          "paragraphs": [
+            "Ask who will explain the pathology report and whether additional tests are pending. Sometimes the sample does not answer the question and further sampling is needed.",
+            "For a second opinion, bring the report and relevant scans. Existing tissue slides or blocks may be reviewed or tested again when appropriate; another biopsy is not automatically required."
+          ]
+        }
+      ],
+      "questions": [
+        "What will this biopsy clarify that the scans cannot?",
+        "What are the specific risks and alternatives in my case?",
+        "Who will explain the results and any further tests?"
+      ],
+      "related": [
+        "chemotherapy-benefits-risks",
+        "immunotherapy-candidacy",
+        "oral-cancer-treatment"
+      ],
+      "consultation_note": "Review why a biopsy has been recommended, what the existing scans or pathology show, and which questions to clarify before the next step. Bring the reports you already have."
+    },
+    "ar": {
+      "title": "هل يمكن أن تسبب الخزعة انتشار السرطان؟",
+      "description": "لماذا تُطلب الخزعة، ولماذا يُعد انتشار السرطان بسببها نادراً جداً، وما الأسئلة المهمة قبل إجرائها؟",
+      "answer": "عند استخدام الطريقة المناسبة، يكون احتمال انتشار السرطان بسبب الخزعة منخفضاً جداً. يعتمد الخطر على نوع الورم المشتبه به وموقعه وطريقة أخذ العينة. يمكن لفريقك الطبي شرح فوائد الخزعة المقترحة ومخاطرها.",
+      "sections": [
+        {
+          "id": "why-biopsy",
+          "title": "لماذا يوصي الطبيب بالخزعة؟",
+          "paragraphs": [
+            "قد تُظهر الصور منطقة غير طبيعية، لكنها لا تحدد دائماً طبيعتها بدقة. يساعد فحص عينة من النسيج على التمييز بين السرطان وحالات أخرى، وعلى تحديد نوع السرطان إن وُجد.",
+            "قد تساعد فحوص إضافية على العينة في اختيار العلاج. طلب الخزعة لا يعني بحد ذاته أنك مصاب بالسرطان؛ فكثير من النتائج غير الطبيعية لها أسباب أخرى."
+          ]
+        },
+        {
+          "id": "individual-risk",
+          "title": "لماذا تهم طريقة أخذ الخزعة؟",
+          "paragraphs": [
+            "يمكن أخذ العينة بإبرة أو أثناء التنظير أو بالجراحة. يعتمد الاختيار على موقعها والمعلومات المطلوبة. تحتاج بعض الأورام إلى تخطيط خاص؛ فمثلاً يُفضّل تقييم الأورام المشتبه بأنها ساركوما لدى أطباء ذوي خبرة بهذه الأورام.",
+            "ينبغي أن يشرح الفريق سبب ملاءمة الطريقة المقترحة وما إذا كانت هناك طريقة أخرى أفضل. المعلومات العامة عن أمان الخزعة لا تغني عن هذه المناقشة."
+          ]
+        },
+        {
+          "id": "preparation",
+          "title": "كيف تستعد للخزعة؟",
+          "paragraphs": [
+            "أخبر الفريق عن الأدوية والمكملات والحساسية ومشكلات النزف. اطلب تعليمات بشأن مميّعات الدم والأكل والشرب والعودة إلى المنزل بعد الإجراء. لا توقف دواءً موصوفاً من تلقاء نفسك.",
+            "قد تشمل المضاعفات النزف أو العدوى أو إصابة نسيج مجاور، بحسب نوع الخزعة. اسأل عن الأعراض التي تستدعي الاتصال وكيفية الحصول على مساعدة عاجلة بعدها."
+          ]
+        },
+        {
+          "id": "results",
+          "title": "ماذا يحدث بعد الخزعة؟",
+          "paragraphs": [
+            "اسأل من سيشرح تقرير فحص الأنسجة وما إذا كانت هناك فحوص إضافية لم تكتمل بعد. أحياناً لا تعطي العينة جواباً كافياً وتلزم عينة أخرى.",
+            "للحصول على رأي ثانٍ، أحضر التقرير والصور ذات الصلة. يمكن عند الحاجة مراجعة الشرائح أو قوالب النسيج المحفوظة وإجراء فحوص إضافية عليها؛ ولا يعني الرأي الثاني ضرورة أخذ خزعة جديدة."
+          ]
+        }
+      ],
+      "questions": [
+        "ما الذي ستوضحه الخزعة ولا تستطيع الصور توضيحه؟",
+        "ما المخاطر والبدائل الخاصة بحالتي؟",
+        "من سيشرح النتائج وأي فحوص إضافية؟"
+      ],
+      "related": [
+        "chemotherapy-benefits-risks",
+        "immunotherapy-candidacy",
+        "oral-cancer-treatment"
+      ],
+      "consultation_note": "ناقش سبب التوصية بالخزعة، وما تُظهره الصور أو تقارير الأنسجة المتوفّرة، والأسئلة التي تحتاج إلى توضيح قبل الخطوة التالية. أحضر التقارير الموجودة لديك."
+    }
+  },
+  {
+    "slug": "chemotherapy-benefits-risks",
+    "category": "treatment",
+    "sources": [
+      {
+        "title": "NCI — Chemotherapy to Treat Cancer",
+        "url": "https://www.cancer.gov/about-cancer/treatment/types/chemotherapy"
+      },
+      {
+        "title": "American Cancer Society — Chemotherapy Side Effects",
+        "url": "https://www.cancer.org/cancer/treatment-types/chemotherapy/chemotherapy-side-effects.html"
+      },
+      {
+        "title": "American Cancer Society — Understanding Your Options for Cancer Treatment",
+        "url": "https://www.cancer.org/cancer/making-treatment-decisions/making-decisions.html"
+      },
+      {
+        "title": "American Cancer Society — When Cancer Isn’t Your Only Health Problem",
+        "url": "https://www.cancer.org/cancer/making-treatment-decisions/other-health-problems-besides-cancer.html"
+      },
+      {
+        "title": "ASCO — Assessment of Older Patients Receiving Chemotherapy",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6063790/"
+      },
+      {
+        "title": "NCI — Infection and Neutropenia during Cancer Treatment",
+        "url": "https://www.cancer.gov/about-cancer/treatment/side-effects/infection"
+      }
+    ],
+    "en": {
+      "title": "Chemotherapy: benefits, risks and who can tolerate it",
+      "description": "Can chemotherapy make you feel worse? Understand its possible benefits, side effects and how fitness for treatment is assessed.",
+      "answer": "Chemotherapy can help cure some cancers, reduce the risk of recurrence, or control cancer and its symptoms. Whether it is right for you depends on the expected benefit, your health and your priorities. A consultation can clarify how you may tolerate treatment and what alternatives are appropriate.",
+      "sections": [
+        {
+          "id": "treatment-goal",
+          "title": "Start with the purpose of treatment",
+          "paragraphs": [
+            "The goal may be cure, lowering the chance of recurrence, controlling cancer or relieving symptoms. Ask how likely the proposed benefit is for your situation and what may happen without this treatment.",
+            "Other options may be appropriate. Discuss them alongside the effect on daily life, rather than assuming every cancer needs the same chemotherapy."
+          ]
+        },
+        {
+          "id": "fitness",
+          "title": "Who can tolerate chemotherapy?",
+          "paragraphs": [
+            "Age alone cannot answer this. Assessment includes everyday activity, frailty, other illnesses, nutrition and available support. In older adults, a broader assessment can reveal problems that a routine examination misses.",
+            "Blood counts and kidney, liver or heart function may affect the treatment choice. Bring your medicine list and explain any recent weight loss or difficulty managing daily tasks."
+          ]
+        },
+        {
+          "id": "side-effects",
+          "title": "Can it worsen how I feel?",
+          "paragraphs": [
+            "Yes. Tiredness, nausea, mouth sores or low blood counts can occur; effects vary between drugs and patients. Some complications are serious or lasting. Many side effects can be prevented or treated, but no plan removes every risk.",
+            "Report new problems promptly. The team may adjust treatment or supportive medicines. Severe side effects do not prove that treatment is working, and mild effects do not mean it is failing."
+          ]
+        },
+        {
+          "id": "review-plan",
+          "title": "Agree on a monitoring and review plan",
+          "paragraphs": [
+            "Ask which tests will assess benefit, when the plan will be reviewed and what would lead to a change. If risks outweigh likely benefit, discuss other treatment options and care focused on symptoms and quality of life.",
+            "Before starting, obtain the treating team's daytime and after-hours instructions. Do not change doses or stop treatment without contacting them."
+          ]
+        }
+      ],
+      "questions": [
+        "What benefit is realistic for me, and what are the alternatives?",
+        "Which health problems increase my treatment risks?",
+        "Which symptoms require urgent help, and whom should I contact?"
+      ],
+      "urgent": {
+        "title": "Fever during chemotherapy needs urgent advice",
+        "text": "A temperature of 38°C or higher, shaking chills or other signs of infection need immediate contact with your treating team. Follow any stricter instructions they gave you. If you cannot reach them promptly, seek urgent medical care. Do not wait for a routine appointment or a WhatsApp reply. Severe breathing difficulty requires emergency care."
+      },
+      "related": [
+        "immunotherapy-candidacy",
+        "oral-cancer-treatment",
+        "nutrition-during-cancer-treatment"
+      ],
+      "consultation_note": "Discuss the expected benefit of the proposed chemotherapy, your ability to tolerate it and possible alternatives with Dr. Minhem. Bring the proposed plan, existing reports and medication list."
+    },
+    "ar": {
+      "title": "العلاج الكيميائي: فوائده ومخاطره ومن يستطيع تحمّله",
+      "description": "هل يمكن أن يزيد العلاج الكيميائي شعورك بالتعب؟ تعرّف إلى فوائده المحتملة وآثاره الجانبية وكيف تُقيّم القدرة على تحمّله.",
+      "answer": "قد يساعد العلاج الكيميائي على شفاء بعض أنواع السرطان، أو تقليل احتمال عودة المرض، أو السيطرة عليه وعلى أعراضه. تعتمد ملاءمته لك على الفائدة المتوقعة وصحتك وأولوياتك. تساعد الاستشارة على توضيح قدرتك على تحمّل العلاج والبدائل المناسبة.",
+      "sections": [
+        {
+          "id": "treatment-goal",
+          "title": "ابدأ بفهم هدف العلاج",
+          "paragraphs": [
+            "قد يكون الهدف الشفاء، أو تقليل احتمال عودة المرض، أو السيطرة عليه، أو تخفيف الأعراض. اسأل عن مدى احتمال تحقيق الفائدة في حالتك وما قد يحدث دون هذا العلاج.",
+            "قد تناسبك خيارات أخرى. ناقشها مع تأثيرها على حياتك اليومية، فليس كل سرطان بحاجة إلى العلاج الكيميائي نفسه."
+          ]
+        },
+        {
+          "id": "fitness",
+          "title": "من يستطيع تحمّل العلاج الكيميائي؟",
+          "paragraphs": [
+            "العمر وحده لا يحدد ذلك. يشمل التقييم النشاط اليومي والضعف العام والأمراض الأخرى والتغذية والدعم المتاح. لدى كبار السن، قد يكشف تقييم أوسع مشكلات لا تظهر في الفحص المعتاد.",
+            "قد تؤثر أعداد خلايا الدم ووظائف الكلى أو الكبد أو القلب على اختيار العلاج. أحضر قائمة أدويتك وأخبر الطبيب عن أي نقص وزن حديث أو صعوبة في أداء المهام اليومية."
+          ]
+        },
+        {
+          "id": "side-effects",
+          "title": "هل يمكن أن يجعلني أشعر بحالة أسوأ؟",
+          "paragraphs": [
+            "نعم. قد يحدث تعب أو غثيان أو تقرحات بالفم أو انخفاض في خلايا الدم، وتختلف الآثار باختلاف الأدوية والأشخاص. بعض المضاعفات خطير أو طويل الأمد. يمكن الوقاية من آثار كثيرة أو علاجها، لكن لا توجد خطة تلغي جميع المخاطر.",
+            "أبلغ الفريق سريعاً عن المشكلات الجديدة؛ فقد يحتاج إلى تعديل العلاج أو الأدوية المساندة. شدة الآثار الجانبية لا تثبت نجاح العلاج، وقلّتها لا تعني فشله."
+          ]
+        },
+        {
+          "id": "review-plan",
+          "title": "اتفق على خطة للمتابعة وإعادة التقييم",
+          "paragraphs": [
+            "اسأل عن الفحوص التي ستقيّم الفائدة، وموعد مراجعة الخطة، وما قد يستدعي تغييرها. إذا كانت المخاطر أكبر من الفائدة المرجحة، ناقش الخيارات الأخرى والرعاية التي تركز على الأعراض وجودة الحياة.",
+            "قبل البدء، احصل على تعليمات التواصل مع الفريق المعالج نهاراً وخارج أوقات العمل. لا تغيّر الجرعات أو توقف العلاج دون التواصل معه."
+          ]
+        }
+      ],
+      "questions": [
+        "ما الفائدة الواقعية المتوقعة في حالتي، وما البدائل؟",
+        "ما المشكلات الصحية التي تزيد مخاطر العلاج لديّ؟",
+        "ما الأعراض التي تستدعي مساعدة عاجلة، وبمن أتصل؟"
+      ],
+      "urgent": {
+        "title": "الحمّى أثناء العلاج الكيميائي تستدعي تواصلاً عاجلاً",
+        "text": "عند حرارة 38 درجة مئوية أو أكثر، أو قشعريرة شديدة، أو علامات عدوى أخرى، تواصل فوراً مع فريقك المعالج. اتبع أي تعليمات أشد احتياطاً أعطاك إياها. إذا تعذّر الوصول إليه سريعاً، اطلب رعاية طبية عاجلة. لا تنتظر موعداً عادياً أو رداً عبر واتساب. صعوبة التنفس الشديدة تستدعي الطوارئ."
+      },
+      "related": [
+        "immunotherapy-candidacy",
+        "oral-cancer-treatment",
+        "nutrition-during-cancer-treatment"
+      ],
+      "consultation_note": "ناقش مع د. منعم الفائدة المتوقعة من العلاج الكيميائي المقترح، وقدرتك على تحمّله، والبدائل الممكنة. أحضر الخطة المقترحة والتقارير المتوفّرة وقائمة أدويتك."
+    }
+  }
+]

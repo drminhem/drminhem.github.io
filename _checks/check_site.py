@@ -1,7 +1,7 @@
 """Regression checks for static pages. Run from the repository: python3 _checks/check_site.py."""
 from pathlib import Path
 from html.parser import HTMLParser
-from urllib.parse import urlsplit, urljoin, unquote
+from urllib.parse import urlsplit, urljoin, unquote, parse_qs
 from urllib.robotparser import RobotFileParser
 from datetime import date
 import json, re, subprocess, xml.etree.ElementTree as ET
@@ -70,8 +70,17 @@ sitemap=ET.parse(ROOT/'sitemap.xml');ns={'sm':'http://www.sitemaps.org/schemas/s
 listed=[x.text for x in sitemap.findall('sm:url/sm:loc',ns)]
 manifest_path=ROOT/'_content/generated.json'
 manifest=json.loads(manifest_path.read_text()) if manifest_path.exists() else {'slugs':[]}
+patient_manifest=json.loads((ROOT/'_content/patient_generated.json').read_text())
+patient_slugs=patient_manifest['slugs'];directory_slug=patient_manifest['directory']
+patient_items=[]
+for content_file in ROOT.glob('_content/patient_*.json'):
+ data=json.loads(content_file.read_text())
+ if isinstance(data,list):patient_items.extend(data)
+patient_content={item['slug']:item for item in patient_items}
+assert len(patient_slugs)==len(set(patient_slugs)) and set(patient_slugs)==set(patient_content)
+assert not set(patient_slugs)&set(manifest['slugs'])
 page_dates=json.loads((ROOT/'_content/page_dates.json').read_text())
-assert sorted(listed)==sorted(urls) and len(urls)==10+2*len(manifest['slugs'])
+assert sorted(listed)==sorted(urls) and len(urls)==10+2*(len(manifest['slugs'])+len(patient_slugs)+1)
 assert set(page_dates)=={url.removeprefix(site) for url in urls}
 for path,dates in page_dates.items():
  assert 'last_modified' in dates,path
@@ -99,6 +108,66 @@ for slug in manifest['slugs']:
   assert pages[('ar/' if lang=='ar' else '')+'cancer-consultation.html'].find('a',href='/'+name),name
   if slug in {'lymphoma','leukemia','multiple-myeloma'}:
    assert pages[('ar/' if lang=='ar' else '')+'blood-cancer-consultation.html'].find('a',href='/'+name),name
+# Patient guides are independently readable, sourced pages with discoverable navigation.
+all_titles=[''.join(p.titles).strip() for name,p in pages.items() if name!='booking.html']
+all_descriptions=[a['content'] for name,p in pages.items() if name!='booking.html' for a in p.find('meta',name='description')]
+def region(text,tag,classname):
+ match=re.search(r'<'+tag+r'\b[^>]*class="[^\"]*\b'+classname+r'\b[^\"]*"[^>]*>(.*?)</'+tag+r'>',text,re.S)
+ assert match,('Missing region',classname)
+ return Page(match[1])
+def no_review_claims(value):
+ if isinstance(value,dict):
+  assert not {'author','reviewedBy'}&set(value),'Unrecorded authorship or clinical review'
+  for child in value.values():no_review_claims(child)
+ elif isinstance(value,list):
+  for child in value:no_review_claims(child)
+for lang in ['en','ar']:
+ prefix='ar/' if lang=='ar' else '';directory=prefix+directory_slug+'.html'
+ directory_page=pages[directory]
+ for name in [prefix+'index.html',prefix+'cancer-consultation.html',prefix+'blood-cancer-consultation.html']:
+  assert pages[name].find('a',href='/'+directory),(name,'Missing patient-directory doorway')
+ groups={item['category'] for item in patient_items}|{'cancer-types'}
+ jumps=region(files[directory],'nav','directoryJump')
+ assert {a['href'] for a in jumps.find('a')}=={'#'+group for group in groups},directory
+ for group in groups:assert directory_page.find('h2',id=group),(directory,group)
+ for slug in patient_slugs+manifest['slugs']:
+  assert directory_page.find('a',href='/'+prefix+slug+'.html'),(directory,slug)
+ for slug in patient_slugs+[directory_slug]:
+  name=prefix+slug+'.html';page=pages[name];text=files[name];dates=page_dates['/'+name]
+  title=''.join(page.titles).strip();descriptions=page.find('meta',name='description')
+  assert title and all_titles.count(title)==1,(name,'Title must be distinct')
+  assert len(descriptions)==1 and descriptions[0]['content'] and all_descriptions.count(descriptions[0]['content'])==1,(name,'Description must be distinct')
+  assert all('noindex' not in a.get('content','').lower() for a in page.find('meta',name='robots')),name
+  schemas=[json.loads(raw) for raw in re.findall(r'<script type="application/ld\+json">(.*?)</script>',text,re.S)]
+  assert len(schemas)==1,name
+  schema=schemas[0];no_review_claims(schema)
+  assert schema['dateModified']==dates['last_modified'] and schema['inLanguage']==lang,name
+  assert schema['url']==site+'/'+name,name
+  bookings=[a['href'] for a in page.find('a') if urlsplit(a.get('href','')).path=='/booking.html']
+  assert bookings and parse_qs(urlsplit(bookings[0]).query)['clinic']==['sodeco'],name
+  for href in bookings:
+   query=parse_qs(urlsplit(href).query,keep_blank_values=True)
+   assert set(query)=={'clinic','lang'} and query['clinic'] in [['sodeco'],['tayouneh']] and query['lang']==[lang] and not urlsplit(href).fragment,(name,href)
+  if slug==directory_slug:
+   assert schema['@type']=='CollectionPage',name
+   continue
+  copy=patient_content[slug][lang]
+  assert schema['@type']=='MedicalWebPage',name
+  citations=schema['citation'];assert len(set(citations))>=2,name
+  assert set(citations)=={source['url'] for source in patient_content[slug]['sources']},name
+  source_links=region(text,'section','guideSources')
+  assert {a['href'] for a in source_links.find('a')}==set(citations),name
+  assert page.find('p',**{'data-source-check':dates['sources_checked']}),name
+  toc=region(text,'nav','patientContents')
+  expected_anchors={'#topic-'+section['id'] for section in copy['sections']}
+  assert len(expected_anchors)>=3 and {a['href'] for a in toc.find('a')}==expected_anchors,name
+  for anchor in expected_anchors:assert page.find('h2',id=anchor[1:]),(name,anchor)
+  related=region(text,'ul','patientRelated')
+  assert {a['href'] for a in related.find('a')}=={'/'+prefix+s+'.html' for s in copy['related']},name
+  assert page.find('a',href='/'+directory),name
+  if copy.get('urgent'):
+   assert page.find('aside',**{'class':'patientUrgent'}),name
+   assert text.index('class="patientUrgent"')<text.index('href="/booking.html'),(name,'Urgency must precede booking')
 for entry in sitemap.findall('sm:url',ns):
  loc=entry.find('sm:loc',ns).text
  assert entry.find('sm:lastmod',ns).text==page_dates[loc.removeprefix(site)]['last_modified'],loc
@@ -110,4 +179,4 @@ assert site+'/booking.html' not in listed
 for filename in ['index.html','ar/index.html','sodeco.html','ar/sodeco.html']:
  assert '0xbce4d1d09856242c' in files[filename]
 assert 'gtag(\'event\',\'appointment_booking\'' in files['booking.html']
-print(f'PASS: {len(urls)} pages, canonical/hreflang reciprocity, sitemap, internal assets/anchors, JSON-LD, scheduling/maps, and {len(protected)} protected American Board wording checks.')
+print(f'PASS: {len(urls)} pages, canonical/hreflang reciprocity, sitemap, internal assets/anchors, JSON-LD, {len(patient_slugs)*2} sourced patient guides and bilingual directory, scheduling/maps, and {len(protected)} protected American Board wording checks.')

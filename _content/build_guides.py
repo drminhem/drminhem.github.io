@@ -159,7 +159,9 @@ def main():
    (ROOT/(('ar/' if lang=='ar' else '')+item['slug']+'.html')).write_text(page_for(item,lang))
  for lang in ['en','ar']:
   update_hub(items,lang);update_hub(items,lang,True)
- names=['','sodeco.html','tayouneh.html','cancer-consultation.html','blood-cancer-consultation.html']+[i['slug']+'.html' for i in items]
+ from build_patient_guides import build
+ patient_slugs=build(items,PAGE_DATES)
+ names=['','sodeco.html','tayouneh.html','cancer-consultation.html','blood-cancer-consultation.html']+[i['slug']+'.html' for i in items]+[slug+'.html' for slug in patient_slugs]
  entries=[]
  for name in names:
   en='https://drminhem.com/'+name;ar='https://drminhem.com/ar/'+name
@@ -169,5 +171,5 @@ def main():
  (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'+'\n'.join(entries)+'\n</urlset>\n')
  (ROOT/'_content/generated.json').write_text(json.dumps({'batch':args.batch,'slugs':[i['slug'] for i in items],'clinical_review':'not_recorded','publication':'authorized'},indent=2)+'\n')
  language=ROOT/'language.js';s=language.read_text();s=re.sub(r'  const pages = \[.*?\];', '  const pages = '+json.dumps(['/'+n for n in names])+';',s);language.write_text(s)
- print(f'Generated {len(items)*2} bilingual condition pages; {len(names)*2} sitemap URLs; publication authorized, no physician-review claim.')
+ print(f'Generated {len(items)*2} condition pages and {len(patient_slugs)*2} patient-guide/directory pages; {len(names)*2} sitemap URLs. Patient-guide publication authorized; no physician-review claim.')
 if __name__=='__main__':main()

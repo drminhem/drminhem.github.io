@@ -9,6 +9,24 @@ const routes = ['/', '/ar/', '/sodeco.html', '/ar/sodeco.html', '/tayouneh.html'
 const manifestPath=path.resolve(__dirname,'../_content/generated.json');
 const guideSlugs=fs.existsSync(manifestPath)?JSON.parse(fs.readFileSync(manifestPath,'utf8')).slugs:[];
 for(const slug of guideSlugs) routes.push('/'+slug+'.html','/ar/'+slug+'.html');
+const patientManifest=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../_content/patient_generated.json'),'utf8'));
+const patientSlugs=patientManifest.slugs;
+const patientRoutes=patientSlugs.flatMap(slug=>['/'+slug+'.html','/ar/'+slug+'.html']);
+const directoryRoutes=['/'+patientManifest.directory+'.html','/ar/'+patientManifest.directory+'.html'];
+routes.push(...patientRoutes,...directoryRoutes);
+assert.equal(new Set(routes).size,routes.length,'Duplicate verification routes');
+// Activate a contents link with the keyboard and ensure its target is not hidden by the sticky navigation.
+async function checkKeyboardAnchor(page,selector,route){
+ const links=page.locator(selector);assert.ok(await links.count()>1,route+' anchor navigation');
+ await links.first().focus();await page.keyboard.press('Tab');
+ assert.equal(await links.nth(1).evaluate(el=>el===document.activeElement),true,route+' sequential keyboard focus');
+ assert.equal(await links.nth(1).evaluate(el=>el.matches(':focus-visible')&&getComputedStyle(el).outlineStyle!=='none'&&parseFloat(getComputedStyle(el).outlineWidth)>0),true,route+' visible keyboard focus');
+ const href=await links.nth(1).getAttribute('href');
+ await page.keyboard.press('Enter');
+ assert.equal(new URL(page.url()).hash,href,route+' keyboard anchor activation');
+ const geometry=await page.locator(href).evaluate(el=>({top:el.getBoundingClientRect().top,bottom:el.getBoundingClientRect().bottom,navBottom:document.querySelector('.siteNav').getBoundingClientRect().bottom,height:innerHeight}));
+ assert.ok(geometry.top>=geometry.navBottom-1&&geometry.bottom<=geometry.height,route+' anchor target visible below navigation');
+}
 (async () => {
  fs.mkdirSync(evidence,{recursive:true});
  const browser = await chromium.launch({headless:true, executablePath:process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
@@ -79,11 +97,49 @@ for(const slug of guideSlugs) routes.push('/'+slug+'.html','/ar/'+slug+'.html');
   assert.equal(new URL(await rp.locator('.hero .ctaRow a[href^="/booking.html"]').getAttribute('href'),base).searchParams.get('clinic'),'sodeco');
  }
  await resilient.close();
- // On clinic/consultation pages, the mobile appointment action precedes the portrait.
+ // On pages with portraits, the mobile appointment action still precedes the portrait.
  for(const route of routes.filter(r=>r!=='/'&&r!=='/ar/')){
   await page.goto(base+route);
+  if(!await page.locator('.hero .portrait').count())continue;
   const boxes=await page.locator('.hero').evaluate(hero=>({action:hero.querySelector('a[href^="/booking.html"]').getBoundingClientRect().top,portrait:hero.querySelector('.portrait').getBoundingClientRect().top}));
   assert.ok(boxes.action<boxes.portrait,route+' mobile action order');
+ }
+ // Patient guides put readable answers and urgent advice ahead of appointment requests.
+ for(const route of patientRoutes){
+  await page.goto(base+route);
+  assert.equal(await page.locator('.hero .lead').isVisible(),true,route+' answer visible');
+  assert.equal(await page.locator('.patientContents').isVisible(),true,route+' contents visible');
+  for(const href of await page.locator('.patientContents a').evaluateAll(as=>as.map(a=>a.getAttribute('href')))){
+   assert.ok(href.startsWith('#topic-'),route+' contents anchor');
+   assert.equal(await page.locator(href).count(),1,route+' unique contents target');
+   await page.locator('.patientContents a[href="'+href+'"]').click();
+   assert.equal(new URL(page.url()).hash,href,route+' contents link');
+   assert.equal(await page.locator(href).isVisible(),true,route+' contents target visible');
+  }
+  if(await page.locator('.patientUrgent').count()){
+   assert.equal(await page.locator('.patientUrgent').isVisible(),true,route+' urgent advice visible');
+   assert.equal(await page.locator('.patientUrgent').evaluate(urgent=>{
+    const booking=document.querySelector('a[href^="/booking.html"]');
+    return !!(urgent.compareDocumentPosition(booking)&Node.DOCUMENT_POSITION_FOLLOWING)&&urgent.getBoundingClientRect().bottom<=booking.getBoundingClientRect().top;
+   }),true,route+' urgent advice before appointment action');
+  }
+  await checkKeyboardAnchor(page,'.patientContents a',route);
+ }
+ for(const route of directoryRoutes){
+  await page.goto(base+route);
+  const prefix=route.startsWith('/ar/')?'/ar/':'/';
+  assert.equal(await page.locator('.patientGroup').count(),5,route+' grouped directory');
+  for(const slug of [...patientSlugs,...guideSlugs]){
+   const link=page.locator('.patientGroup a[href="'+prefix+slug+'.html"]');
+   assert.equal(await link.count(),1,route+' directory guide '+slug);
+   assert.equal(await link.isVisible(),true,route+' visible guide '+slug);
+  }
+  for(const href of await page.locator('.directoryJump a').evaluateAll(as=>as.map(a=>a.getAttribute('href')))){
+   await page.locator('.directoryJump a[href="'+href+'"]').click();
+   assert.equal(new URL(page.url()).hash,href,route+' directory jump');
+   assert.equal(await page.locator(href).isVisible(),true,route+' directory target');
+  }
+  await checkKeyboardAnchor(page,'.directoryJump a',route);
  }
  // Every appointment href uses only controlled clinic/language values.
  for(const route of routes){await page.goto(base+route);for(const href of await page.locator('a[href^="/booking.html"]').evaluateAll(as=>as.map(a=>a.getAttribute('href')))){
@@ -103,11 +159,31 @@ for(const slug of guideSlugs) routes.push('/'+slug+'.html','/ar/'+slug+'.html');
  assert.equal((await context.request.get(base+'/robots.txt')).status(),200);
  const shots=[['/','home-en-desktop.png',1365,900,false],['/ar/','home-ar-mobile.png',390,844,false],['/sodeco.html','sodeco-en-desktop.png',1365,1000,true],['/ar/sodeco.html','sodeco-ar-mobile.png',390,844,true],['/cancer-consultation.html','cancer-en-desktop.png',1365,900,true],['/ar/cancer-consultation.html','cancer-ar-mobile.png',390,844,true],['/blood-cancer-consultation.html','blood-cancer-en-mobile.png',390,844,true],['/ar/blood-cancer-consultation.html','blood-cancer-ar-mobile.png',390,844,true]];
  for(const slug of guideSlugs){shots.push(['/'+slug+'.html',slug+'-en-desktop.png',1365,900,true],['/ar/'+slug+'.html',slug+'-ar-mobile.png',390,844,true]);}
+ for(const slug of [...patientSlugs,patientManifest.directory]){shots.push(['/'+slug+'.html',slug+'-en-desktop.png',1365,900,true],['/ar/'+slug+'.html',slug+'-ar-mobile.png',390,844,true]);}
  for(const [route,name,width,height,fullPage] of shots){await page.setViewportSize({width,height});await page.goto(base+route);await page.evaluate(()=>document.fonts.ready);await page.screenshot({path:path.join(evidence,name),fullPage});}
  const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const np=await nojs.newPage();
- for(const route of routes){assert.equal((await np.goto(base+route)).status(),200);assert.equal(await np.locator('h1').isVisible(),true);const lang=await np.getAttribute('html','lang');await np.locator('[data-language-link]').click();assert.notEqual(await np.getAttribute('html','lang'),lang);}
+ for(const route of routes){
+  assert.equal((await np.goto(base+route)).status(),200);assert.equal(await np.locator('h1').isVisible(),true);
+  if(patientRoutes.includes(route)){
+   assert.equal(await np.locator('.hero .lead').isVisible(),true,route+' no-JS answer');
+   assert.equal(await np.locator('.patientContents').isVisible(),true,route+' no-JS contents');
+   assert.equal(await np.locator('.guideSources').isVisible(),true,route+' no-JS sources');
+   const href=await np.locator('.patientContents a').first().getAttribute('href');
+   await np.locator('.patientContents a').first().click();assert.equal(new URL(np.url()).hash,href);
+   assert.equal(await np.locator(href).isVisible(),true,route+' no-JS anchor target');
+   if(await np.locator('.patientUrgent').count())assert.equal(await np.locator('.patientUrgent').isVisible(),true,route+' no-JS urgent advice');
+  }
+  if(directoryRoutes.includes(route)){
+   const prefix=route.startsWith('/ar/')?'/ar/':'/';
+   const links=np.locator('.patientGroup .guideLink');assert.equal(await links.count(),patientSlugs.length+guideSlugs.length,route+' no-JS directory');
+   const href=prefix+patientSlugs[0]+'.html';await np.locator('.patientGroup a[href="'+href+'"]').click();
+   assert.equal(new URL(np.url()).pathname,href);assert.equal(await np.locator('.hero .lead').isVisible(),true);
+   await np.goto(base+route);
+  }
+  const lang=await np.getAttribute('html','lang');await np.locator('[data-language-link]').click();assert.notEqual(await np.getAttribute('html','lang'),lang);
+ }
  assert.deepEqual(errors,[]);assert.equal(network.some(u=>/googletagmanager|google-analytics|wa\.me/.test(u)),false);
- fs.writeFileSync(path.join(evidence,'browser-results.json'),JSON.stringify({results,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,scriptFailureVisible:true,mobileActionBeforePortrait:true,screenshots:shots.map(s=>s[1])},null,2));
+ fs.writeFileSync(path.join(evidence,'browser-results.json'),JSON.stringify({results,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,scriptFailureVisible:true,mobileActionBeforePortrait:true,patientGuides:{routes:patientRoutes.length,contentsAnchors:true,keyboardFocus:true,urgentAdviceBeforeBooking:true,noJavaScript:true},patientDirectory:{routes:directoryRoutes.length,groupLinks:true,keyboardFocus:true,noJavaScript:true},screenshots:shots.map(s=>s[1])},null,2));
  console.log(`PASS: ${routes.length} pages × desktop / 390px / 320px; ${routes.length} no-JS language switches; legacy links, menus, certificates, appointment intent, sitemap/robots, no page errors and no analytics/WhatsApp requests.`);
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

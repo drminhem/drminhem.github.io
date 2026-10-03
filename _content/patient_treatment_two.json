@@ -1,0 +1,270 @@
+[
+  {
+    "slug": "immunotherapy-candidacy",
+    "category": "treatment",
+    "sources": [
+      {
+        "title": "NCI: Immunotherapy to Treat Cancer",
+        "url": "https://www.cancer.gov/about-cancer/treatment/types/immunotherapy"
+      },
+      {
+        "title": "ACS: What Is Immunotherapy?",
+        "url": "https://www.cancer.org/cancer/treatment-types/immunotherapy.html"
+      },
+      {
+        "title": "NCI: Biomarker Testing for Cancer Treatment",
+        "url": "https://www.cancer.gov/about-cancer/treatment/types/biomarker-testing-cancer-treatment"
+      },
+      {
+        "title": "NCI: Immune Checkpoint Inhibitors",
+        "url": "https://www.cancer.gov/about-cancer/treatment/types/immunotherapy/checkpoint-inhibitors"
+      },
+      {
+        "title": "NCI: Immunotherapy Side Effects",
+        "url": "https://www.cancer.gov/about-cancer/treatment/types/immunotherapy/side-effects"
+      },
+      {
+        "title": "MedlinePlus: Pembrolizumab Injection—Precautions",
+        "url": "https://medlineplus.gov/druginfo/meds/a614048.html"
+      },
+      {
+        "title": "NCI: Advances in Melanoma Research — Immunotherapy Responses",
+        "url": "https://www.cancer.gov/types/skin/research"
+      }
+    ],
+    "en": {
+      "title": "Am I a candidate for immunotherapy?",
+      "description": "Understand how cancer type, stage, biomarker results and medical history guide immunotherapy decisions, and what to discuss with your oncologist.",
+      "answer": "Immunotherapy can produce major tumor shrinkage and, in some patients, disease control that lasts for years. These advances have changed what is possible for certain groups of patients. A consultation helps assess whether your cancer type, stage, test results and health make this a promising option for you.",
+      "sections": [
+        {
+          "id": "decision",
+          "title": "Could it help with my type of cancer?",
+          "paragraphs": [
+            "Your oncologist considers the exact diagnosis, stage, treatment goals and previous therapies. This guide focuses on checkpoint inhibitors, a common type of immunotherapy. Their usefulness depends on the particular cancer and treatment setting."
+          ]
+        },
+        {
+          "id": "tests",
+          "title": "Do I need biomarker tests?",
+          "paragraphs": [
+            "Biomarkers are features of the cancer that may help select treatment. Depending on the diagnosis, tests may include PD-L1 or changes in the tumor’s DNA. Bring results you already have; not everyone needs the same tests.",
+            "A positive result does not guarantee benefit or automatically make immunotherapy the best choice. Ask whether a result or further test would change your options."
+          ]
+        },
+        {
+          "id": "alternatives",
+          "title": "Could it replace chemotherapy?",
+          "paragraphs": [
+            "Sometimes immunotherapy is used alone; sometimes it is combined with chemotherapy or another treatment. It is not a universal replacement. The consultation should clarify the expected benefit, alternatives and why a particular plan fits your situation."
+          ]
+        },
+        {
+          "id": "prepare",
+          "title": "What should I bring to the consultation?",
+          "paragraphs": [
+            "Bring available biopsy and biomarker reports, scans, previous treatment details and your medication list. Tell your oncologist about autoimmune disease, an organ or donor stem-cell transplant, or previous treatment reactions.",
+            "Immunotherapy can also affect healthy organs. Your medical history helps your oncologist weigh its potential benefit against the risks and plan appropriate monitoring."
+          ]
+        }
+      ],
+      "questions": [
+        "What benefit is expected for my cancer and stage?",
+        "Which test results support this choice, and what are my alternatives?",
+        "How will we check whether treatment is working and manage side effects?"
+      ],
+      "related": [
+        "cancer-genetic-testing",
+        "targeted-therapy",
+        "chemotherapy-benefits-risks"
+      ],
+      "urgent": {
+        "title": "Receiving immunotherapy, or received it previously?",
+        "text": "Report new or worsening symptoms promptly to your treating team. Severe breathlessness, chest pain or confusion require emergency care: contact local emergency services or go to an emergency department. Do not wait for a routine appointment or WhatsApp reply. Tell the clinician you have received immunotherapy."
+      },
+      "consultation_note": "Dr. Minhem can review your diagnosis, test results and previous treatment with you to discuss whether immunotherapy is appropriate and how it compares with the alternatives."
+    },
+    "ar": {
+      "title": "هل العلاج المناعي مناسب لي؟",
+      "description": "كيف يحدّد نوع السرطان ومرحلته ونتائج الفحوص والتاريخ الصحي مدى ملاءمة العلاج المناعي، وما الأسئلة التي تناقشها مع طبيب الأورام؟",
+      "answer": "قد يحقق العلاج المناعي تقلّصاً كبيراً في الورم وسيطرة على المرض تستمر لسنوات لدى بعض المرضى. غيّرت هذه التطورات ما يمكن تحقيقه لفئات معيّنة من المرضى. تساعد الاستشارة على تقييم ما إذا كان نوع السرطان ومرحلته ونتائج فحوصاتك وحالتك الصحية تجعل هذا العلاج خياراً واعداً لك.",
+      "sections": [
+        {
+          "id": "decision",
+          "title": "هل قد يفيد في نوع السرطان الذي لديّ؟",
+          "paragraphs": [
+            "يراجع طبيب الأورام التشخيص الدقيق والمرحلة وأهداف العلاج والعلاجات السابقة. يركّز هذا الدليل على مثبّطات نقاط التفتيش المناعية، وهي نوع شائع من العلاج المناعي. تعتمد فائدتها على نوع السرطان والسياق العلاجي."
+          ]
+        },
+        {
+          "id": "tests",
+          "title": "هل أحتاج إلى فحوص مؤشرات حيوية؟",
+          "paragraphs": [
+            "المؤشرات الحيوية هي خصائص في الورم قد تساعد في اختيار العلاج. بحسب التشخيص، قد تشمل الفحوص PD-L1 أو تغيّرات في الحمض النووي للورم. أحضر النتائج المتوفّرة لديك؛ فليس الجميع بحاجة إلى الفحوص نفسها.",
+            "النتيجة الإيجابية لا تضمن الاستفادة ولا تجعل العلاج المناعي الخيار الأفضل تلقائياً. اسأل إن كانت النتيجة أو فحوص إضافية ستغيّر خياراتك."
+          ]
+        },
+        {
+          "id": "alternatives",
+          "title": "هل يمكن أن يحلّ محل العلاج الكيميائي؟",
+          "paragraphs": [
+            "يُستخدم العلاج المناعي أحياناً بمفرده، وأحياناً مع العلاج الكيميائي أو علاج آخر. وهو ليس بديلاً مناسباً لكل الحالات. تساعد الاستشارة على توضيح الفائدة المتوقعة والبدائل وسبب ملاءمة خطة معيّنة لحالتك."
+          ]
+        },
+        {
+          "id": "prepare",
+          "title": "ماذا أحضر إلى الاستشارة؟",
+          "paragraphs": [
+            "أحضر تقارير الخزعة والمؤشرات الحيوية المتوفّرة، والصور، وتفاصيل العلاجات السابقة، وقائمة أدويتك. أخبر الطبيب عن أي مرض مناعي ذاتي أو زرع عضو أو خلايا جذعية من متبرّع أو تفاعلات سابقة مع العلاج.",
+            "قد يؤثر العلاج المناعي أيضاً في أعضاء سليمة. يساعد تاريخك الصحي الطبيب على موازنة الفائدة المحتملة والمخاطر ووضع خطة متابعة مناسبة."
+          ]
+        }
+      ],
+      "questions": [
+        "ما الفائدة المتوقّعة لنوع السرطان ومرحلته لديّ؟",
+        "ما نتائج الفحوص التي تدعم هذا الخيار، وما البدائل؟",
+        "كيف سنتابع فعالية العلاج ونتعامل مع آثاره الجانبية؟"
+      ],
+      "related": [
+        "cancer-genetic-testing",
+        "targeted-therapy",
+        "chemotherapy-benefits-risks"
+      ],
+      "urgent": {
+        "title": "هل تتلقّى العلاج المناعي أو سبق أن تلقّيته؟",
+        "text": "أبلغ فريقك المعالج سريعاً عن أي أعراض جديدة أو متفاقمة. ضيق التنفّس الشديد أو ألم الصدر أو التشوّش الذهني يستدعي رعاية إسعافية: اتصل بخدمات الطوارئ المحلية أو توجّه إلى قسم الطوارئ. لا تنتظر موعداً روتينياً أو رداً عبر واتساب، وأخبر الطبيب أنك تلقّيت علاجاً مناعياً."
+      },
+      "consultation_note": "يمكنك مع د. منعم مراجعة تشخيصك ونتائج فحوصاتك وعلاجاتك السابقة، ومناقشة مدى ملاءمة العلاج المناعي وكيف يُقارن بالبدائل."
+    }
+  },
+  {
+    "slug": "oral-cancer-treatment",
+    "category": "treatment",
+    "sources": [
+      {
+        "title": "NCI: Chemotherapy to Treat Cancer",
+        "url": "https://www.cancer.gov/about-cancer/treatment/types/chemotherapy"
+      },
+      {
+        "title": "ACS: Getting Oral Chemotherapy",
+        "url": "https://www.cancer.org/cancer/treatment-types/chemotherapy/oral-chemotherapy.html"
+      },
+      {
+        "title": "NCI: Targeted Therapy to Treat Cancer",
+        "url": "https://www.cancer.gov/about-cancer/treatment/types/targeted-therapies"
+      },
+      {
+        "title": "NCI: Hormone Therapy to Treat Cancer",
+        "url": "https://www.cancer.gov/about-cancer/treatment/types/hormone-therapy"
+      },
+      {
+        "title": "ACS: Chemotherapy Safety",
+        "url": "https://www.cancer.org/cancer/treatment-types/chemotherapy/chemotherapy-safety.html"
+      },
+      {
+        "title": "NCI: Imatinib — A Breakthrough in Targeted Treatment",
+        "url": "https://www.cancer.gov/research/progress/discovery/gleevec"
+      }
+    ],
+    "en": {
+      "title": "Can I take cancer pills instead of chemotherapy?",
+      "description": "Could targeted therapy tablets be an option for your cancer? Understand the role of test results and how targeted, hormonal and chemotherapy tablets differ.",
+      "answer": "Yes, for some patients. Cancer tablets can be targeted therapies that act on specific features driving the cancer. These treatments have transformed care in certain cancers. Other tablets are chemotherapy or hormone treatment. The right choice depends on your diagnosis, test results and treatment goals.",
+      "sections": [
+        {
+          "id": "targeted-tablets",
+          "title": "Targeted tablets: an important advance",
+          "paragraphs": [
+            "Targeted medicines act on particular proteins involved in cancer growth. Many come as tablets or capsules. When a cancer has a suitable target, these treatments can become a major part of care and may sometimes be used instead of chemotherapy.",
+            "They are not interchangeable with every chemotherapy plan. Some are used alongside other treatments, and not all targeted therapies are tablets."
+          ]
+        },
+        {
+          "id": "choice",
+          "title": "How do we know whether they suit me?",
+          "paragraphs": [
+            "The decision considers the cancer type, stage, previous treatment and your health. Tumor biomarker testing may identify a genetic change or protein that helps select treatment. Bring any existing results rather than arranging a testing panel yourself.",
+            "A result needs interpretation in the context of your cancer: finding a change does not always mean a suitable drug is available or likely to help. Ask whether an oral option is supported for your exact diagnosis."
+          ]
+        },
+        {
+          "id": "types",
+          "title": "What other cancer treatments come as tablets?",
+          "paragraphs": [
+            "Some tablets are chemotherapy. Others are hormone treatments, used for cancers whose growth depends on hormones. The name of the treatment matters more than whether it is swallowed or given through a vein.",
+            "Taking medicine at home can be convenient, but tablets can still cause significant side effects and need follow-up. An oral medicine prescribed for someone else may not suit your cancer."
+          ]
+        },
+        {
+          "id": "practical",
+          "title": "What would treatment involve?",
+          "paragraphs": [
+            "Ask what blood tests, visits or scans are needed to monitor the treatment. Obtain written instructions about the schedule, food requirements, missed doses and vomiting. Ask your team about problems rather than changing the plan yourself.",
+            "Bring a complete list of medicines, vitamins and herbs to check for interactions. Mention difficulty swallowing or managing tablets, and ask about safe storage and handling."
+          ]
+        }
+      ],
+      "questions": [
+        "Is there an oral treatment supported for my cancer and treatment goal?",
+        "Would it replace another treatment or be used alongside it?",
+        "What monitoring, side-effect instructions and practical support would I need?"
+      ],
+      "related": [
+        "targeted-therapy",
+        "cancer-genetic-testing",
+        "chemotherapy-benefits-risks"
+      ],
+      "consultation_note": "Review whether an oral treatment is appropriate for your cancer, whether it could replace or accompany another treatment, and the monitoring it would require. Bring your cancer reports and current treatment plan."
+    },
+    "ar": {
+      "title": "هل يمكنني أخذ حبوب للسرطان بدل العلاج الكيميائي؟",
+      "description": "هل قد تكون أقراص العلاج الموجّه خياراً لحالتك؟ تعرّف إلى دور نتائج الفحوص والفرق بين العلاج الموجّه والهرموني والكيميائي بالأقراص.",
+      "answer": "نعم، لدى بعض المرضى. قد تكون أقراص علاج السرطان علاجات موجّهة تعمل على خصائص محدّدة تدفع نمو الورم. أحدثت هذه العلاجات تحوّلاً في رعاية بعض أنواع السرطان. وهناك أقراص للعلاج الكيميائي أو الهرموني أيضاً. يعتمد الاختيار المناسب على التشخيص ونتائج الفحوص وأهداف العلاج.",
+      "sections": [
+        {
+          "id": "targeted-tablets",
+          "title": "أقراص العلاج الموجّه: تقدّم مهم",
+          "paragraphs": [
+            "تعمل الأدوية الموجّهة على بروتينات محدّدة تشارك في نمو السرطان. يتوفّر كثير منها كأقراص أو كبسولات. عندما يحمل الورم هدفاً مناسباً، قد تصبح هذه العلاجات جزءاً أساسياً من الرعاية، وقد تُستخدم أحياناً بدلاً من العلاج الكيميائي.",
+            "لكنها لا تحلّ محل كل خطة علاج كيميائي. يُستخدم بعضها مع علاجات أخرى، وليست كل العلاجات الموجّهة على شكل أقراص."
+          ]
+        },
+        {
+          "id": "choice",
+          "title": "كيف نعرف إن كانت مناسبة لي؟",
+          "paragraphs": [
+            "يعتمد القرار على نوع السرطان ومرحلته والعلاجات السابقة وصحتك العامة. قد تكشف فحوص المؤشرات الحيوية للورم تغيّراً جينياً أو بروتيناً يساعد في اختيار العلاج. أحضر النتائج المتوفّرة لديك بدلاً من طلب مجموعة فحوص بنفسك.",
+            "تحتاج النتيجة إلى تفسير في سياق نوع السرطان؛ فوجود تغيّر لا يعني دائماً وجود دواء مناسب أو احتمال الاستفادة منه. اسأل إن كان هناك خيار فموي تدعم الأدلة استخدامه لتشخيصك تحديداً."
+          ]
+        },
+        {
+          "id": "types",
+          "title": "ما العلاجات الأخرى التي تتوفّر كأقراص؟",
+          "paragraphs": [
+            "بعض الأقراص هي علاج كيميائي. وبعضها علاج هرموني يُستخدم للسرطانات التي يعتمد نموّها على الهرمونات. نوع العلاج أهم من كونه يُبلع أو يُعطى عبر الوريد.",
+            "قد يكون تناول الدواء في المنزل مريحاً، لكن الأقراص قد تسبب آثاراً جانبية مهمة وتحتاج إلى متابعة. والدواء الموصوف لشخص آخر قد لا يناسب نوع السرطان لديك."
+          ]
+        },
+        {
+          "id": "practical",
+          "title": "ما الذي يتطلّبه العلاج؟",
+          "paragraphs": [
+            "اسأل عن تحاليل الدم والزيارات والصور المطلوبة لمراقبة العلاج. اطلب تعليمات مكتوبة عن الجدول وعلاقته بالطعام، وما تفعله عند نسيان جرعة أو حدوث قيء. استشر الفريق عند حدوث مشكلة بدلاً من تغيير الخطة بنفسك.",
+            "أحضر قائمة كاملة بالأدوية والفيتامينات والأعشاب للتحقّق من التداخلات. اذكر أي صعوبة في البلع أو تنظيم الأقراص، واسأل عن حفظ الدواء والتعامل معه بأمان."
+          ]
+        }
+      ],
+      "questions": [
+        "هل يوجد علاج فموي تدعم الأدلة استخدامه لنوع السرطان وهدف العلاج لديّ؟",
+        "هل يحلّ محل علاج آخر أم يُستخدم معه؟",
+        "ما المتابعة وإرشادات الآثار الجانبية والمساعدة العملية التي سأحتاج إليها؟"
+      ],
+      "related": [
+        "targeted-therapy",
+        "cancer-genetic-testing",
+        "chemotherapy-benefits-risks"
+      ],
+      "consultation_note": "ناقش ما إذا كان العلاج بالأقراص مناسباً لنوع السرطان لديك، وهل قد يحلّ محل علاج آخر أو يُضاف إليه، وما المتابعة المطلوبة. أحضر تقارير السرطان وخطتك العلاجية الحالية."
+    }
+  }
+]
