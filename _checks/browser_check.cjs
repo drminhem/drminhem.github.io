@@ -138,6 +138,10 @@ async function checkKeyboardAnchor(page,selector,route){
  await page.setViewportSize({width:390,height:844});
  for(const lang of ['en','ar']) {
   await page.goto(base+(lang==='ar'?'/ar/':'/'));
+  const desktopTargets=await page.locator('.navlinks a').evaluateAll(as=>as.map(a=>a.getAttribute('href')));
+  const mobileTargets=await page.locator('.mobileMenu a').evaluateAll(as=>as.map(a=>a.getAttribute('href')));
+  assert.deepEqual(desktopTargets,['#care-'+lang,'#contact-'+lang,'#guides-'+lang,'#background-'+lang],lang+' desktop navigation priorities');
+  assert.deepEqual(mobileTargets.filter(href=>desktopTargets.includes(href)),desktopTargets,lang+' mobile/desktop navigation parity');
   const id=lang==='ar'?'#menuBtnAr':'#menuBtn';
   await page.locator(id).click();assert.equal(await page.locator(id).getAttribute('aria-expanded'),'true');
   await page.keyboard.press('Escape');assert.equal(await page.locator(id).getAttribute('aria-expanded'),'false');
