@@ -1,5 +1,6 @@
 """Regression checks for static pages. Run from the repository: python3 _checks/check_site.py."""
 from pathlib import Path
+from html import unescape
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, urljoin, unquote, parse_qs
 from urllib.robotparser import RobotFileParser
@@ -58,13 +59,26 @@ for filename,text in files.items():
    assert (ROOT/target).is_file(),(filename,link,'missing file')
    if parsed.fragment and target in pages:assert parsed.fragment in pages[target].ids,(filename,link,'missing anchor')
  assert all(a.get('alt') for a in p.find('img')),filename
-# Preserve original credential lines; only the authorized clinic-order phrase may differ.
+# Preserve baseline lines, allowing only the user's 4 October 2026 scope clarification.
+# These literal replacements do not authorize any other credential or verification-link edits.
+authorized_credential_replacements=[
+ ('American Board–Certified (USA)','American Board–Certified in Internal Medicine (USA)'),
+ ('American Board–Certified in the USA','American Board–Certified in Internal Medicine in the USA'),
+ ('American Board–Certified, U.S.-trained','American Board–Certified in Internal Medicine, U.S.-trained'),
+ ('American Board–Certified in the United States.','American Board–Certified in Internal Medicine in the United States.'),
+ ('American Board of Internal Medicine — Board Certified (USA)','Internal Medicine — American Board of Internal Medicine (ABIM), Board Certified (USA)'),
+ ('حاصل على البورد الأمريكي (ABIM)','حاصل على البورد الأمريكي في الطب الباطني (الولايات المتحدة)'),
+]
 original=subprocess.check_output(['git','show','5612dbd:index.html'],cwd=ROOT,text=True)
 combined=files['index.html']+files['ar/index.html']
 protected=[line.strip() for line in original.splitlines() if 'American Board' in line or 'البورد الأمريكي' in line]
 for line in protected:
  expected=line.replace('Tayouneh and Sodeco','Sodeco and Tayouneh')
- assert expected in combined,('Credential changed',line)
+ for previous,approved in authorized_credential_replacements:expected=expected.replace(previous,approved)
+ assert expected in combined,('Credential changed beyond the authorized wording',line)
+for previous,approved in authorized_credential_replacements:
+ assert previous not in combined,('Unscoped certification wording remains',previous)
+ assert approved in combined,('Approved certification wording missing',approved)
 assert len(protected)>10
 sitemap=ET.parse(ROOT/'sitemap.xml');ns={'sm':'http://www.sitemaps.org/schemas/sitemap/0.9','x':'http://www.w3.org/1999/xhtml'}
 listed=[x.text for x in sitemap.findall('sm:url/sm:loc',ns)]
@@ -124,6 +138,28 @@ def no_review_claims(value):
 for lang in ['en','ar']:
  prefix='ar/' if lang=='ar' else '';directory=prefix+directory_slug+'.html'
  directory_page=pages[directory]
+ # Keep a small homepage reading selection and appointment logistics; the directory holds all topics.
+ home=files[prefix+'index.html']
+ featured_match=re.search(r'<section\b[^>]*\bid="guides-'+lang+r'"[^>]*>(.*?)</section>',home,re.S)
+ assert featured_match,('Missing homepage patient-guide section',lang)
+ featured=Page(featured_match[1])
+ all_guide_paths={'/'+prefix+slug+'.html' for slug in patient_slugs+manifest['slugs']}
+ assert len(all_guide_paths)==22,(directory,'Expected complete 22-guide collection')
+ featured_paths={'/'+prefix+slug+'.html' for slug in ['biopsy-cancer-spread','chemotherapy-benefits-risks','targeted-therapy','immunotherapy-candidacy']}
+ assert {a['href'] for a in featured.find('a') if a.get('href') in all_guide_paths}==featured_paths,(lang,'Homepage must feature the four selected patient questions')
+ assert featured.find('a',href='/'+directory),(lang,'Featured guides must lead to the full directory')
+ faq_match=re.search(r'<section\b[^>]*\bid="faq-'+lang+r'"[^>]*>(.*?)</section>',home,re.S)
+ assert faq_match,('Missing homepage practical FAQ',lang)
+ faq=Page(faq_match[1])
+ pairs=re.findall(r'<details\b[^>]*>\s*<summary>(.*?)</summary>\s*<p>(.*?)</p>\s*</details>',faq_match[1],re.S)
+ assert len(faq.find('details'))==len(pairs)==4,(lang,'Homepage FAQ must contain four practical questions')
+ text_only=lambda fragment:' '.join(unescape(re.sub(r'<[^>]+>','',fragment)).split())
+ assert not re.search(r'chemotherapy|كيميائي', ' '.join(text_only(question) for question,answer in pairs),re.I),(lang,'Treatment explanations belong in patient guides')
+ home_schemas=[json.loads(raw) for raw in re.findall(r'<script type="application/ld\+json">(.*?)</script>',home,re.S)]
+ faq_schemas=[schema for schema in home_schemas if schema.get('@type')=='FAQPage']
+ assert len(faq_schemas)==1 and len(faq_schemas[0]['mainEntity'])==4,(lang,'FAQ schema must match four visible questions')
+ for (question,answer),schema in zip(pairs,faq_schemas[0]['mainEntity']):
+  assert text_only(question)==schema['name'] and text_only(answer)==schema['acceptedAnswer']['text'],(lang,'FAQ schema differs from visible content')
  for name in [prefix+'index.html',prefix+'cancer-consultation.html',prefix+'blood-cancer-consultation.html']:
   assert pages[name].find('a',href='/'+directory),(name,'Missing patient-directory doorway')
  groups={item['category'] for item in patient_items}|{'cancer-types'}
@@ -132,6 +168,7 @@ for lang in ['en','ar']:
  for group in groups:assert directory_page.find('h2',id=group),(directory,group)
  for slug in patient_slugs+manifest['slugs']:
   assert directory_page.find('a',href='/'+prefix+slug+'.html'),(directory,slug)
+ assert {a['href'] for a in directory_page.find('a') if a.get('href') in all_guide_paths}==all_guide_paths,(directory,'Patient directory must retain every guide')
  for slug in patient_slugs+[directory_slug]:
   name=prefix+slug+'.html';page=pages[name];text=files[name];dates=page_dates['/'+name]
   title=''.join(page.titles).strip();descriptions=page.find('meta',name='description')
