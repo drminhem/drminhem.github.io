@@ -97,7 +97,7 @@ for slug in manifest['slugs']:
   assert len(page.find('a',href='/booking.html?clinic=sodeco&lang='+lang))==2,name
   assert len(page.find('a',href='/booking.html?clinic=tayouneh&lang='+lang))==1,name
   assert not page.find('a',href='/booking.html?clinic=general&lang='+lang),name
-  primary_label='Request a consultation at Sodeco' if lang=='en' else 'اطلب استشارة في سوديكو'
+  primary_label='Request a consultation at Sodeco Clinic' if lang=='en' else 'اطلب استشارة في عيادة سوديكو'
   assert '>'+primary_label+'</a>' in files[name],name
   assert page.find('p',**{'class':'clinicLocation'}),name
   raw=re.search(r'<script type="application/ld\+json">(.*?)</script>',files[name],re.S).group(1)

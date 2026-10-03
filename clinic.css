@@ -61,7 +61,7 @@ body[data-lang="ar"] h1{font-family:"Tajawal",sans-serif;font-weight:700;line-he
 .portrait picture{display:block}
 .portrait img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;object-position:center;border-radius:20px}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 17px;border-radius:13px;font-weight:800;text-decoration:none;border:1px solid transparent}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 17px;border-radius:13px;font-weight:800;text-decoration:none;border:1px solid transparent;text-align:center;text-wrap:balance}
 .button.primary{background:var(--navy);color:#fff}
 .button.whatsapp{background:#0b7652;color:#fff}
 .button.secondary{background:#fff;color:var(--navy);border-color:var(--line)}

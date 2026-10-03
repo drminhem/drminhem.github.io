@@ -5,6 +5,13 @@ const fs = require('node:fs');
 const path = require('node:path');
 const base = 'http://127.0.0.1:8765';
 const evidence = path.resolve(__dirname, '../../evidence');
+const layoutViewports=[{width:1365,height:900},{width:390,height:844},{width:320,height:844},{width:768,height:1024},{width:1440,height:1000}];
+const screenshotMatrix=[];
+const sharedLayouts=[['home',''],['clinic','sodeco.html'],['consultation','cancer-consultation.html'],['condition-guide','breast-cancer.html'],['patient-guide','immunotherapy-candidacy.html'],['patient-directory','patient-guides.html']];
+for(const [layout,filename] of sharedLayouts)for(const language of ['en','ar'])for(const viewport of [{name:'phone',width:390,height:844},{name:'desktop',width:1440,height:1000}]){
+ const route=(language==='ar'?'/ar/':'/')+filename;const file='responsive-'+layout+'-'+language+'-'+viewport.name+'.png';
+ screenshotMatrix.push({layout,language,route,viewport:viewport.name,width:viewport.width,height:viewport.height,file});
+}
 const routes = ['/', '/ar/', '/sodeco.html', '/ar/sodeco.html', '/tayouneh.html', '/ar/tayouneh.html', '/cancer-consultation.html', '/ar/cancer-consultation.html', '/blood-cancer-consultation.html', '/ar/blood-cancer-consultation.html'];
 const manifestPath=path.resolve(__dirname,'../_content/generated.json');
 const guideSlugs=fs.existsSync(manifestPath)?JSON.parse(fs.readFileSync(manifestPath,'utf8')).slugs:[];
@@ -15,6 +22,47 @@ const patientRoutes=patientSlugs.flatMap(slug=>['/'+slug+'.html','/ar/'+slug+'.h
 const directoryRoutes=['/'+patientManifest.directory+'.html','/ar/'+patientManifest.directory+'.html'];
 routes.push(...patientRoutes,...directoryRoutes);
 assert.equal(new Set(routes).size,routes.length,'Duplicate verification routes');
+// Check button-like targets and navigation controls, not ordinary links within prose.
+async function checkVisibleControls(page,route,width,scope=null){
+ const report=await page.evaluate(scope=>{
+  const root=scope?document.querySelector(scope):document;
+  const selector=scope?'a,button':'a.btn,a.button,a.guideLink,a.scopeAction,a.chip[href],[data-language-link],button,summary,.patientContents a,.patientRelated a,.directoryJump a,.patientDiscuss,.patientBack,.mobileMenu a';
+  const largeTargets='a.btn,a.button,a.guideLink,[data-language-link],button,summary,.patientContents a,.patientRelated a,.directoryJump a,.patientDiscuss,.patientBack,.mobileMenu a';
+  const issues=[];let checked=0;let inViewport=0;
+  for(const el of root.querySelectorAll(selector)){
+   if(!el.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}))continue;
+   const rect=el.getBoundingClientRect();if(!rect.width||!rect.height)continue;
+   checked++;
+   const label=(el.getAttribute('aria-label')||el.textContent).trim().replace(/\s+/g,' ').slice(0,100);
+   const fail=reason=>issues.push({label,reason,width:Math.round(rect.width),height:Math.round(rect.height)});
+   if(rect.left < -1||rect.right > innerWidth+1)fail('Control extends outside viewport horizontally');
+   const minimum=el.matches(largeTargets)?44:24;
+   if(rect.width<minimum-1||rect.height<minimum-1)fail('Standalone target smaller than '+minimum+'px');
+   const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);
+   while(walker.nextNode()){
+    const node=walker.currentNode;if(!node.textContent.trim()||!node.parentElement.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}))continue;
+    const range=document.createRange();range.selectNodeContents(node);
+    if([...range.getClientRects()].some(r=>r.left<rect.left-2||r.right>rect.right+2||r.top<rect.top-2||r.bottom>rect.bottom+2)){
+     fail('Control label is clipped or extends outside its target');break;
+    }
+   }
+   for(let ancestor=el.parentElement;ancestor&&ancestor!==document.body;ancestor=ancestor.parentElement){
+    const style=getComputedStyle(ancestor);const bounds=ancestor.getBoundingClientRect();
+    if((['hidden','clip'].includes(style.overflowX)&&(rect.left<bounds.left-2||rect.right>bounds.right+2))||(['hidden','clip'].includes(style.overflowY)&&(rect.top<bounds.top-2||rect.bottom>bounds.bottom+2))){
+     fail('Control is clipped by an ancestor');break;
+    }
+   }
+   if(rect.top>=0&&rect.bottom<=innerHeight&&getComputedStyle(el).pointerEvents!=='none'){
+    inViewport++;
+    const hit=document.elementFromPoint(rect.left+rect.width/2,rect.top+rect.height/2);
+    if(hit&&!el.contains(hit))fail('Control center is covered by another element');
+   }
+  }
+  return {checked,inViewport,issues};
+ },scope);
+ assert.deepEqual(report.issues,[],route+' visible controls at '+width+'px');
+ return {width,checked:report.checked,inViewport:report.inViewport};
+}
 // Activate a contents link with the keyboard and ensure its target is not hidden by the sticky navigation.
 async function checkKeyboardAnchor(page,selector,route){
  const links=page.locator(selector);assert.ok(await links.count()>1,route+' anchor navigation');
@@ -35,7 +83,23 @@ async function checkKeyboardAnchor(page,selector,route){
  context.on('page',p=>p.on('pageerror',e=>errors.push(e.message)));
  await context.route(/https:\/\/(?:www\.)?(?:wa\.me|api\.whatsapp\.com|www\.googletagmanager\.com|www\.google-analytics\.com).*$/, route => route.abort());
  context.on('request',r=>network.push(r.url()));
- const page=await context.newPage(); const results=[];
+ const page=await context.newPage(); const results=[];const headerBreakpointChecks=[];
+ // Save representative first screens before assertions so reviewers can inspect them even if a later route fails.
+ for(const shot of screenshotMatrix){
+  await page.setViewportSize({width:shot.width,height:shot.height});await page.goto(base+shot.route);await page.evaluate(()=>document.fonts.ready);
+  await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.filter(i=>{const r=i.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0}).map(i=>i.decode().catch(()=>{}))));
+  await page.screenshot({path:path.join(evidence,shot.file),fullPage:false});
+ }
+ fs.writeFileSync(path.join(evidence,'responsive-screenshot-matrix.json'),JSON.stringify(screenshotMatrix,null,2));
+ console.log('Saved 24 bilingual phone/desktop screenshots in responsive-screenshot-matrix.json.');
+ // Test both sides of header layout changes; these widths are easy to miss in device presets.
+ for(const route of ['/','/ar/'])for(const width of [980,981,1199,1200,1239,1240,1399,1400]){
+  await page.setViewportSize({width,height:1000});await page.goto(base+route);await page.evaluate(()=>document.fonts.ready);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' header breakpoint overflow '+width);
+  headerBreakpointChecks.push({route,...await checkVisibleControls(page,route,width,'.topbar')});
+ }
+ console.log('PASS: bilingual header transition checks at 980 / 981 / 1199 / 1200 / 1239 / 1240 / 1399 / 1400px.');
+ await page.setViewportSize({width:1365,height:900});
  for (const route of routes) {
   const response=await page.goto(base+route); assert.equal(response.status(),200,route);
   await page.evaluate(()=>document.fonts.ready);
@@ -46,18 +110,21 @@ async function checkKeyboardAnchor(page,selector,route){
   assert.ok((await page.locator('body').innerText()).length>500);
   assert.equal(await page.locator('script[src*=googletagmanager]').count(),0);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' desktop overflow');
+  const controlChecks=[await checkVisibleControls(page,route,1365)];
   await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.map(i=>{i.loading='eager';return i.decode().catch(()=>{});})));
   assert.deepEqual(await page.locator('img').evaluateAll(imgs=>imgs.filter(i=>!i.complete||i.naturalWidth===0).map(i=>i.src)),[],route+' images');
   const alternate=await page.locator('[data-language-link]').getAttribute('href');
   await page.locator('[data-language-link]').click();
   assert.equal(new URL(page.url()).pathname,alternate);
   assert.equal(await page.getAttribute('html','lang'),lang==='ar'?'en':'ar');
-  for (const width of [390,320]) {
-   await page.setViewportSize({width,height:844});await page.goto(base+route);
-   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' mobile overflow '+width);
+  for (const viewport of layoutViewports.slice(1)) {
+   await page.setViewportSize(viewport);await page.goto(base+route);await page.evaluate(()=>document.fonts.ready);
+   const {width}=viewport;
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' layout overflow '+width);
    assert.equal(await page.locator('h1').isVisible(),true);
+   controlChecks.push(await checkVisibleControls(page,route,width));
   }
-  results.push({route,status:response.status(),language:lang,languageSwitch:true,mobileWidths:[390,320],overflow:false});
+  results.push({route,status:response.status(),language:lang,languageSwitch:true,mobileWidths:[390,320],viewportWidths:layoutViewports.map(v=>v.width),overflow:false,visibleControls:controlChecks});
   await page.setViewportSize({width:1365,height:900});
  }
  // Stable routes take precedence over old saved preference.
@@ -71,6 +138,10 @@ async function checkKeyboardAnchor(page,selector,route){
  await page.setViewportSize({width:390,height:844});
  for(const lang of ['en','ar']) {
   await page.goto(base+(lang==='ar'?'/ar/':'/'));
+  const desktopTargets=await page.locator('.navlinks a').evaluateAll(as=>as.map(a=>a.getAttribute('href')));
+  const mobileTargets=await page.locator('.mobileMenu a').evaluateAll(as=>as.map(a=>a.getAttribute('href')));
+  assert.deepEqual(desktopTargets,['#care-'+lang,'#contact-'+lang,'#guides-'+lang,'#background-'+lang],lang+' desktop navigation priorities');
+  assert.deepEqual(mobileTargets.filter(href=>desktopTargets.includes(href)),desktopTargets,lang+' mobile/desktop navigation parity');
   const id=lang==='ar'?'#menuBtnAr':'#menuBtn';
   await page.locator(id).click();assert.equal(await page.locator(id).getAttribute('aria-expanded'),'true');
   await page.keyboard.press('Escape');assert.equal(await page.locator(id).getAttribute('aria-expanded'),'false');
@@ -183,7 +254,7 @@ async function checkKeyboardAnchor(page,selector,route){
   const lang=await np.getAttribute('html','lang');await np.locator('[data-language-link]').click();assert.notEqual(await np.getAttribute('html','lang'),lang);
  }
  assert.deepEqual(errors,[]);assert.equal(network.some(u=>/googletagmanager|google-analytics|wa\.me/.test(u)),false);
- fs.writeFileSync(path.join(evidence,'browser-results.json'),JSON.stringify({results,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,scriptFailureVisible:true,mobileActionBeforePortrait:true,patientGuides:{routes:patientRoutes.length,contentsAnchors:true,keyboardFocus:true,urgentAdviceBeforeBooking:true,noJavaScript:true},patientDirectory:{routes:directoryRoutes.length,groupLinks:true,keyboardFocus:true,noJavaScript:true},screenshots:shots.map(s=>s[1])},null,2));
- console.log(`PASS: ${routes.length} pages × desktop / 390px / 320px; ${routes.length} no-JS language switches; legacy links, menus, certificates, appointment intent, sitemap/robots, no page errors and no analytics/WhatsApp requests.`);
+ fs.writeFileSync(path.join(evidence,'browser-results.json'),JSON.stringify({results,viewportWidths:layoutViewports.map(v=>v.width),headerBreakpointChecks,visibleControlClippingAndSize:true,screenshotMatrix,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,scriptFailureVisible:true,mobileActionBeforePortrait:true,patientGuides:{routes:patientRoutes.length,contentsAnchors:true,keyboardFocus:true,urgentAdviceBeforeBooking:true,noJavaScript:true},patientDirectory:{routes:directoryRoutes.length,groupLinks:true,keyboardFocus:true,noJavaScript:true},screenshots:[...shots.map(s=>s[1]),...screenshotMatrix.map(s=>s.file)]},null,2));
+ console.log(`PASS: ${routes.length} pages × 320 / 390 / 768 / 1365 / 1440px; visible control sizes/clipping; ${routes.length} no-JS language switches; legacy links, menus, certificates, appointment intent, sitemap/robots, no page errors and no analytics/WhatsApp requests.`);
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});
