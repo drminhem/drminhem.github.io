@@ -66,6 +66,20 @@ body[data-lang="ar"] h1{font-family:"Tajawal",sans-serif;font-weight:700;line-he
 .button.whatsapp{background:#0b7652;color:#fff}
 .button.secondary{background:#fff;color:var(--navy);border-color:var(--line)}
 .button:hover{transform:translateY(-1px)}
+.onlineOption{
+  display:flex;flex-wrap:wrap;align-items:center;gap:2px 18px;
+  margin-block-start:16px;padding:12px 16px;
+  border:1px solid var(--line);border-inline-start:3px solid var(--teal-dark);
+  border-radius:13px;background:rgba(255,255,255,.78);
+}
+.onlineOption p{flex:1 1 240px;margin:0;color:var(--navy);font-size:1rem;line-height:1.65}
+.onlineOption a{
+  display:inline-flex;align-items:center;min-height:44px;max-width:100%;
+  padding-block:8px;color:var(--teal-dark);font-size:1rem;font-weight:750;line-height:1.5;
+  text-decoration:underline;text-underline-offset:4px;
+}
+.onlineOption a:hover{text-decoration-thickness:2px}
+.onlineOption a:focus-visible{outline:3px solid var(--teal-dark);outline-offset:4px;border-radius:3px}
 .content{padding:46px 0 76px}
 .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 9px 28px rgba(15,45,74,.06);padding:26px}

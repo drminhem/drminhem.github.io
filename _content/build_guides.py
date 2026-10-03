@@ -166,6 +166,8 @@ def main():
  from build_patient_guides import build
  patient_slugs=build(items,PAGE_DATES)
  names=['','sodeco.html','tayouneh.html','cancer-consultation.html','blood-cancer-consultation.html']+[i['slug']+'.html' for i in items]+[slug+'.html' for slug in patient_slugs]
+ from build_consultation_options import build as build_consultation_options
+ build_consultation_options(names)
  entries=[]
  for name in names:
   en='https://drminhem.com/'+name;ar='https://drminhem.com/ar/'+name

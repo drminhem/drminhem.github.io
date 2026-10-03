@@ -281,19 +281,40 @@ async function checkKeyboardAnchor(page,selector,route){
   }
   await checkKeyboardAnchor(page,'.directoryJump a',route);
  }
- // Every appointment href uses only controlled clinic/language values.
+ // Every appointment href uses only controlled clinic/mode and language values.
  for(const route of routes){await page.goto(base+route);for(const href of await page.locator('a[href^="/booking.html"]').evaluateAll(as=>as.map(a=>a.getAttribute('href')))){
-   const u=new URL(href,base);assert.deepEqual([...u.searchParams.keys()],['clinic','lang']);assert.ok(['general','sodeco','tayouneh'].includes(u.searchParams.get('clinic')));assert.equal(u.searchParams.get('lang'),route.startsWith('/ar/')?'ar':'en');
+   const u=new URL(href,base);
+   if(u.searchParams.has('mode')){assert.deepEqual([...u.searchParams.keys()],['mode','lang']);assert.equal(u.searchParams.get('mode'),'online');}
+   else{assert.deepEqual([...u.searchParams.keys()],['clinic','lang']);assert.ok(['general','sodeco','tayouneh'].includes(u.searchParams.get('clinic')));}
+   assert.equal(u.searchParams.get('lang'),route.startsWith('/ar/')?'ar':'en');
  }}
  // Inspect WhatsApp intent event before redirect without contacting WhatsApp.
  await page.addInitScript(()=>{const original=window.setTimeout;window.setTimeout=(fn,delay,...args)=>delay===1800?0:original(fn,delay,...args)});
  await page.goto(base+'/booking.html?clinic=sodeco&lang=ar');
  const events=await page.evaluate(()=>window.dataLayer.map(a=>Array.from(a)).filter(a=>a[0]==='event'));
- assert.equal(events.length,1);assert.equal(events[0][1],'appointment_booking');assert.equal(events[0][2].clinic_location,'sodeco');assert.equal(events[0][2].site_language,'ar');
+ assert.equal(events.length,1);assert.equal(events[0][1],'appointment_booking');assert.equal(events[0][2].clinic_location,'sodeco');assert.equal(events[0][2].consultation_mode,'clinic');assert.equal(events[0][2].site_language,'ar');
  assert.equal(await page.locator('#backLink').getAttribute('href'),'/ar/');
  assert.match(await page.locator('#continueLink').getAttribute('href'),/^https:\/\/wa\.me\/96181902903\?text=/);
  await page.goto(base+'/booking.html?clinic=unknown&lang=ar&preview=1');assert.equal(await page.evaluate(()=>dataLayer.filter(a=>a[0]==='event').length),0);
  assert.ok(!(await page.locator('#continueLink').getAttribute('href')).includes('unknown'));
+ const onlineDrafts={en:'Hello Dr. Minhem, I would like to request a video consultation.',ar:'مرحباً دكتور منعم، أودّ طلب موعد لاستشارة عبر الفيديو.'};
+ for(const lang of ['en','ar'])for(const preview of [false,true]){
+  const bookingRoute='/booking.html?mode=online&clinic=sodeco&lang='+lang+(preview?'&preview=1':'')+'&notes=QA_MARKER';
+  await page.goto(base+bookingRoute);
+  const intent=await page.evaluate(()=>dataLayer.filter(a=>a[0]==='event').map(a=>Array.from(a)));
+  assert.equal(intent.length,preview?0:1,lang+' online preview intent');
+  if(!preview){assert.equal(intent[0][1],'appointment_booking');assert.equal(intent[0][2].consultation_mode,'online');assert.equal(intent[0][2].clinic_location,'general');assert.equal(intent[0][2].site_language,lang);}
+  assert.equal(new URL(await page.locator('#continueLink').getAttribute('href')).searchParams.get('text'),onlineDrafts[lang]);
+  assert.equal(await page.locator('#message').innerText(),lang==='ar'?'رسالتك لطلب موعد لاستشارة عبر الفيديو جاهزة للإرسال.':'Your request for a video consultation is ready.');
+  assert.equal(await page.locator('#backLink').getAttribute('href'),lang==='ar'?'/ar/':'/');
+  assert.equal(await page.locator('#clinicName').count(),0,lang+' online copy does not claim a clinic');
+  assert.ok(!JSON.stringify(intent).includes('QA_MARKER'));assert.ok(!(await page.locator('body').innerText()).includes('QA_MARKER'));
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,lang+' online booking overflow');
+ }
+ await page.goto(base+'/booking.html?mode=QA_MARKER&clinic=sodeco&lang=en&preview=1');
+ assert.equal(await page.locator('#clinicName').innerText(),'Sodeco Clinic');
+ assert.equal(await page.evaluate(()=>dataLayer.filter(a=>a[0]==='event').length),0);
+ assert.ok(!(await page.locator('#continueLink').getAttribute('href')).includes('QA_MARKER'));
  // Sitemap is accessible and every declared page returned 200 above.
  assert.equal((await context.request.get(base+'/sitemap.xml')).status(),200);
  assert.equal((await context.request.get(base+'/robots.txt')).status(),200);
@@ -325,6 +346,6 @@ async function checkKeyboardAnchor(page,selector,route){
  }
  assert.deepEqual(errors,[]);assert.equal(network.some(u=>/googletagmanager|google-analytics|wa\.me/.test(u)),false);
  fs.writeFileSync(path.join(evidence,homepageFocus?'homepage-organization-results.json':'browser-results.json'),JSON.stringify({results,viewportWidths:layoutViewports.map(v=>v.width),headerBreakpointChecks,visibleControlClippingAndSize:true,headerNameNotTruncated:true,screenshotMatrix,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,scriptFailureVisible:true,mobileActionBeforePortrait:homepageFocus?undefined:true,homepageOrganization:{sections:homepageSections,featuredGuides:featuredSlugs,logisticsFAQs:4,professionalDisclosures:3,credentialWrapping:true,noJavaScript:true},axeResults:homepageFocus?axeResults:undefined,patientGuides:homepageFocus?undefined:{routes:patientRoutes.length,contentsAnchors:true,keyboardFocus:true,urgentAdviceBeforeBooking:true,noJavaScript:true},patientDirectory:homepageFocus?undefined:{routes:directoryRoutes.length,groupLinks:true,keyboardFocus:true,noJavaScript:true},screenshots:[...shots.map(s=>s[1]),...screenshotMatrix.map(s=>s.file)]},null,2));
- console.log(`PASS: ${routes.length} pages × ${layoutViewports.map(v=>v.width).join(' / ')}px; visible controls and homepage organization; ${routes.length} no-JS language switches; legacy links, menus, certificates, appointment intent, sitemap/robots, no page errors and no analytics/WhatsApp requests.`);
+ console.log(`PASS: ${routes.length} pages × ${layoutViewports.map(v=>v.width).join(' / ')}px; visible controls and homepage organization; ${routes.length} no-JS language switches; legacy links, menus, certificates, clinic/video appointment intent, sitemap/robots, no page errors and no analytics/WhatsApp requests.`);
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

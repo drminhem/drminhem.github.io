@@ -106,13 +106,16 @@
   <script>
     (function(){
       const params = new URLSearchParams(window.location.search);
-      const clinic = ['tayouneh','sodeco'].includes(params.get('clinic')) ? params.get('clinic') : 'general';
+      const mode = params.get('mode') === 'online' ? 'online' : 'clinic';
+      const clinic = mode === 'clinic' && ['tayouneh','sodeco'].includes(params.get('clinic')) ? params.get('clinic') : 'general';
       const language = params.get('lang') === 'ar' ? 'ar' : 'en';
       const preview = params.get('preview') === '1';
       const copy = {
         en: {
           title: 'Opening WhatsApp',
           message: 'Your appointment request for {clinic} is ready.',
+          onlineMessage: 'Your request for a video consultation is ready.',
+          onlineWhatsApp: 'Hello Dr. Minhem, I would like to request a video consultation.',
           continue: 'Continue to WhatsApp',
           back: 'Return to the website',
           clinics: {tayouneh:'Tayouneh Clinic',sodeco:'Sodeco Clinic',general:'a private clinic'},
@@ -125,6 +128,8 @@
         ar: {
           title: 'جارٍ فتح واتساب',
           message: 'رسالتك لطلب موعد في {clinic} جاهزة للإرسال.',
+          onlineMessage: 'رسالتك لطلب موعد لاستشارة عبر الفيديو جاهزة للإرسال.',
+          onlineWhatsApp: 'مرحباً دكتور منعم، أودّ طلب موعد لاستشارة عبر الفيديو.',
           continue: 'المتابعة إلى واتساب',
           back: 'العودة إلى الموقع',
           clinics: {tayouneh:'عيادة الطيونة',sodeco:'عيادة سوديكو',general:'إحدى العيادات الخاصة'},
@@ -140,13 +145,17 @@
       document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
       document.title = copy.title + ' — Dr. Mohamad Minhem';
       document.getElementById('title').textContent = copy.title;
-      document.getElementById('message').innerHTML = copy.message.replace('{clinic}','<span class="clinic" id="clinicName"></span>');
-      document.getElementById('clinicName').textContent = copy.clinics[clinic];
+      if (mode === 'online') {
+        document.getElementById('message').textContent = copy.onlineMessage;
+      } else {
+        document.getElementById('message').innerHTML = copy.message.replace('{clinic}','<span class="clinic" id="clinicName"></span>');
+        document.getElementById('clinicName').textContent = copy.clinics[clinic];
+      }
       document.getElementById('continueLink').textContent = copy.continue;
       document.getElementById('backLink').textContent = copy.back;
       document.getElementById('backLink').href = language === 'ar' ? '/ar/' : '/';
 
-      const whatsappUrl = 'https://wa.me/96181902903?text=' + encodeURIComponent(copy.whatsapp[clinic]);
+      const whatsappUrl = 'https://wa.me/96181902903?text=' + encodeURIComponent(mode === 'online' ? copy.onlineWhatsApp : copy.whatsapp[clinic]);
       const continueLink = document.getElementById('continueLink');
       continueLink.href = whatsappUrl;
 
@@ -161,6 +170,7 @@
         // Historical event name: WhatsApp opening intent, not a confirmed booking.
         gtag('event','appointment_booking',{
           clinic_location:clinic,
+          consultation_mode:mode,
           booking_channel:'whatsapp',
           site_language:language,
           transport_type:'beacon',
