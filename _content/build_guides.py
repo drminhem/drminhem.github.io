@@ -3,9 +3,11 @@ Run: python3 _content/build_guides.py --batch 1  (or --batch 2 for all ten).
 """
 from pathlib import Path
 from html import escape
+from datetime import date
 import argparse,json,re
 ROOT=Path(__file__).resolve().parents[1]
-DATE='2026-10-03'
+# Editorial dates are explicit: regeneration alone does not make a page or its sources newer.
+PAGE_DATES=json.loads((ROOT/'_content/page_dates.json').read_text())
 ORDER=['breast-cancer','lung-cancer','colorectal-cancer','prostate-cancer','bladder-cancer',
        'stomach-cancer','lymphoma','leukemia','multiple-myeloma','pancreatic-cancer']
 BLOOD={'lymphoma','leukemia','multiple-myeloma'}
@@ -13,11 +15,10 @@ LABELS={
  'en':{
   'brand':'Dr. Mohamad Minhem','home':'Home & clinics','language':'العربية',
   'skip':'Skip to content','navigation':'Main navigation','eyebrow':'Cancer consultations · Beirut',
-  'date':'Sources checked: 3 October 2026.',
   'help':'How I can help','tailored':'A treatment plan tailored to your cancer, test results, overall health and preferences, informed by current evidence.',
   'bring':'Reports to bring, if available','existing':'Bring the reports you already have. This list does not mean every test is needed.',
   'medications':'Please also bring your medication list, previous treatment records, and questions.',
-  'book':'Request a consultation','call':'Call',
+  'book':'Request a consultation','book_sodeco':'Request a consultation at Sodeco','call':'Call',
   'when':'By appointment only, with flexible scheduling at Sodeco and Tayouneh. Please confirm a suitable time before visiting.',
   'clinics':'Choose your clinic','sodeco':'Sodeco Clinic','sodeco_address':'Sodeco Square, Block B, 6th Floor, Beirut',
   'tayouneh':'Tayouneh Clinic','tayouneh_address':'Tayouneh Clinics, Dubai Building, First Floor, Old Saida Road, Beirut',
@@ -30,11 +31,10 @@ LABELS={
  'ar':{
   'brand':'د. محمد منعم','home':'الرئيسية والعيادات','language':'English',
   'skip':'انتقل إلى المحتوى','navigation':'التنقل الرئيسي','eyebrow':'استشارات الأورام · بيروت',
-  'date':'تاريخ التحقّق من المصادر: 3 تشرين الأول 2026.',
   'help':'كيف أساعدك؟','tailored':'خطة علاج تراعي نوع السرطان ونتائج فحوصاتك وصحتك العامة وتفضيلاتك، وتستند إلى الأدلة العلمية الحالية.',
   'bring':'تقارير تحضرها إن توفّرت','existing':'أحضر التقارير المتوفّرة لديك. لا تعني هذه القائمة أنّك تحتاج إلى كل فحص مذكور.',
   'medications':'أحضر أيضاً قائمة أدويتك وسجلات العلاجات السابقة والأسئلة التي تودّ مناقشتها.',
-  'book':'اطلب استشارة','call':'اتصل',
+  'book':'اطلب استشارة','book_sodeco':'اطلب استشارة في سوديكو','call':'اتصل',
   'when':'بموعد مسبق فقط، مع مرونة في المواعيد في سوديكو والطيونة. يُرجى تأكيد وقت مناسب قبل الحضور.',
   'clinics':'اختر العيادة المناسبة لك','sodeco':'عيادة سوديكو','sodeco_address':'سوديكو سكوير، المبنى B، الطابق السادس، بيروت',
   'tayouneh':'عيادة الطيونة','tayouneh_address':'عيادات الطيونة، مبنى دبي، الطابق الأول، طريق صيدا القديمة، بيروت',
@@ -48,9 +48,20 @@ LABELS={
 def e(s):return escape(s,quote=True)
 def paragraph(s):return '<p>'+e(s)+'</p>'
 def list_items(items):return ''.join('<li>'+e(s)+'</li>' for s in items)
+def editorial_date(path,key):
+ value=PAGE_DATES[path][key]
+ assert date.fromisoformat(value).isoformat()==value,(path,key,value)
+ return value
+def source_check_label(value,lang):
+ checked=date.fromisoformat(value)
+ months=(['January','February','March','April','May','June','July','August','September','October','November','December'] if lang=='en' else
+         ['كانون الثاني','شباط','آذار','نيسان','أيار','حزيران','تموز','آب','أيلول','تشرين الأول','تشرين الثاني','كانون الأول'])
+ prefix='Sources checked: ' if lang=='en' else 'تاريخ التحقّق من المصادر: '
+ return f'{prefix}{checked.day} {months[checked.month-1]} {checked.year}.'
 def page_for(item,lang):
  c=LABELS[lang];d=item[lang];base='/ar/' if lang=='ar' else '/';other='/' if lang=='ar' else '/ar/'
  alternate='en' if lang=='ar' else 'ar';slug=item['slug'];path=base+slug+'.html';url='https://drminhem.com'+path
+ modified=editorial_date(path,'last_modified');sources_checked=editorial_date(path,'sources_checked')
  title=(d['title']+' in Beirut — Dr. Mohamad Minhem') if lang=='en' else (d['title']+' في بيروت — د. محمد منعم')
  # The pre-existing hub supplies the established site fonts, portrait and analytics.
  hub=(ROOT/(base.lstrip('/')+'cancer-consultation.html')).read_text()
@@ -60,7 +71,7 @@ def page_for(item,lang):
  for key,val in [('description',d['lead']),('og:description',d['lead']),('og:title',title),('og:url',url)]:
   head=re.sub(r'(<meta (?:name|property)="'+key+r'" content=")[^"]*',lambda m:m[1]+e(val),head)
  schema={'@context':'https://schema.org','@type':'MedicalWebPage','name':title,'description':d['lead'],
-         'url':url,'inLanguage':lang,'dateModified':DATE,'about':{'@type':'MedicalCondition','name':d['name']},
+         'url':url,'inLanguage':lang,'dateModified':modified,'about':{'@type':'MedicalCondition','name':d['name']},
          'isPartOf':{'@type':'WebSite','url':'https://drminhem.com/'},'citation':[s['url'] for s in item['sources']]}
  head=re.sub(r'<script type="application/ld\+json">.*?</script>',
              '<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False)+'</script>',head,flags=re.S)
@@ -86,8 +97,9 @@ def page_for(item,lang):
     <a class="backLink" href="{base}{parent}.html">{parent_label}</a>
     <div class="eyebrow">{c['eyebrow']}</div>
     <h1>{e(d['title'])}{' in Beirut' if lang=='en' else ' في بيروت'}</h1><p class="lead">{e(d['lead'])}</p>
-    <div class="actions"><a class="button whatsapp" href="/booking.html?clinic=general&amp;lang={lang}" target="_blank" rel="noopener">{c['book']}</a>
+    <div class="actions"><a class="button whatsapp" href="/booking.html?clinic=sodeco&amp;lang={lang}" target="_blank" rel="noopener">{c['book_sodeco']}</a>
       <a class="button secondary" href="tel:+96181902903" data-track="contact_phone">{c['call']} <span class="phoneLtr">+961 81 902 903</span></a></div>
+    <p class="clinicLocation">{c['sodeco_address']} · <a href="{base}tayouneh.html">{c['tayouneh']}</a></p>
     <p class="notice">{c['when']}</p>
   </div><div class="portrait"><picture>
     <source type="image/webp" srcset="/portrait-480.webp 480w, /portrait-900.webp 900w" sizes="(max-width: 520px) 196px, (max-width: 800px) 240px, 290px">
@@ -105,7 +117,7 @@ def page_for(item,lang):
     <section aria-labelledby="locations"><h2 class="sectionTitle" id="locations">{c['clinics']}</h2><div class="grid">{clinics}</div></section>
     <section class="guideSources" aria-labelledby="sources"><h2 class="sectionTitle" id="sources">{c['sources']}</h2>
       <ul class="details">{sources}</ul><p>{c['source_note']}</p>
-      <p class="reviewStatus" data-source-check="{DATE}">{c['date']}</p>
+      <p class="reviewStatus" data-source-check="{sources_checked}">{source_check_label(sources_checked,lang)}</p>
     </section>
     <p class="guideDisclaimer">{c['emergency']}</p>
     <section><h2 class="sectionTitle">{c['related']}</h2><div class="actions">
@@ -152,9 +164,10 @@ def main():
  for name in names:
   en='https://drminhem.com/'+name;ar='https://drminhem.com/ar/'+name
   for url in [en,ar]:
-   entries.append(f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{DATE}</lastmod>\n    <xhtml:link rel="alternate" hreflang="en" href="{en}"/>\n    <xhtml:link rel="alternate" hreflang="ar" href="{ar}"/>\n    <xhtml:link rel="alternate" hreflang="x-default" href="{en}"/>\n  </url>')
+   modified=editorial_date(url.removeprefix('https://drminhem.com'),'last_modified')
+   entries.append(f'  <url>\n    <loc>{url}</loc>\n    <lastmod>{modified}</lastmod>\n    <xhtml:link rel="alternate" hreflang="en" href="{en}"/>\n    <xhtml:link rel="alternate" hreflang="ar" href="{ar}"/>\n    <xhtml:link rel="alternate" hreflang="x-default" href="{en}"/>\n  </url>')
  (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'+'\n'.join(entries)+'\n</urlset>\n')
- (ROOT/'_content/generated.json').write_text(json.dumps({'date':DATE,'batch':args.batch,'slugs':[i['slug'] for i in items],'clinical_review':'not_recorded','publication':'authorized'},indent=2)+'\n')
+ (ROOT/'_content/generated.json').write_text(json.dumps({'batch':args.batch,'slugs':[i['slug'] for i in items],'clinical_review':'not_recorded','publication':'authorized'},indent=2)+'\n')
  language=ROOT/'language.js';s=language.read_text();s=re.sub(r'  const pages = \[.*?\];', '  const pages = '+json.dumps(['/'+n for n in names])+';',s);language.write_text(s)
  print(f'Generated {len(items)*2} bilingual condition pages; {len(names)*2} sitemap URLs; publication authorized, no physician-review claim.')
 if __name__=='__main__':main()

@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /booking.html
 
 Sitemap: https://drminhem.com/sitemap.xml
