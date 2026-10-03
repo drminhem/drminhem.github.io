@@ -142,3 +142,44 @@ body[data-lang="ar"].consultation h1{line-height:1.45}
 .clinicLocation{margin:16px 0 0;color:var(--muted);font-size:1rem;line-height:1.6}
 .clinicLocation a{color:var(--teal-dark);font-weight:700;text-underline-offset:3px}
 @media(max-width:520px){.hero .actions{margin-top:22px}.content{padding-top:30px}.quickCard{padding:18px}.quickCard h3{margin-top:0}.hero .notice{padding:12px 14px}}
+
+/* Question guides put the answer first, with comfortable reading width on every screen. */
+.readingWidth{max-width:780px}
+.patientGuide .hero{padding:34px 0}
+.patientGuide h1{font-size:clamp(1.9rem,4vw,3rem);line-height:1.2}
+.patientGuide .lead{color:var(--ink);font-size:1.12rem;line-height:1.75}
+.patientBack{display:block;width:fit-content;min-height:44px;color:var(--teal-dark);font-weight:750}
+.patientGuide .eyebrow{margin:5px 0 0}
+.patientDiscuss{display:inline-flex;align-items:center;min-height:44px;margin-top:14px;color:var(--teal-dark);font-weight:750;text-underline-offset:4px}
+.patientContents{padding:20px 24px;border:1px solid var(--line);background:#fff;border-radius:17px}
+.patientContents h2,.patientUrgent h2{font-size:1.1rem;margin:0 0 8px;color:var(--navy)}
+.patientContents ul,.patientRelated{list-style:none;padding:0;margin:0}
+.patientContents a,.patientRelated a{display:flex;align-items:center;min-height:44px;padding:7px 0;color:var(--teal-dark);text-underline-offset:4px;line-height:1.6}
+.patientSection{padding:28px 0;border-bottom:1px solid var(--line)}
+.patientSection h2{font-size:1.5rem;line-height:1.4;color:var(--navy);margin:0 0 16px}
+.patientSection p{margin:12px 0}
+.patientSection p:last-child{margin-bottom:0}
+.patientGuide h2,.patientDirectory h2{scroll-margin-top:92px}
+.patientUrgent{padding:18px 22px;margin-bottom:24px;background:#fff5e7;border-inline-start:4px solid #98620e;border-radius:10px}
+.patientUrgent p{margin:0}
+.patientConsultation{margin-top:32px;background:var(--teal-soft)}
+.patientConsultation p:last-child{margin-bottom:0}
+.patientConsultation a:not(.button){color:var(--teal-dark);text-underline-offset:4px}
+.patientConsultation .actions{margin-top:18px}
+.patientGroup:first-child .sectionTitle{margin-top:0}
+.directoryJump{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px}
+.directoryJump a{display:inline-flex;align-items:center;min-height:44px;color:var(--teal-dark);font-weight:650;text-underline-offset:4px}
+.patientGuideDoor{margin:24px 0 32px}
+.patientGuideDoor p{margin-bottom:12px}
+@media(max-width:800px){.patientGuide .navLink,.patientDirectory .navLink{display:none}}
+@media(max-width:520px){
+ .patientGuide .hero{padding:20px 0 26px}
+ .patientGuide .content{padding-top:24px}
+ .patientGuide .lead{font-size:1.05rem}
+ .patientContents{padding:16px 18px}
+ .patientUrgent{padding:16px 18px}
+ .patientSection{padding:24px 6px}
+ .patientSection h2{font-size:1.3rem}
+ .patientConsultation{padding:20px 18px}
+ .patientDirectory .hero h1{font-size:2rem}
+}

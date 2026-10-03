@@ -2,7 +2,7 @@
 
 Existing static GitHub Pages website for drminhem.com. HTML files are served directly; no build or package installation is required.
 
-English pages stay at `/`, `/sodeco.html`, and `/tayouneh.html`. Arabic equivalents live under `/ar/`. Both languages also have `cancer-consultation.html` and `blood-cancer-consultation.html`, plus ten condition guides linked from those hubs. Each file contains its own visible language, title, canonical URL, social metadata, and reciprocal hreflang links. Update both languages when editing content, and keep `sitemap.xml` aligned.
+English pages stay at `/`, `/sodeco.html`, and `/tayouneh.html`. Arabic equivalents live under `/ar/`. Both languages also have `cancer-consultation.html` and `blood-cancer-consultation.html`, ten condition guides, twelve patient-question guides, and a grouped `patient-guides.html` directory. Each file contains its own visible language, title, canonical URL, social metadata, and reciprocal hreflang links. Update both languages when editing content, and keep `sitemap.xml` aligned.
 
 Homepage styling and interactions are shared in `site.css` and `site.js`; clinic and consultation pages use `clinic.css` and `clinic.js`. `language.js` supports legacy `?lang=ar` and homepage `#contact-ar` links. Language choice follows the URL, not stored browser preferences.
 
@@ -18,7 +18,9 @@ node _checks/browser_check.cjs
 
 If Playwright is installed outside this checkout, set `NODE_PATH` to its parent `node_modules` directory. Set `CHROME_PATH` if Chrome is installed elsewhere. Browser screenshots and results go to `../evidence/`. `_checks/` is excluded from GitHub Pages by Jekyll's underscore-directory convention.
 
-The static check protects the original English/Arabic credential lines against baseline `5612dbd`, permitting only the separately authorized reversal of clinic order in the surrounding location phrase, and verifies metadata, reciprocal language links, internal links/assets/anchors, JSON-LD, map identity, hours removal, and the thirty-page sitemap. Browser checks cover desktop, 390px and 320px widths, JavaScript-disabled navigation, menus, certificate dialogs, legacy URLs, booking intent, content visibility when the enhancement script fails, and mobile appointment actions before portraits. Browser tests do not contact WhatsApp or send analytics.
+The static check protects the original English/Arabic credential lines against baseline `5612dbd`, permitting only the separately authorized reversal of clinic order in the surrounding location phrase, and verifies metadata, reciprocal language links, internal links/assets/anchors, JSON-LD, map identity, hours removal, and the 56-page sitemap. Browser checks cover desktop, 390px and 320px widths, JavaScript-disabled navigation, menus, certificate dialogs, legacy URLs, booking intent, content visibility when the enhancement script fails, mobile appointment actions before portraits, and the new guide contents/directory links. Browser tests do not contact WhatsApp or send analytics.
+
+For the new reading templates, run `AXE_PATH=/path/to/axe-core/axe.min.js node _checks/patient_accessibility.cjs` with the same Playwright configuration. This checks all 26 new pages for automated WCAG findings, confirms that the main landmark includes the answer, and tests keyboard skip links. Automated checks do not replace manual accessibility review.
 
 ## Analytics and appointments
 
@@ -52,3 +54,11 @@ The displayed source-check date records when the supporting information was chec
 Every guide has distinct clinical content, three consultation discussion topics, three patient questions, relevant existing reports to bring if available, conditional treatment language, and source links. Mentioning a treatment or investigation does not assert local/on-site provision. The acute-leukemia guide directs suspected or new acute disease to prompt medical assessment, rather than routine booking. No video service, fee, treatment-facility access, or outcome promise is added.
 
 The consultation structure is intended to clarify patient questions and next steps. No improvement in traffic, inquiries, confirmed consultations, or conversion rates has been measured or claimed. Booking links retain only clinic/language parameters; no disease, patient data, or free text is added to analytics events or appointment URLs.
+
+## Patient question guides
+
+Twelve additional topics are prepared in English and Arabic: biopsy spread concerns; chemotherapy benefits and tolerance; immunotherapy suitability; oral cancer treatment; eating during treatment; diet and cancer prevention; possible cancer symptoms; screening; non-cancer blood conditions; easy bruising; targeted therapy; and genetic testing in cancer. The grouped directory links both these topics and the existing cancer-type guides. The homepage adds a single directory doorway and a link from its existing non-cancer blood-condition summary.
+
+Editable text is in `_content/patient_treatment_one.json`, `patient_treatment_two.json`, `patient_nutrition.json`, `patient_assessment.json`, and `patient_hematology.json`, and `patient_precision.json`. `_content/build_patient_guides.py` is called by the full `build_guides.py --batch 2` command, which updates all pages, language routes and the sitemap together. `_content/patient_generated.json` records this expansion separately from the previously published condition guides. Publication of this new set remains pending authorization; no formal physician-review attribution is recorded.
+
+Screening and cancer-risk assessment consultations for people without symptoms were explicitly confirmed by Dr. Minhem on 4 October 2026 (Beirut date). No screening tests or treatment administration are advertised as taking place at either clinic. New source-check dates reflect the sources checked during preparation, not a completed physician review. Content emphasizes the patient's decision and what a consultation can clarify. Treatment and nutrition safety notes follow the main decision guidance; symptom/bleeding urgency remains prominent. Treatment nutrition and prevention nutrition are deliberately separate, with no restrictive diet, supplement, cure or prevention guarantees.

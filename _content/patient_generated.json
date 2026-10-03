@@ -1,0 +1,20 @@
+{
+  "slugs": [
+    "biopsy-cancer-spread",
+    "chemotherapy-benefits-risks",
+    "immunotherapy-candidacy",
+    "oral-cancer-treatment",
+    "targeted-therapy",
+    "cancer-genetic-testing",
+    "nutrition-during-cancer-treatment",
+    "diet-cancer-prevention",
+    "cancer-symptoms",
+    "cancer-screening",
+    "non-cancer-blood-conditions",
+    "easy-bruising"
+  ],
+  "directory": "patient-guides",
+  "clinical_review": "not_recorded",
+  "publication": "pending_approval",
+  "screening_consultations": "confirmed_by_physician_2026-10-04"
+}

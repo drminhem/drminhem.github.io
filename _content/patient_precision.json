@@ -1,0 +1,258 @@
+[
+  {
+    "slug": "targeted-therapy",
+    "category": "treatment",
+    "sources": [
+      {
+        "title": "NCI: Targeted Therapy to Treat Cancer",
+        "url": "https://www.cancer.gov/about-cancer/treatment/types/targeted-therapies"
+      },
+      {
+        "title": "ACS: Targeted Therapy",
+        "url": "https://www.cancer.org/cancer/treatment-types/targeted-therapy.html"
+      },
+      {
+        "title": "ACS: Biomarker and Tumor Marker Tests",
+        "url": "https://www.cancer.org/cancer/diagnosis-staging/tests/biomarker-tests.html"
+      },
+      {
+        "title": "NCI: Biomarker Testing for Cancer Treatment",
+        "url": "https://www.cancer.gov/about-cancer/treatment/types/biomarker-testing-cancer-treatment"
+      },
+      {
+        "title": "ACS: Targeted Therapy Side Effects",
+        "url": "https://www.cancer.org/cancer/treatment-types/targeted-therapy/side-effects.html"
+      },
+      {
+        "title": "NCI: Imatinib — A Breakthrough in Targeted Treatment",
+        "url": "https://www.cancer.gov/research/progress/discovery/gleevec"
+      }
+    ],
+    "en": {
+      "title": "Could targeted therapy help me?",
+      "description": "Learn how targeted therapy is selected, what tumor tests can show, and how benefits, side effects and treatment goals guide the decision.",
+      "answer": "Targeted therapies have transformed treatment for some cancers by acting on features that help the cancer grow. For selected patients, they offer an important treatment option. Whether they could help you depends on the cancer’s features, the treatment setting and your health.",
+      "sections": [
+        {
+          "id": "meaning",
+          "title": "What does targeted mean?",
+          "paragraphs": [
+            "These medicines act on particular proteins or processes involved in cancer growth. Some are selected because of a gene change; others because of a protein found in the cancer. Targeted treatment does not always require a genetic mutation test."
+          ]
+        },
+        {
+          "id": "testing",
+          "title": "Could testing change my options?",
+          "paragraphs": [
+            "Biomarker tests can look for features that help select a treatment. The useful tests depend on your diagnosis and stage. Ask whether existing biopsy tissue can be tested and what a result would change.",
+            "Finding a change does not automatically identify a useful medicine. The result needs interpretation alongside evidence for your cancer and previous treatment. A matching result cannot guarantee benefit."
+          ]
+        },
+        {
+          "id": "plan",
+          "title": "How might it fit into my care?",
+          "paragraphs": [
+            "Depending on the situation, targeted therapy may be used alone or with other treatment. Goals can include reducing recurrence risk, controlling cancer or relieving symptoms. It does not replace chemotherapy for everyone.",
+            "Some targeted treatments are pills; others are infusions or injections. Not every cancer pill is targeted therapy. The route does not determine the best treatment."
+          ]
+        },
+        {
+          "id": "follow-up",
+          "title": "What follow-up would I need?",
+          "paragraphs": [
+            "Side effects vary by medicine, and some can be serious. Ask about monitoring and which symptoms to report. Share all medicines and supplements because interactions may affect treatment.",
+            "Cancer can become resistant, so your team checks whether treatment is helping. Decisions about continuing or changing it depend on your response and tolerability."
+          ]
+        }
+      ],
+      "questions": [
+        "Does my cancer have a feature that could guide targeted treatment?",
+        "What benefit would we aim for, compared with other options?",
+        "Would further testing change the plan, and what monitoring is needed?"
+      ],
+      "consultation_note": "Bring biopsy, biomarker and scan reports plus your treatment history. Discuss which findings could affect your treatment choices with Dr. Minhem.",
+      "related": [
+        "cancer-genetic-testing",
+        "oral-cancer-treatment",
+        "immunotherapy-candidacy"
+      ]
+    },
+    "ar": {
+      "title": "هل يمكن أن يفيدني العلاج الموجّه؟",
+      "description": "كيف يُختار العلاج الموجّه، وماذا تكشف فحوص الورم، وكيف تؤثّر الفوائد والآثار الجانبية وأهداف العلاج في القرار؟",
+      "answer": "أحدثت العلاجات الموجّهة تحوّلاً في علاج بعض أنواع السرطان، إذ تعمل على خصائص تساعد الورم على النمو. وهي خيار علاجي مهم لفئات معيّنة من المرضى. تعتمد فائدتها المحتملة لك على خصائص السرطان والسياق العلاجي وصحتك العامة.",
+      "sections": [
+        {
+          "id": "meaning",
+          "title": "ما معنى العلاج الموجّه؟",
+          "paragraphs": [
+            "تؤثّر هذه الأدوية في بروتينات أو عمليات محدّدة تشارك في نمو السرطان. يُختار بعضها بسبب تغيّر جيني، وبعضها الآخر بسبب بروتين موجود في السرطان. لا يتطلّب كل علاج موجّه فحصًا للطفرات الجينية."
+          ]
+        },
+        {
+          "id": "testing",
+          "title": "هل يمكن للفحوص أن تغيّر خياراتي؟",
+          "paragraphs": [
+            "تبحث فحوص المؤشّرات الحيوية عن خصائص تساعد على اختيار العلاج. تعتمد الفحوص المفيدة على التشخيص والمرحلة. اسأل إن كان يمكن فحص نسيج الخزعة الموجود، وما الذي ستغيّره النتيجة.",
+            "وجود تغيّر لا يعني تلقائيًا وجود دواء مفيد له. يجب تفسير النتيجة في ضوء الأدلة الخاصة بنوع السرطان والعلاجات السابقة. وحتى وجود نتيجة مطابقة لعلاج لا يضمن الاستفادة."
+          ]
+        },
+        {
+          "id": "plan",
+          "title": "كيف يمكن أن يدخل في خطتي؟",
+          "paragraphs": [
+            "بحسب الحالة، قد يُستخدم العلاج الموجّه وحده أو مع علاجات أخرى. قد يكون الهدف تقليل احتمال عودة السرطان أو السيطرة عليه أو تخفيف أعراضه. وهو لا يحلّ محل العلاج الكيميائي لدى الجميع.",
+            "بعض العلاجات الموجّهة حبوب، وبعضها تسريب وريدي أو حقن. ليست كل حبوب السرطان علاجًا موجّهًا، ولا تحدّد طريقة إعطاء الدواء وحدها الخيار الأفضل."
+          ]
+        },
+        {
+          "id": "follow-up",
+          "title": "ما المتابعة التي سأحتاج إليها؟",
+          "paragraphs": [
+            "تختلف الآثار الجانبية بحسب الدواء، وقد يكون بعضها خطيرًا. اسأل عن المتابعة والأعراض التي يجب الإبلاغ عنها. أخبر الفريق بجميع الأدوية والمكمّلات لأن التداخلات قد تؤثّر في العلاج.",
+            "قد يطوّر السرطان مقاومة للدواء، لذلك يتابع الفريق مدى الاستفادة. يعتمد الاستمرار في العلاج أو تغييره على الاستجابة ومدى تحمّله."
+          ]
+        }
+      ],
+      "questions": [
+        "هل توجد في السرطان لديّ خاصية يمكن أن توجّه اختيار العلاج؟",
+        "ما الفائدة التي نستهدفها مقارنة بالخيارات الأخرى؟",
+        "هل تغيّر فحوص إضافية الخطة، وما المتابعة المطلوبة؟"
+      ],
+      "consultation_note": "أحضر تقارير الخزعة والمؤشّرات الحيوية والصور وتاريخ العلاجات. ناقش مع د. منعم النتائج التي قد تؤثّر في خيارات علاجك.",
+      "related": [
+        "cancer-genetic-testing",
+        "oral-cancer-treatment",
+        "immunotherapy-candidacy"
+      ]
+    }
+  },
+  {
+    "slug": "cancer-genetic-testing",
+    "category": "treatment",
+    "sources": [
+      {
+        "title": "NCI: Biomarker Testing for Cancer Treatment",
+        "url": "https://www.cancer.gov/about-cancer/treatment/types/biomarker-testing-cancer-treatment"
+      },
+      {
+        "title": "NCI: Genetic Testing for Inherited Cancer Risk",
+        "url": "https://www.cancer.gov/about-cancer/causes-prevention/genetics/genetic-testing-fact-sheet"
+      },
+      {
+        "title": "ACS: Biomarker and Tumor Marker Tests",
+        "url": "https://www.cancer.org/cancer/diagnosis-staging/tests/biomarker-tests.html"
+      },
+      {
+        "title": "ACS: Genetic Testing for Cancer Risk",
+        "url": "https://www.cancer.org/cancer/risk-prevention/genetics/genetic-testing-for-cancer-risk.html"
+      },
+      {
+        "title": "ACS: What Happens During Genetic Testing for Cancer Risk?",
+        "url": "https://www.cancer.org/cancer/risk-prevention/genetics/genetic-testing-for-cancer-risk/what-happens-during-genetic-testing-for-cancer.html"
+      },
+      {
+        "title": "NCI Dictionary: Immunohistochemistry",
+        "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/immunohistochemistry"
+      }
+    ],
+    "en": {
+      "title": "Genetic testing in cancer: treatment and inherited risk",
+      "description": "Understand the difference between tumor testing to guide treatment and inherited-risk testing, and when results may change care for you or your family.",
+      "answer": "Cancer testing can answer two different questions: which treatment might help, and whether an inherited gene change affects your family's cancer risk. The tests are not interchangeable. Clarifying the purpose first helps you understand which test could inform your care.",
+      "sections": [
+        {
+          "id": "tumor",
+          "title": "Tumor testing: choosing treatment",
+          "paragraphs": [
+            "Tumor genetic testing, often called somatic testing, looks for changes in cancer cells that may guide treatment. Samples may come from biopsy tissue or, in selected situations, blood.",
+            "Biomarker testing is broader than genetic testing: some tests examine proteins in tumor tissue rather than genes. Ask whether existing biopsy tissue could answer the treatment question."
+          ]
+        },
+        {
+          "id": "inherited",
+          "title": "Inherited testing: understanding risk",
+          "paragraphs": [
+            "Germline testing looks for inherited gene changes, usually using blood or saliva. Results may affect treatment, screening or advice for relatives. The appropriate sample depends on your medical history.",
+            "A change found in a tumor is not automatically inherited. Sometimes a separate test is needed to establish that. An inherited risk result also cannot say for certain whether someone will develop cancer."
+          ]
+        },
+        {
+          "id": "results",
+          "title": "What does a result change?",
+          "paragraphs": [
+            "Some results are actionable: they can support a care decision. Others have uncertain significance and should not, by themselves, trigger a cancer drug or a change in care.",
+            "An abnormal finding does not automatically identify an effective treatment. Ask how the result fits your diagnosis and what decision it would change before pursuing more testing."
+          ]
+        },
+        {
+          "id": "counseling",
+          "title": "When is genetic counseling helpful?",
+          "paragraphs": [
+            "Your cancer type, personal history, family history or tumor results may indicate an inherited-risk assessment. Ask whether referral to a qualified genetic counselor is appropriate. Counseling can explain possible results, family implications and the choices before and after testing."
+          ]
+        }
+      ],
+      "questions": [
+        "Is this test about my tumor, inherited risk, or both?",
+        "How could its result change my care?",
+        "Do I need genetic counseling or confirmatory testing?"
+      ],
+      "consultation_note": "Bring existing pathology and test reports, plus known family cancer history. Discuss which results matter for treatment and whether an inherited-risk referral is appropriate.",
+      "related": [
+        "targeted-therapy",
+        "biopsy-cancer-spread",
+        "cancer-screening"
+      ]
+    },
+    "ar": {
+      "title": "الفحوص الجينية في السرطان: العلاج والخطر الوراثي",
+      "description": "تعرّف إلى الفرق بين فحص الورم لاختيار العلاج وفحص الخطر الوراثي، ومتى يمكن للنتائج أن تغيّر رعايتك أو النصائح لعائلتك.",
+      "answer": "قد تجيب الفحوص في السرطان عن سؤالين مختلفين: أي علاج قد يفيد، وهل يوجد تغيّر جيني موروث يؤثّر في خطر السرطان لدى العائلة؟ هذه الفحوص لا تحلّ محل بعضها. يساعد توضيح الهدف أولًا على معرفة الفحص الذي قد يفيد في قرارات رعايتك.",
+      "sections": [
+        {
+          "id": "tumor",
+          "title": "فحص الورم: اختيار العلاج",
+          "paragraphs": [
+            "يبحث الفحص الجيني للورم (Somatic) عن تغيّرات في الخلايا السرطانية قد تساعد على اختيار العلاج. قد تكون العيّنة من نسيج الخزعة أو من الدم في حالات محدّدة.",
+            "فحوص المؤشرات الحيوية أوسع من الفحوص الجينية؛ فبعضها يفحص البروتينات في نسيج الورم بدلاً من الجينات. اسأل إن كانت عينة الخزعة الموجودة تستطيع الإجابة عن السؤال المتعلّق بالعلاج."
+          ]
+        },
+        {
+          "id": "inherited",
+          "title": "الفحص الوراثي: فهم الخطر",
+          "paragraphs": [
+            "يبحث الفحص الجيني الموروث (Germline) عن تغيّرات جينية موروثة، عادةً من خلال عيّنة دم أو لعاب. قد تؤثّر النتائج في العلاج أو الكشف المبكر أو النصائح للأقارب. يعتمد اختيار العيّنة المناسبة على التاريخ الصحي.",
+            "التغيّر الموجود في الورم ليس موروثًا بالضرورة، وقد يلزم فحص منفصل للتحقّق من ذلك. كذلك، لا تستطيع نتيجة الخطر الوراثي الجزم بأن الشخص سيُصاب بالسرطان أو لن يُصاب به."
+          ]
+        },
+        {
+          "id": "results",
+          "title": "ما الذي تغيّره النتيجة؟",
+          "paragraphs": [
+            "بعض النتائج قابلة للاستفادة في قرار طبي. أما النتائج ذات الدلالة غير الواضحة، فلا ينبغي أن تؤدّي وحدها إلى وصف دواء للسرطان أو تغيير الرعاية.",
+            "وجود نتيجة غير طبيعية لا يعني تلقائيًا وجود علاج فعّال لها. قبل طلب مزيد من الفحوص، اسأل كيف ترتبط النتيجة بتشخيصك وما القرار الذي قد تغيّره."
+          ]
+        },
+        {
+          "id": "counseling",
+          "title": "متى تفيد الاستشارة الوراثية؟",
+          "paragraphs": [
+            "قد يشير نوع السرطان أو تاريخك الصحي أو تاريخ العائلة أو نتائج الورم إلى الحاجة لتقييم الخطر الوراثي. اسأل إن كانت الإحالة إلى اختصاصي مؤهّل في الاستشارة الوراثية مناسبة. تساعد الاستشارة على فهم النتائج المحتملة وتأثيرها في العائلة والخيارات قبل الفحص وبعده."
+          ]
+        }
+      ],
+      "questions": [
+        "هل يختصّ هذا الفحص بالورم أم بالخطر الوراثي أم بكليهما؟",
+        "كيف يمكن أن تغيّر نتيجته رعايتي؟",
+        "هل أحتاج إلى استشارة وراثية أو فحص لتأكيد النتيجة؟"
+      ],
+      "consultation_note": "أحضر تقارير الأنسجة والفحوص السابقة وما تعرفه عن تاريخ السرطان في العائلة. ناقش النتائج المؤثّرة في العلاج ومدى الحاجة للإحالة لتقييم الخطر الوراثي.",
+      "related": [
+        "targeted-therapy",
+        "biopsy-cancer-spread",
+        "cancer-screening"
+      ]
+    }
+  }
+]

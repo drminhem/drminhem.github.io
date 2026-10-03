@@ -1,0 +1,244 @@
+[
+  {
+    "slug": "nutrition-during-cancer-treatment",
+    "category": "nutrition",
+    "sources": [
+      {
+        "title": "NCI — Nutrition During Cancer Treatment",
+        "url": "https://www.cancer.gov/about-cancer/treatment/side-effects/nutrition"
+      },
+      {
+        "title": "NCI — Weight Changes, Malnutrition, and Cancer",
+        "url": "https://www.cancer.gov/about-cancer/treatment/side-effects/appetite-loss"
+      },
+      {
+        "title": "NCI — Nausea and Vomiting and Cancer Treatment",
+        "url": "https://www.cancer.gov/about-cancer/treatment/side-effects/nausea-vomiting"
+      },
+      {
+        "title": "NCI — Complementary and Alternative Medicine",
+        "url": "https://www.cancer.gov/about-cancer/treatment/cam"
+      }
+    ],
+    "en": {
+      "title": "What should I eat during cancer treatment?",
+      "description": "Practical guidance on eating during cancer treatment, weight loss, nausea and supplement safety, with questions for your treating team.",
+      "answer": "During treatment, the priority is enough nourishment and fluids to support your strength. Your needs may differ from general cancer-prevention advice. There is no single diet for everyone, and food cannot replace cancer treatment.",
+      "sections": [
+        {
+          "id": "nourishment",
+          "title": "Focus on energy and protein",
+          "paragraphs": [
+            "If your appetite is low or you are losing weight, you may need more calories and protein. Eggs, yogurt, fish, chicken, beans and lentils can be useful choices, depending on what you tolerate. Ask your team which choices fit your health and treatment.",
+            "A restrictive weight-loss diet may be unsuitable during treatment. The aim is to meet your current needs, rather than follow a list of supposedly cancer-fighting foods."
+          ]
+        },
+        {
+          "id": "eating-difficulties",
+          "title": "Adjust meals when eating is difficult",
+          "paragraphs": [
+            "For nausea, smaller meals, bland or cool foods, and avoiding smells that trigger sickness may help. Sip fluids regularly and use prescribed anti-nausea medicines as directed. Persistent symptoms need medical advice, not just a change of menu.",
+            "Tell your team about mouth pain, swallowing problems or diarrhea. Ask about food-safety precautions if treatment lowers your immunity. Advice should match the problem you are experiencing."
+          ]
+        },
+        {
+          "id": "supplements",
+          "title": "Check supplements and special diets",
+          "paragraphs": [
+            "No special food, juice or supplement has been proved to cure cancer. Do not replace prescribed treatment with a diet or fasting plan. Herbs and high-dose vitamins can interfere with cancer medicines. Bring a list or photos of everything you take so your team can check it."
+          ]
+        },
+        {
+          "id": "nutrition-support",
+          "title": "Ask for help before weight loss builds up",
+          "paragraphs": [
+            "Report unplanned weight loss or reduced eating early. Note weight changes, symptoms and foods you can manage. Ask whether assessment by a qualified dietitian with cancer-care experience would help. Difficulty eating is a medical problem to address, not a failure of willpower."
+          ]
+        }
+      ],
+      "questions": [
+        "What should my nutrition and weight goals be during this treatment?",
+        "Could my medicines or side effects explain why eating is difficult?",
+        "Would dietitian advice or additional nutrition support help me?"
+      ],
+      "related": [
+        "chemotherapy-benefits-risks",
+        "diet-cancer-prevention"
+      ],
+      "urgent": {
+        "title": "When drinking becomes difficult",
+        "text": "Contact your treating team urgently if vomiting prevents you from keeping liquids down. If you feel faint, confused or severely weak, seek emergency care rather than waiting for a routine appointment."
+      },
+      "consultation_note": "Discuss eating difficulties or weight changes in the context of your cancer treatment. Bring your medication list and notes on your weight and symptoms; ask whether specialist nutrition support would help."
+    },
+    "ar": {
+      "title": "ماذا آكل أثناء علاج السرطان؟",
+      "description": "إرشادات عملية للتغذية أثناء علاج السرطان، وفقدان الوزن والغثيان وسلامة المكمّلات، وأسئلة لمناقشتها مع الفريق المعالج.",
+      "answer": "الأولوية أثناء العلاج هي الحصول على غذاء وسوائل كافية للحفاظ على قوتك. قد تختلف احتياجاتك عن نصائح الوقاية من السرطان. لا يوجد نظام غذائي واحد يناسب الجميع، والغذاء لا يحلّ محل علاج السرطان.",
+      "sections": [
+        {
+          "id": "nourishment",
+          "title": "اهتم بالطاقة والبروتين",
+          "paragraphs": [
+            "إذا قلّت شهيتك أو بدأ وزنك ينخفض، فقد تحتاج إلى مزيد من السعرات الحرارية والبروتين. يمكن أن يكون البيض واللبن والسمك والدجاج والفاصولياء والعدس خيارات مفيدة، بحسب قدرتك على تناولها. اسأل فريقك المعالج عمّا يناسب حالتك وعلاجك.",
+            "قد لا تناسبك حمية مقيّدة لإنقاص الوزن أثناء العلاج. الهدف هو تلبية احتياجاتك الحالية، وليس الالتزام بقائمة أطعمة يُقال إنها تحارب السرطان."
+          ]
+        },
+        {
+          "id": "eating-difficulties",
+          "title": "عدّل وجباتك عندما يصعب الأكل",
+          "paragraphs": [
+            "عند الغثيان، قد تساعد الوجبات الصغيرة والأطعمة الخفيفة أو الباردة وتجنّب الروائح المزعجة. اشرب السوائل على رشفات منتظمة، واستعمل دواء الغثيان الموصوف حسب التعليمات. استمرار الأعراض يحتاج إلى نصيحة طبية، وليس إلى تغيير الطعام فقط.",
+            "أخبر فريقك عن ألم الفم أو صعوبة البلع أو الإسهال. واسأل عن احتياطات سلامة الطعام إذا كان العلاج يضعف مناعتك. يجب أن تناسب النصائح المشكلة التي تواجهها."
+          ]
+        },
+        {
+          "id": "supplements",
+          "title": "تحقّق من المكمّلات والحميات الخاصة",
+          "paragraphs": [
+            "لم يثبت أن طعاماً أو عصيراً أو مكمّلاً خاصاً يشفي السرطان. لا تستبدل العلاج الموصوف بحمية أو خطة صيام. قد تتداخل الأعشاب والجرعات العالية من الفيتامينات مع أدوية السرطان. أحضر قائمة أو صوراً لكل ما تتناوله ليتمكّن فريقك من مراجعته."
+          ]
+        },
+        {
+          "id": "nutrition-support",
+          "title": "اطلب المساعدة مبكراً عند فقدان الوزن",
+          "paragraphs": [
+            "أبلغ عن فقدان الوزن غير المقصود أو قلة الأكل مبكراً. دوّن تغيّر الوزن والأعراض والأطعمة التي تستطيع تناولها. اسأل إن كنت تحتاج إلى تقييم لدى اختصاصي تغذية مؤهّل لديه خبرة برعاية مرضى السرطان. صعوبة الأكل مشكلة طبية تستحق المساعدة، وليست ضعفاً في الإرادة."
+          ]
+        }
+      ],
+      "questions": [
+        "ما أهداف التغذية والوزن المناسبة لي أثناء هذا العلاج؟",
+        "هل تفسّر أدويتي أو آثار العلاج الجانبية صعوبة الأكل؟",
+        "هل أحتاج إلى اختصاصي تغذية أو دعم غذائي إضافي؟"
+      ],
+      "related": [
+        "chemotherapy-benefits-risks",
+        "diet-cancer-prevention"
+      ],
+      "urgent": {
+        "title": "عندما يصعب الاحتفاظ بالسوائل",
+        "text": "تواصل بصورة عاجلة مع فريقك المعالج إذا كان القيء يمنعك من الاحتفاظ بالسوائل. وإذا شعرت بقرب الإغماء أو التشوّش أو الضعف الشديد، توجّه إلى الطوارئ ولا تنتظر موعداً اعتيادياً."
+      },
+      "consultation_note": "ناقش صعوبة الأكل أو تغيّر الوزن في سياق علاج السرطان. أحضر قائمة أدويتك وملاحظاتك عن الوزن والأعراض، واسأل إن كنت تحتاج إلى دعم من اختصاصي تغذية."
+    }
+  },
+  {
+    "slug": "diet-cancer-prevention",
+    "category": "nutrition",
+    "sources": [
+      {
+        "title": "American Cancer Society — Diet and Physical Activity Guideline for Cancer Prevention",
+        "url": "https://www.cancer.org/cancer/risk-prevention/diet-physical-activity/acs-guidelines-nutrition-physical-activity-cancer-prevention.html"
+      },
+      {
+        "title": "American Cancer Society — Red and Processed Meat and Cancer",
+        "url": "https://www.cancer.org/cancer/risk-prevention/diet-physical-activity/how-diet-and-physical-activity-impact-cancer-risk/red-meat-and-cancer.html"
+      },
+      {
+        "title": "World Cancer Research Fund — Cancer Prevention Recommendations",
+        "url": "https://www.wcrf.org/preventing-cancer/cancer-prevention/our-cancer-prevention-recommendations/"
+      },
+      {
+        "title": "NCI — Diet and Cancer Risk",
+        "url": "https://www.cancer.gov/about-cancer/causes-prevention/risk/diet"
+      }
+    ],
+    "en": {
+      "title": "Can diet help prevent cancer?",
+      "description": "Understand eating patterns that can lower cancer risk, including plant foods, fiber, red and processed meat, alcohol and supplements.",
+      "answer": "A healthy eating pattern can help lower the risk of some cancers, but no diet guarantees prevention. Cancer has many causes; a diagnosis does not mean someone ate badly. Aim for practical habits you can maintain, rather than a perfect diet.",
+      "sections": [
+        {
+          "id": "plant-foods",
+          "title": "Build meals around varied plant foods",
+          "paragraphs": [
+            "Include vegetables, whole fruit, beans or lentils, and whole grains regularly. These foods provide fiber and other nutrients. Familiar choices such as lentil soup, beans, bulgur and wholegrain bread can fit this pattern; no expensive special food is required.",
+            "The overall pattern matters more than adding one supposed superfood. Choose changes that fit your appetite, budget and household meals."
+          ]
+        },
+        {
+          "id": "meat-and-drinks",
+          "title": "Limit processed meat, red meat and alcohol",
+          "paragraphs": [
+            "Eat little, if any, processed meat such as sausages and cured deli meats. Limit red meat, including beef and lamb, and choose beans, fish or poultry more often. Evidence linking red and processed meat to cancer is strongest for colorectal cancer.",
+            "For cancer prevention, avoiding alcohol is best. Choose water or unsweetened drinks more often than sugary drinks, and limit foods that are high in added sugar and provide few nutrients."
+          ]
+        },
+        {
+          "id": "supplements",
+          "title": "Do not rely on prevention supplements",
+          "paragraphs": [
+            "Vitamin, antioxidant or herbal supplements are not recommended as a way to prevent cancer. Some high-dose supplements can cause harm. A supplement prescribed for a specific deficiency is a different matter: discuss the reason and dose with your clinician.",
+            "Healthy eating is one part of risk reduction, alongside avoiding tobacco, being active and receiving appropriate screening. It does not replace screening or assessment of a new symptom."
+          ]
+        },
+        {
+          "id": "personal-needs",
+          "title": "Adapt the advice to your situation",
+          "paragraphs": [
+            "During cancer treatment, poor appetite or weight loss may make additional calories and protein the priority. Do not apply restrictive prevention diets to that situation without advice. After treatment, ask how to move towards a sustainable eating pattern that fits your recovery and any ongoing digestive problems."
+          ]
+        }
+      ],
+      "questions": [
+        "Which dietary changes would be most useful for me?",
+        "Do any health conditions change this advice?",
+        "What screening is appropriate for my age and personal or family history?"
+      ],
+      "related": [
+        "nutrition-during-cancer-treatment",
+        "cancer-screening"
+      ],
+      "consultation_note": "For questions about your personal cancer risk, Dr. Minhem offers risk-assessment and screening consultations. Discuss how prevention and appropriate screening fit your history."
+    },
+    "ar": {
+      "title": "هل يساعد الغذاء في الوقاية من السرطان؟",
+      "description": "تعرّف إلى العادات الغذائية التي قد تقلّل خطر السرطان، ودور الأطعمة النباتية والألياف واللحوم والكحول والمكمّلات.",
+      "answer": "قد يساعد النمط الغذائي الصحي في تقليل خطر بعض السرطانات، لكن لا توجد حمية تضمن الوقاية. للسرطان أسباب متعددة، وتشخيصه لا يعني أن الشخص كان يأكل بشكل سيّئ. الهدف عادات عملية تستطيع الاستمرار عليها، وليس نظاماً مثالياً.",
+      "sections": [
+        {
+          "id": "plant-foods",
+          "title": "اجعل الأطعمة النباتية المتنوّعة جزءاً أساسياً من وجباتك",
+          "paragraphs": [
+            "تناول الخضار والفاكهة الكاملة والفاصولياء أو العدس والحبوب الكاملة بانتظام. توفّر هذه الأطعمة الألياف وعناصر غذائية أخرى. يمكن لأطعمة مألوفة مثل شوربة العدس والفاصولياء والبرغل وخبز الحبوب الكاملة أن تناسب هذا النمط، من دون شراء أطعمة خاصة مرتفعة الثمن.",
+            "النمط الغذائي العام أهم من إضافة طعام واحد يُقال إنه خارق الفائدة. اختر تغييرات تناسب شهيتك وميزانيتك ووجبات عائلتك."
+          ]
+        },
+        {
+          "id": "meat-and-drinks",
+          "title": "قلّل اللحوم المصنّعة والحمراء والكحول",
+          "paragraphs": [
+            "قلّل اللحوم المصنّعة قدر الإمكان، مثل النقانق واللحوم المحفوظة. وقلّل اللحوم الحمراء، ومنها لحم البقر والغنم، واختر البقول أو السمك أو الدجاج في وجبات أكثر. الدليل على ارتباط اللحوم الحمراء والمصنّعة بالسرطان أقوى في سرطان القولون والمستقيم.",
+            "للوقاية من السرطان، الأفضل تجنّب الكحول. اختر الماء أو المشروبات غير المحلّاة بدلاً من المشروبات السكرية في أغلب الأحيان، وقلّل الأطعمة الغنية بالسكر المضاف والفقيرة بالعناصر الغذائية."
+          ]
+        },
+        {
+          "id": "supplements",
+          "title": "لا تعتمد على مكمّلات للوقاية",
+          "paragraphs": [
+            "لا يُنصح باستعمال الفيتامينات أو مضادات الأكسدة أو المكمّلات العشبية بهدف الوقاية من السرطان. بعض الجرعات العالية قد تسبّب الضرر. أما المكمّل الموصوف لعلاج نقص محدّد فله سبب مختلف؛ ناقش الحاجة إليه وجرعته مع طبيبك.",
+            "الغذاء الصحي جزء من تقليل الخطر، إلى جانب تجنّب التدخين والنشاط البدني وفحوص الكشف المبكر المناسبة. وهو لا يغني عن هذه الفحوص أو عن تقييم عرض جديد."
+          ]
+        },
+        {
+          "id": "personal-needs",
+          "title": "عدّل النصائح بحسب حالتك",
+          "paragraphs": [
+            "أثناء علاج السرطان، قد تجعل قلة الشهية أو خسارة الوزن الحصول على سعرات وبروتين إضافيين أولوية. لا تطبّق حمية وقائية مقيّدة في هذه الحالة من دون نصيحة طبية. وبعد العلاج، اسأل عن العودة إلى نمط غذائي مناسب يمكنك الاستمرار عليه، مع مراعاة تعافيك وأي مشكلات هضمية مستمرة."
+          ]
+        }
+      ],
+      "questions": [
+        "ما التغييرات الغذائية الأكثر فائدة لي؟",
+        "هل تؤثّر أي مشكلة صحية لديّ في هذه النصائح؟",
+        "ما فحوص الكشف المبكر المناسبة لعمري وتاريخي الصحي والعائلي؟"
+      ],
+      "related": [
+        "nutrition-during-cancer-treatment",
+        "cancer-screening"
+      ],
+      "consultation_note": "إذا كانت لديك أسئلة عن خطر السرطان لديك، يقدّم د. منعم استشارات لتقييم الخطر والكشف المبكر. ناقش الوقاية والفحوص المناسبة بحسب تاريخك الصحي."
+    }
+  }
+]
