@@ -46,7 +46,11 @@ for filename,text in files.items():
  assert len(p.find('h1'))==1,filename
  assert p.find('meta',property='og:url',content=url),filename
  assert not re.search(r'8:00|12:00|5:00|bqU3PonU9fr7E8uB9|openingHours|localStorage',text),filename
- assert 'video consultation' not in text.lower() and 'استشارة فيديو' not in text,filename
+ # Generic video availability was explicitly confirmed on 4 October 2026.
+ assert len(p.find('div',**{'class':'onlineOption'}))==1,filename
+ assert len(p.find('a',href='/booking.html?mode=online&lang='+lang))==1,filename
+ note='Outside Beirut? Video consultations are available.' if lang=='en' else 'تتوفّر استشارات عبر الفيديو على الإنترنت للمرضى خارج بيروت.'
+ assert note in text,filename
  assert len(p.find('script',src='/analytics.js'))==1,filename
  assert not p.find('script',src='https://www.googletagmanager.com/gtag/js?id=G-B46GF8Q2KX'),filename
  for tag,attrs in p.tags:
@@ -184,7 +188,9 @@ for lang in ['en','ar']:
   assert bookings and parse_qs(urlsplit(bookings[0]).query)['clinic']==['sodeco'],name
   for href in bookings:
    query=parse_qs(urlsplit(href).query,keep_blank_values=True)
-   assert set(query)=={'clinic','lang'} and query['clinic'] in [['sodeco'],['tayouneh']] and query['lang']==[lang] and not urlsplit(href).fragment,(name,href)
+   is_clinic=set(query)=={'clinic','lang'} and query['clinic'] in [['sodeco'],['tayouneh']]
+   is_video=set(query)=={'mode','lang'} and query['mode']==['online']
+   assert (is_clinic or is_video) and query['lang']==[lang] and not urlsplit(href).fragment,(name,href)
   if slug==directory_slug:
    assert schema['@type']=='CollectionPage',name
    continue

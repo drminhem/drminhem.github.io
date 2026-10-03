@@ -35,21 +35,21 @@ COPY = {
   'home':'Home and clinics', 'browse':'Browse all patient guides', 'browse_types':'Browse by cancer type',
  },
  'ar': {
-  'brand':'د. محمد منعم', 'directory':'دليل المريض', 'language':'English',
-  'skip':'انتقل إلى المحتوى', 'navigation':'التنقل الرئيسي', 'on_page':'في هذا الدليل',
-  'questions':'أسئلة تطرحها في الاستشارة', 'related':'أدلة ذات صلة',
-  'sources':'مصادر معلومات للمرضى', 'checked':'تاريخ التحقّق من المصادر',
+  'brand':'د. محمد منعم', 'directory':'معلومات للمرضى', 'language':'English',
+  'skip':'انتقل إلى المحتوى', 'navigation':'التنقل الرئيسي', 'on_page':'في هذه الصفحة',
+  'questions':'أسئلة يمكنك طرحها خلال الاستشارة', 'related':'مواضيع ذات صلة',
+  'sources':'مصادر للمزيد من المعلومات', 'checked':'تاريخ التحقّق من المصادر',
   'source_note':'معلومات عامة للمرضى؛ يمكن لفريقك الطبي توضيح ما يناسب حالتك منها.',
-  'care':'ناقش أسئلتك', 'care_text':'أحضر التقارير المتوفّرة لديك وقائمة أدويتك وأسئلتك إلى استشارة مع د. محمد منعم.',
+  'care':'ناقش أسئلتك مع الطبيب', 'care_text':'يمكنك مناقشة أسئلتك مع د. محمد منعم. أحضر إلى الاستشارة تقاريرك المتوفّرة وقائمة أدويتك.',
   'book':'اطلب استشارة في عيادة سوديكو', 'call':'اتصل',
   'location':'سوديكو سكوير، المبنى B، الطابق السادس، بيروت', 'other':'عيادة الطيونة والمواعيد',
-  'when':'تستقبل العيادتان المرضى بموعد مسبق مع مرونة في المواعيد. أكّد الوقت المناسب قبل الحضور.',
-  'disclaimer':'يقدّم هذا الدليل معلومات عامة، ولا يمثّل تشخيصاً أو خطة علاج لحالتك. عند ظهور أعراض عاجلة، اطلب الرعاية الطبية ولا تنتظر الردّ على طلب موعد.',
-  'index_title':'دليلك للسرطان وأمراض الدم',
-  'index_description':'أدلة واضحة حول علاج السرطان والتغذية والأعراض والكشف المبكر وأمراض الدم، بالعربية والإنجليزية.',
+  'when':'المواعيد في العيادتين تُرتَّب مسبقاً وبمرونة. تواصل معنا لاختيار وقت مناسب وتأكيده قبل الحضور.',
+  'disclaimer':'تقدّم هذه الصفحة معلومات عامة، ولا تغني عن تشخيص طبي أو خطة علاج تناسب حالتك. إذا ظهرت أعراض تستدعي تقييماً عاجلاً، اطلب الرعاية الطبية ولا تنتظر الردّ على طلب موعد.',
+  'index_title':'إجابات عن أسئلتك', 'index_meta_title':'السرطان وأمراض الدم: معلومات للمرضى',
+  'index_description':'معلومات للمرضى حول علاج السرطان والتغذية والأعراض والكشف المبكر وأمراض الدم، بلغة واضحة تساعدك على فهم خياراتك.',
   'index_answer':'إجابات واضحة عن العلاج والتغذية والكشف المبكر وأمراض الدم. اختر السؤال الذي يهمّك.',
-  'types':'أدلة بحسب نوع السرطان', 'consultations':'استشارات السرطان والرأي الطبي الثاني',
-  'home':'الرئيسية والعيادات', 'browse':'تصفّح جميع أدلة المريض', 'browse_types':'تصفّح بحسب نوع السرطان',
+  'types':'معلومات بحسب نوع السرطان', 'consultations':'استشارات السرطان والرأي الطبي الثاني',
+  'home':'الرئيسية والعيادات', 'browse':'تصفّح جميع المواضيع', 'browse_types':'تصفّح بحسب نوع السرطان',
  }
 }
 
@@ -131,13 +131,13 @@ def guide_page(item, lang, items, dates):
 
 def directory_page(items, conditions, lang, dates):
  c = COPY[lang]; base = '/ar/' if lang == 'ar' else '/'; path = base + 'patient-guides.html'
- schema = {'@context':'https://schema.org', '@type':'CollectionPage','name':c['index_title'],'description':c['index_description'],'url':'https://drminhem.com' + path,'inLanguage':lang,'dateModified':dates[path]['last_modified']}
+ schema = {'@context':'https://schema.org', '@type':'CollectionPage','name':c.get('index_meta_title', c['index_title']),'description':c['index_description'],'url':'https://drminhem.com' + path,'inLanguage':lang,'dateModified':dates[path]['last_modified']}
  groups = []
  for category, labels in GROUPS.items():
   links = ''.join(f'<a class="guideLink" href="{base}{i["slug"]}.html">{e(i[lang]["title"])}</a>' for i in items if i['category'] == category)
   groups.append(f'<section class="patientGroup" aria-labelledby="{category}"><h2 class="sectionTitle" id="{category}">{labels[lang]}</h2><div class="guideLinks">{links}</div></section>')
  links = ''.join(f'<a class="guideLink" href="{base}{i["slug"]}.html">{e(i[lang]["name"])}</a>' for i in conditions)
- return head_for('patient-guides', lang, c['index_title'], c['index_description'], schema) + f'''
+ return head_for('patient-guides', lang, c.get('index_meta_title', c['index_title']), c['index_description'], schema) + f'''
 <body data-lang="{lang}" class="consultation patientDirectory">{navigation('patient-guides', lang)}
 <main id="main" tabindex="-1"><header class="hero"><div class="wrap"><p class="eyebrow">{c['directory']}</p><h1>{c['index_title']}</h1><p class="lead">{c['index_answer']}</p>
 <nav class="directoryJump" aria-label="{c['directory']}">{''.join(f'<a href="#{key}">{e(label)}</a>' for key,label in JUMP_LABELS[lang].items())}</nav></div></header>
@@ -168,7 +168,7 @@ def build(conditions, dates):
   for name in ['cancer-consultation', 'blood-cancer-consultation']:
    page = ROOT / (base + name + '.html'); text = page.read_text()
    heading = 'Questions about treatment?' if lang == 'en' else 'لديك أسئلة عن العلاج؟'
-   note = 'Biopsy, chemotherapy, immunotherapy, cancer tablets, nutrition, and more.' if lang == 'en' else 'الخزعة والعلاج الكيميائي والمناعي وأقراص علاج السرطان والتغذية وغيرها.'
+   note = 'Biopsy, chemotherapy, immunotherapy, cancer tablets, nutrition, and more.' if lang == 'en' else 'إجابات عن أسئلتك حول الخزعة والعلاج الكيميائي والمناعي والأدوية التي تؤخذ عن طريق الفم والتغذية وغيرها.'
    block = f'<!-- PATIENT_GUIDES_START --><section class="patientGuideDoor"><h2 class="sectionTitle">{heading}</h2><p>{note}</p><a class="button secondary" href="{prefix}patient-guides.html">{c["browse"]}</a></section><!-- PATIENT_GUIDES_END -->'
    if '<!-- PATIENT_GUIDES_START -->' in text: text = re.sub(r'<!-- PATIENT_GUIDES_START -->.*?<!-- PATIENT_GUIDES_END -->', block, text, flags=re.S)
    else: text = text.replace('    <section aria-labelledby="locations">', block + '\n    <section aria-labelledby="locations">', 1)
