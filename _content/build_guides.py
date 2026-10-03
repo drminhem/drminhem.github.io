@@ -1,5 +1,6 @@
 """Generate static bilingual condition guides with factual source-check metadata.
-Run: python3 _content/build_guides.py --batch 1  (or --batch 2 for all ten).
+Run: python3 _content/build_guides.py  (or --batch 2 for the complete site).
+Partial batches are no longer supported: they would omit published pages from the sitemap.
 """
 from pathlib import Path
 from html import escape
@@ -18,13 +19,13 @@ LABELS={
   'help':'How I can help','tailored':'A treatment plan tailored to your cancer, test results, overall health and preferences, informed by current evidence.',
   'bring':'Reports to bring, if available','existing':'Bring the reports you already have. This list does not mean every test is needed.',
   'medications':'Please also bring your medication list, previous treatment records, and questions.',
-  'book':'Request a consultation','book_sodeco':'Request a consultation at Sodeco','call':'Call',
+  'book':'Request a consultation','book_sodeco':'Request a consultation at Sodeco Clinic','call':'Call',
   'when':'By appointment only, with flexible scheduling at Sodeco and Tayouneh. Please confirm a suitable time before visiting.',
   'clinics':'Choose your clinic','sodeco':'Sodeco Clinic','sodeco_address':'Sodeco Square, Block B, 6th Floor, Beirut',
   'tayouneh':'Tayouneh Clinic','tayouneh_address':'Tayouneh Clinics, Dubai Building, First Floor, Old Saida Road, Beirut',
   'details':'Address & appointment details','sources':'Patient information sources',
   'source_note':'These sources explain general options. The consultation focuses on what is appropriate for your diagnosis and health.',
-  'related':'More consultation information','cancer':'New cancer diagnosis & second opinions','blood':'Blood-cancer consultations',
+  'related':'More consultation information','cancer':'New cancer diagnosis & second opinions','blood':'Blood-cancer consultations','directory':'Browse all patient guides',
   'guides':'Consultation guides by cancer type','blood_guides':'Explore blood-cancer consultation guides',
   'guides_note':'Read about the questions, test results, and decisions that may matter for your consultation.',
   'emergency':'This information supports a consultation and does not provide an individual treatment plan. This clinic is not an emergency service; for an emergency, go to the nearest emergency department.'},
@@ -34,13 +35,13 @@ LABELS={
   'help':'كيف أساعدك؟','tailored':'خطة علاج تراعي نوع السرطان ونتائج فحوصاتك وصحتك العامة وتفضيلاتك، وتستند إلى الأدلة العلمية الحالية.',
   'bring':'تقارير تحضرها إن توفّرت','existing':'أحضر التقارير المتوفّرة لديك. لا تعني هذه القائمة أنّك تحتاج إلى كل فحص مذكور.',
   'medications':'أحضر أيضاً قائمة أدويتك وسجلات العلاجات السابقة والأسئلة التي تودّ مناقشتها.',
-  'book':'اطلب استشارة','book_sodeco':'اطلب استشارة في سوديكو','call':'اتصل',
+  'book':'اطلب استشارة','book_sodeco':'اطلب استشارة في عيادة سوديكو','call':'اتصل',
   'when':'بموعد مسبق فقط، مع مرونة في المواعيد في سوديكو والطيونة. يُرجى تأكيد وقت مناسب قبل الحضور.',
   'clinics':'اختر العيادة المناسبة لك','sodeco':'عيادة سوديكو','sodeco_address':'سوديكو سكوير، المبنى B، الطابق السادس، بيروت',
   'tayouneh':'عيادة الطيونة','tayouneh_address':'عيادات الطيونة، مبنى دبي، الطابق الأول، طريق صيدا القديمة، بيروت',
   'details':'العنوان وتفاصيل المواعيد','sources':'مصادر معلومات للمرضى',
   'source_note':'تشرح هذه المصادر خيارات عامة. وتركّز الاستشارة على ما يناسب تشخيصك وصحتك.',
-  'related':'معلومات إضافية عن الاستشارات','cancer':'تشخيص جديد للسرطان ورأي طبي ثانٍ','blood':'استشارات سرطانات الدم',
+  'related':'معلومات إضافية عن الاستشارات','cancer':'تشخيص جديد للسرطان ورأي طبي ثانٍ','blood':'استشارات سرطانات الدم','directory':'تصفّح جميع أدلة المريض',
   'guides':'أدلة الاستشارة بحسب نوع السرطان','blood_guides':'أدلة استشارات سرطانات الدم',
   'guides_note':'تعرّف إلى الأسئلة ونتائج الفحوصات والقرارات التي قد تهمّك في الاستشارة.',
   'emergency':'تساعدك هذه المعلومات على التحضير للاستشارة، ولا تمثّل خطة علاج لحالتك. هذه العيادة ليست لخدمات الطوارئ؛ في الحالات الطارئة توجّه إلى أقرب قسم طوارئ.'}
@@ -123,6 +124,7 @@ def page_for(item,lang):
     <section><h2 class="sectionTitle">{c['related']}</h2><div class="actions">
       <a class="button secondary" href="{base}cancer-consultation.html">{c['cancer']}</a>
       <a class="button secondary" href="{base}blood-cancer-consultation.html">{c['blood']}</a>
+      <a class="button secondary" href="{base}patient-guides.html">{c['directory']}</a>
     </div></section>
   </div></main>
   <footer class="footer"><div class="wrap footerInner"><span>© <span data-year>2026</span> {c['brand']}</span><a href="{base}">drminhem.com</a></div></footer>
@@ -145,7 +147,9 @@ def update_hub(items,lang,blood=False):
  else:s=s.replace('    <section aria-labelledby="locations">',section+'\n    <section aria-labelledby="locations">',1)
  p.write_text(s)
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('--batch',type=int,choices=[1,2],default=2);args=parser.parse_args()
+ parser=argparse.ArgumentParser()
+ parser.add_argument('--batch',type=int,choices=[2],default=2,help='Generate the complete site (default: 2); partial batches are no longer supported.')
+ args=parser.parse_args()
  items=[]
  for batch in range(1,args.batch+1):items+=json.loads((ROOT/f'_content/batch{batch}.json').read_text())
  assert len(items)==5*args.batch

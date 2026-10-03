@@ -114,6 +114,7 @@
       border-bottom:1px solid var(--line);
     }
     .nav{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0; }
+    .topbar > .wrap{max-width:1400px}
     .brand{ display:flex; align-items:center; gap:12px; min-width:0; text-decoration:none; }
     .logo{
       width:44px;height:44px;border-radius:13px;
@@ -139,7 +140,7 @@
     .chip{
       display:inline-flex; align-items:center; gap:8px;
       padding:11px 16px; border-radius:12px;
-      background: linear-gradient(150deg, var(--teal), var(--teal-600));
+      background: linear-gradient(150deg, #087884, var(--teal-600));
       color:#fff; text-decoration:none; font-weight:800; font-size:1rem;
       box-shadow: 0 8px 20px rgba(14,154,167,.30); transition: transform var(--speed) ease, filter var(--speed) ease; white-space:nowrap;
     }
@@ -184,6 +185,7 @@
 
     .btn{
       display:inline-flex; align-items:center; gap:10px;
+      text-align:center; text-wrap:balance;
       padding:14px 19px; border-radius:14px; text-decoration:none; font-weight:800; font-size:1.04rem;
       border:1px solid var(--line); background:var(--surface); color:var(--navy);
       box-shadow: var(--shadow3); transition: transform var(--speed) ease, filter var(--speed) ease, box-shadow var(--speed) ease;
@@ -191,7 +193,7 @@
     .btn:hover{transform: translateY(-2px); box-shadow: var(--shadow2)}
     .btn:active{transform: translateY(0)}
     .btn:focus-visible{outline:none; box-shadow: var(--ring)}
-    .btn svg{width:19px;height:19px}
+    .btn svg{width:19px;height:19px;flex:0 0 19px}
     .btn.wa{background:var(--wa); color:#fff; border-color:rgba(0,0,0,.05)}
     .btn.primary{background: linear-gradient(150deg, #087884, #087582); color:#fff; border-color:rgba(0,0,0,.05)}
     .btn.ghost{background:rgba(255,255,255,.7)}
@@ -229,7 +231,7 @@
     .portraitWrap img{ width:100%; height:100%; object-fit:cover; object-position:center 16%; }
     .portraitWrap::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 60%, rgba(15,45,74,.22)); }
     .heroMedia::before{
-      content:""; position:absolute; inset:auto -22px -22px -22px; height:70%;
+      content:""; position:absolute; inset:auto -16px -22px -16px; height:70%;
       background: radial-gradient(60% 80% at 50% 100%, rgba(14,154,167,.30), transparent 70%);
       filter: blur(20px); z-index:-1;
     }
@@ -355,7 +357,7 @@
       color:var(--teal-600); margin-bottom:16px;
     }
     .pillar .pIco svg{ width:29px;height:29px; }
-    .pillar .pnum{ position:absolute; top:24px; right:24px; font-family:var(--serif); font-size:1.5rem; font-weight:600; color:rgba(15,45,74,.14); }
+    .pillar .pnum{ position:absolute; top:24px; right:24px; font-family:var(--serif); font-size:1.5rem; font-weight:600; color:var(--teal-600); }
     .rtl .pillar .pnum{ right:auto; left:24px; }
 
     /* ---------- Recognition ---------- */
@@ -525,7 +527,7 @@
     .closingItem svg{ width:21px; height:21px; flex:0 0 21px; color:#aee7eb; }
     .closingItem span{ min-width:0; }
     .closingItem b{ display:block; color:#fff; font-size:1rem; font-weight:800; line-height:1.35; }
-    .closingItem small{ display:block; margin-top:2px; color:rgba(255,255,255,.75); font-size:.9rem; font-weight:600; line-height:1.35; overflow-wrap:anywhere; }
+    .closingItem small{ display:block; margin-top:2px; color:#fff; font-size:.9rem; font-weight:600; line-height:1.35; overflow-wrap:anywhere; }
     .foot{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center; font-weight:600; font-size:1.02rem; }
     .foot a{ color:var(--teal-600); text-decoration:none; font-weight:800; }
 
@@ -540,20 +542,22 @@
     }
 
     /* ---------- Responsive ---------- */
-    @media (min-width:1400px){
+    @media (min-width:981px){
       .brand{flex:0 0 auto}
-      .brandText{min-width:281px}
-    }
-    @media (min-width:981px) and (max-width:1399px){
       .brandSub{display:none}
       .brandTitle .nameFull{display:none}
       .brandTitle .nameShort{display:inline}
+    }
+    @media (max-width:1239px){
+      .navlinks{display:none}
+      .menuBtn{display:inline-flex}
     }
     @media (min-width:981px){
       .clinicActions{grid-template-columns:repeat(2,minmax(0,1fr));display:grid}
       .clinicActions .btn{width:100%;justify-content:center}
     }
     @media (max-width: 980px){
+      .chip{display:none}
       .heroGrid{ grid-template-columns:1fr; gap:30px; }
       .heroMedia{ max-width:440px; margin:0 auto; width:100%; }
       .heroMedia::before{left:0;right:0}

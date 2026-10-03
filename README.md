@@ -18,7 +18,7 @@ node _checks/browser_check.cjs
 
 If Playwright is installed outside this checkout, set `NODE_PATH` to its parent `node_modules` directory. Set `CHROME_PATH` if Chrome is installed elsewhere. Browser screenshots and results go to `../evidence/`. `_checks/` is excluded from GitHub Pages by Jekyll's underscore-directory convention.
 
-The static check protects the original English/Arabic credential lines against baseline `5612dbd`, permitting only the separately authorized reversal of clinic order in the surrounding location phrase, and verifies metadata, reciprocal language links, internal links/assets/anchors, JSON-LD, map identity, hours removal, and the 56-page sitemap. Browser checks cover desktop, 390px and 320px widths, JavaScript-disabled navigation, menus, certificate dialogs, legacy URLs, booking intent, content visibility when the enhancement script fails, mobile appointment actions before portraits, and the new guide contents/directory links. Browser tests do not contact WhatsApp or send analytics.
+The static check protects the original English/Arabic credential lines against baseline `5612dbd`, permitting only the separately authorized reversal of clinic order in the surrounding location phrase, and verifies metadata, reciprocal language links, internal links/assets/anchors, JSON-LD, map identity, hours removal, and the 56-page sitemap. Browser checks cover all 56 pages at 320, 390, 768, 1365 and 1440px, standalone control size and clipping, JavaScript-disabled navigation, menus, certificate dialogs, legacy URLs, booking intent, content visibility when the enhancement script fails, mobile appointment actions before portraits, and the new guide contents/directory links. A 24-image English/Arabic phone and desktop matrix supports visual review of all shared layouts. Browser tests do not contact WhatsApp or send analytics.
 
 For the new reading templates, run `AXE_PATH=/path/to/axe-core/axe.min.js node _checks/patient_accessibility.cjs` with the same Playwright configuration. This checks all 26 new pages for automated WCAG findings, confirms that the main landmark includes the answer, and tests keyboard skip links. Automated checks do not replace manual accessibility review.
 
@@ -45,7 +45,7 @@ python3 _checks/check_site.py
 node _checks/runtime_check.cjs
 ```
 
-`--batch 1` is for the initial five-page milestone on a checkout that has not generated batch two; the generator does not delete later files. For ordinary edits, regenerate the full set with `--batch 2`.
+Regenerate the complete site with `--batch 2`, or omit the argument to use that default. The obsolete `--batch 1` option is rejected before any files are written, so a partial run cannot omit already-published guides from the sitemap, language routes, or directory links.
 
 The displayed source-check date records when the supporting information was checked. It is not a physician-review date. No physician authorship or completed clinical review is claimed, and no schema author or reviewedBy field is assigned. Internal metadata records publication authorization separately from formal clinical review, which has not been recorded. The approved release removes the former draft-only labels without inventing a reviewer attribution.
 
