@@ -173,5 +173,5 @@ def build(conditions, dates):
    if '<!-- PATIENT_GUIDES_START -->' in text: text = re.sub(r'<!-- PATIENT_GUIDES_START -->.*?<!-- PATIENT_GUIDES_END -->', block, text, flags=re.S)
    else: text = text.replace('    <section aria-labelledby="locations">', block + '\n    <section aria-labelledby="locations">', 1)
    page.write_text(text)
- (ROOT / '_content/patient_generated.json').write_text(json.dumps({'slugs':[i['slug'] for i in items], 'directory':'patient-guides', 'clinical_review':'not_recorded', 'publication':'pending_approval', 'screening_consultations':'confirmed_by_physician_2026-10-04'}, indent=2) + '\n')
+ (ROOT / '_content/patient_generated.json').write_text(json.dumps({'slugs':[i['slug'] for i in items], 'directory':'patient-guides', 'clinical_review':'not_recorded', 'publication':'authorized', 'screening_consultations':'confirmed_by_physician_2026-10-04'}, indent=2) + '\n')
  return [i['slug'] for i in items] + ['patient-guides']

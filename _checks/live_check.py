@@ -16,7 +16,10 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://drminhem.com"
 NS = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 urls = [n.text for n in ET.parse(ROOT / "sitemap.xml").findall("sm:url/sm:loc", NS)]
-assert len(urls) == 30 and len(set(urls)) == 30
+condition_guides = json.loads((ROOT / '_content/generated.json').read_text())['slugs']
+patient_guides = json.loads((ROOT / '_content/patient_generated.json').read_text())['slugs']
+expected_pages = 10 + 2 * (len(condition_guides) + len(patient_guides) + 1)
+assert len(urls) == expected_pages and len(set(urls)) == expected_pages
 paths = [url.removeprefix(BASE) for url in urls]
 paths += ["/sitemap.xml", "/robots.txt", "/booking.html", "/clinic.css", "/clinic.js",
           "/site.css", "/site.js", "/language.js", "/analytics.js"]

@@ -171,5 +171,5 @@ def main():
  (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'+'\n'.join(entries)+'\n</urlset>\n')
  (ROOT/'_content/generated.json').write_text(json.dumps({'batch':args.batch,'slugs':[i['slug'] for i in items],'clinical_review':'not_recorded','publication':'authorized'},indent=2)+'\n')
  language=ROOT/'language.js';s=language.read_text();s=re.sub(r'  const pages = \[.*?\];', '  const pages = '+json.dumps(['/'+n for n in names])+';',s);language.write_text(s)
- print(f'Generated {len(items)*2} condition pages and {len(patient_slugs)*2} patient-guide/directory pages; {len(names)*2} sitemap URLs. New patient-guide publication awaits approval; no physician-review claim.')
+ print(f'Generated {len(items)*2} condition pages and {len(patient_slugs)*2} patient-guide/directory pages; {len(names)*2} sitemap URLs. Patient-guide publication authorized; no physician-review claim.')
 if __name__=='__main__':main()
