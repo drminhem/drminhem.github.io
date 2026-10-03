@@ -297,7 +297,7 @@ async function checkKeyboardAnchor(page,selector,route){
  assert.match(await page.locator('#continueLink').getAttribute('href'),/^https:\/\/wa\.me\/96181902903\?text=/);
  await page.goto(base+'/booking.html?clinic=unknown&lang=ar&preview=1');assert.equal(await page.evaluate(()=>dataLayer.filter(a=>a[0]==='event').length),0);
  assert.ok(!(await page.locator('#continueLink').getAttribute('href')).includes('unknown'));
- const onlineDrafts={en:'Hello Dr. Minhem, I would like to request a video consultation.',ar:'مرحباً دكتور منعم، أودّ طلب موعد لاستشارة عبر الفيديو.'};
+ const onlineDrafts={en:'Hello Dr. Minhem, I would like to request a video consultation.',ar:'مرحباً دكتور منعم، أودّ طلب موعد لاستشارة عبر الفيديو على الإنترنت.'};
  for(const lang of ['en','ar'])for(const preview of [false,true]){
   const bookingRoute='/booking.html?mode=online&clinic=sodeco&lang='+lang+(preview?'&preview=1':'')+'&notes=QA_MARKER';
   await page.goto(base+bookingRoute);
@@ -305,7 +305,7 @@ async function checkKeyboardAnchor(page,selector,route){
   assert.equal(intent.length,preview?0:1,lang+' online preview intent');
   if(!preview){assert.equal(intent[0][1],'appointment_booking');assert.equal(intent[0][2].consultation_mode,'online');assert.equal(intent[0][2].clinic_location,'general');assert.equal(intent[0][2].site_language,lang);}
   assert.equal(new URL(await page.locator('#continueLink').getAttribute('href')).searchParams.get('text'),onlineDrafts[lang]);
-  assert.equal(await page.locator('#message').innerText(),lang==='ar'?'رسالتك لطلب موعد لاستشارة عبر الفيديو جاهزة للإرسال.':'Your request for a video consultation is ready.');
+  assert.equal(await page.locator('#message').innerText(),lang==='ar'?'رسالتك لطلب موعد لاستشارة عبر الفيديو على الإنترنت جاهزة للإرسال.':'Your request for a video consultation is ready.');
   assert.equal(await page.locator('#backLink').getAttribute('href'),lang==='ar'?'/ar/':'/');
   assert.equal(await page.locator('#clinicName').count(),0,lang+' online copy does not claim a clinic');
   assert.ok(!JSON.stringify(intent).includes('QA_MARKER'));assert.ok(!(await page.locator('body').innerText()).includes('QA_MARKER'));

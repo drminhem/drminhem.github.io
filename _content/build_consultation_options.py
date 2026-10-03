@@ -5,7 +5,7 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 COPY = {
     'en': ('Outside Beirut? Video consultations are available.', 'Request a video consultation'),
-    'ar': ('تتوفّر استشارات عبر الفيديو للمرضى خارج بيروت.', 'اطلب موعداً لاستشارة عبر الفيديو'),
+    'ar': ('تتوفّر استشارات عبر الفيديو على الإنترنت للمرضى خارج بيروت.', 'اطلب موعداً لاستشارة عبر الفيديو'),
 }
 
 

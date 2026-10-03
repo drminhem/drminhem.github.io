@@ -31,7 +31,7 @@ function booking(search){
 }
 const drafts={
  en:{online:'Hello Dr. Minhem, I would like to request a video consultation.',sodeco:'Hello Dr. Minhem, I would like to book an appointment at the Sodeco clinic.',tayouneh:'Hello Dr. Minhem, I would like to book an appointment at the Tayouneh clinic.',general:'Hello Dr. Minhem, I would like to book an appointment.'},
- ar:{online:'مرحباً دكتور منعم، أودّ طلب موعد لاستشارة عبر الفيديو.',sodeco:'مرحباً دكتور منعم، أودّ حجز موعد في عيادة سوديكو.',tayouneh:'مرحباً دكتور منعم، أودّ حجز موعد في عيادة الطيونة.',general:'مرحباً دكتور منعم، أودّ حجز موعد.'}
+ ar:{online:'مرحباً دكتور منعم، أودّ طلب موعد لاستشارة عبر الفيديو على الإنترنت.',sodeco:'مرحباً دكتور منعم، أودّ حجز موعد في عيادة سوديكو.',tayouneh:'مرحباً دكتور منعم، أودّ حجز موعد في عيادة الطيونة.',general:'مرحباً دكتور منعم، أودّ حجز موعد.'}
 };
 const safeBookingCases=[
  {query:'mode=online',mode:'online',clinic:'general',draft:'online'},
@@ -51,7 +51,7 @@ for(const lang of ['en','ar'])for(const test of safeBookingCases)for(const previ
  assert.equal(state.nodes.backLink.href,lang==='ar'?'/ar/':'/');
  assert.ok(!JSON.stringify({nodes:state.nodes,events:state.events}).includes('QA_MARKER'),'Incoming free text stays out of DOM, draft and analytics');
  if(test.mode==='online'){
-  assert.equal(state.nodes.message.textContent,lang==='ar'?'رسالتك لطلب موعد لاستشارة عبر الفيديو جاهزة للإرسال.':'Your request for a video consultation is ready.');
+  assert.equal(state.nodes.message.textContent,lang==='ar'?'رسالتك لطلب موعد لاستشارة عبر الفيديو على الإنترنت جاهزة للإرسال.':'Your request for a video consultation is ready.');
   assert.doesNotMatch(state.nodes.message.textContent,/Sodeco|Tayouneh|سوديكو|الطيونة/);
  }
  assert.deepEqual(state.redirects,[],'No immediate redirect before callback or fallback');

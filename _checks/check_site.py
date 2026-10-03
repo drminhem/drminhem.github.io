@@ -49,7 +49,7 @@ for filename,text in files.items():
  # Generic video availability was explicitly confirmed on 4 October 2026.
  assert len(p.find('div',**{'class':'onlineOption'}))==1,filename
  assert len(p.find('a',href='/booking.html?mode=online&lang='+lang))==1,filename
- note='Outside Beirut? Video consultations are available.' if lang=='en' else 'تتوفّر استشارات عبر الفيديو للمرضى خارج بيروت.'
+ note='Outside Beirut? Video consultations are available.' if lang=='en' else 'تتوفّر استشارات عبر الفيديو على الإنترنت للمرضى خارج بيروت.'
  assert note in text,filename
  assert len(p.find('script',src='/analytics.js'))==1,filename
  assert not p.find('script',src='https://www.googletagmanager.com/gtag/js?id=G-B46GF8Q2KX'),filename
