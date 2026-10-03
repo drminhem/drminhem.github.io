@@ -8,13 +8,7 @@
   <title>Opening WhatsApp — Dr. Mohamad Minhem</title>
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B46GF8Q2KX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-B46GF8Q2KX');
-  </script>
+  <script src="/analytics.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +22,7 @@
       --muted:#51647a;
       --teal:#0e9aa7;
       --teal-dark:#0b8290;
-      --wa:#25d366;
+      --wa:#0b7652;
       --line:rgba(15,45,74,.1);
     }
     *{box-sizing:border-box}
@@ -150,6 +144,7 @@
       document.getElementById('clinicName').textContent = copy.clinics[clinic];
       document.getElementById('continueLink').textContent = copy.continue;
       document.getElementById('backLink').textContent = copy.back;
+      document.getElementById('backLink').href = language === 'ar' ? '/ar/' : '/';
 
       const whatsappUrl = 'https://wa.me/96181902903?text=' + encodeURIComponent(copy.whatsapp[clinic]);
       const continueLink = document.getElementById('continueLink');
@@ -163,6 +158,7 @@
       }
 
       if (!preview) {
+        // Historical event name: WhatsApp opening intent, not a confirmed booking.
         gtag('event','appointment_booking',{
           clinic_location:clinic,
           booking_channel:'whatsapp',

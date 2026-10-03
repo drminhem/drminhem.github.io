@@ -1,0 +1,426 @@
+[
+  {
+    "slug": "stomach-cancer",
+    "batch": 2,
+    "sources": [
+      {
+        "title": "NCI — What Is Stomach Cancer?",
+        "url": "https://www.cancer.gov/types/stomach"
+      },
+      {
+        "title": "NCI — Stomach Cancer Diagnosis",
+        "url": "https://www.cancer.gov/types/stomach/diagnosis"
+      },
+      {
+        "title": "NCI — Stomach Cancer Treatment",
+        "url": "https://www.cancer.gov/types/stomach/treatment"
+      }
+    ],
+    "en": {
+      "name": "Stomach cancer",
+      "title": "Stomach cancer consultation",
+      "lead": "Make sense of your biopsy and scans, and discuss the options for a new diagnosis or a second opinion.",
+      "intro_title": "Understanding the exact diagnosis",
+      "intro": "Most stomach cancers are adenocarcinomas arising in the stomach lining. Other tumors, such as gastric lymphoma or a gastrointestinal stromal tumor (GIST), need different treatment discussions. The biopsy identifies the type; staging assesses its extent.",
+      "topics": [
+        {
+          "title": "Connect the biopsy with the scans",
+          "text": "Review the endoscopy, pathology and imaging reports together to clarify the tumor's location, type and stage, and identify questions still needing answers."
+        },
+        {
+          "title": "Check which biomarkers matter",
+          "text": "Discuss whether results such as HER2, PD-L1 and MSI/MMR are relevant to your situation. Particularly in advanced disease, these findings may help select targeted treatment or immunotherapy."
+        },
+        {
+          "title": "Understand the treatment sequence",
+          "text": "Discuss how surgery and drug treatment may fit together, or the options when surgery is unsuitable. Weigh current evidence, expected side effects and effects on eating alongside your health and preferences."
+        }
+      ],
+      "reports": [
+        "Endoscopy and biopsy/pathology reports, if available",
+        "Existing CT or other staging scans and reports",
+        "Any tumor biomarker test results",
+        "Previous treatment or surgery summaries and recent blood tests"
+      ],
+      "question_title": "Questions we can work through",
+      "questions": [
+        "Which findings determine the order of treatment in my case?",
+        "Could an additional biomarker result change my treatment options?",
+        "How might the proposed treatment affect eating and daily life?"
+      ]
+    },
+    "ar": {
+      "name": "سرطان المعدة",
+      "title": "استشارة سرطان المعدة",
+      "lead": "لفهم نتائج الخزعة والصور ومناقشة الخيارات بعد تشخيص جديد أو للحصول على رأي طبي ثانٍ.",
+      "intro_title": "فهم نوع الورم بدقة",
+      "intro": "معظم سرطانات المعدة من النوع الغدي الذي ينشأ في بطانتها. أما أورام المعدة الأخرى، مثل اللمفوما وأورام السدى المعدية المعوية (GIST)، فتختلف مناقشة علاجها. تحدد الخزعة نوع الورم، وتوضح فحوص تحديد المرحلة مدى انتشاره.",
+      "topics": [
+        {
+          "title": "ربط نتائج الخزعة بالصور",
+          "text": "مراجعة تقارير التنظير والخزعة والتصوير معاً لتوضيح موقع الورم ونوعه ومرحلته، وتحديد الأسئلة التي ما زالت تحتاج إلى إجابة."
+        },
+        {
+          "title": "تحديد المؤشرات الحيوية ذات الصلة",
+          "text": "مناقشة أهمية نتائج مثل HER2 وPD-L1 وMSI/MMR في حالتك. قد تساعد هذه النتائج، خصوصاً في المرض المتقدم، على اختيار علاج موجّه أو مناعي عندما يكون مناسباً."
+        },
+        {
+          "title": "فهم تسلسل العلاج",
+          "text": "مناقشة دور الجراحة والعلاج الدوائي وتسلسلهما، أو الخيارات عندما لا تكون الجراحة مناسبة. تشمل المناقشة الأدلة الحالية والآثار الجانبية وتأثير العلاج على الأكل، مع مراعاة صحتك وتفضيلاتك."
+        }
+      ],
+      "reports": [
+        "تقارير التنظير والخزعة، إن توفرت",
+        "صور الأشعة المقطعية أو فحوص تحديد المرحلة الأخرى وتقاريرها المتوفرة",
+        "نتائج فحوص المؤشرات الحيوية للورم، إن أُجريت",
+        "ملخصات العلاج أو الجراحة السابقة وتحاليل الدم الحديثة المتوفرة"
+      ],
+      "question_title": "أسئلة يمكن مناقشتها",
+      "questions": [
+        "ما النتائج التي تحدد ترتيب خطوات العلاج في حالتي؟",
+        "هل يمكن لفحص إضافي للمؤشرات الحيوية أن يغيّر خيارات العلاج؟",
+        "كيف قد يؤثر العلاج المقترح على الأكل والحياة اليومية؟"
+      ]
+    }
+  },
+  {
+    "slug": "lymphoma",
+    "batch": 2,
+    "sources": [
+      {
+        "title": "NCI — Lymphoma",
+        "url": "https://www.cancer.gov/types/lymphoma"
+      },
+      {
+        "title": "NCI — Non-Hodgkin Lymphoma Treatment",
+        "url": "https://www.cancer.gov/types/lymphoma/patient/adult-nhl-treatment-pdq"
+      },
+      {
+        "title": "NCI — Hodgkin Lymphoma Treatment",
+        "url": "https://www.cancer.gov/types/lymphoma/patient/adult-hodgkin-treatment-pdq"
+      }
+    ],
+    "en": {
+      "name": "Lymphoma",
+      "title": "Lymphoma consultation",
+      "lead": "Understand your lymphoma subtype and how the biopsy, scans and symptoms shape the treatment discussion.",
+      "intro_title": "The subtype makes a difference",
+      "intro": "Lymphoma includes Hodgkin lymphoma and many non-Hodgkin subtypes. Some non-Hodgkin lymphomas grow slowly, while others progress more quickly. Their evaluation and treatment plans differ.",
+      "topics": [
+        {
+          "title": "Clarify the pathology",
+          "text": "Review the tissue biopsy and cell-marker results to understand the precise subtype, and discuss whether further pathology or molecular testing could clarify the diagnosis."
+        },
+        {
+          "title": "Put the stage in context",
+          "text": "Review available scans, blood tests and symptoms to explain disease extent and treatment goals. Fever, night sweats and weight changes can add important context."
+        },
+        {
+          "title": "Discuss subtype-specific options",
+          "text": "Compare relevant chemotherapy, antibody, targeted or immunotherapy options according to subtype and prior treatment. For selected slow-growing lymphomas, monitoring may be discussed. Decisions also consider current evidence, side effects, health and your priorities."
+        }
+      ],
+      "reports": [
+        "Lymph-node or other tissue biopsy report, if available",
+        "Existing cell-marker, flow-cytometry or molecular results",
+        "Existing PET/CT or CT scans and reports",
+        "Recent blood tests and previous treatment summaries, if available"
+      ],
+      "question_title": "Questions we can work through",
+      "questions": [
+        "Is the lymphoma subtype fully established from my biopsy?",
+        "Which findings support treatment now or a monitored approach?",
+        "How will we know whether the lymphoma is responding to treatment?"
+      ]
+    },
+    "ar": {
+      "name": "اللمفوما",
+      "title": "استشارة اللمفوما",
+      "lead": "لفهم نوع اللمفوما وكيف تؤثر نتائج الخزعة والصور والأعراض في مناقشة العلاج.",
+      "intro_title": "نوع اللمفوما يوجّه الخطة",
+      "intro": "تشمل اللمفوما لمفوما هودجكين وأنواعاً عديدة من اللمفوما اللاهودجكينية. بعض الأنواع اللاهودجكينية بطيئة النمو، بينما يتطور بعضها الآخر بسرعة أكبر. لذلك تختلف فحوص تقييمها وخطط علاجها.",
+      "topics": [
+        {
+          "title": "توضيح نتيجة الخزعة",
+          "text": "مراجعة خزعة النسيج ونتائج الواسمات الخلوية لفهم النوع الدقيق، ومناقشة الحاجة إلى فحوص نسيجية أو جزيئية إضافية لتوضيح التشخيص."
+        },
+        {
+          "title": "فهم المرحلة ضمن الصورة الكاملة",
+          "text": "مراجعة الصور وتحاليل الدم والأعراض المتوفرة لشرح مدى المرض وأهداف العلاج. قد تضيف الحمى والتعرق الليلي وتغيرات الوزن معلومات مهمة إلى التقييم."
+        },
+        {
+          "title": "خيارات تناسب النوع المحدد",
+          "text": "مناقشة ما يناسب النوع والعلاجات السابقة من علاج كيميائي أو أجسام مضادة أو علاج موجّه أو مناعي. قد تكون المراقبة خياراً في حالات مختارة من اللمفوما البطيئة، مع مراعاة الأدلة الحالية والآثار الجانبية وصحتك وأولوياتك."
+        }
+      ],
+      "reports": [
+        "تقرير خزعة العقدة اللمفاوية أو النسيج الآخر، إن توفر",
+        "نتائج الواسمات الخلوية أو التدفق الخلوي أو الفحوص الجزيئية المتوفرة",
+        "صور PET/CT أو الأشعة المقطعية وتقاريرها المتوفرة",
+        "تحاليل الدم الحديثة وملخصات العلاج السابق، إن توفرت"
+      ],
+      "question_title": "أسئلة يمكن مناقشتها",
+      "questions": [
+        "هل تكفي نتيجة الخزعة لتحديد نوع اللمفوما بدقة؟",
+        "ما النتائج التي تدعم بدء العلاج أو الاكتفاء بالمراقبة الطبية؟",
+        "كيف نعرف ما إذا كانت اللمفوما تستجيب للعلاج؟"
+      ]
+    }
+  },
+  {
+    "slug": "leukemia",
+    "batch": 2,
+    "sources": [
+      {
+        "title": "NCI — Leukemia",
+        "url": "https://www.cancer.gov/types/leukemia"
+      },
+      {
+        "title": "NCI — Acute Myeloid Leukemia Treatment",
+        "url": "https://www.cancer.gov/types/leukemia/patient/adult-aml-treatment-pdq"
+      },
+      {
+        "title": "NCI — Chronic Lymphocytic Leukemia Treatment",
+        "url": "https://www.cancer.gov/types/leukemia/patient/cll-treatment-pdq"
+      },
+      {
+        "title": "NCI — Chronic Myeloid Leukemia Treatment",
+        "url": "https://www.cancer.gov/types/leukemia/patient/cml-treatment-pdq"
+      }
+    ],
+    "en": {
+      "name": "Leukemia",
+      "title": "Leukemia consultation",
+      "lead": "Review blood and bone-marrow findings and understand the questions that matter for your particular leukemia.",
+      "intro_title": "Acute and chronic leukemia differ",
+      "intro": "Leukemia is a group of cancers affecting blood-forming cells. Acute leukemias can progress rapidly; chronic types have different patterns. The exact cell type and genetic findings help guide the plan. If acute leukemia is suspected or newly diagnosed, seek prompt medical assessment rather than waiting for a routine appointment.",
+      "topics": [
+        {
+          "title": "Understand the blood and marrow results",
+          "text": "Review blood counts, the blood film and any marrow or flow-cytometry reports to clarify the subtype and current disease status."
+        },
+        {
+          "title": "Explain the role of genetic tests",
+          "text": "Discuss relevant chromosome and molecular findings. For example, BCR::ABL1 is central to chronic myeloid leukemia, while other genetic changes can influence treatment choices in acute myeloid leukemia."
+        },
+        {
+          "title": "Match the discussion to the subtype",
+          "text": "Compare evidence-informed options and monitoring needs, including targeted medicines where appropriate. Some asymptomatic chronic lymphocytic leukemias are monitored; acute leukemia requires a different approach. Your health, prior treatment, side effects and preferences shape shared decisions."
+        }
+      ],
+      "reports": [
+        "Recent and earlier blood counts and blood-film reports, if available",
+        "Any bone-marrow and flow-cytometry reports",
+        "Existing chromosome and molecular test results",
+        "Previous treatment summaries and current medication list"
+      ],
+      "question_title": "Questions we can work through",
+      "questions": [
+        "What is my exact leukemia subtype, and which results establish it?",
+        "Which test will be used to assess my response to treatment?",
+        "Do my leukemia's genetic results support a targeted medicine?"
+      ]
+    },
+    "ar": {
+      "name": "ابيضاض الدم (اللوكيميا)",
+      "title": "استشارة ابيضاض الدم (اللوكيميا)",
+      "lead": "لمراجعة نتائج الدم ونخاع العظم وفهم الأسئلة المهمة لنوع اللوكيميا لديك.",
+      "intro_title": "اختلاف اللوكيميا الحادة والمزمنة",
+      "intro": "اللوكيميا مجموعة من السرطانات التي تصيب الخلايا المكوّنة للدم. قد تتطور الأنواع الحادة بسرعة، بينما تسلك الأنواع المزمنة مسارات مختلفة. يساعد تحديد نوع الخلايا والتغيرات الجينية على توجيه الخطة. عند الاشتباه باللوكيميا الحادة أو تشخيصها حديثاً، اطلب تقييماً طبياً عاجلاً ولا تنتظر موعد استشارة روتينياً.",
+      "topics": [
+        {
+          "title": "فهم نتائج الدم ونخاع العظم",
+          "text": "مراجعة تعداد الدم ولطاخة الدم وأي تقارير لنخاع العظم أو التدفق الخلوي، لتوضيح النوع الدقيق ووضع المرض الحالي."
+        },
+        {
+          "title": "شرح دور الفحوص الجينية",
+          "text": "مناقشة نتائج الكروموسومات والفحوص الجزيئية ذات الصلة. مثلاً، يؤدي BCR::ABL1 دوراً أساسياً في اللوكيميا النخاعية المزمنة، بينما قد تؤثر تغيرات جينية أخرى في اختيار علاج اللوكيميا النخاعية الحادة."
+        },
+        {
+          "title": "مناقشة تناسب نوع المرض",
+          "text": "مقارنة الخيارات المستندة إلى الأدلة ومتطلبات المتابعة، بما فيها الأدوية الموجّهة عندما تناسب الحالة. تُراقَب بعض حالات اللوكيميا اللمفاوية المزمنة دون أعراض، أما الحادة فلها نهج مختلف. تُراعى صحتك وعلاجاتك السابقة والآثار الجانبية وتفضيلاتك عند اتخاذ القرار معاً."
+        }
+      ],
+      "reports": [
+        "نتائج تعداد الدم الحديثة والسابقة وتقارير لطاخة الدم، إن توفرت",
+        "تقارير نخاع العظم والتدفق الخلوي، إن أُجريت",
+        "نتائج فحوص الكروموسومات والفحوص الجزيئية المتوفرة",
+        "ملخصات العلاج السابق وقائمة الأدوية الحالية"
+      ],
+      "question_title": "أسئلة يمكن مناقشتها",
+      "questions": [
+        "ما نوع اللوكيميا لديّ تحديداً، وما النتائج التي تثبته؟",
+        "ما الفحص الذي سيُستخدم لتقييم الاستجابة للعلاج؟",
+        "هل تدعم النتائج الجينية للوكيميا لديّ استخدام دواء موجّه؟"
+      ]
+    }
+  },
+  {
+    "slug": "multiple-myeloma",
+    "batch": 2,
+    "sources": [
+      {
+        "title": "NCI — Plasma Cell Neoplasms (Including Multiple Myeloma) Treatment",
+        "url": "https://www.cancer.gov/types/myeloma/patient/myeloma-treatment-pdq"
+      },
+      {
+        "title": "NCI — Advances in Multiple Myeloma Research",
+        "url": "https://www.cancer.gov/types/myeloma/research"
+      },
+      {
+        "title": "NIH MedlinePlus — Multiple Myeloma",
+        "url": "https://medlineplus.gov/multiplemyeloma.html"
+      }
+    ],
+    "en": {
+      "name": "Multiple myeloma",
+      "title": "Multiple myeloma consultation",
+      "lead": "Bring the protein, marrow and imaging findings together to understand your diagnosis and treatment choices.",
+      "intro_title": "Understanding plasma-cell disease",
+      "intro": "Myeloma arises from plasma cells in the bone marrow and can affect bones, blood counts and kidney function. Related conditions, including MGUS and smoldering myeloma, differ from active myeloma and need their own assessment.",
+      "topics": [
+        {
+          "title": "Clarify the diagnosis and risk findings",
+          "text": "Review marrow, protein and imaging results to understand the diagnosis. Discuss how chromosome tests, including FISH when available, contribute to the assessment."
+        },
+        {
+          "title": "Review relevant treatment combinations",
+          "text": "Compare appropriate medicine combinations, including targeted drugs and antibody-based treatments. Current evidence, kidney function, previous therapy, side effects and your priorities all matter when weighing the options."
+        },
+        {
+          "title": "Plan what needs monitoring",
+          "text": "Explain how protein measurements and other tests track response, and discuss bone health, kidney function, anemia and infection concerns alongside the cancer treatment plan."
+        }
+      ],
+      "reports": [
+        "Any marrow biopsy and chromosome/FISH reports",
+        "Existing blood or urine protein studies and free light-chain results",
+        "Recent blood counts, calcium and kidney-function tests, if available",
+        "Existing bone imaging and previous treatment summaries"
+      ],
+      "question_title": "Questions we can work through",
+      "questions": [
+        "Which findings establish whether my myeloma is active?",
+        "How do my kidney function and previous treatments affect the options?",
+        "Which protein measurements will help track my response?"
+      ]
+    },
+    "ar": {
+      "name": "الورم النقوي المتعدد (المايلوما)",
+      "title": "استشارة الورم النقوي المتعدد (المايلوما)",
+      "lead": "لربط نتائج البروتينات ونخاع العظم والصور، وفهم التشخيص وخيارات العلاج.",
+      "intro_title": "فهم مرض الخلايا البلازمية",
+      "intro": "تنشأ المايلوما من الخلايا البلازمية في نخاع العظم، وقد تؤثر في العظام وتعداد الدم ووظائف الكلى. وتختلف عنها حالات مرتبطة بها، مثل الاعتلال الغامائي وحيد النسيلة غير محدد الأهمية (MGUS) والمايلوما الكامنة، ولكل منها تقييمه الخاص.",
+      "topics": [
+        {
+          "title": "توضيح التشخيص ونتائج تقييم الخطورة",
+          "text": "مراجعة نتائج نخاع العظم والبروتينات والتصوير لفهم التشخيص، وشرح دور فحوص الكروموسومات، ومنها FISH إن توفر، في التقييم."
+        },
+        {
+          "title": "مراجعة العلاجات المركّبة المناسبة",
+          "text": "مقارنة مجموعات الأدوية المناسبة، بما فيها الأدوية الموجّهة والعلاجات القائمة على الأجسام المضادة. تؤخذ الأدلة الحالية ووظائف الكلى والعلاجات السابقة والآثار الجانبية وأولوياتك في الاعتبار عند مناقشة الخيارات."
+        },
+        {
+          "title": "تحديد ما تحتاجه المتابعة",
+          "text": "شرح كيفية استخدام قياسات البروتينات والفحوص الأخرى لتقييم الاستجابة، ومناقشة صحة العظام ووظائف الكلى وفقر الدم والعدوى إلى جانب خطة علاج السرطان."
+        }
+      ],
+      "reports": [
+        "تقارير خزعة نخاع العظم وفحوص الكروموسومات أو FISH، إن توفرت",
+        "فحوص بروتينات الدم أو البول والسلاسل الخفيفة الحرة المتوفرة",
+        "نتائج تعداد الدم والكالسيوم ووظائف الكلى الحديثة، إن توفرت",
+        "صور العظام وملخصات العلاج السابق المتوفرة"
+      ],
+      "question_title": "أسئلة يمكن مناقشتها",
+      "questions": [
+        "ما النتائج التي تحدد ما إذا كانت المايلوما نشطة لديّ؟",
+        "كيف تؤثر وظائف الكلى والعلاجات السابقة في الخيارات المتاحة لحالتي؟",
+        "ما قياسات البروتينات التي تساعد على متابعة الاستجابة؟"
+      ]
+    }
+  },
+  {
+    "slug": "pancreatic-cancer",
+    "batch": 2,
+    "sources": [
+      {
+        "title": "NCI — Pancreatic Cancer and Pancreatic Neuroendocrine Tumor",
+        "url": "https://www.cancer.gov/types/pancreatic"
+      },
+      {
+        "title": "NCI — Pancreatic Cancer Testing & Diagnosis",
+        "url": "https://www.cancer.gov/types/pancreatic/diagnosis"
+      },
+      {
+        "title": "NCI — Pancreatic Cancer Treatment",
+        "url": "https://www.cancer.gov/types/pancreatic/treatment"
+      }
+    ],
+    "en": {
+      "name": "Pancreatic cancer",
+      "title": "Pancreatic cancer consultation",
+      "lead": "Understand what the scans and biopsy show, what may guide treatment selection, and the questions for a second opinion.",
+      "intro_title": "Type and extent guide the discussion",
+      "intro": "Pancreatic cancers include different tumor types. The common exocrine cancers and pancreatic neuroendocrine tumors have different treatment pathways. The precise diagnosis and extent of disease shape the next discussion.",
+      "topics": [
+        {
+          "title": "Review the diagnosis and surgical assessment",
+          "text": "Bring pathology and imaging together to explain disease extent and whether surgery may be part of the plan. Discuss how chemotherapy may fit before or after an operation when surgery is appropriate."
+        },
+        {
+          "title": "Discuss tumor and inherited-gene testing",
+          "text": "Explain the different roles of tumor molecular profiling and inherited-gene testing. Certain results can affect targeted-treatment choices; immunotherapy is relevant only for selected tumors with suitable biomarkers, such as MSI-H/dMMR."
+        },
+        {
+          "title": "Weigh the plan around your needs",
+          "text": "Compare evidence-informed options in light of your overall health, previous treatment and preferences, including expected side effects and how response and organ function will be monitored."
+        }
+      ],
+      "reports": [
+        "Biopsy or surgical pathology report, if available",
+        "Existing pancreas CT/MRI scans and reports",
+        "Any tumor molecular or inherited-gene test results",
+        "Previous treatment summaries and recent liver-function and CA 19-9 results, if available"
+      ],
+      "question_title": "Questions we can work through",
+      "questions": [
+        "What do the scans mean for the possible role of surgery?",
+        "Could tumor or inherited-gene testing change my treatment options?",
+        "How do the expected benefits and side effects fit my overall health?"
+      ]
+    },
+    "ar": {
+      "name": "سرطان البنكرياس",
+      "title": "استشارة سرطان البنكرياس",
+      "lead": "لفهم نتائج الصور والخزعة وما قد يوجّه اختيار العلاج، ومناقشة أسئلتك عند طلب رأي طبي ثانٍ.",
+      "intro_title": "نوع الورم ومداه يوجّهان المناقشة",
+      "intro": "توجد أنواع مختلفة من أورام البنكرياس. تختلف خطط علاج السرطانات الشائعة الناشئة من الخلايا خارجية الإفراز عن خطط الأورام العصبية الصماوية في البنكرياس. يوجّه التشخيص الدقيق ومدى المرض مناقشة الخطوات التالية.",
+      "topics": [
+        {
+          "title": "مراجعة التشخيص وتقييم دور الجراحة",
+          "text": "ربط نتائج الخزعة والصور لشرح مدى المرض وإمكان إدراج الجراحة في الخطة، ومناقشة دور العلاج الكيميائي قبل العملية أو بعدها عندما تكون الجراحة مناسبة."
+        },
+        {
+          "title": "مناقشة فحوص الورم والجينات الموروثة",
+          "text": "شرح الفرق بين التحليل الجزيئي للورم وفحص التغيرات الجينية الموروثة. قد تؤثر بعض النتائج في خيارات العلاج الموجّه، بينما يناسب العلاج المناعي أوراماً مختارة تحمل مؤشرات مثل MSI-H/dMMR."
+        },
+        {
+          "title": "موازنة الخيارات وفق احتياجاتك",
+          "text": "مقارنة الخيارات المستندة إلى الأدلة في ضوء صحتك العامة والعلاجات السابقة وتفضيلاتك، مع مناقشة الآثار الجانبية المتوقعة وكيفية متابعة الاستجابة ووظائف الأعضاء."
+        }
+      ],
+      "reports": [
+        "تقرير الخزعة أو الفحص النسيجي بعد الجراحة، إن توفر",
+        "صور الأشعة المقطعية أو الرنين المغناطيسي للبنكرياس وتقاريرها المتوفرة",
+        "نتائج التحليل الجزيئي للورم أو فحص الجينات الموروثة، إن أُجريت",
+        "ملخصات العلاج السابق ونتائج وظائف الكبد وCA 19-9 الحديثة، إن توفرت"
+      ],
+      "question_title": "أسئلة يمكن مناقشتها",
+      "questions": [
+        "ماذا تعني نتائج الصور بالنسبة إلى الدور المحتمل للجراحة؟",
+        "هل يمكن لفحوص الورم أو الجينات الموروثة أن تغيّر خيارات العلاج؟",
+        "كيف تُوازَن الفوائد المتوقعة والآثار الجانبية في ضوء صحتي العامة؟"
+      ]
+    }
+  }
+]

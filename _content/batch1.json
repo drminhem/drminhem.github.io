@@ -1,0 +1,420 @@
+[
+  {
+    "slug": "breast-cancer",
+    "batch": 1,
+    "sources": [
+      {
+        "title": "NCI: How Breast Cancer Is Diagnosed",
+        "url": "https://www.cancer.gov/types/breast/diagnosis"
+      },
+      {
+        "title": "NCI: Tests for Breast Cancer Biomarkers",
+        "url": "https://www.cancer.gov/types/breast/diagnosis/breast-cancer-biomarker-tests"
+      },
+      {
+        "title": "NCI: Breast Cancer Treatment",
+        "url": "https://www.cancer.gov/types/breast/treatment"
+      }
+    ],
+    "en": {
+      "name": "Breast cancer",
+      "title": "Breast cancer consultation",
+      "lead": "Unsure what ER, PR or HER2 means for your care? Review your breast cancer results and proposed plan, including a second opinion.",
+      "intro_title": "Understanding your breast cancer results",
+      "intro": "Breast cancers differ in their tissue features and hormone receptor results. The biopsy, imaging and extent of disease help explain which treatment approaches may be relevant.",
+      "topics": [
+        {
+          "title": "What do my biopsy results mean?",
+          "text": "Review the type and grade, estrogen and progesterone receptors (ER/PR), and HER2 protein results, alongside imaging and lymph-node findings."
+        },
+        {
+          "title": "Which options fit my breast cancer?",
+          "text": "Discuss the roles of surgery, radiation and medicines. Hormone treatment, HER2-targeted treatment and immunotherapy apply to selected subtypes and situations, depending on the results and stage."
+        },
+        {
+          "title": "Why this treatment plan?",
+          "text": "Clarify treatment order, possible side effects and any missing information. A second opinion considers current evidence, your health and preferences, and can help you discuss the plan with your treating team."
+        }
+      ],
+      "reports": [
+        "Existing biopsy or surgical pathology report, including ER, PR and HER2 results.",
+        "Mammogram, ultrasound or breast MRI reports and images already obtained.",
+        "Any existing lymph-node reports, staging scans and treatment summaries."
+      ],
+      "question_title": "Questions about your breast cancer plan",
+      "questions": [
+        "How do my hormone receptor and HER2 results affect the options?",
+        "What is the reason for the proposed order of surgery and other treatments?",
+        "What information is still needed to assess the proposed plan?"
+      ]
+    },
+    "ar": {
+      "name": "سرطان الثدي",
+      "title": "استشارة لسرطان الثدي",
+      "lead": "ماذا تعني نتائج ER وPR وHER2 بالنسبة إلى علاجك؟ استشارة لمراجعة نتائج سرطان الثدي والخطة المقترحة، أو للحصول على رأي ثانٍ.",
+      "intro_title": "فهم نتائج فحوص سرطان الثدي",
+      "intro": "تختلف سرطانات الثدي في خصائص الأنسجة ونتائج مستقبلات الهرمونات. تساعد الخزعة والصور ومدى انتشار المرض في توضيح الخيارات العلاجية التي قد تناسب الحالة.",
+      "topics": [
+        {
+          "title": "ماذا تعني نتائج الخزعة؟",
+          "text": "مراجعة نوع الورم ودرجته، ومستقبلات الإستروجين والبروجستيرون (ER/PR)، وبروتين HER2، مع نتائج الصور والعقد اللمفاوية."
+        },
+        {
+          "title": "ما الخيارات المناسبة لنوع سرطان الثدي لديّ؟",
+          "text": "مناقشة دور الجراحة والأشعة والأدوية. يُستخدم العلاج الهرموني والعلاج الموجّه لبروتين HER2 والعلاج المناعي في أنواع وحالات محددة، بحسب النتائج ومرحلة المرض."
+        },
+        {
+          "title": "لماذا اقتُرحت هذه الخطة؟",
+          "text": "توضيح ترتيب العلاجات وآثارها الجانبية المحتملة والمعلومات الناقصة. يراعي الرأي الثاني الأدلة الحالية وصحتك وتفضيلاتك، وقد يساعدك في مناقشة الخطة مع فريقك المعالج."
+        }
+      ],
+      "reports": [
+        "تقرير الخزعة أو فحص الأنسجة بعد الجراحة، بما فيه نتائج ER وPR وHER2، إن وُجد.",
+        "تقارير وصور الماموغرام أو الألتراساوند أو الرنين المغناطيسي للثدي التي أُجريت سابقاً.",
+        "تقارير العقد اللمفاوية وصور تحديد المرحلة وملخصات العلاجات السابقة، إن وُجدت."
+      ],
+      "question_title": "أسئلة عن خطة علاج سرطان الثدي",
+      "questions": [
+        "كيف تؤثر نتائج مستقبلات الهرمونات وHER2 في الخيارات المتاحة؟",
+        "ما سبب ترتيب الجراحة والعلاجات الأخرى بهذه الطريقة؟",
+        "ما المعلومات التي لا تزال مطلوبة لتقييم الخطة المقترحة؟"
+      ]
+    }
+  },
+  {
+    "slug": "lung-cancer",
+    "batch": 1,
+    "sources": [
+      {
+        "title": "NCI: Non-Small Cell Lung Cancer Treatment — Patient Version",
+        "url": "https://www.cancer.gov/types/lung/patient/non-small-cell-lung-treatment-pdq"
+      },
+      {
+        "title": "NCI: Small Cell Lung Cancer Treatment — Patient Version",
+        "url": "https://www.cancer.gov/types/lung/patient/small-cell-lung-treatment-pdq"
+      },
+      {
+        "title": "NCI: Biomarker Testing for Cancer Treatment",
+        "url": "https://www.cancer.gov/about-cancer/treatment/types/biomarker-testing-cancer-treatment"
+      }
+    ],
+    "en": {
+      "name": "Lung cancer",
+      "title": "Lung cancer consultation",
+      "lead": "A lung cancer report may leave questions about subtype and tumor tests. Review what the results mean for your plan or seek a second opinion.",
+      "intro_title": "Why the exact lung cancer type matters",
+      "intro": "Small cell and non-small cell lung cancers have different treatment approaches. The tissue diagnosis and extent of disease are essential starting points; a scan alone does not provide every answer.",
+      "topics": [
+        {
+          "title": "Which lung cancer type and stage do I have?",
+          "text": "Review the biopsy and imaging together, including whether the diagnosis is small cell or non-small cell cancer and where disease has been found."
+        },
+        {
+          "title": "Could tumor tests affect my options?",
+          "text": "For non-small cell cancer, discuss whether molecular or other biomarker testing could inform treatment. Targeted therapy and immunotherapy are options in specific settings, guided by cancer features, stage and test results."
+        },
+        {
+          "title": "How does the plan fit my health?",
+          "text": "Review current options and their trade-offs alongside breathing symptoms, overall health and preferences. A second opinion can clarify the proposed plan and questions for your treating team."
+        }
+      ],
+      "reports": [
+        "Existing biopsy or cytology report identifying the cancer type.",
+        "Chest and other staging scans already obtained, with reports and images.",
+        "Any completed tumor biomarker or molecular test reports.",
+        "Existing treatment summaries, including treatment dates."
+      ],
+      "question_title": "Questions about your lung cancer results",
+      "questions": [
+        "Is the precise cancer type established, and what does the stage mean?",
+        "Could any missing biomarker result change the proposed treatment?",
+        "How do my breathing symptoms and overall health affect the choices?"
+      ]
+    },
+    "ar": {
+      "name": "سرطان الرئة",
+      "title": "استشارة لسرطان الرئة",
+      "lead": "قد يترك تقرير سرطان الرئة أسئلة عن النوع الدقيق وفحوص الورم. استشارة لفهم أثر النتائج في الخطة أو للحصول على رأي ثانٍ.",
+      "intro_title": "لماذا يهم تحديد نوع سرطان الرئة؟",
+      "intro": "تختلف طرق علاج سرطان الرئة صغير الخلايا عن غير صغير الخلايا. يبدأ التقييم بتشخيص الأنسجة وتحديد مدى انتشار المرض؛ فالصورة وحدها لا تجيب عن جميع الأسئلة.",
+      "topics": [
+        {
+          "title": "ما نوع سرطان الرئة وما مرحلته؟",
+          "text": "مراجعة الخزعة والصور معاً، بما يشمل تحديد ما إذا كان السرطان صغير الخلايا أو غير صغير الخلايا، والأماكن التي ظهر فيها المرض."
+        },
+        {
+          "title": "هل تؤثر فحوص الورم في خياراتي؟",
+          "text": "في السرطان غير صغير الخلايا، نناقش ما إذا كانت الفحوص الجزيئية أو غيرها من المؤشرات الحيوية تساعد في اختيار العلاج. قد يناسب العلاج الموجّه أو المناعي حالات محددة وفق خصائص الورم والمرحلة والنتائج."
+        },
+        {
+          "title": "كيف تراعي الخطة حالتي الصحية؟",
+          "text": "مناقشة الخيارات الحالية ومزاياها ومخاطرها مع مراعاة أعراض التنفس وصحتك العامة وتفضيلاتك. قد يوضح الرأي الثاني الخطة المقترحة والأسئلة التي يمكنك مناقشتها مع فريقك المعالج."
+        }
+      ],
+      "reports": [
+        "تقرير الخزعة أو فحص الخلايا الذي يحدد نوع السرطان، إن وُجد.",
+        "تقارير وصور الصدر وغيرها من صور تحديد المرحلة التي أُجريت سابقاً.",
+        "نتائج فحوص المؤشرات الحيوية أو الفحوص الجزيئية للورم، إذا أُجريت.",
+        "ملخصات العلاجات السابقة وتواريخها، إن توفرت."
+      ],
+      "question_title": "أسئلة عن نتائج سرطان الرئة",
+      "questions": [
+        "هل تحدد نوع السرطان بدقة، وماذا تعني مرحلة المرض؟",
+        "هل يمكن لنتيجة مؤشر حيوي لم تصدر بعد أن تغيّر الخطة المقترحة؟",
+        "كيف تؤثر أعراض التنفس وصحتي العامة في الخيارات؟"
+      ]
+    }
+  },
+  {
+    "slug": "colorectal-cancer",
+    "batch": 1,
+    "sources": [
+      {
+        "title": "NCI: Colon Cancer Treatment — Patient Version",
+        "url": "https://www.cancer.gov/types/colorectal/patient/colon-treatment-pdq"
+      },
+      {
+        "title": "NCI: Rectal Cancer Treatment — Patient Version",
+        "url": "https://www.cancer.gov/types/colorectal/patient/rectal-treatment-pdq"
+      },
+      {
+        "title": "NCI: Colon Cancer Treatment — Health Professional Version",
+        "url": "https://www.cancer.gov/types/colorectal/hp/colon-treatment-pdq"
+      }
+    ],
+    "en": {
+      "name": "Colorectal cancer",
+      "title": "Colon and rectal cancer consultation",
+      "lead": "Does the tumor location change the plan? Review colon or rectal cancer results and treatment order, including a second opinion.",
+      "intro_title": "Colon and rectal cancer are not identical",
+      "intro": "The colon and rectum are different parts of the large bowel. The tumor's exact location and extent affect planning, including the possible role of radiation in rectal cancer.",
+      "topics": [
+        {
+          "title": "What do the location and stage mean?",
+          "text": "Review the colonoscopy, biopsy and scans to clarify location, stage and any lymph-node involvement. Rectal cancer planning may also draw on a pelvic MRI."
+        },
+        {
+          "title": "What can the tumor tests tell us?",
+          "text": "Review mismatch repair (MMR) and microsatellite instability (MSI) results, which assess the tumor's DNA repair system. Immunotherapy may be relevant for metastatic tumors with specific abnormal results."
+        },
+        {
+          "title": "Why are treatments planned in this order?",
+          "text": "Review the roles of surgery and medicines, and radiation when appropriate for rectal cancer. Discuss current evidence, potential bowel effects, your health and preferences, and questions for the treating team."
+        }
+      ],
+      "reports": [
+        "Existing colonoscopy and biopsy reports, and surgical pathology if surgery has occurred.",
+        "Available scan reports and images, including pelvic MRI for rectal cancer if performed.",
+        "Any MMR, MSI or other tumor molecular test results.",
+        "Existing treatment summaries and blood-test results."
+      ],
+      "question_title": "Questions about colon or rectal cancer care",
+      "questions": [
+        "How does the tumor's location affect the order of treatment?",
+        "Have MMR or MSI results been reported, and do they affect my options?",
+        "What bowel-function effects should I discuss before choosing a plan?"
+      ]
+    },
+    "ar": {
+      "name": "سرطان القولون والمستقيم",
+      "title": "استشارة لسرطان القولون والمستقيم",
+      "lead": "هل يغيّر موقع الورم الخطة؟ استشارة لمراجعة نتائج سرطان القولون أو المستقيم وترتيب العلاج، أو للحصول على رأي ثانٍ.",
+      "intro_title": "الفرق بين سرطان القولون وسرطان المستقيم",
+      "intro": "القولون والمستقيم جزءان مختلفان من الأمعاء الغليظة. يؤثر موقع الورم بدقة ومدى انتشاره في الخطة، بما في ذلك الدور المحتمل للعلاج الإشعاعي في سرطان المستقيم.",
+      "topics": [
+        {
+          "title": "ماذا يعني موقع الورم ومرحلته؟",
+          "text": "مراجعة تنظير القولون والخزعة والصور لتوضيح موقع الورم ومرحلته وأي إصابة للعقد اللمفاوية. وقد يفيد تصوير الحوض بالرنين المغناطيسي في التخطيط لعلاج سرطان المستقيم."
+        },
+        {
+          "title": "ماذا تخبرنا فحوص الورم؟",
+          "text": "مناقشة فحوص إصلاح أخطاء الحمض النووي (MMR) أو عدم استقرار السواتل المجهرية (MSI). قد تؤثر النتائج في اختيار العلاج؛ وقد يناسب العلاج المناعي بعض الأورام المنتشرة التي تُظهر خللاً محدداً في هذه الفحوص."
+        },
+        {
+          "title": "لماذا رُتّبت العلاجات بهذه الطريقة؟",
+          "text": "مراجعة دور الجراحة والأدوية والأشعة حين تكون مناسبة لسرطان المستقيم. تشمل المناقشة الأدلة الحالية والتأثير المحتمل في وظيفة الأمعاء وصحتك وتفضيلاتك والأسئلة لفريقك المعالج."
+        }
+      ],
+      "reports": [
+        "تقارير تنظير القولون والخزعة وفحص الأنسجة بعد الجراحة إن أُجريت.",
+        "تقارير وصور الفحوص المتوفرة، ومنها رنين الحوض لسرطان المستقيم إذا أُجري.",
+        "نتائج MMR أو MSI أو أي فحوص جزيئية أخرى للورم، إن وُجدت.",
+        "ملخصات العلاجات السابقة ونتائج تحاليل الدم المتوفرة."
+      ],
+      "question_title": "أسئلة عن علاج القولون أو المستقيم",
+      "questions": [
+        "كيف يؤثر موقع الورم في ترتيب العلاجات؟",
+        "هل تتوفر نتائج MMR أو MSI، وهل تؤثر في خياراتي؟",
+        "ما التأثيرات المحتملة في وظيفة الأمعاء التي ينبغي مناقشتها قبل اختيار الخطة؟"
+      ]
+    }
+  },
+  {
+    "slug": "prostate-cancer",
+    "batch": 1,
+    "sources": [
+      {
+        "title": "NCI: Prostate Cancer Treatment — Patient Version",
+        "url": "https://www.cancer.gov/types/prostate/patient/prostate-treatment-pdq"
+      },
+      {
+        "title": "NCI: Prostate-Specific Antigen (PSA) Test",
+        "url": "https://www.cancer.gov/types/prostate/psa-fact-sheet"
+      },
+      {
+        "title": "NCI: Hormone Therapy for Prostate Cancer",
+        "url": "https://www.cancer.gov/types/prostate/prostate-hormone-therapy-fact-sheet"
+      }
+    ],
+    "en": {
+      "name": "Prostate cancer",
+      "title": "Prostate cancer consultation",
+      "lead": "Is monitoring or treatment appropriate for your diagnosis? Review prostate cancer results and the proposed plan, including a second opinion.",
+      "intro_title": "More than a PSA number",
+      "intro": "Prostate-specific antigen (PSA) is a blood marker used in assessment and follow-up. A PSA result alone does not describe the cancer; biopsy grade and extent of disease also matter.",
+      "topics": [
+        {
+          "title": "How do the biopsy and PSA fit together?",
+          "text": "Explain the biopsy's Gleason score or Grade Group, which describes cell appearance, alongside PSA trends and imaging."
+        },
+        {
+          "title": "Is monitoring or treatment appropriate?",
+          "text": "Discuss whether structured active surveillance is appropriate or treatment is indicated, based on the cancer, overall health and preferences. Surveillance involves planned monitoring, not simply ignoring the diagnosis."
+        },
+        {
+          "title": "Why might hormone treatment be proposed?",
+          "text": "If hormone treatment is proposed, clarify its purpose, duration and possible effects on energy, sexual function and bone health. A second opinion can help prepare questions for your treating team."
+        }
+      ],
+      "reports": [
+        "Existing biopsy report with Gleason score or Grade Group.",
+        "Dated PSA blood-test results, including earlier measurements.",
+        "Any prostate MRI or staging scan reports and images.",
+        "Existing treatment summaries, including hormone medicines and dates."
+      ],
+      "question_title": "Questions about prostate cancer decisions",
+      "questions": [
+        "How do the biopsy grade, PSA trend and scans fit together?",
+        "If hormone treatment is proposed, why is it needed and for how long?",
+        "Is active surveillance appropriate for my cancer, and what would monitoring involve?"
+      ]
+    },
+    "ar": {
+      "name": "سرطان البروستاتا",
+      "title": "استشارة لسرطان البروستاتا",
+      "lead": "هل تناسب حالتك المراقبة أم العلاج؟ استشارة لمراجعة نتائج سرطان البروستاتا والخطة المقترحة، أو للحصول على رأي ثانٍ.",
+      "intro_title": "التقييم لا يقتصر على رقم PSA",
+      "intro": "المستضد النوعي للبروستاتا (PSA) مؤشر يُقاس في الدم ويُستخدم في التقييم والمتابعة. لا تصف نتيجته وحدها طبيعة السرطان؛ فدرجة الورم في الخزعة ومدى انتشاره مهمان أيضاً.",
+      "topics": [
+        {
+          "title": "كيف ترتبط الخزعة بنتائج PSA؟",
+          "text": "شرح مجموع غليسون أو مجموعة الدرجة في تقرير الخزعة، وهي تصف مظهر الخلايا، مع تطور نتائج PSA والصور."
+        },
+        {
+          "title": "هل تناسبني المراقبة أم العلاج؟",
+          "text": "مناقشة مدى ملاءمة المراقبة النشطة المنظمة أو الحاجة إلى العلاج، بحسب خصائص السرطان والصحة العامة والتفضيلات. تعني المراقبة متابعة وفق خطة، وليست تجاهلاً للتشخيص."
+        },
+        {
+          "title": "لماذا قد يُقترح العلاج الهرموني؟",
+          "text": "إذا اقتُرح العلاج الهرموني، نوضح هدفه ومدته وتأثيراته المحتملة في النشاط والوظيفة الجنسية وصحة العظام. قد يساعد الرأي الثاني في تحضير الأسئلة لفريقك المعالج."
+        }
+      ],
+      "reports": [
+        "تقرير الخزعة المتوفر مع مجموع غليسون أو مجموعة الدرجة.",
+        "نتائج تحليل PSA مع تواريخها، بما فيها القياسات السابقة.",
+        "تقارير وصور رنين البروستاتا أو صور تحديد المرحلة إن أُجريت.",
+        "ملخصات العلاجات السابقة، بما فيها أسماء الأدوية الهرمونية وتواريخها."
+      ],
+      "question_title": "أسئلة عن قرارات علاج البروستاتا",
+      "questions": [
+        "كيف ترتبط درجة الخزعة وتطور PSA ونتائج الصور؟",
+        "إذا اقتُرح العلاج الهرموني، فما سبب الحاجة إليه وما مدته؟",
+        "هل تناسب المراقبة النشطة حالتي، وما الفحوص والمتابعة التي تتطلبها؟"
+      ]
+    }
+  },
+  {
+    "slug": "bladder-cancer",
+    "batch": 1,
+    "sources": [
+      {
+        "title": "NCI: Bladder Cancer Diagnosis",
+        "url": "https://www.cancer.gov/types/bladder/diagnosis"
+      },
+      {
+        "title": "NCI: Bladder Cancer Stages",
+        "url": "https://www.cancer.gov/types/bladder/stages"
+      },
+      {
+        "title": "NCI: Bladder Cancer Treatment",
+        "url": "https://www.cancer.gov/types/bladder/treatment"
+      }
+    ],
+    "en": {
+      "name": "Bladder cancer",
+      "title": "Bladder cancer consultation",
+      "lead": "Does the report show muscle involvement? Review your bladder cancer results and proposed plan, including a second opinion alongside care with your urologist.",
+      "intro_title": "Why muscle involvement matters",
+      "intro": "A key distinction is whether bladder cancer has reached the muscle layer of the bladder wall. This differs from tumor grade, which describes how abnormal the cells look.",
+      "topics": [
+        {
+          "title": "Has the cancer reached the bladder muscle?",
+          "text": "Review the biopsy or transurethral bladder tumor resection report, often called TURBT, and imaging. Explain what they show about cancer type, grade and muscle involvement."
+        },
+        {
+          "title": "How do the treatment approaches differ?",
+          "text": "Distinguish treatments placed inside the bladder from treatments acting throughout the body. Discuss where surgery, radiation or medicines fit the specific stage and prior treatment; immunotherapy is relevant in selected settings."
+        },
+        {
+          "title": "How can I weigh the choices?",
+          "text": "Consider current evidence, general health and preferences, including concerns about urinary function and side effects. A second opinion can clarify questions to discuss with your urologist and treating team."
+        }
+      ],
+      "reports": [
+        "Existing cystoscopy and TURBT procedure reports.",
+        "The biopsy or resection pathology report, including grade and muscle findings.",
+        "Any urinary-tract or staging scan reports and images.",
+        "Records of previous treatments, including medicines placed inside the bladder."
+      ],
+      "question_title": "Questions about your bladder cancer plan",
+      "questions": [
+        "Does the report establish whether the bladder muscle is involved?",
+        "What is the role of treatment inside the bladder versus treatment throughout the body in my case?",
+        "How could the proposed treatment affect urinary function and daily life?"
+      ]
+    },
+    "ar": {
+      "name": "سرطان المثانة",
+      "title": "استشارة لسرطان المثانة",
+      "lead": "هل يوضح التقرير إصابة عضلة المثانة؟ استشارة لمراجعة نتائج سرطان المثانة والخطة المقترحة، أو لطلب رأي ثانٍ إلى جانب الرعاية مع طبيب المسالك البولية.",
+      "intro_title": "لماذا تهم إصابة عضلة المثانة؟",
+      "intro": "من الفروق الأساسية تحديد ما إذا كان السرطان قد وصل إلى الطبقة العضلية في جدار المثانة. وهذا يختلف عن درجة الورم، التي تصف مدى اختلاف الخلايا عن شكلها الطبيعي.",
+      "topics": [
+        {
+          "title": "هل وصل السرطان إلى عضلة المثانة؟",
+          "text": "مراجعة تقرير الخزعة أو استئصال ورم المثانة عبر الإحليل، المعروف باختصار TURBT، مع الصور. وشرح ما توضح هذه النتائج عن نوع الورم ودرجته وإصابة العضلة."
+        },
+        {
+          "title": "ما الفرق بين طرق العلاج؟",
+          "text": "توضيح الفرق بين الأدوية التي توضع داخل المثانة والعلاجات التي تعمل في الجسم كله. ومناقشة دور الجراحة والأشعة والأدوية بحسب المرحلة والعلاج السابق؛ وقد يناسب العلاج المناعي حالات محددة."
+        },
+        {
+          "title": "كيف أوازن بين الخيارات؟",
+          "text": "مراعاة الأدلة الحالية والصحة العامة والتفضيلات، ومنها ما يتعلق بوظيفة التبول والآثار الجانبية. قد يساعد الرأي الثاني في توضيح الأسئلة لمناقشتها مع طبيب المسالك البولية والفريق المعالج."
+        }
+      ],
+      "reports": [
+        "تقارير تنظير المثانة واستئصال الورم عبر الإحليل إن أُجريا.",
+        "تقرير أنسجة الخزعة أو الاستئصال، بما فيه درجة الورم ونتائج فحص العضلة.",
+        "تقارير وصور المسالك البولية أو صور تحديد المرحلة، إن توفرت.",
+        "سجلات العلاجات السابقة، بما فيها الأدوية التي وُضعت داخل المثانة."
+      ],
+      "question_title": "أسئلة عن خطة علاج سرطان المثانة",
+      "questions": [
+        "هل يوضح التقرير بشكل كافٍ ما إذا كانت عضلة المثانة مصابة؟",
+        "ما دور العلاج داخل المثانة مقارنة بالعلاج الذي يعمل في الجسم كله في حالتي؟",
+        "كيف قد يؤثر العلاج المقترح في التبول والحياة اليومية؟"
+      ]
+    }
+  }
+]

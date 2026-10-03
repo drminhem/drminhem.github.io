@@ -1,15 +1,213 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://drminhem.com/</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/"/>
   </url>
   <url>
-    <loc>https://drminhem.com/tayouneh.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <loc>https://drminhem.com/ar/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/"/>
   </url>
   <url>
     <loc>https://drminhem.com/sodeco.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/sodeco.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/sodeco.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/sodeco.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/sodeco.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/sodeco.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/sodeco.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/sodeco.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/tayouneh.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/tayouneh.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/tayouneh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/tayouneh.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/tayouneh.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/tayouneh.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/tayouneh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/tayouneh.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/cancer-consultation.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/cancer-consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/cancer-consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/cancer-consultation.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/cancer-consultation.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/cancer-consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/cancer-consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/cancer-consultation.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/blood-cancer-consultation.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/blood-cancer-consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/blood-cancer-consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/blood-cancer-consultation.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/blood-cancer-consultation.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/blood-cancer-consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/blood-cancer-consultation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/blood-cancer-consultation.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/breast-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/breast-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/breast-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/breast-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/breast-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/breast-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/breast-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/breast-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/lung-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/lung-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/lung-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/lung-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/lung-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/lung-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/lung-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/lung-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/colorectal-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/colorectal-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/colorectal-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/colorectal-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/colorectal-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/colorectal-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/colorectal-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/colorectal-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/prostate-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/prostate-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/prostate-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/prostate-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/prostate-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/prostate-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/prostate-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/prostate-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/bladder-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/bladder-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/bladder-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/bladder-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/bladder-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/bladder-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/bladder-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/bladder-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/stomach-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/stomach-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/stomach-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/stomach-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/stomach-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/stomach-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/stomach-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/stomach-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/lymphoma.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/lymphoma.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/lymphoma.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/lymphoma.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/lymphoma.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/lymphoma.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/lymphoma.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/lymphoma.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/leukemia.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/leukemia.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/leukemia.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/leukemia.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/leukemia.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/leukemia.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/leukemia.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/leukemia.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/multiple-myeloma.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/multiple-myeloma.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/multiple-myeloma.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/multiple-myeloma.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/multiple-myeloma.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/multiple-myeloma.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/multiple-myeloma.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/multiple-myeloma.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/pancreatic-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/pancreatic-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/pancreatic-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/pancreatic-cancer.html"/>
+  </url>
+  <url>
+    <loc>https://drminhem.com/ar/pancreatic-cancer.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://drminhem.com/pancreatic-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://drminhem.com/ar/pancreatic-cancer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://drminhem.com/pancreatic-cancer.html"/>
   </url>
 </urlset>
