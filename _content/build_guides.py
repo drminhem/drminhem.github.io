@@ -6,6 +6,7 @@ from pathlib import Path
 from html import escape
 from datetime import date
 import argparse,json,re
+from consultation_layout import appointment_panel, refresh_static_pages
 ROOT=Path(__file__).resolve().parents[1]
 # Editorial dates are explicit: regeneration alone does not make a page or its sources newer.
 PAGE_DATES=json.loads((ROOT/'_content/page_dates.json').read_text())
@@ -94,18 +95,10 @@ def page_for(item,lang):
       <a class="langButton" data-language-link href="{other}{slug}.html" hreflang="{alternate}" lang="{alternate}">{c['language']}</a>
     </div>
   </div></nav>
-  <header class="hero"><div class="wrap heroGrid"><div>
-    <a class="backLink" href="{base}{parent}.html">{parent_label}</a>
-    <div class="eyebrow">{c['eyebrow']}</div>
-    <h1>{e(d['title'])}{' in Beirut' if lang=='en' else ' في بيروت'}</h1><p class="lead">{e(d['lead'])}</p>
-    <div class="actions"><a class="button whatsapp" href="/booking.html?clinic=sodeco&amp;lang={lang}" target="_blank" rel="noopener">{c['book_sodeco']}</a>
-      <a class="button secondary" href="tel:+96181902903" data-track="contact_phone">{c['call']} <span class="phoneLtr">+961 81 902 903</span></a></div>
-    <p class="clinicLocation">{c['sodeco_address']} · <a href="{base}tayouneh.html">{c['tayouneh']}</a></p>
-    <p class="notice">{c['when']}</p>
-  </div><div class="portrait"><picture>
-    <source type="image/webp" srcset="/portrait-480.webp 480w, /portrait-900.webp 900w" sizes="(max-width: 520px) 196px, (max-width: 800px) 240px, 290px">
-    <img src="/portrait.jpg" alt="{c['brand']}" width="1195" height="1316" decoding="async" fetchpriority="high">
-  </picture></div></div></header>
+  <header class="hero consultationHero"><div class="wrap heroGrid"><div class="heroCopy">
+    <a class="backLink" href="{base}{parent}.html">{c['blood'] if slug in BLOOD else ('استشارات السرطان' if lang=='ar' else 'Cancer consultations')}</a>
+    <h1>{e(d['title'])}</h1><p class="lead">{e(d['lead'])}</p>
+  </div>{appointment_panel(lang, details='#locations')}</div></header>
   <main class="content" id="main"><div class="wrap">
     <section class="card"><h2>{e(d['intro_title'])}</h2>{paragraph(d['intro'])}</section>
     <section aria-labelledby="help"><h2 class="sectionTitle" id="help">{c['help']}</h2>
@@ -115,7 +108,7 @@ def page_for(item,lang):
       <ul class="details">{list_items(d['reports'])}</ul><p>{c['medications']}</p>
     </section>
     <section class="card guideSection"><h2>{e(d['question_title'])}</h2><ul class="details">{list_items(d['questions'])}</ul></section>
-    <section aria-labelledby="locations"><h2 class="sectionTitle" id="locations">{c['clinics']}</h2><div class="grid">{clinics}</div></section>
+    <section aria-labelledby="locations"><h2 class="sectionTitle" id="locations">{c['clinics']}</h2><p class="visitScheduling">{c['when']}</p><div class="grid">{clinics}</div></section>
     <section class="guideSources" aria-labelledby="sources"><h2 class="sectionTitle" id="sources">{c['sources']}</h2>
       <ul class="details">{sources}</ul><p>{c['source_note']}</p>
       <p class="reviewStatus" data-source-check="{sources_checked}">{source_check_label(sources_checked,lang)}</p>
@@ -150,6 +143,7 @@ def main():
  parser=argparse.ArgumentParser()
  parser.add_argument('--batch',type=int,choices=[2],default=2,help='Generate the complete site (default: 2); partial batches are no longer supported.')
  args=parser.parse_args()
+ refresh_static_pages()
  items=[]
  for batch in range(1,args.batch+1):items+=json.loads((ROOT/f'_content/batch{batch}.json').read_text())
  assert len(items)==5*args.batch

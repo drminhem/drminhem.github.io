@@ -3,8 +3,8 @@ const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const base = 'http://127.0.0.1:8765';
-const evidence = path.resolve(__dirname, '../../evidence');
+const base = process.env.QA_BASE || 'http://127.0.0.1:8765';
+const evidence = process.env.QA_EVIDENCE ? path.resolve(process.env.QA_EVIDENCE) : path.resolve(__dirname, '../../evidence');
 const homepageFocus=process.env.HOMEPAGE_FOCUS==='1';
 const axePath=process.env.AXE_PATH;
 if(homepageFocus&&!axePath)throw new Error('Set AXE_PATH for focused homepage accessibility verification.');
@@ -71,7 +71,7 @@ async function checkCredentialWrapping(page,route,width){
 async function checkVisibleControls(page,route,width,scope=null){
  const report=await page.evaluate(scope=>{
   const root=scope?document.querySelector(scope):document;
-  const selector=scope?'a,button':'a.btn,a.button,a.guideLink,a.featuredGuide,a.scopeAction,a.chip[href],[data-language-link],button,summary,.patientContents a,.patientRelated a,.directoryJump a,.patientDiscuss,.patientBack,.mobileMenu a';
+  const selector=scope?'a,button':'a.btn,a.button,a.guideLink,a.featuredGuide,a.scopeAction,a.chip[href],[data-language-link],button,summary,.patientContents a,.patientRelated a,.directoryJump a,.patientDiscuss,.patientBack,.mobileMenu a,.onlineOption a,.appointmentUtility a,.heroAlternatives a,.backLink';
   const largeTargets='a.btn,a.button,a.guideLink,a.featuredGuide,[data-language-link],button,summary,.patientContents a,.patientRelated a,.directoryJump a,.patientDiscuss,.patientBack,.mobileMenu a';
   const issues=[];let checked=0;let inViewport=0;
   for(const title of document.querySelectorAll('.topbar .brandTitle')){
@@ -131,7 +131,7 @@ async function checkKeyboardAnchor(page,selector,route){
  context.on('page',p=>p.on('pageerror',e=>errors.push(e.message)));
  await context.route(/https:\/\/(?:www\.)?(?:wa\.me|api\.whatsapp\.com|www\.googletagmanager\.com|www\.google-analytics\.com).*$/, route => route.abort());
  context.on('request',r=>network.push(r.url()));
- const page=await context.newPage(); const results=[];const headerBreakpointChecks=[];const axeResults=[];
+ const page=await context.newPage(); const results=[];const headerBreakpointChecks=[];const axeResults=[];const compactAppointmentChecks=[];
  async function inspectHomepage(route,width){
   if(!['/','/ar/'].includes(route))return null;
   const wrapping=await checkCredentialWrapping(page,route,width);
@@ -154,6 +154,14 @@ async function checkKeyboardAnchor(page,selector,route){
   await page.setViewportSize({width:shot.width,height:shot.height});await page.goto(base+shot.route);await page.evaluate(()=>document.fonts.ready);
   await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.filter(i=>{const r=i.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0}).map(i=>i.decode().catch(()=>{}))));
   await page.screenshot({path:path.join(evidence,shot.file),fullPage:false});
+  if(axePath&&!homepageFocus){
+   await page.addScriptTag({path:axePath});
+   const audit=await page.evaluate(()=>axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa']}}));
+   const violations=audit.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)}));
+   axeResults.push({route:shot.route,layout:shot.layout,width:shot.width,violations,incomplete:audit.incomplete.map(v=>v.id)});
+   fs.writeFileSync(path.join(evidence,'responsive-accessibility.json'),JSON.stringify(axeResults,null,2));
+   assert.deepEqual(violations,[],shot.route+' shared-layout accessibility at '+shot.width);
+  }
  }
  const matrixFile=homepageFocus?'homepage-organization-screenshot-matrix.json':'responsive-screenshot-matrix.json';
  fs.writeFileSync(path.join(evidence,matrixFile),JSON.stringify(screenshotMatrix,null,2));
@@ -213,6 +221,7 @@ async function checkKeyboardAnchor(page,selector,route){
   assert.deepEqual(mobileTargets.filter(href=>desktopTargets.includes(href)),desktopTargets,lang+' mobile/desktop navigation parity');
   const id=lang==='ar'?'#menuBtnAr':'#menuBtn';
   await page.locator(id).click();assert.equal(await page.locator(id).getAttribute('aria-expanded'),'true');
+  await checkVisibleControls(page,lang+' expanded mobile menu',390,'.mobileMenu');
   await page.keyboard.press('Escape');assert.equal(await page.locator(id).getAttribute('aria-expanded'),'false');
   assert.equal(await page.locator(id).evaluate(e=>e===document.activeElement),true);
  }
@@ -237,12 +246,27 @@ async function checkKeyboardAnchor(page,selector,route){
   assert.equal(new URL(await rp.locator('.hero .ctaRow a[href^="/booking.html"]').getAttribute('href'),base).searchParams.get('clinic'),'sodeco');
  }
  await resilient.close();
- // On pages with portraits, the mobile appointment action still precedes the portrait.
- for(const route of routes.filter(r=>r!=='/'&&r!=='/ar/')){
-  await page.goto(base+route);
-  if(!await page.locator('.hero .portrait').count())continue;
-  const boxes=await page.locator('.hero').evaluate(hero=>({action:hero.querySelector('a[href^="/booking.html"]').getBoundingClientRect().top,portrait:hero.querySelector('.portrait').getBoundingClientRect().top}));
-  assert.ok(boxes.action<boxes.portrait,route+' mobile action order');
+ // Compact doctor identity gives context without delaying the main clinic action behind a large portrait.
+ for(const route of routes){
+  await page.goto(base+route);await page.evaluate(()=>document.fonts.ready);
+  const panel=page.locator('.hero .appointmentPanel,.hero .heroAppointment');
+  if(!await panel.count())continue;
+  assert.equal(await panel.count(),1,route+' one appointment panel');
+  const report=await panel.evaluate(el=>{
+   const rect=node=>{const r=node.getBoundingClientRect();return {top:r.top,bottom:r.bottom,width:r.width,height:r.height}};
+   const identity=el.querySelector('.doctorIdentity,.heroDoctor');const photo=identity.querySelector('img');
+   const actions=[...el.querySelectorAll('a[href^="/booking.html"]')];const heading=document.querySelector('.hero h1');
+   return {identity:rect(identity),photo:rect(photo),heading:rect(heading),primary:rect(actions[0]),primaryHref:actions[0].getAttribute('href'),video:rect(actions[1]),videoHref:actions[1].getAttribute('href'),viewport:{width:innerWidth,height:innerHeight}};
+  });
+  assert.ok(report.photo.width<=90&&report.photo.height<=90,route+' compact doctor photograph');
+  assert.ok(report.identity.bottom<=report.primary.top,route+' identity precedes primary action');
+  assert.ok(report.heading.bottom<report.primary.top,route+' mobile introduction precedes appointment panel');
+  assert.ok(report.primary.bottom<=report.viewport.height,route+' clinic action is visible in first phone screen');
+  const expectedClinic=route.includes('tayouneh.html')?'tayouneh':'sodeco';
+  assert.equal(new URL(report.primaryHref,base).searchParams.get('clinic'),expectedClinic,route+' primary clinic');
+  assert.equal(new URL(report.videoHref,base).searchParams.get('mode'),'online',route+' separate video action');
+  assert.ok(report.primary.bottom<=report.video.top,route+' video follows primary clinic action');
+  compactAppointmentChecks.push({route,...report});
  }
  // Patient guides put readable answers and urgent advice ahead of appointment requests.
  for(const route of homepageFocus?[]:patientRoutes){
@@ -345,7 +369,7 @@ async function checkKeyboardAnchor(page,selector,route){
   const lang=await np.getAttribute('html','lang');await np.locator('[data-language-link]').click();assert.notEqual(await np.getAttribute('html','lang'),lang);
  }
  assert.deepEqual(errors,[]);assert.equal(network.some(u=>/googletagmanager|google-analytics|wa\.me/.test(u)),false);
- fs.writeFileSync(path.join(evidence,homepageFocus?'homepage-organization-results.json':'browser-results.json'),JSON.stringify({results,viewportWidths:layoutViewports.map(v=>v.width),headerBreakpointChecks,visibleControlClippingAndSize:true,headerNameNotTruncated:true,screenshotMatrix,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,scriptFailureVisible:true,mobileActionBeforePortrait:homepageFocus?undefined:true,homepageOrganization:{sections:homepageSections,featuredGuides:featuredSlugs,logisticsFAQs:4,professionalDisclosures:3,credentialWrapping:true,noJavaScript:true},axeResults:homepageFocus?axeResults:undefined,patientGuides:homepageFocus?undefined:{routes:patientRoutes.length,contentsAnchors:true,keyboardFocus:true,urgentAdviceBeforeBooking:true,noJavaScript:true},patientDirectory:homepageFocus?undefined:{routes:directoryRoutes.length,groupLinks:true,keyboardFocus:true,noJavaScript:true},screenshots:[...shots.map(s=>s[1]),...screenshotMatrix.map(s=>s.file)]},null,2));
+ fs.writeFileSync(path.join(evidence,homepageFocus?'homepage-organization-results.json':'browser-results.json'),JSON.stringify({results,viewportWidths:layoutViewports.map(v=>v.width),headerBreakpointChecks,visibleControlClippingAndSize:true,headerNameNotTruncated:true,screenshotMatrix,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,scriptFailureVisible:true,compactAppointmentChecks,homepageOrganization:{sections:homepageSections,featuredGuides:featuredSlugs,logisticsFAQs:4,professionalDisclosures:3,credentialWrapping:true,noJavaScript:true},axeResults:axePath?axeResults:undefined,patientGuides:homepageFocus?undefined:{routes:patientRoutes.length,contentsAnchors:true,keyboardFocus:true,urgentAdviceBeforeBooking:true,noJavaScript:true},patientDirectory:homepageFocus?undefined:{routes:directoryRoutes.length,groupLinks:true,keyboardFocus:true,noJavaScript:true},screenshots:[...shots.map(s=>s[1]),...screenshotMatrix.map(s=>s.file)]},null,2));
  console.log(`PASS: ${routes.length} pages × ${layoutViewports.map(v=>v.width).join(' / ')}px; visible controls and homepage organization; ${routes.length} no-JS language switches; legacy links, menus, certificates, clinic/video appointment intent, sitemap/robots, no page errors and no analytics/WhatsApp requests.`);
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});
