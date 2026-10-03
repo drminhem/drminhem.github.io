@@ -15,7 +15,9 @@ def build(names):
             page = ROOT / (('ar/' if lang == 'ar' else '') + (name or 'index.html'))
             text = page.read_text()
             text = re.sub(r'\n?<!-- VIDEO_OPTION_START -->.*?<!-- VIDEO_OPTION_END -->', '', text, flags=re.S)
-            if not name:
+            if '<!-- VIDEO_OPTION_ANCHOR -->' in text:
+                anchor = r'(<!-- VIDEO_OPTION_ANCHOR -->)'
+            elif not name:
                 anchor = r'(<p class="heroAlternatives">.*?</p>)'
             elif name in {'sodeco.html', 'tayouneh.html'}:
                 anchor = r'(<div class="actions">.*?</div>)'

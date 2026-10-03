@@ -197,3 +197,81 @@ body[data-lang="ar"].consultation h1{line-height:1.45}
  .patientConsultation{padding:20px 18px}
  .patientDirectory .hero h1{font-size:2rem}
 }
+
+/* A clear introduction and one place to arrange care. */
+.consultationHero{padding:64px 0;background:linear-gradient(125deg,#fff 35%,#f0f7f8);border-bottom:1px solid var(--line)}
+.consultationHero .heroGrid{grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:64px;align-items:center}
+.consultationHero .heroCopy{min-width:0;padding-block:12px}
+.consultationHero .backLink{display:inline-flex;align-items:center;min-height:44px;font-size:.94rem;font-weight:650;margin:0 0 12px}
+.consultationHero h1{max-width:19ch;font-size:clamp(2.2rem,3.8vw,3.3rem);line-height:1.12;margin:12px 0 24px;text-wrap:balance}
+body[data-lang="ar"] .consultationHero h1{font-size:clamp(2.1rem,3.6vw,3.2rem);line-height:1.3}
+.consultationHero .lead{font-size:1.12rem;line-height:1.8;max-width:46ch}
+.appointmentPanel{min-width:0;padding:26px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 38px rgba(15,45,74,.06)}
+.doctorIdentity{display:flex;align-items:center;gap:16px}
+.doctorIdentity picture{display:block;flex:0 0 64px;width:64px}
+.doctorIdentity img{display:block;width:64px;height:72px;object-fit:cover;object-position:center 20%;border-radius:12px}
+.doctorName{margin:0;color:var(--navy);font-size:1.03rem;font-weight:800;line-height:1.45}
+.doctorSpecialty{margin:5px 0 0;color:var(--muted);font-size:.94rem;line-height:1.5}
+.appointmentPanel .actions{margin-top:24px}
+.appointmentPanel .actions .button{width:100%;min-height:54px;padding:13px 16px;border-radius:12px}
+.appointmentPanel .clinicLocation{margin:12px 0 0;font-size:.94rem;text-align:center}
+.appointmentPanel .onlineOption{display:block;margin-top:22px;padding:20px 0 0;border:0;border-top:1px solid var(--line);border-radius:0;background:none}
+.appointmentPanel .onlineOption p{font-size:.97rem;line-height:1.65;color:var(--muted)}
+.appointmentPanel .onlineOption a{padding:8px 0 0;font-size:1rem}
+.appointmentUtility{display:flex;flex-wrap:wrap;gap:0 20px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.appointmentUtility a{display:inline-flex;align-items:center;gap:5px;min-height:44px;color:var(--teal-dark);font-size:.92rem;font-weight:650;text-underline-offset:4px}
+.visitScheduling{max-width:66ch;margin:0 0 24px;color:var(--muted)}
+#locations{scroll-margin-top:100px}
+.content>.wrap>section:first-child{margin-top:0}
+.content .quickCard{box-shadow:none}
+
+/* Reading pages keep their answer first; category choices remain easy to scan. */
+.patientGuide .hero,.patientDirectory .hero{background:#fff;border-bottom:1px solid var(--line);padding:40px 0}
+.patientGuide h1{margin:14px 0 22px;font-size:clamp(2rem,3.5vw,3rem);line-height:1.18;text-wrap:balance}
+body[data-lang="ar"].patientGuide h1{line-height:1.35}
+.patientGuide .eyebrow,.patientDirectory .eyebrow{font-size:.88rem;font-weight:700}
+.patientGuide .eyebrow::before,.patientDirectory .eyebrow::before{display:none}
+.patientGuide .patientBack{font-size:.94rem;font-weight:650}
+.patientDirectory h1{margin:12px 0 18px;font-size:clamp(2rem,3.6vw,3.3rem);line-height:1.2}
+.patientDirectory .lead{max-width:62ch;font-size:1.08rem}
+.directoryJump{gap:8px;margin-top:28px}
+.directoryJump a{padding:8px 14px;min-height:44px;border:1px solid var(--line);border-radius:10px;background:#f7fafb;text-decoration:none;font-size:.94rem}
+.directoryJump a:hover{border-color:var(--teal-dark);background:var(--teal-soft)}
+.patientDirectory .guideLink{padding:18px 20px;line-height:1.55}
+@media(max-width:900px){
+ .consultationHero .heroGrid{grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);gap:28px}
+ .consultationHero h1{font-size:2.35rem}
+}
+@media(max-width:700px){
+ .wrap{width:calc(100% - 40px)}
+ .consultationHero{padding:24px 0 36px}
+ .consultationHero .heroGrid{grid-template-columns:minmax(0,1fr);gap:28px}
+ .consultationHero .heroCopy{padding:0}
+ .consultationHero .backLink{margin-bottom:4px;font-size:.9rem}
+ .consultationHero h1,body[data-lang="ar"] .consultationHero h1{font-size:2rem;margin:8px 0 18px;max-width:22ch}
+ .consultationHero .lead{font-size:1.02rem;line-height:1.75}
+ .appointmentPanel{padding:22px;border-radius:18px;box-shadow:0 8px 24px rgba(15,45,74,.04)}
+ .appointmentPanel .actions{margin-top:20px}
+ .appointmentPanel .onlineOption{margin-top:18px;padding-top:16px}
+ .appointmentUtility{gap:0 14px}
+ .content{padding-top:36px}
+ .patientGuide .hero,.patientDirectory .hero{padding:24px 0 30px}
+ .patientGuide h1{font-size:1.85rem;margin:10px 0 18px}
+ .patientGuide .lead{font-size:1.03rem}
+ .patientDirectory h1{font-size:2rem;margin:10px 0 16px}
+ .patientDirectory .lead{font-size:1rem}
+ .directoryJump{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:22px}
+ .directoryJump a{justify-content:center;text-align:center;font-size:.9rem;padding:8px 10px}
+ .directoryJump a:last-child{grid-column:1 / -1}
+ .patientDirectory .guideLink{padding:16px 18px}
+}
+@media(max-width:360px){
+ .wrap{width:calc(100% - 32px)}
+ .appointmentPanel{padding:18px}
+ .doctorIdentity{gap:12px}
+ .doctorIdentity picture{flex-basis:56px;width:56px}
+ .doctorIdentity img{width:56px;height:64px}
+ .doctorName{font-size:1rem}
+ .doctorSpecialty{font-size:.9rem}
+ .appointmentUtility a{font-size:.9rem}
+}

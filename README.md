@@ -4,7 +4,7 @@ Existing static GitHub Pages website for drminhem.com. HTML files are served dir
 
 English pages stay at `/`, `/sodeco.html`, and `/tayouneh.html`. Arabic equivalents live under `/ar/`. Both languages also have `cancer-consultation.html` and `blood-cancer-consultation.html`, ten condition guides, twelve patient-question guides, and a grouped `patient-guides.html` directory. Each file contains its own visible language, title, canonical URL, social metadata, and reciprocal hreflang links. Update both languages when editing content, and keep `sitemap.xml` aligned.
 
-Homepage styling and interactions are shared in `site.css` and `site.js`; clinic and consultation pages use `clinic.css` and `clinic.js`. `language.js` supports legacy `?lang=ar` and homepage `#contact-ar` links. Language choice follows the URL, not stored browser preferences.
+Homepage styling and interactions are shared in `site.css` and `site.js`; clinic and consultation pages use `clinic.css` and `clinic.js`. The homepage and consultation introductions separate the page purpose from one compact appointment panel. Full addresses and detailed scheduling stay in the clinic sections. `_content/consultation_layout.py` maintains the clinic/consultation appointment panels during full generation; `_content/build_consultation_options.py` fills the explicit video-option position. Condition titles retain Beirut in search metadata while the visible heading avoids repeating the location. Patient-question pages remain answer-first. `language.js` supports legacy `?lang=ar` and homepage `#contact-ar` links. Language choice follows the URL, not stored browser preferences.
 
 ## Local preview and verification
 
