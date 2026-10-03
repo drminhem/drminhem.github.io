@@ -682,6 +682,65 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .faqList{margin-top:24px}
 .scopeAction{margin-top:18px}
 .scopeCard.solid .scopeAction{margin-top:auto}
+
+/* A few patient questions lead into the complete guide directory. */
+.featuredGuides{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.featuredGuide{
+ display:grid;grid-template-columns:minmax(0,1fr) 24px;column-gap:20px;row-gap:7px;
+ align-content:start;min-width:0;min-height:134px;padding:22px 24px;
+ border:1px solid var(--line);border-radius:var(--radius2);background:var(--surface);
+ color:var(--navy);text-decoration:none;box-shadow:var(--shadow3);
+ transition:border-color var(--speed) ease,background-color var(--speed) ease,box-shadow var(--speed) ease;
+}
+.guideTopic{grid-column:1;font-size:.86rem;font-weight:800;line-height:1.5;color:var(--teal-600)}
+.featuredGuide h3{grid-column:1;margin:0;font-family:var(--sans);font-size:1.14rem;font-weight:750;line-height:1.45;text-wrap:pretty}
+.featuredGuide .guideArrow{grid-column:2;grid-row:1 / span 2;align-self:center;width:22px;height:22px;color:var(--teal-600)}
+.featuredGuide:hover{border-color:var(--teal-600);background-color:#f8fcfc;box-shadow:var(--shadow2)}
+.featuredGuide:focus-visible{outline:3px solid var(--teal-600);outline-offset:4px;border-color:var(--teal-600)}
+.rtl .featuredGuide h3{font-family:var(--ar);font-size:1.2rem;line-height:1.6}
+.rtl .guideTopic{font-size:.95rem}
+.patientDirectoryLink{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin:22px 0 0}
+.guideBrowseTypes{display:inline-flex;align-items:center;min-height:44px;color:var(--teal-600);font-weight:700;text-underline-offset:4px}
+.guideBrowseTypes:hover{text-decoration-thickness:2px}
+
+/* Professional background stays together, with details available on demand. */
+.profileSection .sectionHead{margin-bottom:24px}
+.profileCredentials,.profileResearch{scroll-margin-top:96px}
+.profileCredentials > .disclosure,.profileSection > .wrap > .disclosure{margin-top:18px}
+.profileResearch{margin-top:18px}
+.profileResearch > .disclosure{margin-top:0}
+.profileSection .disclosure > summary{min-height:58px;line-height:1.55}
+.profileSection .disclosure > .recoGrid{margin-top:20px}
+.profileSection .disclosure > .profileIntro{padding:0;margin-block:18px 0;font-size:1.04rem;line-height:1.75}
+.profileSection .cardPad > h3{margin:0 0 12px;color:var(--navy);font-family:inherit;font-size:1.1rem;font-weight:750;line-height:1.5}
+.profileSection .certificateBody > p{padding:0}
+.patientHero .miniChip{min-width:0;max-width:100%;white-space:normal}
+@media(max-width:360px){
+ .nav .brand{gap:8px}
+ .nav .logo{width:36px;height:36px;flex-basis:36px;font-size:1rem;border-radius:11px}
+ #en .brandTitle,#ar .brandTitle{font-size:.92rem}
+ .patientHero .name{font-size:1.8rem}
+}
+
+@media(max-width:640px){
+ .featuredGuides{grid-template-columns:minmax(0,1fr);gap:10px}
+ .featuredGuide{min-height:0;padding:17px 18px;column-gap:14px;row-gap:5px}
+ .featuredGuide h3{font-size:1.06rem;line-height:1.45}
+ .rtl .featuredGuide h3{font-size:1.14rem;line-height:1.55}
+ .guideTopic{font-size:.82rem}
+ .rtl .guideTopic{font-size:.9rem}
+ .patientDirectoryLink{gap:8px;margin-top:18px}
+ .patientDirectoryLink .btn{width:100%;justify-content:center;min-height:48px}
+ .guideBrowseTypes{justify-content:center;width:100%;padding:5px 0;text-align:center}
+ .profileCredentials > .disclosure,.profileSection > .wrap > .disclosure,.profileResearch{margin-top:12px}
+ .profileSection .disclosure > summary{font-size:1rem}
+ .profileSection .disclosure > .recoGrid{margin-top:16px}
+ .profileSection .disclosure > .profileIntro{margin-top:16px;font-size:1rem}
+ .profileSection .cardPad > h3{font-size:1.06rem}
+ .profileSection .disclosure .grid2{gap:24px}
+ .profileSection .disclosure .grid2 .card{border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible}
+ .profileSection .disclosure .grid2 .cardPad{padding:0}
+}
 @media(max-width:640px){
  .credentialStats,.guideGroups{grid-template-columns:1fr}
  .guideGroups{gap:12px}

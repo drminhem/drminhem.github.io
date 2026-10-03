@@ -32,7 +32,7 @@ COPY = {
   'index_description':'Clear guides to cancer treatment, nutrition, symptoms, screening, and blood conditions, in English and Arabic.',
   'index_answer':'Clear answers about treatment, nutrition, screening and blood conditions. Choose the question that matters to you.',
   'types':'Guides by cancer type', 'consultations':'Cancer consultations and second opinions',
-  'home':'Home and clinics', 'browse':'Browse all patient guides',
+  'home':'Home and clinics', 'browse':'Browse all patient guides', 'browse_types':'Browse by cancer type',
  },
  'ar': {
   'brand':'د. محمد منعم', 'directory':'دليل المريض', 'language':'English',
@@ -49,7 +49,7 @@ COPY = {
   'index_description':'أدلة واضحة حول علاج السرطان والتغذية والأعراض والكشف المبكر وأمراض الدم، بالعربية والإنجليزية.',
   'index_answer':'إجابات واضحة عن العلاج والتغذية والكشف المبكر وأمراض الدم. اختر السؤال الذي يهمّك.',
   'types':'أدلة بحسب نوع السرطان', 'consultations':'استشارات السرطان والرأي الطبي الثاني',
-  'home':'الرئيسية والعيادات', 'browse':'تصفّح جميع أدلة المريض',
+  'home':'الرئيسية والعيادات', 'browse':'تصفّح جميع أدلة المريض', 'browse_types':'تصفّح بحسب نوع السرطان',
  }
 }
 
@@ -155,9 +155,9 @@ def build(conditions, dates):
   for item in items: (ROOT / (base + item['slug'] + '.html')).write_text(guide_page(item, lang, items, dates))
   (ROOT / (base + 'patient-guides.html')).write_text(directory_page(items, conditions, lang, dates))
   c = COPY[lang]
-  # Keep the homepage's existing cancer-type links and add one doorway to the grouped directory.
+  # Keep the homepage's selected questions and the doorways to the full guide directory.
   home = ROOT / (base + 'index.html'); text = home.read_text()
-  link = f'<p class="patientDirectoryLink"><a class="btn primary" href="{prefix}patient-guides.html">{c["browse"]}</a></p>'
+  link = f'<p class="patientDirectoryLink"><a class="btn primary" href="{prefix}patient-guides.html">{c["browse"]}</a><a class="guideBrowseTypes" href="{prefix}patient-guides.html#cancer-types">{c["browse_types"]}</a></p>'
   if 'class="patientDirectoryLink"' in text: text = re.sub(r'<p class="patientDirectoryLink">.*?</p>', link, text)
   else:
    text = re.sub(r'(<section id="guides-' + lang + r'".*?)(\n        </div>\n      </section>)', lambda m: m[1] + '\n          ' + link + m[2], text, count=1, flags=re.S)

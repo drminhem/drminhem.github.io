@@ -5,11 +5,15 @@ const fs = require('node:fs');
 const path = require('node:path');
 const base = 'http://127.0.0.1:8765';
 const evidence = path.resolve(__dirname, '../../evidence');
-const layoutViewports=[{width:1365,height:900},{width:390,height:844},{width:320,height:844},{width:768,height:1024},{width:1440,height:1000}];
+const homepageFocus=process.env.HOMEPAGE_FOCUS==='1';
+const axePath=process.env.AXE_PATH;
+if(homepageFocus&&!axePath)throw new Error('Set AXE_PATH for focused homepage accessibility verification.');
+const layoutViewports=homepageFocus?[{width:1440,height:1000},{width:390,height:844},{width:320,height:844},{width:768,height:1024}]:[{width:1365,height:900},{width:390,height:844},{width:320,height:844},{width:768,height:1024},{width:1440,height:1000}];
+const initialViewport=layoutViewports[0];
 const screenshotMatrix=[];
-const sharedLayouts=[['home',''],['clinic','sodeco.html'],['consultation','cancer-consultation.html'],['condition-guide','breast-cancer.html'],['patient-guide','immunotherapy-candidacy.html'],['patient-directory','patient-guides.html']];
-for(const [layout,filename] of sharedLayouts)for(const language of ['en','ar'])for(const viewport of [{name:'phone',width:390,height:844},{name:'desktop',width:1440,height:1000}]){
- const route=(language==='ar'?'/ar/':'/')+filename;const file='responsive-'+layout+'-'+language+'-'+viewport.name+'.png';
+const sharedLayouts=homepageFocus?[['home','']]:[['home',''],['clinic','sodeco.html'],['consultation','cancer-consultation.html'],['condition-guide','breast-cancer.html'],['patient-guide','immunotherapy-candidacy.html'],['patient-directory','patient-guides.html']];
+for(const [layout,filename] of sharedLayouts)for(const language of ['en','ar'])for(const viewport of homepageFocus?layoutViewports.map(v=>({...v,name:String(v.width)})):[{name:'phone',width:390,height:844},{name:'desktop',width:1440,height:1000}]){
+ const route=(language==='ar'?'/ar/':'/')+filename;const file=homepageFocus?'homepage-organization-'+language+'-'+viewport.width+'.png':'responsive-'+layout+'-'+language+'-'+viewport.name+'.png';
  screenshotMatrix.push({layout,language,route,viewport:viewport.name,width:viewport.width,height:viewport.height,file});
 }
 const routes = ['/', '/ar/', '/sodeco.html', '/ar/sodeco.html', '/tayouneh.html', '/ar/tayouneh.html', '/cancer-consultation.html', '/ar/cancer-consultation.html', '/blood-cancer-consultation.html', '/ar/blood-cancer-consultation.html'];
@@ -21,14 +25,58 @@ const patientSlugs=patientManifest.slugs;
 const patientRoutes=patientSlugs.flatMap(slug=>['/'+slug+'.html','/ar/'+slug+'.html']);
 const directoryRoutes=['/'+patientManifest.directory+'.html','/ar/'+patientManifest.directory+'.html'];
 routes.push(...patientRoutes,...directoryRoutes);
+if(homepageFocus)routes.splice(0,routes.length,'/','/ar/');
 assert.equal(new Set(routes).size,routes.length,'Duplicate verification routes');
+const homepageSections=['care','approach','contact','faq','guides','background'];
+const featuredSlugs=['biopsy-cancer-spread','chemotherapy-benefits-risks','targeted-therapy','immunotherapy-candidacy'];
+async function checkHomepageOrganization(page,lang){
+ const prefix=lang==='ar'?'/ar/':'/';
+ assert.deepEqual(await page.locator('main > section').evaluateAll(els=>els.map(e=>e.id)),homepageSections.map(s=>s+'-'+lang),lang+' homepage section priorities');
+ for(const id of ['recognition','academic'])assert.equal(await page.locator('#background-'+lang+' #'+id+'-'+lang).count(),1,lang+' grouped '+id);
+ const featured=page.locator('#guides-'+lang+' .featuredGuides a.featuredGuide');
+ assert.deepEqual(await featured.evaluateAll(as=>as.map(a=>a.getAttribute('href'))),featuredSlugs.map(s=>prefix+s+'.html'),lang+' featured guide destinations');
+ assert.equal(await featured.locator('h3').count(),4,lang+' featured questions');
+ assert.equal(await featured.locator('.guideTopic').count(),4,lang+' featured topics');
+ if(lang==='en')assert.deepEqual(await featured.locator('h3').allTextContents(),['Can a biopsy make cancer spread?','Will I need chemotherapy?','Could targeted therapy help me?','Is immunotherapy suitable for me?']);
+ assert.ok(await page.locator('#guides-'+lang+' a[href="'+prefix+'patient-guides.html"]').count(),lang+' full patient directory preserved');
+ assert.equal(await page.locator('#guides-'+lang+' a[href="'+prefix+'patient-guides.html#cancer-types"]').count(),1,lang+' cancer-type directory path');
+ const faqs=page.locator('#faq-'+lang+' details');assert.equal(await faqs.count(),4,lang+' logistics FAQ count');
+ assert.doesNotMatch((await faqs.locator('summary').allTextContents()).join(' '),/chemotherap|العلاج الكيميائي/i,lang+' treatment decisions belong in guides');
+ if(lang==='en')assert.deepEqual((await faqs.locator('summary').allTextContents()).map(s=>s.trim()).sort(),['What should I bring?','Can I come for a second opinion?','Can a family member come with me?','How do I confirm my appointment?'].sort(),lang+' logistics-only FAQ topics');
+ else assert.deepEqual((await faqs.locator('summary').allTextContents()).map(s=>s.trim()).sort(),['ماذا أحضر إلى الاستشارة؟','هل يمكنني طلب رأي طبي ثانٍ؟','هل يمكن لأحد أفراد العائلة الحضور معي؟','كيف أؤكّد موعدي؟'].sort(),lang+' logistics-only FAQ topics');
+ assert.ok(await page.locator('#faq-'+lang+' a[href="#approach-'+lang+'"]').count(),lang+' preparation link');
+ const disclosures=page.locator('#background-'+lang+' details.disclosure');assert.equal(await disclosures.count(),3,lang+' retained professional disclosures');
+ for(const details of [...await faqs.all(),...await disclosures.all()]){
+  assert.equal(await details.evaluate(e=>e.open),false,lang+' disclosure initially closed');
+  await details.locator('summary').focus();await page.keyboard.press('Enter');
+  assert.equal(await details.evaluate(e=>e.open),true,lang+' disclosure opens by keyboard');
+  assert.equal(await details.locator(':scope > :not(summary)').first().isVisible(),true,lang+' disclosure content visible');
+  await page.keyboard.press('Enter');assert.equal(await details.evaluate(e=>e.open),false,lang+' disclosure closes by keyboard');
+ }
+}
+async function checkCredentialWrapping(page,route,width){
+ const credential=page.locator('.heroChips .miniChip');assert.equal(await credential.count(),1,route+' credential badge');
+ const report=await credential.evaluate(el=>{
+  const box=el.getBoundingClientRect();const bounds=[];const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);
+  while(walker.nextNode())if(walker.currentNode.textContent.trim()){
+   const range=document.createRange();range.selectNodeContents(walker.currentNode);bounds.push(...[...range.getClientRects()].map(r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom})));
+  }
+  return {visible:el.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}),insideViewport:box.left>=0&&box.right<=innerWidth,clipped:bounds.some(r=>r.left<box.left-2||r.right>box.right+2||r.top<box.top-2||r.bottom>box.bottom+2),lines:new Set(bounds.map(r=>Math.round(r.top))).size};
+ });
+ assert.equal(report.visible&&report.insideViewport&&!report.clipped,true,route+' credential fits at '+width);
+ if(width<=390)assert.ok(report.lines>=2,route+' precise credential wraps on phones');
+ return {width,...report};
+}
 // Check button-like targets and navigation controls, not ordinary links within prose.
 async function checkVisibleControls(page,route,width,scope=null){
  const report=await page.evaluate(scope=>{
   const root=scope?document.querySelector(scope):document;
-  const selector=scope?'a,button':'a.btn,a.button,a.guideLink,a.scopeAction,a.chip[href],[data-language-link],button,summary,.patientContents a,.patientRelated a,.directoryJump a,.patientDiscuss,.patientBack,.mobileMenu a';
-  const largeTargets='a.btn,a.button,a.guideLink,[data-language-link],button,summary,.patientContents a,.patientRelated a,.directoryJump a,.patientDiscuss,.patientBack,.mobileMenu a';
+  const selector=scope?'a,button':'a.btn,a.button,a.guideLink,a.featuredGuide,a.scopeAction,a.chip[href],[data-language-link],button,summary,.patientContents a,.patientRelated a,.directoryJump a,.patientDiscuss,.patientBack,.mobileMenu a';
+  const largeTargets='a.btn,a.button,a.guideLink,a.featuredGuide,[data-language-link],button,summary,.patientContents a,.patientRelated a,.directoryJump a,.patientDiscuss,.patientBack,.mobileMenu a';
   const issues=[];let checked=0;let inViewport=0;
+  for(const title of document.querySelectorAll('.topbar .brandTitle')){
+   if(title.checkVisibility({checkOpacity:true,checkVisibilityCSS:true})&&title.scrollWidth>title.clientWidth+1)issues.push({label:title.textContent.trim(),reason:'Header name is truncated',scrollWidth:title.scrollWidth,clientWidth:title.clientWidth});
+  }
   for(const el of root.querySelectorAll(selector)){
    if(!el.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}))continue;
    const rect=el.getBoundingClientRect();if(!rect.width||!rect.height)continue;
@@ -78,20 +126,38 @@ async function checkKeyboardAnchor(page,selector,route){
 (async () => {
  fs.mkdirSync(evidence,{recursive:true});
  const browser = await chromium.launch({headless:true, executablePath:process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
- const context = await browser.newContext({viewport:{width:1365,height:900}, reducedMotion:'reduce'});
+ const context = await browser.newContext({viewport:initialViewport, reducedMotion:'reduce'});
  const errors=[]; const network=[];
  context.on('page',p=>p.on('pageerror',e=>errors.push(e.message)));
  await context.route(/https:\/\/(?:www\.)?(?:wa\.me|api\.whatsapp\.com|www\.googletagmanager\.com|www\.google-analytics\.com).*$/, route => route.abort());
  context.on('request',r=>network.push(r.url()));
- const page=await context.newPage(); const results=[];const headerBreakpointChecks=[];
+ const page=await context.newPage(); const results=[];const headerBreakpointChecks=[];const axeResults=[];
+ async function inspectHomepage(route,width){
+  if(!['/','/ar/'].includes(route))return null;
+  const wrapping=await checkCredentialWrapping(page,route,width);
+  if(homepageFocus){
+   await page.addScriptTag({path:axePath});
+   for(const state of width===390?['closed','expanded']:['closed']){
+    if(state==='expanded')await page.locator('main details').evaluateAll(ds=>ds.forEach(d=>d.open=true));
+    const axeResult=await page.evaluate(()=>axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa']}}));
+    const violations=axeResult.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)}));
+    axeResults.push({route,width,state,violations,incomplete:axeResult.incomplete.map(v=>v.id)});
+    fs.writeFileSync(path.join(evidence,'homepage-organization-accessibility.json'),JSON.stringify(axeResults,null,2));
+    assert.deepEqual(violations,[],route+' automated accessibility '+width+' '+state);
+    if(state==='expanded')await page.locator('main details').evaluateAll(ds=>ds.forEach(d=>d.open=false));
+   }
+  }
+  return wrapping;
+ }
  // Save representative first screens before assertions so reviewers can inspect them even if a later route fails.
  for(const shot of screenshotMatrix){
   await page.setViewportSize({width:shot.width,height:shot.height});await page.goto(base+shot.route);await page.evaluate(()=>document.fonts.ready);
   await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.filter(i=>{const r=i.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0}).map(i=>i.decode().catch(()=>{}))));
   await page.screenshot({path:path.join(evidence,shot.file),fullPage:false});
  }
- fs.writeFileSync(path.join(evidence,'responsive-screenshot-matrix.json'),JSON.stringify(screenshotMatrix,null,2));
- console.log('Saved 24 bilingual phone/desktop screenshots in responsive-screenshot-matrix.json.');
+ const matrixFile=homepageFocus?'homepage-organization-screenshot-matrix.json':'responsive-screenshot-matrix.json';
+ fs.writeFileSync(path.join(evidence,matrixFile),JSON.stringify(screenshotMatrix,null,2));
+ console.log('Saved '+screenshotMatrix.length+' bilingual screenshots in '+matrixFile+'.');
  // Test both sides of header layout changes; these widths are easy to miss in device presets.
  for(const route of ['/','/ar/'])for(const width of [980,981,1199,1200,1239,1240,1399,1400]){
   await page.setViewportSize({width,height:1000});await page.goto(base+route);await page.evaluate(()=>document.fonts.ready);
@@ -99,7 +165,7 @@ async function checkKeyboardAnchor(page,selector,route){
   headerBreakpointChecks.push({route,...await checkVisibleControls(page,route,width,'.topbar')});
  }
  console.log('PASS: bilingual header transition checks at 980 / 981 / 1199 / 1200 / 1239 / 1240 / 1399 / 1400px.');
- await page.setViewportSize({width:1365,height:900});
+ await page.setViewportSize(initialViewport);
  for (const route of routes) {
   const response=await page.goto(base+route); assert.equal(response.status(),200,route);
   await page.evaluate(()=>document.fonts.ready);
@@ -110,7 +176,8 @@ async function checkKeyboardAnchor(page,selector,route){
   assert.ok((await page.locator('body').innerText()).length>500);
   assert.equal(await page.locator('script[src*=googletagmanager]').count(),0);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' desktop overflow');
-  const controlChecks=[await checkVisibleControls(page,route,1365)];
+  const controlChecks=[await checkVisibleControls(page,route,initialViewport.width)];
+  const credentialChecks=[];const initialCredential=await inspectHomepage(route,initialViewport.width);if(initialCredential)credentialChecks.push(initialCredential);
   await page.locator('img').evaluateAll(imgs=>Promise.all(imgs.map(i=>{i.loading='eager';return i.decode().catch(()=>{});})));
   assert.deepEqual(await page.locator('img').evaluateAll(imgs=>imgs.filter(i=>!i.complete||i.naturalWidth===0).map(i=>i.src)),[],route+' images');
   const alternate=await page.locator('[data-language-link]').getAttribute('href');
@@ -123,9 +190,11 @@ async function checkKeyboardAnchor(page,selector,route){
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,route+' layout overflow '+width);
    assert.equal(await page.locator('h1').isVisible(),true);
    controlChecks.push(await checkVisibleControls(page,route,width));
+   const credential=await inspectHomepage(route,width);if(credential)credentialChecks.push(credential);
   }
-  results.push({route,status:response.status(),language:lang,languageSwitch:true,mobileWidths:[390,320],viewportWidths:layoutViewports.map(v=>v.width),overflow:false,visibleControls:controlChecks});
-  await page.setViewportSize({width:1365,height:900});
+  if(['/','/ar/'].includes(route))await checkHomepageOrganization(page,lang);
+  results.push({route,status:response.status(),language:lang,languageSwitch:true,mobileWidths:[390,320],viewportWidths:layoutViewports.map(v=>v.width),overflow:false,visibleControls:controlChecks,credentialChecks});
+  await page.setViewportSize(initialViewport);
  }
  // Stable routes take precedence over old saved preference.
  await page.goto(base+'/');await page.evaluate(()=>localStorage.setItem('site_lang','ar'));await page.reload();assert.equal(await page.getAttribute('html','lang'),'en');
@@ -163,8 +232,8 @@ async function checkKeyboardAnchor(page,selector,route){
   assert.equal(await rp.locator('.hero h1').evaluate(el=>getComputedStyle(el.closest('.reveal')).opacity),'1');
   assert.equal(await rp.locator('.clinicCard').first().evaluate(el=>getComputedStyle(el).opacity),'1');
   const sections=await rp.locator('main > section').evaluateAll(els=>els.map(el=>el.id));
-  assert.ok(sections.indexOf('care-'+lang)<sections.indexOf('contact-'+lang));
-  assert.ok(sections.indexOf('contact-'+lang)<sections.indexOf('recognition-'+lang));
+  assert.deepEqual(sections,homepageSections.map(s=>s+'-'+lang),lang+' script-failure section order');
+  for(const id of ['recognition','academic'])assert.equal(await rp.locator('#background-'+lang+' #'+id+'-'+lang).count(),1,lang+' script-failure grouped '+id);
   assert.equal(new URL(await rp.locator('.hero .ctaRow a[href^="/booking.html"]').getAttribute('href'),base).searchParams.get('clinic'),'sodeco');
  }
  await resilient.close();
@@ -176,7 +245,7 @@ async function checkKeyboardAnchor(page,selector,route){
   assert.ok(boxes.action<boxes.portrait,route+' mobile action order');
  }
  // Patient guides put readable answers and urgent advice ahead of appointment requests.
- for(const route of patientRoutes){
+ for(const route of homepageFocus?[]:patientRoutes){
   await page.goto(base+route);
   assert.equal(await page.locator('.hero .lead').isVisible(),true,route+' answer visible');
   assert.equal(await page.locator('.patientContents').isVisible(),true,route+' contents visible');
@@ -196,7 +265,7 @@ async function checkKeyboardAnchor(page,selector,route){
   }
   await checkKeyboardAnchor(page,'.patientContents a',route);
  }
- for(const route of directoryRoutes){
+ for(const route of homepageFocus?[]:directoryRoutes){
   await page.goto(base+route);
   const prefix=route.startsWith('/ar/')?'/ar/':'/';
   assert.equal(await page.locator('.patientGroup').count(),5,route+' grouped directory');
@@ -228,13 +297,14 @@ async function checkKeyboardAnchor(page,selector,route){
  // Sitemap is accessible and every declared page returned 200 above.
  assert.equal((await context.request.get(base+'/sitemap.xml')).status(),200);
  assert.equal((await context.request.get(base+'/robots.txt')).status(),200);
- const shots=[['/','home-en-desktop.png',1365,900,false],['/ar/','home-ar-mobile.png',390,844,false],['/sodeco.html','sodeco-en-desktop.png',1365,1000,true],['/ar/sodeco.html','sodeco-ar-mobile.png',390,844,true],['/cancer-consultation.html','cancer-en-desktop.png',1365,900,true],['/ar/cancer-consultation.html','cancer-ar-mobile.png',390,844,true],['/blood-cancer-consultation.html','blood-cancer-en-mobile.png',390,844,true],['/ar/blood-cancer-consultation.html','blood-cancer-ar-mobile.png',390,844,true]];
- for(const slug of guideSlugs){shots.push(['/'+slug+'.html',slug+'-en-desktop.png',1365,900,true],['/ar/'+slug+'.html',slug+'-ar-mobile.png',390,844,true]);}
- for(const slug of [...patientSlugs,patientManifest.directory]){shots.push(['/'+slug+'.html',slug+'-en-desktop.png',1365,900,true],['/ar/'+slug+'.html',slug+'-ar-mobile.png',390,844,true]);}
+ const shots=homepageFocus?screenshotMatrix.map(s=>[s.route,s.file.replace('.png','-full.png'),s.width,s.height,true]):[['/','home-en-desktop.png',1365,900,false],['/ar/','home-ar-mobile.png',390,844,false],['/sodeco.html','sodeco-en-desktop.png',1365,1000,true],['/ar/sodeco.html','sodeco-ar-mobile.png',390,844,true],['/cancer-consultation.html','cancer-en-desktop.png',1365,900,true],['/ar/cancer-consultation.html','cancer-ar-mobile.png',390,844,true],['/blood-cancer-consultation.html','blood-cancer-en-mobile.png',390,844,true],['/ar/blood-cancer-consultation.html','blood-cancer-ar-mobile.png',390,844,true]];
+ for(const slug of homepageFocus?[]:guideSlugs){shots.push(['/'+slug+'.html',slug+'-en-desktop.png',1365,900,true],['/ar/'+slug+'.html',slug+'-ar-mobile.png',390,844,true]);}
+ for(const slug of homepageFocus?[]:[...patientSlugs,patientManifest.directory]){shots.push(['/'+slug+'.html',slug+'-en-desktop.png',1365,900,true],['/ar/'+slug+'.html',slug+'-ar-mobile.png',390,844,true]);}
  for(const [route,name,width,height,fullPage] of shots){await page.setViewportSize({width,height});await page.goto(base+route);await page.evaluate(()=>document.fonts.ready);await page.screenshot({path:path.join(evidence,name),fullPage});}
  const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const np=await nojs.newPage();
  for(const route of routes){
   assert.equal((await np.goto(base+route)).status(),200);assert.equal(await np.locator('h1').isVisible(),true);
+  if(['/','/ar/'].includes(route))await checkHomepageOrganization(np,route.startsWith('/ar/')?'ar':'en');
   if(patientRoutes.includes(route)){
    assert.equal(await np.locator('.hero .lead').isVisible(),true,route+' no-JS answer');
    assert.equal(await np.locator('.patientContents').isVisible(),true,route+' no-JS contents');
@@ -254,7 +324,7 @@ async function checkKeyboardAnchor(page,selector,route){
   const lang=await np.getAttribute('html','lang');await np.locator('[data-language-link]').click();assert.notEqual(await np.getAttribute('html','lang'),lang);
  }
  assert.deepEqual(errors,[]);assert.equal(network.some(u=>/googletagmanager|google-analytics|wa\.me/.test(u)),false);
- fs.writeFileSync(path.join(evidence,'browser-results.json'),JSON.stringify({results,viewportWidths:layoutViewports.map(v=>v.width),headerBreakpointChecks,visibleControlClippingAndSize:true,screenshotMatrix,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,scriptFailureVisible:true,mobileActionBeforePortrait:true,patientGuides:{routes:patientRoutes.length,contentsAnchors:true,keyboardFocus:true,urgentAdviceBeforeBooking:true,noJavaScript:true},patientDirectory:{routes:directoryRoutes.length,groupLinks:true,keyboardFocus:true,noJavaScript:true},screenshots:[...shots.map(s=>s[1]),...screenshotMatrix.map(s=>s.file)]},null,2));
- console.log(`PASS: ${routes.length} pages × 320 / 390 / 768 / 1365 / 1440px; visible control sizes/clipping; ${routes.length} no-JS language switches; legacy links, menus, certificates, appointment intent, sitemap/robots, no page errors and no analytics/WhatsApp requests.`);
+ fs.writeFileSync(path.join(evidence,homepageFocus?'homepage-organization-results.json':'browser-results.json'),JSON.stringify({results,viewportWidths:layoutViewports.map(v=>v.width),headerBreakpointChecks,visibleControlClippingAndSize:true,headerNameNotTruncated:true,screenshotMatrix,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,scriptFailureVisible:true,mobileActionBeforePortrait:homepageFocus?undefined:true,homepageOrganization:{sections:homepageSections,featuredGuides:featuredSlugs,logisticsFAQs:4,professionalDisclosures:3,credentialWrapping:true,noJavaScript:true},axeResults:homepageFocus?axeResults:undefined,patientGuides:homepageFocus?undefined:{routes:patientRoutes.length,contentsAnchors:true,keyboardFocus:true,urgentAdviceBeforeBooking:true,noJavaScript:true},patientDirectory:homepageFocus?undefined:{routes:directoryRoutes.length,groupLinks:true,keyboardFocus:true,noJavaScript:true},screenshots:[...shots.map(s=>s[1]),...screenshotMatrix.map(s=>s.file)]},null,2));
+ console.log(`PASS: ${routes.length} pages × ${layoutViewports.map(v=>v.width).join(' / ')}px; visible controls and homepage organization; ${routes.length} no-JS language switches; legacy links, menus, certificates, appointment intent, sitemap/robots, no page errors and no analytics/WhatsApp requests.`);
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

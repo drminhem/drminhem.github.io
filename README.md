@@ -14,11 +14,13 @@ python3 _checks/check_site.py
 node _checks/runtime_check.cjs
 # Requires an available Playwright installation and Google Chrome:
 node _checks/browser_check.cjs
+# Focused homepage verification, including accessibility scans:
+HOMEPAGE_FOCUS=1 AXE_PATH=/path/to/axe-core/axe.min.js node _checks/browser_check.cjs
 ```
 
 If Playwright is installed outside this checkout, set `NODE_PATH` to its parent `node_modules` directory. Set `CHROME_PATH` if Chrome is installed elsewhere. Browser screenshots and results go to `../evidence/`. `_checks/` is excluded from GitHub Pages by Jekyll's underscore-directory convention.
 
-The static check protects the original English/Arabic credential lines against baseline `5612dbd`, permitting only the separately authorized reversal of clinic order in the surrounding location phrase, and verifies metadata, reciprocal language links, internal links/assets/anchors, JSON-LD, map identity, hours removal, and the 56-page sitemap. Browser checks cover all 56 pages at 320, 390, 768, 1365 and 1440px, standalone control size and clipping, JavaScript-disabled navigation, menus, certificate dialogs, legacy URLs, booking intent, content visibility when the enhancement script fails, mobile appointment actions before portraits, and the new guide contents/directory links. A 24-image English/Arabic phone and desktop matrix supports visual review of all shared layouts. Browser tests do not contact WhatsApp or send analytics.
+The static check protects the original English/Arabic credential lines against baseline `5612dbd`. It allows only the previously authorized clinic-order reversal and the six explicit Internal Medicine wording replacements recorded in `_checks/check_site.py`. It also verifies metadata, reciprocal language links, internal links/assets/anchors, JSON-LD, map identity, hours removal, the 56-page sitemap, four featured homepage guides, four practical FAQs with matching schema, and the full 22-guide directory. Browser checks cover all 56 pages at 320, 390, 768, 1365 and 1440px, standalone control size and clipping, JavaScript-disabled navigation, menus, certificate dialogs, legacy URLs, booking intent, content visibility when the enhancement script fails, mobile appointment actions before portraits, and the new guide contents/directory links. A 24-image English/Arabic phone and desktop matrix supports visual review of all shared layouts. Browser tests do not contact WhatsApp or send analytics.
 
 For the new reading templates, run `AXE_PATH=/path/to/axe-core/axe.min.js node _checks/patient_accessibility.cjs` with the same Playwright configuration. This checks all 26 new pages for automated WCAG findings, confirms that the main landmark includes the answer, and tests keyboard skip links. Automated checks do not replace manual accessibility review.
 
@@ -31,6 +33,8 @@ The historical `appointment_booking` event still fires before opening WhatsApp. 
 ## Publication boundary
 
 Publication of the October 2026 fixes and condition guides was explicitly authorized on 3 October 2026. Subsequent publication actions still require authorization appropriate to the requested changes. Video consultation availability, fees, duration, payment, and international eligibility are not included. No new hospital affiliation or procedure location is claimed. Multiple myeloma consultations were included after explicit clinical confirmation during review.
+
+On 4 October 2026, the user explicitly approved clarifying the credential as **American Board–Certified in Internal Medicine (USA)** and **حاصل على البورد الأمريكي في الطب الباطني (الولايات المتحدة)**, with the corresponding precise scope in homepage metadata, schema, badges and certification details. This is a narrow exception to the earlier wording freeze, not permission to change other credentials or imply American Board certification in oncology or hematology. Existing Board organization names and official verification links remain protected by the baseline checks.
 
 
 ## Condition guides
@@ -57,7 +61,7 @@ The consultation structure is intended to clarify patient questions and next ste
 
 ## Patient question guides
 
-Twelve additional topics are prepared in English and Arabic: biopsy spread concerns; chemotherapy benefits and tolerance; immunotherapy suitability; oral cancer treatment; eating during treatment; diet and cancer prevention; possible cancer symptoms; screening; non-cancer blood conditions; easy bruising; targeted therapy; and genetic testing in cancer. The grouped directory links both these topics and the existing cancer-type guides. The homepage adds a single directory doorway and a link from its existing non-cancer blood-condition summary.
+Twelve additional topics are prepared in English and Arabic: biopsy spread concerns; chemotherapy benefits and tolerance; immunotherapy suitability; oral cancer treatment; eating during treatment; diet and cancer prevention; possible cancer symptoms; screening; non-cancer blood conditions; easy bruising; targeted therapy; and genetic testing in cancer. The grouped directory retains all 22 guides: these twelve topics and the ten cancer-type guides. The homepage features four patient questions about biopsy, chemotherapy, targeted therapy and immunotherapy, with a doorway to the complete directory. Its four FAQs address appointment logistics; treatment explanations live in the linked guides. The existing non-cancer blood-condition summary also retains its direct guide link.
 
 Editable text is in `_content/patient_treatment_one.json`, `patient_treatment_two.json`, `patient_nutrition.json`, `patient_assessment.json`, and `patient_hematology.json`, and `patient_precision.json`. `_content/build_patient_guides.py` is called by the full `build_guides.py --batch 2` command, which updates all pages, language routes and the sitemap together. `_content/patient_generated.json` records this expansion separately from the previously published condition guides. Publication of this new set was explicitly authorized on 4 October 2026 (Beirut date); no formal physician-review attribution is recorded.
 
