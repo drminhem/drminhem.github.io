@@ -144,6 +144,15 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet" /></noscript>
 
   <link rel="stylesheet" href="/site.css">
+  <noscript><style>
+    @media(max-width:1239px){
+      .topbar{position:static}
+      .nav{flex-wrap:wrap}
+      .menuBtn{display:none}
+      .navlinks{display:flex;order:3;flex:1 0 100%;flex-wrap:wrap;justify-content:center}
+      .navlinks a{font-size:1rem;min-height:44px}
+    }
+  </style></noscript>
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ar_LB">
 </head>
@@ -219,26 +228,29 @@
       <div class="wrap">
         <div class="heroGrid">
           <div class="heroIntro reveal">
-            <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Cancer &amp; blood-disorder consultations • Beirut</div>
+            <div class="eyebrow">Cancer &amp; blood-disorder consultations</div>
             <h1 class="name">Understand your diagnosis.<br>Plan your next step.</h1>
-            <p class="lead">Review your reports, discuss treatment options, or get a second opinion on an existing plan.</p>
+            <p class="lead">Review your reports, discuss treatment options, or get a second opinion.</p>
           </div>
 
-          <div class="heroAppointment reveal">
+          <div class="heroProfile reveal">
             <div class="heroDoctor">
               <div class="heroMedia">
                 <div class="portraitWrap">
               <picture>
-                <source type="image/webp" srcset="/portrait-480.webp 480w, /portrait-900.webp 900w" sizes="(max-width:360px) 112px, (max-width:640px) 128px, (max-width:800px) 160px, (max-width:1100px) 128px, 160px" />
+                <source type="image/webp" srcset="/portrait-480.webp 480w, /portrait-900.webp 900w" sizes="(max-width:360px) 112px, (max-width:640px) 128px, (max-width:1000px) 160px, 256px" />
                 <img src="/portrait.jpg" alt="Dr. Mohamad Minhem, cancer and blood-disorder specialist" width="1195" height="1316" loading="eager" decoding="async" fetchpriority="high" />
               </picture>
                 </div>
               </div>
-              <p class="role"><strong>Dr. Mohamad Minhem</strong><span>Hematology &amp; Oncology · U.S.-trained</span></p>
+              <p class="role"><strong>Dr. Mohamad Minhem</strong><span>Hematology &amp; Medical Oncology</span></p>
             </div>
             <div class="heroChips">
               <span class="miniChip"><svg aria-hidden="true"><use href="#i-shield"></use></svg> American Board–Certified in Internal Medicine (USA)</span>
             </div>
+          </div>
+
+          <div class="heroAppointment reveal">
             <div class="heroBooking">
             <div class="ctaRow">
               <a class="btn wa" href="/booking.html?clinic=sodeco&amp;lang=en" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"></use></svg> Request a consultation at Sodeco Clinic</a>
