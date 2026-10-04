@@ -254,7 +254,7 @@ async function checkKeyboardAnchor(page,selector,route){
   assert.equal(await panel.count(),1,route+' one appointment panel');
   const report=await panel.evaluate(el=>{
    const rect=node=>{const r=node.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height}};
-   const identity=el.querySelector('.doctorIdentity,.heroDoctor');const photo=identity.querySelector('img');
+   const identity=el.closest('.hero').querySelector('.doctorIdentity,.heroDoctor');const photo=identity.querySelector('img');
    const actions=[...el.querySelectorAll('a[href^="/booking.html"]')];const heading=document.querySelector('.hero h1');
    return {identity:rect(identity),photo:rect(photo),heading:rect(heading),primary:rect(actions[0]),primaryHref:actions[0].getAttribute('href'),video:rect(actions[1]),videoHref:actions[1].getAttribute('href'),viewport:{width:innerWidth,height:innerHeight}};
   });

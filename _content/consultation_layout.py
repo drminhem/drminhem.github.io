@@ -8,7 +8,7 @@ def appointment_panel(lang, clinic='sodeco', details=None):
     ar = lang == 'ar'
     base = '/ar/' if ar else '/'
     doctor = 'الدكتور محمد منعم' if ar else 'Dr. Mohamad Minhem'
-    specialty = 'أمراض الدم والأورام' if ar else 'Hematology & Oncology'
+    specialty = 'أمراض الدم وطبّ الأورام' if ar else 'Hematology & Medical Oncology'
     name = ('عيادة سوديكو' if clinic == 'sodeco' else 'عيادة الطيونة') if ar else ('Sodeco Clinic' if clinic == 'sodeco' else 'Tayouneh Clinic')
     booking = ('اطلب استشارة في ' + name) if ar else ('Request a consultation at ' + name)
     location = 'بيروت · بموعد مسبق' if ar else 'Beirut · By appointment'
