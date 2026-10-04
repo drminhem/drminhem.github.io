@@ -133,7 +133,7 @@ body[data-lang="ar"].consultation h1{line-height:1.45}
 .consultation .grid .card+.card{margin-top:0}
 .consultation .notice{max-width:720px;color:var(--navy)}
 .consultation .sectionTitle{line-height:1.45}
-.cancerCoverage h2{scroll-margin-top:96px}
+.cancerCoverage h2{scroll-margin-top:128px}
 .cancerTypeList{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;padding:0;margin:20px 0}
 .cancerTypeList li{padding:13px 0;border-top:1px solid var(--line)}
 .cancerTypeList strong{display:block;color:var(--navy);line-height:1.5}
