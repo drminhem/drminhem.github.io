@@ -27,7 +27,8 @@ LABELS={
   'details':'Address & appointment details','sources':'Patient information sources',
   'source_note':'These sources explain general options. The consultation focuses on what is appropriate for your diagnosis and health.',
   'related':'More consultation information','cancer':'New cancer diagnosis & second opinions','blood':'Blood-cancer consultations','directory':'Browse all patient guides',
-  'guides':'Consultation guides by cancer type','blood_guides':'Explore blood-cancer consultation guides',
+  'guides':'Guides to selected cancer types','blood_guides':'Explore blood-cancer consultation guides',
+  'solid_guides_note':'These guides cover selected cancers. You can request a consultation even if your cancer type has no dedicated guide.',
   'guides_note':'Read about the questions, test results, and decisions that may matter for your consultation.',
   'emergency':'This information supports a consultation and does not provide an individual treatment plan. This clinic is not an emergency service; for an emergency, go to the nearest emergency department.'},
  'ar':{
@@ -43,7 +44,8 @@ LABELS={
   'details':'العنوان وتفاصيل المواعيد','sources':'مصادر معلومات للمرضى',
   'source_note':'تشرح هذه المصادر خيارات عامة. وتركّز الاستشارة على ما يناسب تشخيصك وصحتك.',
   'related':'معلومات إضافية عن الاستشارات','cancer':'تشخيص جديد للسرطان ورأي طبي ثانٍ','blood':'استشارات سرطانات الدم','directory':'تصفّح جميع المواضيع',
-  'guides':'معلومات بحسب نوع السرطان','blood_guides':'معلومات عن سرطانات الدم',
+  'guides':'معلومات عن بعض أنواع السرطان','blood_guides':'معلومات عن سرطانات الدم',
+  'solid_guides_note':'تساعدك هذه المعلومات على التحضير للاستشارة. يمكنك طلب استشارة حتى لو لم تجد صفحة مخصّصة لنوع السرطان لديك.',
   'guides_note':'تعرّف إلى الفحوص وخيارات العلاج والأسئلة التي يمكنك مناقشتها خلال الاستشارة.',
   'emergency':'تساعدك هذه المعلومات على التحضير للاستشارة، ولا تمثّل خطة علاج لحالتك. هذه العيادة لا تقدّم خدمات الطوارئ؛ في الحالات الطارئة توجّه إلى أقرب قسم طوارئ.'}
 }
@@ -133,7 +135,7 @@ def update_hub(items,lang,blood=False):
  links='\n'.join(f'<a class="guideLink" href="{base}{i["slug"]}.html">{e(i[lang]["name"])}</a>' for i in chosen)
  section=f'''<!-- CONDITION_GUIDES_START -->
     <section class="guideDirectory" aria-labelledby="condition-guides"><h2 class="sectionTitle" id="condition-guides">{c['blood_guides'] if blood else c['guides']}</h2>
-      <p>{c['guides_note']}</p><div class="guideLinks">{links}</div>
+      <p>{c['guides_note'] if blood else c['solid_guides_note']}</p><div class="guideLinks">{links}</div>
     </section>
     <!-- CONDITION_GUIDES_END -->'''
  if '<!-- CONDITION_GUIDES_START -->' in s:s=re.sub(r'<!-- CONDITION_GUIDES_START -->.*?<!-- CONDITION_GUIDES_END -->',section,s,flags=re.S)

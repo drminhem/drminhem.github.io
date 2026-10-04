@@ -287,11 +287,11 @@
 
     /* ---------- Conditions & consultations ---------- */
     .scopeGrid{
-      display:grid; grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);
-      grid-template-rows:repeat(2,minmax(0,1fr)); gap:16px; margin:0 0 20px;
+      display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px; margin:0;
     }
     .scopeCard{
-      position:relative; overflow:hidden; padding:24px;
+      position:relative; overflow:hidden; padding:24px; display:flex; flex-direction:column;
       border:1px solid var(--line); border-radius:var(--radius); background:#fff;
       box-shadow:var(--shadow3);
     }
@@ -301,7 +301,7 @@
     }
     .rtl .scopeCard::after{right:auto;left:-62px}
     .scopeCard.solid{
-      grid-row:1 / span 2; padding:30px; display:flex; flex-direction:column;
+      padding:30px 30px 24px;
       background:linear-gradient(145deg,var(--navy),#124b65 68%,#087884);
       border-color:transparent; box-shadow:0 18px 50px rgba(15,45,74,.18); color:#fff;
     }
@@ -320,6 +320,8 @@
     .scopeCard.solid h3{color:#fff;font-size:clamp(1.45rem,2.5vw,1.9rem);max-width:22ch}
     .scopeCard p{margin:0;color:var(--muted);font-weight:500;font-size:1.03rem;line-height:1.7}
     .scopeCard.solid p{color:rgba(255,255,255,.88);font-size:1.08rem;max-width:56ch}
+    .scopeCard > p{margin-bottom:18px}
+    .scopeCard.solid .scopeExamples{font-size:.98rem;line-height:1.65}
     .scopeTags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 24px}
     .scopeTags span{
       display:inline-flex;padding:7px 11px;border-radius:999px;
@@ -581,7 +583,6 @@
       .grid3{grid-template-columns:1fr}
       .recoGrid{ grid-template-columns:1fr; gap:24px; }
       .scopeGrid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
-      .scopeCard.solid{grid-column:1 / -1;grid-row:auto}
       .closingContact{grid-template-columns:1fr}
       .navlinks{display:none}
       .menuBtn{display:inline-flex}
@@ -695,8 +696,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .guideGroups h3{color:var(--navy)}
 .guideLinks{list-style:none;padding:0}
 .faqList{margin-top:24px}
-.scopeAction{margin-top:18px}
-.scopeCard.solid .scopeAction{margin-top:auto}
+.scopeCard .scopeAction{margin-top:auto}
 
 /* A few patient questions lead into the complete guide directory. */
 .featuredGuides{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
@@ -759,7 +759,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 @media(max-width:640px){
  .credentialStats,.guideGroups{grid-template-columns:1fr}
  .guideGroups{gap:12px}
- .scopeCard.solid .scopeAction{margin-top:18px}
  .contactStrip{display:grid;gap:8px}
  .contactStrip a{display:block;padding:9px 0}
  .visitChecklist{padding:16px}
