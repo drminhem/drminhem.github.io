@@ -25,7 +25,7 @@
       }
     ],
     "en": {
-      "title": "Non-cancer blood conditions",
+      "title": "Benign blood conditions",
       "description": "Understand anemia, platelet and clotting disorders, and abnormal blood counts. Learn what to discuss and bring to a hematology consultation in Beirut.",
       "answer": "A referral to a hematologist does not automatically mean cancer. Hematology also covers anemia, platelet and clotting disorders, and unexplained changes in blood counts. These are sometimes called benign blood conditions. Here, benign means non-cancerous; it does not mean that a condition is always mild or can be ignored.",
       "sections": [
@@ -82,7 +82,7 @@
       "consultation_note": "Dr. Minhem sees patients with anemia, platelet and clotting disorders, and abnormal blood counts. Bring current and previous reports to discuss what the findings mean and the next steps."
     },
     "ar": {
-      "title": "أمراض الدم غير السرطانية",
+      "title": "أمراض الدم الحميدة",
       "description": "معلومات عن فقر الدم واضطرابات الصفائح والتخثّر وتغيّرات تعداد الدم، وما يمكنك مناقشته مع الطبيب والتقارير التي تحضرها إلى استشارة أمراض الدم في بيروت.",
       "answer": "الإحالة إلى اختصاصي أمراض الدم لا تعني تلقائياً وجود سرطان. يشمل هذا التخصص أيضاً فقر الدم واضطرابات الصفائح والتخثّر والتغيّرات غير المفسّرة في تعداد الدم. تُسمّى هذه الحالات أحياناً أمراض الدم الحميدة. والمقصود بكلمة حميدة هنا أنها غير سرطانية، لا أنها بسيطة دائماً أو يمكن إهمالها.",
       "sections": [

@@ -149,8 +149,8 @@ for lang in ['en','ar']:
  featured=Page(featured_match[1])
  all_guide_paths={'/'+prefix+slug+'.html' for slug in patient_slugs+manifest['slugs']}
  assert len(all_guide_paths)==22,(directory,'Expected complete 22-guide collection')
- featured_paths={'/'+prefix+slug+'.html' for slug in ['biopsy-cancer-spread','chemotherapy-benefits-risks','targeted-therapy','immunotherapy-candidacy']}
- assert {a['href'] for a in featured.find('a') if a.get('href') in all_guide_paths}==featured_paths,(lang,'Homepage must feature the four selected patient questions')
+ featured_paths={'/'+prefix+path for path in ['biopsy-cancer-spread.html','chemotherapy-benefits-risks.html','patient-guides.html#treatment-advances','immunotherapy-candidacy.html']}
+ assert {a['href'] for a in featured.find('a',**{'class':'featuredGuide'})}==featured_paths,(lang,'Homepage must feature the four selected patient questions')
  assert featured.find('a',href='/'+directory),(lang,'Featured guides must lead to the full directory')
  faq_match=re.search(r'<section\b[^>]*\bid="faq-'+lang+r'"[^>]*>(.*?)</section>',home,re.S)
  assert faq_match,('Missing homepage practical FAQ',lang)

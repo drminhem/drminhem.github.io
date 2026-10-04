@@ -10,7 +10,7 @@ GROUPS = {
  'treatment': {'en': 'Understanding cancer treatment', 'ar': 'فهم علاج السرطان'},
  'nutrition': {'en': 'Food and nutrition', 'ar': 'الغذاء والتغذية'},
  'assessment': {'en': 'Symptoms and screening', 'ar': 'الأعراض والكشف المبكر'},
- 'hematology': {'en': 'Non-cancer blood conditions', 'ar': 'أمراض الدم غير السرطانية'},
+ 'hematology': {'en': 'Benign blood conditions', 'ar': 'أمراض الدم الحميدة'},
 }
 JUMP_LABELS = {
  'en': {'treatment':'Treatment options', 'nutrition':'Nutrition', 'assessment':'Symptoms & screening', 'hematology':'Blood conditions', 'cancer-types':'Cancer types'},
@@ -33,6 +33,9 @@ COPY = {
   'index_answer':'Clear answers about treatment, nutrition, screening and blood conditions. Choose the question that matters to you.',
   'types':'Guides by cancer type', 'consultations':'Cancer consultations and second opinions',
   'home':'Home and clinics', 'browse':'Browse all patient guides', 'browse_types':'Browse by cancer type',
+  'advances_title':'How have cancer treatments improved?',
+  'advances_text':'Targeted therapies and immunotherapy have improved outcomes for selected groups of patients; some responses last for years. Molecular and other tumor tests can help identify suitable options. Treatment still depends on the cancer type, stage and your health. Chemotherapy remains important and may be used alone or combined with other treatments.',
+  'advances_sources':'Sources',
  },
  'ar': {
   'brand':'د. محمد منعم', 'directory':'معلومات للمرضى', 'language':'English',
@@ -50,6 +53,9 @@ COPY = {
   'index_answer':'إجابات واضحة عن العلاج والتغذية والكشف المبكر وأمراض الدم. اختر السؤال الذي يهمّك.',
   'types':'معلومات بحسب نوع السرطان', 'consultations':'استشارات السرطان والرأي الطبي الثاني',
   'home':'الرئيسية والعيادات', 'browse':'تصفّح جميع المواضيع', 'browse_types':'تصفّح بحسب نوع السرطان',
+  'advances_title':'كيف تطوّرت علاجات السرطان؟',
+  'advances_text':'حسّنت العلاجات الموجّهة والمناعية نتائج العلاج لدى فئات معيّنة من المرضى، وقد تستمر الاستجابة سنوات لدى بعضهم. تساعد الفحوص الجزيئية وغيرها من فحوص الورم في تحديد الخيارات المناسبة. يعتمد العلاج على نوع السرطان ومرحلته وصحتك العامة، ويظلّ العلاج الكيميائي مهمّاً، سواء وحده أو مع علاجات أخرى.',
+  'advances_sources':'المصادر',
  }
 }
 
@@ -135,7 +141,17 @@ def directory_page(items, conditions, lang, dates):
  groups = []
  for category, labels in GROUPS.items():
   links = ''.join(f'<a class="guideLink" href="{base}{i["slug"]}.html">{e(i[lang]["title"])}</a>' for i in items if i['category'] == category)
-  groups.append(f'<section class="patientGroup" aria-labelledby="{category}"><h2 class="sectionTitle" id="{category}">{labels[lang]}</h2><div class="guideLinks">{links}</div></section>')
+  heading = f'<h2 class="sectionTitle" id="{category}">{labels[lang]}</h2>'
+  if category == 'treatment':
+   sources = [
+    ('https://www.cancer.gov/types/skin/research', 'NCI: Progress in melanoma treatment' if lang == 'en' else 'المعهد الوطني للسرطان: تطوّر علاج الميلانوما'),
+    ('https://www.cancer.gov/research/progress/discovery/gleevec', 'NCI: How targeted therapy changed CML treatment' if lang == 'en' else 'المعهد الوطني للسرطان: أثر العلاج الموجّه في اللوكيميا النخاعية المزمنة'),
+    ('https://www.cancer.gov/about-cancer/treatment/types/biomarker-testing-cancer-treatment', 'NCI: Biomarker testing for treatment selection' if lang == 'en' else 'المعهد الوطني للسرطان: فحوص المؤشرات الحيوية لاختيار العلاج'),
+    ('https://www.cancer.gov/about-cancer/treatment/types/targeted-therapies', 'NCI: Targeted therapy' if lang == 'en' else 'المعهد الوطني للسرطان: العلاج الموجّه'),
+   ]
+   source_links = ''.join(f'<li><a href="{url}" target="_blank" rel="noopener">{e(label)}</a></li>' for url,label in sources)
+   heading = f'<div class="treatmentAdvances" id="treatment-advances"><h2 class="sectionTitle" id="treatment">{c["advances_title"]}</h2><p>{c["advances_text"]}</p><details class="advancesSources"><summary>{c["advances_sources"]}</summary><ul>{source_links}</ul></details></div>'
+  groups.append(f'<section class="patientGroup" aria-labelledby="{category}">{heading}<div class="guideLinks">{links}</div></section>')
  links = ''.join(f'<a class="guideLink" href="{base}{i["slug"]}.html">{e(i[lang]["name"])}</a>' for i in conditions)
  return head_for('patient-guides', lang, c.get('index_meta_title', c['index_title']), c['index_description'], schema) + f'''
 <body data-lang="{lang}" class="consultation patientDirectory">{navigation('patient-guides', lang)}
