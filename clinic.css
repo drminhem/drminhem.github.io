@@ -133,6 +133,13 @@ body[data-lang="ar"].consultation h1{line-height:1.45}
 .consultation .grid .card+.card{margin-top:0}
 .consultation .notice{max-width:720px;color:var(--navy)}
 .consultation .sectionTitle{line-height:1.45}
+.cancerCoverage h2{scroll-margin-top:96px}
+.cancerTypeList{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;padding:0;margin:20px 0}
+.cancerTypeList li{padding:13px 0;border-top:1px solid var(--line)}
+.cancerTypeList strong{display:block;color:var(--navy);line-height:1.5}
+.cancerTypeList span{display:block;margin-top:4px;color:var(--muted);font-size:.96rem;line-height:1.6}
+.coverageNote{margin-bottom:0;color:var(--muted)}
+@media(max-width:640px){.cancerTypeList{grid-template-columns:1fr;margin:16px 0}}
 @media(max-width:520px){.brand{font-size:.92rem}.navInner{gap:8px}.langButton{padding:9px}.consultation .heroGrid{gap:18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button:hover{transform:none}}
 
