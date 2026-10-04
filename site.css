@@ -804,12 +804,12 @@ header.patientHero{
 .patientHero .name{font-size:clamp(2.25rem,3.9vw,3.25rem);line-height:1.13;margin:20px 0 22px;text-wrap:balance}
 .patientHero .lead{max-width:42ch;margin:0;color:var(--muted);font-size:1.13rem;line-height:1.75;font-weight:450}
 .patientHero .heroAppointment{min-width:0;padding:28px;border:1px solid #dbe8e9;border-radius:24px;background:#fff;box-shadow:0 16px 42px rgba(15,45,74,.055)}
-.patientHero .heroDoctor{display:flex;align-items:center;gap:18px}
-.patientHero .heroMedia{width:88px;max-width:none;margin:0;flex:0 0 88px}
+.patientHero .heroDoctor{display:flex;align-items:center;gap:20px}
+.patientHero .heroMedia{width:160px;max-width:none;margin:0;flex:0 0 160px}
 .patientHero .heroMedia::before{display:none}
-.patientHero .portraitWrap{border:0;border-radius:16px;box-shadow:none;aspect-ratio:1}
+.patientHero .portraitWrap{border:0;border-radius:16px;box-shadow:none;aspect-ratio:1195 / 1316}
 .patientHero .portraitWrap::after{display:none}
-.patientHero .portraitWrap img{object-position:center 20%}
+.patientHero .portraitWrap img{object-fit:contain;object-position:center}
 .patientHero .role{min-width:0;margin:0;color:var(--navy);font-size:1rem;line-height:1.5;font-weight:500}
 .patientHero .role strong{display:block;font-size:1.11rem;font-weight:750;line-height:1.4;margin-bottom:5px}
 .patientHero .role span{display:block;color:var(--muted);font-size:.9rem;font-weight:450;line-height:1.6}
@@ -837,7 +837,7 @@ header.patientHero{
  .patientHero .heroGrid{gap:36px;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
  .patientHero .heroAppointment{padding:24px}
  .patientHero .heroDoctor{gap:14px}
- .patientHero .heroMedia{width:76px;flex-basis:76px}
+ .patientHero .heroMedia{width:128px;flex-basis:128px}
 }
 @media(max-width:800px){
  header.patientHero{padding:36px 0 42px}
@@ -846,7 +846,7 @@ header.patientHero{
  .patientHero .name{font-size:2.6rem;margin:14px 0 18px}
  .patientHero .lead{max-width:48ch}
  .patientHero .heroAppointment{padding:26px}
- .patientHero .heroMedia{width:88px;flex-basis:88px}
+ .patientHero .heroMedia{width:160px;flex-basis:160px}
  .rtl .patientHero .name{font-size:2.4rem}
 }
 @media(max-width:640px){
@@ -857,7 +857,7 @@ header.patientHero{
  .patientHero .lead{font-size:1rem;line-height:1.7}
  .patientHero .heroAppointment{padding:20px;border-radius:20px}
  .patientHero .heroDoctor{gap:13px}
- .patientHero .heroMedia{width:68px;flex-basis:68px}
+ .patientHero .heroMedia{width:128px;flex-basis:128px}
  .patientHero .portraitWrap{border-radius:12px}
  .patientHero .role strong{font-size:1rem;line-height:1.45;margin-bottom:3px}
  .patientHero .role span{font-size:.83rem;line-height:1.55}
@@ -884,7 +884,7 @@ header.patientHero{
  .patientHero .name{font-size:1.9rem}
  .patientHero .heroAppointment{padding:17px}
  .patientHero .heroDoctor{gap:11px}
- .patientHero .heroMedia{width:58px;flex-basis:58px}
+ .patientHero .heroMedia{width:112px;flex-basis:112px}
  .patientHero .role strong{font-size:.94rem}
  .patientHero .role span{font-size:.8rem}
  .rtl .patientHero .name{font-size:1.85rem}
