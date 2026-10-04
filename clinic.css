@@ -225,6 +225,15 @@ body[data-lang="ar"] .consultationHero h1{font-size:clamp(2.1rem,3.6vw,3.2rem);l
 .content>.wrap>section:first-child{margin-top:0}
 .content .quickCard{box-shadow:none}
 
+/* Keep the desktop introduction close to the portrait, with less empty space above it. */
+@media(min-width:701px){
+ .consultationHero{padding:44px 0}
+ .consultationHero .heroGrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+ .consultationHero .heroCopy{padding-block:26px 0}
+ .consultationHero .backLink{margin:0}
+ .consultationHero h1{margin:4px 0 18px}
+}
+
 /* Reading pages keep their answer first; category choices remain easy to scan. */
 .patientGuide .hero,.patientDirectory .hero{background:#fff;border-bottom:1px solid var(--line);padding:40px 0}
 .patientGuide h1{margin:14px 0 22px;font-size:clamp(2rem,3.5vw,3rem);line-height:1.18;text-wrap:balance}
