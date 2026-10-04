@@ -28,16 +28,16 @@ routes.push(...patientRoutes,...directoryRoutes);
 if(homepageFocus)routes.splice(0,routes.length,'/','/ar/');
 assert.equal(new Set(routes).size,routes.length,'Duplicate verification routes');
 const homepageSections=['care','approach','contact','faq','guides','background'];
-const featuredSlugs=['biopsy-cancer-spread','chemotherapy-benefits-risks','targeted-therapy','immunotherapy-candidacy'];
+const featuredPaths=['biopsy-cancer-spread.html','chemotherapy-benefits-risks.html','patient-guides.html#treatment-advances','immunotherapy-candidacy.html'];
 async function checkHomepageOrganization(page,lang){
  const prefix=lang==='ar'?'/ar/':'/';
  assert.deepEqual(await page.locator('main > section').evaluateAll(els=>els.map(e=>e.id)),homepageSections.map(s=>s+'-'+lang),lang+' homepage section priorities');
  for(const id of ['recognition','academic'])assert.equal(await page.locator('#background-'+lang+' #'+id+'-'+lang).count(),1,lang+' grouped '+id);
  const featured=page.locator('#guides-'+lang+' .featuredGuides a.featuredGuide');
- assert.deepEqual(await featured.evaluateAll(as=>as.map(a=>a.getAttribute('href'))),featuredSlugs.map(s=>prefix+s+'.html'),lang+' featured guide destinations');
+ assert.deepEqual(await featured.evaluateAll(as=>as.map(a=>a.getAttribute('href'))),featuredPaths.map(s=>prefix+s),lang+' featured guide destinations');
  assert.equal(await featured.locator('h3').count(),4,lang+' featured questions');
  assert.equal(await featured.locator('.guideTopic').count(),4,lang+' featured topics');
- if(lang==='en')assert.deepEqual(await featured.locator('h3').allTextContents(),['Can a biopsy make cancer spread?','Will I need chemotherapy?','Could targeted therapy help me?','Is immunotherapy suitable for me?']);
+ if(lang==='en')assert.deepEqual(await featured.locator('h3').allTextContents(),['Can a biopsy make cancer spread?','Will I need chemotherapy?','How have cancer treatments improved?','Is immunotherapy suitable for me?']);
  assert.ok(await page.locator('#guides-'+lang+' a[href="'+prefix+'patient-guides.html"]').count(),lang+' full patient directory preserved');
  assert.equal(await page.locator('#guides-'+lang+' a[href="'+prefix+'patient-guides.html#cancer-types"]').count(),1,lang+' cancer-type directory path');
  const faqs=page.locator('#faq-'+lang+' details');assert.equal(await faqs.count(),4,lang+' logistics FAQ count');
@@ -371,7 +371,7 @@ async function checkKeyboardAnchor(page,selector,route){
   const lang=await np.getAttribute('html','lang');await np.locator('[data-language-link]').click();assert.notEqual(await np.getAttribute('html','lang'),lang);
  }
  assert.deepEqual(errors,[]);assert.equal(network.some(u=>/googletagmanager|google-analytics|wa\.me/.test(u)),false);
- fs.writeFileSync(path.join(evidence,homepageFocus?'homepage-organization-results.json':'browser-results.json'),JSON.stringify({results,viewportWidths:layoutViewports.map(v=>v.width),headerBreakpointChecks,visibleControlClippingAndSize:true,headerNameNotTruncated:true,screenshotMatrix,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,scriptFailureVisible:true,compactAppointmentChecks,homepageOrganization:{sections:homepageSections,featuredGuides:featuredSlugs,logisticsFAQs:4,professionalDisclosures:3,credentialWrapping:true,noJavaScript:true},axeResults:axePath?axeResults:undefined,patientGuides:homepageFocus?undefined:{routes:patientRoutes.length,contentsAnchors:true,keyboardFocus:true,urgentAdviceBeforeBooking:true,noJavaScript:true},patientDirectory:homepageFocus?undefined:{routes:directoryRoutes.length,groupLinks:true,keyboardFocus:true,noJavaScript:true},screenshots:[...shots.map(s=>s[1]),...screenshotMatrix.map(s=>s.file)]},null,2));
+ fs.writeFileSync(path.join(evidence,homepageFocus?'homepage-organization-results.json':'browser-results.json'),JSON.stringify({results,viewportWidths:layoutViewports.map(v=>v.width),headerBreakpointChecks,visibleControlClippingAndSize:true,headerNameNotTruncated:true,screenshotMatrix,consoleErrors:errors,externalAnalyticsOrWhatsAppRequests:0,noJavaScript:routes.length,legacyLinks:true,mobileMenus:true,certificateDialogs:true,bookingIntent:true,scriptFailureVisible:true,compactAppointmentChecks,homepageOrganization:{sections:homepageSections,featuredGuides:featuredPaths,logisticsFAQs:4,professionalDisclosures:3,credentialWrapping:true,noJavaScript:true},axeResults:axePath?axeResults:undefined,patientGuides:homepageFocus?undefined:{routes:patientRoutes.length,contentsAnchors:true,keyboardFocus:true,urgentAdviceBeforeBooking:true,noJavaScript:true},patientDirectory:homepageFocus?undefined:{routes:directoryRoutes.length,groupLinks:true,keyboardFocus:true,noJavaScript:true},screenshots:[...shots.map(s=>s[1]),...screenshotMatrix.map(s=>s.file)]},null,2));
  console.log(`PASS: ${routes.length} pages × ${layoutViewports.map(v=>v.width).join(' / ')}px; visible controls and homepage organization; ${routes.length} no-JS language switches; legacy links, menus, certificates, clinic/video appointment intent, sitemap/robots, no page errors and no analytics/WhatsApp requests.`);
  await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});
