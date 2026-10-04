@@ -246,19 +246,21 @@ async function checkKeyboardAnchor(page,selector,route){
   assert.equal(new URL(await rp.locator('.hero .ctaRow a[href^="/booking.html"]').getAttribute('href'),base).searchParams.get('clinic'),'sodeco');
  }
  await resilient.close();
- // Compact doctor identity gives context without delaying the main clinic action behind a large portrait.
+ // A prominent, naturally proportioned portrait fits beside the name while the clinic action stays in the first phone screen.
  for(const route of routes){
   await page.goto(base+route);await page.evaluate(()=>document.fonts.ready);
   const panel=page.locator('.hero .appointmentPanel,.hero .heroAppointment');
   if(!await panel.count())continue;
   assert.equal(await panel.count(),1,route+' one appointment panel');
   const report=await panel.evaluate(el=>{
-   const rect=node=>{const r=node.getBoundingClientRect();return {top:r.top,bottom:r.bottom,width:r.width,height:r.height}};
+   const rect=node=>{const r=node.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height}};
    const identity=el.querySelector('.doctorIdentity,.heroDoctor');const photo=identity.querySelector('img');
    const actions=[...el.querySelectorAll('a[href^="/booking.html"]')];const heading=document.querySelector('.hero h1');
    return {identity:rect(identity),photo:rect(photo),heading:rect(heading),primary:rect(actions[0]),primaryHref:actions[0].getAttribute('href'),video:rect(actions[1]),videoHref:actions[1].getAttribute('href'),viewport:{width:innerWidth,height:innerHeight}};
   });
-  assert.ok(report.photo.width<=90&&report.photo.height<=90,route+' compact doctor photograph');
+  assert.ok(report.photo.width>=100&&report.photo.width<=161,route+' prominent doctor photograph');
+  assert.ok(Math.abs(report.photo.width/report.photo.height-1195/1316)<.005,route+' natural portrait proportions');
+  assert.ok(report.photo.left>=report.identity.left-1&&report.photo.right<=report.identity.right+1&&report.photo.top>=report.identity.top-1&&report.photo.bottom<=report.identity.bottom+1,route+' portrait fits identity row');
   assert.ok(report.identity.bottom<=report.primary.top,route+' identity precedes primary action');
   assert.ok(report.heading.bottom<report.primary.top,route+' mobile introduction precedes appointment panel');
   assert.ok(report.primary.bottom<=report.viewport.height,route+' clinic action is visible in first phone screen');

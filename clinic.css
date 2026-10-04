@@ -207,9 +207,9 @@ body[data-lang="ar"].consultation h1{line-height:1.45}
 body[data-lang="ar"] .consultationHero h1{font-size:clamp(2.1rem,3.6vw,3.2rem);line-height:1.3}
 .consultationHero .lead{font-size:1.12rem;line-height:1.8;max-width:46ch}
 .appointmentPanel{min-width:0;padding:26px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 38px rgba(15,45,74,.06)}
-.doctorIdentity{display:flex;align-items:center;gap:16px}
-.doctorIdentity picture{display:block;flex:0 0 64px;width:64px}
-.doctorIdentity img{display:block;width:64px;height:72px;object-fit:cover;object-position:center 20%;border-radius:12px}
+.doctorIdentity{display:flex;align-items:center;gap:20px}
+.doctorIdentity picture{display:block;flex:0 0 160px;width:160px}
+.doctorIdentity img{display:block;width:100%;height:auto;aspect-ratio:1195 / 1316;object-fit:contain;border-radius:14px}
 .doctorName{margin:0;color:var(--navy);font-size:1.03rem;font-weight:800;line-height:1.45}
 .doctorSpecialty{margin:5px 0 0;color:var(--muted);font-size:.94rem;line-height:1.5}
 .appointmentPanel .actions{margin-top:24px}
@@ -241,6 +241,8 @@ body[data-lang="ar"].patientGuide h1{line-height:1.35}
 @media(max-width:900px){
  .consultationHero .heroGrid{grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);gap:28px}
  .consultationHero h1{font-size:2.35rem}
+ .doctorIdentity{gap:14px}
+ .doctorIdentity picture{flex-basis:112px;width:112px}
 }
 @media(max-width:700px){
  .wrap{width:calc(100% - 40px)}
@@ -252,6 +254,7 @@ body[data-lang="ar"].patientGuide h1{line-height:1.35}
  .consultationHero .lead{font-size:1.02rem;line-height:1.75}
  .appointmentPanel{padding:22px;border-radius:18px;box-shadow:0 8px 24px rgba(15,45,74,.04)}
  .appointmentPanel .actions{margin-top:20px}
+ .doctorIdentity picture{flex-basis:128px;width:128px}
  .appointmentPanel .onlineOption{margin-top:18px;padding-top:16px}
  .appointmentUtility{gap:0 14px}
  .content{padding-top:36px}
@@ -269,8 +272,7 @@ body[data-lang="ar"].patientGuide h1{line-height:1.35}
  .wrap{width:calc(100% - 32px)}
  .appointmentPanel{padding:18px}
  .doctorIdentity{gap:12px}
- .doctorIdentity picture{flex-basis:56px;width:56px}
- .doctorIdentity img{width:56px;height:64px}
+ .doctorIdentity picture{flex-basis:112px;width:112px}
  .doctorName{font-size:1rem}
  .doctorSpecialty{font-size:.9rem}
  .appointmentUtility a{font-size:.9rem}
