@@ -16,5 +16,12 @@
 .mtvFeature img { flex: 0 0 auto; width: min(34%, 220px); height: auto; border-radius: 8px; }
 .mtvFeatureText { display: grid; gap: 4px; min-width: 0; }
 .mtvFeatureBrand { color: #3e5969; font-size: .82rem; font-weight: 700; }
-.mtvFeatureTitle { color: #163649; font-weight: 750; line-height: 1.35; }
+.mtvFeatureTitle { color: #163649; font-weight: 750; font-size: clamp(.95rem, 1.7vw, 1.15rem); line-height: 1.35; }
 .mtvFeatureAction { color: #174b68; font-size: .875rem; text-decoration: underline; }
+.mtvFeatureAction::before {
+  display: inline-block;
+  content: "▶";
+  font-size: .72em;
+  margin-inline-end: .5em;
+  text-decoration: none;
+}
