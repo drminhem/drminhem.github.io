@@ -62,6 +62,11 @@ def source_check_label(value,lang):
          ['كانون الثاني','شباط','آذار','نيسان','أيار','حزيران','تموز','آب','أيلول','تشرين الأول','تشرين الثاني','كانون الأول'])
  prefix='Sources checked: ' if lang=='en' else 'تاريخ التحقّق من المصادر: '
  return f'{prefix}{checked.day} {months[checked.month-1]} {checked.year}.'
+def mtv_feature(lang):
+ cards = {'en': '<a class="mtvFeature" href="https://www.facebook.com/reel/1478512720911940"><img src="/mtv-alive-interview.svg" alt="Dr. Mohamad Minhem on MTV Alive" width="640" height="360" loading="lazy" decoding="async"><span class="mtvFeatureText"><span class="mtvFeatureBrand"><bdi lang="en">MTV Alive</bdi> · Arabic · 14 min</span><span class="mtvFeatureTitle">Lung cancer and smoking</span><span class="mtvFeatureAction">Watch the full interview on Facebook</span></span></a>', 'ar': '<a class="mtvFeature" href="https://www.facebook.com/reel/1478512720911940"><img src="/mtv-alive-interview.svg" alt="الدكتور محمد منعم في مقابلة على MTV Alive" width="640" height="360" loading="lazy" decoding="async"><span class="mtvFeatureText"><span class="mtvFeatureBrand"><bdi lang="en">MTV Alive</bdi> · بالعربية · ١٤ دقيقة</span><span class="mtvFeatureTitle">سرطان الرئة والتدخين</span><span class="mtvFeatureAction">شاهد المقابلة الكاملة على فيسبوك</span></span></a>'}
+ heading = "MTV Alive interview" if lang=="en" else 'مقابلة على <bdi lang="en">MTV Alive</bdi>'
+ return f'<section id="mtv-interview" aria-labelledby="mtv-heading"><h2 class="sectionTitle" id="mtv-heading">{heading}</h2>{cards[lang]}</section>'
+
 def page_for(item,lang):
  c=LABELS[lang];d=item[lang];base='/ar/' if lang=='ar' else '/';other='/' if lang=='ar' else '/ar/'
  alternate='en' if lang=='ar' else 'ar';slug=item['slug'];path=base+slug+'.html';url='https://drminhem.com'+path
@@ -69,7 +74,9 @@ def page_for(item,lang):
  title=(d['title']+' in Beirut — Dr. Mohamad Minhem') if lang=='en' else (d['title']+' في بيروت — د. محمد منعم')
  # The pre-existing hub supplies the established site fonts, portrait and analytics.
  hub=(ROOT/(base.lstrip('/')+'cancer-consultation.html')).read_text()
- head=hub.split('</head>')[0]+'</head>'
+ head=hub.split('</head>')[0]
+ if slug=='lung-cancer':head+='  <link rel="stylesheet" href="/interview.css">\n'
+ head+='</head>'
  head=head.replace('cancer-consultation.html',slug+'.html')
  head=re.sub(r'<title>.*?</title>','<title>'+e(title)+'</title>',head)
  for key,val in [('description',d['lead']),('og:description',d['lead']),('og:title',title),('og:url',url)]:
@@ -106,7 +113,7 @@ def page_for(item,lang):
     <section aria-labelledby="help"><h2 class="sectionTitle" id="help">{c['help']}</h2>
       <p class="guideIntro">{c['tailored']}</p><div class="quickGrid">{topics}</div>
     </section>
-    <section class="card guideSection"><h2>{c['bring']}</h2><p>{c['existing']}</p>
+{'    '+mtv_feature(lang)+chr(10) if slug=='lung-cancer' else ''}    <section class="card guideSection"><h2>{c['bring']}</h2><p>{c['existing']}</p>
       <ul class="details">{list_items(d['reports'])}</ul><p>{c['medications']}</p>
     </section>
     <section class="card guideSection"><h2>{e(d['question_title'])}</h2><ul class="details">{list_items(d['questions'])}</ul></section>
